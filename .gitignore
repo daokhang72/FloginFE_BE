@@ -1,0 +1,11 @@
+# --- Backend (Spring Boot / Maven) ---
+backend/target/
+backend/.idea/
+backend/logs/
+*.log
+
+# --- Frontend (React / Node.js) ---
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/coverage/
