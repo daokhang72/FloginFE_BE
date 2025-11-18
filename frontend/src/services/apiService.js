@@ -63,3 +63,10 @@ return apiClient.post('/products', productData, {
     return apiClient.delete(`/products/${id}`);
   },
 };
+
+// 3. Dịch vụ Danh mục (Category)
+export const categoryService = {
+  getAll: () => {
+    return apiClient.get('/categories');
+  },
+};

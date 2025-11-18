@@ -7,4 +7,6 @@ import com.flogin.entity.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
+    // Thêm hàm này để kiểm tra trùng tên khi tạo mới
+    boolean existsByName(String name); 
 }

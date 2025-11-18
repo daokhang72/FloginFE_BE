@@ -636,3 +636,54 @@ input[type="file"] {
 .input-group textarea.invalid:focus {
   box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
 }
+
+/* --- FILTER BAR (Thanh Lọc Dạng Thẻ) --- */
+.filter-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #7f8c8d;
+  margin-right: 5px;
+  font-size: 0.95rem;
+}
+
+.filter-pill {
+  padding: 8px 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 25px; /* Bo tròn dạng viên thuốc */
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-pill:hover {
+  background-color: #f8f9fa;
+  border-color: #bdc3c7;
+  transform: translateY(-2px); /* Hiệu ứng nổi lên */
+}
+
+/* Trạng thái đang chọn (Active) */
+.filter-pill.active {
+  background-color: #3498db; /* Màu xanh chủ đạo */
+  color: white;
+  border-color: #3498db;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3); /* Đổ bóng nhẹ */
+}
+
+/* Điều chỉnh lại Header Tools (Bỏ select cũ đi nên cần chỉnh lại khoảng cách) */
+.header-tools {
+  justify-content: flex-end; /* Đẩy các nút về bên phải */
+}
