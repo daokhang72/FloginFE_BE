@@ -31,6 +31,8 @@ Trước khi chạy dự án, đảm bảo máy tính của bạn đã cài đ�
 
 **File:** `backend/src/main/java/com/flogin/sql/imprort_databse.sql`
 
+---
+
 ### Bước 2: Cấu hình & Chạy Backend
 
 1. Mở thư mục backend/src/main/resources/application.properties.
@@ -44,6 +46,8 @@ cd backend
 ```
 5. Chờ đến khi thấy dòng chữ: Tomcat started on port(s): 8080.
 
+---
+
 ### Bước 3: Cài đặt & Chạy Frontend
 
 1. Mở một Terminal mới tại thư mục frontend.
@@ -55,7 +59,7 @@ npm install
 npm start
 ```
 
-4. Trình duyệt sẽ tự động mở tại: http://localhost:3000.
+3. Trình duyệt sẽ tự động mở tại: http://localhost:3000.
 
 ## Hướng dẫn Sử dụng (User Guide)
 
@@ -87,3 +91,44 @@ Hệ thống đã được nạp sẵn tài khoản Admin để phục vụ ki�
 3. Quản lý sản phẩm
 - Sau khi đăng nhập, bạn sẽ được chuyển đến trang Quản lý Sản phẩm.
 - Có thể Thêm, Sửa (kèm ảnh), Xóa và Xem chi tiết sản phẩm.
+
+---
+
+## Bảng tổng hợp các API Endpoint để test trên Postman
+
+## 🛠️ API ENDPOINTS (Kiểm thử chức năng)
+
+Tất cả các API đều sử dụng Base URL: `http://localhost:8080`
+
+### 1. 🔓 Nhóm Xác thực (Authentication) - PUBLIC
+
+Các API này **KHÔNG CẦN** JWT Token để gọi.
+
+| Chức năng | Phương thức | Endpoint | Mô tả & Body JSON Mẫu |
+| :--- | :--- | :--- | :--- |
+| **Đăng ký (Register)** | `POST` | `/api/auth/register` | Tạo tài khoản mới (dùng raw JSON). |
+| **Đăng nhập (Login)** | `POST` | `/api/auth/login` | Lấy JWT Token để sử dụng cho các API còn lại. |
+
+### 2. 🔑 Nhóm Quản lý Dữ liệu (CRUD) - PROTECTED
+
+Các API này **BẮT BUỘC** phải có **JWT Token** (Authorization: Bearer Token) để gọi.
+
+| Chức năng | Phương thức | Endpoint | Yêu cầu Body | Ghi chú |
+| :--- | :--- | :--- | :--- | :--- |
+| **Thêm Sản phẩm** | `POST` | `/api/products` | **form-data** (kèm file ảnh) | Gửi `name`, `price`, `categoryId` và `imageFile`. |
+| **Sửa Sản phẩm** | `PUT` | `/api/products/{id}` | **form-data** (kèm file ảnh) | ID sản phẩm nằm trong URL. |
+| **Xóa Sản phẩm** | `DELETE` | `/api/products/{id}` | None | Xóa sản phẩm theo ID. |
+| **Xem DS Sản phẩm** | `GET` | `/api/products` | None | Lấy toàn bộ danh sách sản phẩm. |
+| **Xem Chi tiết SP** | `GET` | `/api/products/{id}` | None | Lấy chi tiết theo ID. |
+| --- | --- | --- | --- | --- |
+| **Thêm Danh mục** | `POST` | `/api/categories` | raw JSON: `{"name": "New Category"}` | Yêu cầu phải gửi Token. |
+| **Sửa Danh mục** | `PUT` | `/api/categories/{id}` | raw JSON: `{"name": "New Name"}` | |
+| **Xóa Danh mục** | `DELETE` | `/api/categories/{id}` | None | Cần xóa Sản phẩm liên quan trước. |
+
+### 3. 🖼️ Tài nguyên Tĩnh (Static Resources)
+
+Đường dẫn này được phép truy cập công khai (public) để hiển thị ảnh trên web.
+
+| Chức năng | Phương thức | Endpoint | Ghi chú |
+| :--- | :--- | :--- | :--- |
+| **Xem Ảnh Upload** | `GET` | `/uploads/TÊN_FILE_ẢNH.jpg` | Truy cập trực tiếp từ trình duyệt hoặc thẻ `<img>`. **Không cần Token.** |

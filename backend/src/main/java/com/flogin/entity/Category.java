@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+@Data // <-- Annotation này tự tạo getter/setter
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -23,8 +23,11 @@ public class Category {
 
     @Column(length = 100, nullable = false, unique = true)
     private String name;
-    
-    @JsonIgnore
+
+    @Column(length = 255) // <-- DÒNG NÀY CẦN PHẢI CÓ
+    private String description;
+
+    @JsonIgnore 
     @OneToMany(mappedBy = "category")
     private Set<Product> products;
 }

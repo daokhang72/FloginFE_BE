@@ -56,8 +56,17 @@ function ProductPage() {
         categoryService.getAll()
       ]);
       
+      // --- LOGIC SẮP XẾP MỚI ---
+      // Sắp xếp danh mục theo tên (name) từ A-Z
+      const sortedCategories = categoriesRes.data.sort((a, b) => {
+        // Sử dụng localeCompare để sắp xếp chuỗi theo thứ tự bảng chữ cái
+        // LocaleCompare thường chính xác hơn cho các ký tự tiếng Việt hoặc các ngôn ngữ khác
+        return a.name.localeCompare(b.name);
+      });
+      // ------------------------
+
       setProducts(productsRes.data);
-      setCategories(categoriesRes.data); // Lưu danh mục vào state
+      setCategories(sortedCategories); // Lưu danh mục đã sắp xếp vào state
       
     } catch (err) {
       console.error(err);
