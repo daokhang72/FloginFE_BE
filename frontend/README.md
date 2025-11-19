@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# Ứng dụng Quản Lý Sản Phẩm & Đăng Nhập (Flogin App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Đây là ứng dụng Fullstack Web phục vụ cho bài tập lớn môn Kiểm Thử Phần Mềm. Ứng dụng bao gồm chức năng Đăng nhập (JWT), Quản lý sản phẩm (CRUD), và Upload hình ảnh.
 
-## Available Scripts
+## 🛠️ Công nghệ sử dụng
 
-In the project directory, you can run:
+* **Frontend:** ReactJS (v18), Axios, CSS3.
+* **Backend:** Spring Boot (v3.x), Spring Security, Spring Data JPA, JWT.
+* **Database:** MySQL.
+* **Tools:** Maven, npm, Postman.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📋 Yêu cầu cài đặt (Prerequisites)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Trước khi chạy dự án, đảm bảo máy tính của bạn đã cài đặt:
 
-### `npm test`
+1.  **Java JDK 17** hoặc mới hơn (Dự án dùng Java 21).
+2.  **Node.js** (v16 trở lên).
+3.  **MySQL Server** (và MySQL Workbench).
+4.  **Git** (để chạy lệnh Git Bash nếu dùng Windows).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Hướng dẫn Cài đặt & Chạy (Step-by-Step)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Bước 1: Cấu hình Cơ sở dữ liệu (Database)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  Mở **MySQL Workbench**.
+2.  Chạy đoạn script SQL sau để tạo Database và Bảng dữ liệu:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**File:** `backend/src/main/java/com/flogin/sql/imprort_databse.sql`
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Bước 2: Cấu hình & Chạy Backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Mở thư mục backend/src/main/resources/application.properties.
+2. Cập nhật thông tin MySQL của bạn (đặc biệt là password):
+3. Mở Terminal (hoặc CMD/Git Bash) tại thư mục backend.
+4. Chạy lệnh khởi động:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+5. Chờ đến khi thấy dòng chữ: Tomcat started on port(s): 8080.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### Bước 3: Cài đặt & Chạy Frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Mở một Terminal mới tại thư mục frontend.
+2. Chạy lệnh:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+``` bash
+cd frontend
+npm install
+npm start
+```
 
-### Code Splitting
+3. Trình duyệt sẽ tự động mở tại: http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Hướng dẫn Sử dụng (User Guide)
 
-### Analyzing the Bundle Size
+1. Đăng ký tài khoản (Lần đầu)
+**Mục đích**: Vì mật khẩu trong Database được mã hóa (Hashing), bạn không thể thêm tay vào SQL. Hãy dùng Postman để tạo tài khoản: 
+- Method: POST
+- URL: http://localhost:8080/api/auth/register
+- Body (JSON):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+``` json
+    {
+    "username": "Do bạn tự chọn",
+    "password": "Do bạn tự chọn",
+    "email": "admin@example.com"
+    }
+```
+**Hoặc**
+## 👤 Hướng dẫn Đăng nhập (Tài khoản có sẵn)
 
-### Making a Progressive Web App
+Hệ thống đã được nạp sẵn tài khoản Admin để phục vụ kiểm thử. Không cần đăng ký mới.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* **Username:** `testuser`
+* **Password:** `Test123`
 
-### Advanced Configuration
+2. Đăng nhập
+- Truy cập http://localhost:3000
+- Tài khoản: testuser / Test123 (hoặc tài khoản bạn vừa tạo)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. Quản lý sản phẩm
+- Sau khi đăng nhập, bạn sẽ được chuyển đến trang Quản lý Sản phẩm.
+- Có thể Thêm, Sửa (kèm ảnh), Xóa và Xem chi tiết sản phẩm.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Bảng tổng hợp các API Endpoint để test trên Postman
 
-### `npm run build` fails to minify
+## 🛠️ API ENDPOINTS (Kiểm thử chức năng)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tất cả các API đều sử dụng Base URL: `http://localhost:8080`
+
+### 1. 🔓 Nhóm Xác thực (Authentication) - PUBLIC
+
+Các API này **KHÔNG CẦN** JWT Token để gọi.
+
+| Chức năng | Phương thức | Endpoint | Mô tả & Body JSON Mẫu |
+| :--- | :--- | :--- | :--- |
+| **Đăng ký (Register)** | `POST` | `/api/auth/register` | Tạo tài khoản mới (dùng raw JSON). |
+| **Đăng nhập (Login)** | `POST` | `/api/auth/login` | Lấy JWT Token để sử dụng cho các API còn lại. |
+
+### 2. 🔑 Nhóm Quản lý Dữ liệu (CRUD) - PROTECTED
+
+Các API này **BẮT BUỘC** phải có **JWT Token** (Authorization: Bearer Token) để gọi.
+
+| Chức năng | Phương thức | Endpoint | Yêu cầu Body | Ghi chú |
+| :--- | :--- | :--- | :--- | :--- |
+| **Thêm Sản phẩm** | `POST` | `/api/products` | **form-data** (kèm file ảnh) | Gửi `name`, `price`, `categoryId` và `imageFile`. |
+| **Sửa Sản phẩm** | `PUT` | `/api/products/{id}` | **form-data** (kèm file ảnh) | ID sản phẩm nằm trong URL. |
+| **Xóa Sản phẩm** | `DELETE` | `/api/products/{id}` | None | Xóa sản phẩm theo ID. |
+| **Xem DS Sản phẩm** | `GET` | `/api/products` | None | Lấy toàn bộ danh sách sản phẩm. |
+| **Xem Chi tiết SP** | `GET` | `/api/products/{id}` | None | Lấy chi tiết theo ID. |
+| --- | --- | --- | --- | --- |
+| **Thêm Danh mục** | `POST` | `/api/categories` | raw JSON: `{"name": "New Category"}` | Yêu cầu phải gửi Token. |
+| **Sửa Danh mục** | `PUT` | `/api/categories/{id}` | raw JSON: `{"name": "New Name"}` | |
+| **Xóa Danh mục** | `DELETE` | `/api/categories/{id}` | None | Cần xóa Sản phẩm liên quan trước. |
+
+### 3. 🖼️ Tài nguyên Tĩnh (Static Resources)
+
+Đường dẫn này được phép truy cập công khai (public) để hiển thị ảnh trên web.
+
+| Chức năng | Phương thức | Endpoint | Ghi chú |
+| :--- | :--- | :--- | :--- |
+| **Xem Ảnh Upload** | `GET` | `/uploads/TÊN_FILE_ẢNH.jpg` | Truy cập trực tiếp từ trình duyệt hoặc thẻ `<img>`. **Không cần Token.** |

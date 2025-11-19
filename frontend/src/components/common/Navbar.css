@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 0 2rem;
+  height: 60px;
+}
+
+.nav-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.nav-link-button {
+  background: none;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: inherit; /* Đảm bảo dùng cùng font */
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link-button:hover {
+  color: #007bff;
+}
