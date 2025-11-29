@@ -1,0 +1,10 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Kết quả Unit Test - Login Validation Frontend}}{10}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Kết quả Unit Test - AuthService Backend}}{11}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Kết quả Unit Test - Product Validation Frontend}}{13}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Kết quả Unit Test - ProductService Backend}}{14}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Báo cáo Code Coverage - Frontend (Jest)}}{15}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Báo cáo Code Coverage - Backend (JaCoCo)}}{15}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Kết quả Performance Test - Login API (k6 output từ Terminal)}}{23}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Kết quả Performance Test - Product API (k6 output từ Terminal)}}{24}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Phân tích Response Time Distribution - Percentiles Comparison}}{28}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Kết quả chạy Security Tests với JUnit - 19 tests passed}}{31}{figure.10}%

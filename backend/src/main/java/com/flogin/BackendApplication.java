@@ -2,12 +2,14 @@ package com.flogin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * Đây là file Main của ứng dụng Spring Boot.
  * Annotation @SpringBootApplication sẽ tự động cấu hình mọi thứ.
  */
 @SpringBootApplication
+@EnableCaching
 public class BackendApplication {
 
     /**

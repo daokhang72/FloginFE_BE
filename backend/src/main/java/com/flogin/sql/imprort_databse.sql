@@ -77,6 +77,7 @@ VALUES
 INSERT INTO users (username, password, email) 
 VALUES 
 ('testuser', '$2a$10$N.zmdr9k7uOcQb376Vy.HOILkmckkbEy8i7960P1eNAshJp3S0wWW', 'admin@flogin.com');
+$2a$10$z8BCKT2VSr.3WNToE.FxZOxOm78G22gcM4ktmYUMIKSbvnW.oc9cu
 
 INSERT INTO `products` (`name`, `description`, `price`, `quantity`, `category_id`) 
 VALUES 

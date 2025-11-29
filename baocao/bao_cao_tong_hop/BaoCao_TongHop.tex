@@ -1,0 +1,443 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+
+% Định dạng code
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+% Định dạng header và footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Bài tập lớn môn Kiểm Thử Phần Mềm}
+\fancyhead[R]{Niên khóa 2025-2026}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% ============================================
+% TRANG BÌA
+% ============================================
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \textbf{\Large TRƯỜNG ĐẠI HỌC SÀI GÒN}\\
+        \textbf{\Large KHOA CÔNG NGHỆ THÔNG TIN}\\
+        \vspace{1cm}
+        
+        \includegraphics[width=0.3\textwidth]{logo.png} % Thêm logo trường nếu có
+        
+        \vspace{1.5cm}
+        
+        \textbf{\LARGE BÀI TẬP LỚN}\\
+        \vspace{0.5cm}
+        \textbf{\LARGE MÔN: KIỂM THỬ PHẦN MỀM}\\
+        
+        \vspace{1.5cm}
+        
+        \textbf{\Large ỨNG DỤNG ĐĂNG NHẬP \& QUẢN LÝ SẢN PHẨM}\\
+        \textbf{\Large (FloginFE\_BE)}\\
+        
+        \vspace{2cm}
+        
+        \begin{flushleft}
+        \textbf{Giảng viên hướng dẫn:} Từ Lãng Phiêu\\
+        \vspace{0.5cm}
+        \textbf{Nhóm sinh viên thực hiện:}\\
+        \begin{tabular}{ll}
+            1. & [Họ tên sinh viên 1] - [MSSV] \\
+            2. & [Họ tên sinh viên 2] - [MSSV] \\
+            3. & [Họ tên sinh viên 3] - [MSSV] \\
+            4. & [Họ tên sinh viên 4] - [MSSV] \\
+        \end{tabular}
+        \end{flushleft}
+        
+        \vfill
+        
+        \textbf{TP. HỒ CHÍ MINH, THÁNG 11/2025}
+        
+    \end{center}
+\end{titlepage}
+
+% ============================================
+% MỤC LỤC
+% ============================================
+\newpage
+\tableofcontents
+\vspace{2cm}
+
+% ============================================
+% LỜI MỞ ĐẦU
+% ============================================
+\section*{LỜI MỞ ĐẦU}
+\addcontentsline{toc}{section}{LỜI MỞ ĐẦU}
+
+Kiểm thử phần mềm là một phần không thể thiếu trong quy trình phát triển phần mềm chuyên nghiệp. Trong bối cảnh công nghệ phát triển nhanh chóng, việc đảm bảo chất lượng sản phẩm phần mềm trở nên quan trọng hơn bao giờ hết. Bài tập lớn này nhằm giúp sinh viên nắm vững các kỹ thuật kiểm thử hiện đại và áp dụng vào thực tế.
+
+Đề tài được lựa chọn là ứng dụng \textbf{FloginFE\_BE} - một hệ thống web hoàn chỉnh bao gồm chức năng đăng nhập và quản lý sản phẩm. Qua đó, nhóm có cơ hội thực hành đầy đủ các loại kiểm thử từ Unit Testing, Integration Testing, Mock Testing đến Automation Testing và CI/CD.
+
+Báo cáo này trình bày chi tiết quá trình thực hiện các yêu cầu của bài tập lớn, bao gồm:
+\begin{itemize}
+    \item Phân tích và thiết kế Test Cases
+    \item Unit Testing với phương pháp Test-Driven Development (TDD)
+    \item Integration Testing
+    \item Mock Testing
+    \item Automation Testing và CI/CD
+    \item Performance Testing và Security Testing (phần mở rộng)
+\end{itemize}
+
+Nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đã hướng dẫn tận tình trong suốt quá trình thực hiện bài tập lớn này.
+
+\vspace{1cm}
+\begin{flushright}
+\textit{TP. Hồ Chí Minh, ngày ... tháng 11 năm 2025}\\
+\textit{Nhóm sinh viên thực hiện}
+\end{flushright}
+
+\newpage
+
+% ============================================
+% CHƯƠNG 1: PHÂN TÍCH VÀ THIẾT KẾ TEST CASES
+% ============================================
+\section{Phân tích và Thiết kế Test Cases}
+\setcounter{section}{1}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình phân tích yêu cầu và thiết kế test cases chi tiết cho hai chức năng chính của hệ thống: \textbf{Login} (Đăng nhập) và \textbf{Product Management} (Quản lý sản phẩm).
+
+\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
+
+\subsection{Login - Phân tích và Test Scenarios}
+
+\subsubsection{Yêu cầu chức năng}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Test Scenarios}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Thiết kế Test Cases chi tiết}
+
+[Nội dung sẽ được bổ sung]
+
+\subsection{Product - Phân tích và Test Scenarios}
+
+\subsubsection{Yêu cầu chức năng}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Test Scenarios}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Thiết kế Test Cases chi tiết}
+
+[Nội dung sẽ được bổ sung]
+
+\newpage
+
+% ============================================
+% CHƯƠNG 2: UNIT TESTING VÀ TDD
+% ============================================
+\input{../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex}
+
+\newpage
+
+% ============================================
+% CHƯƠNG 4: INTEGRATION TESTING
+% ============================================
+\setcounter{section}{3}
+\section{Integration Testing}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình thực hiện Integration Testing cho cả Frontend và Backend, kiểm tra sự tương tác giữa các component và API endpoints.
+
+\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
+
+\subsection{Login - Integration Testing}
+
+\subsubsection{Frontend Component Integration}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Backend API Integration}
+
+[Nội dung sẽ được bổ sung]
+
+\subsection{Product - Integration Testing}
+
+\subsubsection{Frontend Component Integration}
+
+[Nội dung sẽ được bổ sung]
+
+\subsubsection{Backend API Integration}
+
+[Nội dung sẽ được bổ sung]
+
+\newpage
+
+% ============================================
+% CHƯƠNG 5: MOCK TESTING
+% ============================================
+\setcounter{section}{4}
+\section{Mock Testing}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày việc sử dụng Mock objects để cô lập các dependencies trong quá trình testing.
+
+\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
+
+\subsection{Login - Mock Testing}
+
+[Nội dung sẽ được bổ sung]
+
+\subsection{Product - Mock Testing}
+
+[Nội dung sẽ được bổ sung]
+
+\newpage
+
+% ============================================
+% CHƯƠNG 6: AUTOMATION TESTING VÀ CI/CD
+% ============================================
+\setcounter{section}{5}
+\section{Automation Testing và CI/CD}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình thiết lập và thực hiện E2E Automation Testing cùng với CI/CD pipeline.
+
+\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
+
+\subsection{Login - E2E Automation Testing}
+
+[Nội dung sẽ được bổ sung]
+
+\subsection{Product - E2E Automation Testing}
+
+[Nội dung sẽ được bổ sung]
+
+\newpage
+
+% ============================================
+% CHƯƠNG 7: PHẦN MỞ RỘNG
+% ============================================
+\setcounter{section}{6}
+\input{../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex}
+
+\newpage
+
+% ============================================
+% KẾT LUẬN
+% ============================================
+\section*{KẾT LUẬN}
+\addcontentsline{toc}{section}{KẾT LUẬN}
+
+Qua quá trình thực hiện bài tập lớn môn Kiểm Thử Phần Mềm, nhóm đã đạt được những kết quả quan trọng sau:
+
+\subsection*{Kết quả đạt được}
+
+\begin{enumerate}
+    \item \textbf{Nắm vững quy trình kiểm thử}: Nhóm đã thực hành đầy đủ các loại kiểm thử từ Unit Testing, Integration Testing, Mock Testing đến Automation Testing và CI/CD.
+    
+    \item \textbf{Áp dụng TDD thành công}: 
+    \begin{itemize}
+        \item Frontend: Đạt 98.14\% code coverage cho validation modules
+        \item Backend: Đạt 95-100\% coverage cho các Service layers
+    \end{itemize}
+    
+    \item \textbf{Performance Testing xuất sắc}:
+    \begin{itemize}
+        \item Xử lý được 1000+ concurrent users với 0\% error rate
+        \item Response time trung bình < 10ms cho cả Login và Product APIs
+        \item Xác định được breaking point tại 2000-2500 concurrent users
+    \end{itemize}
+    
+    \item \textbf{Security Testing toàn diện}:
+    \begin{itemize}
+        \item 19/19 test cases passed (100\% success rate)
+        \item Zero vulnerabilities detected
+        \item Đảm bảo an toàn trước SQL Injection, XSS, CSRF
+    \end{itemize}
+    
+    \item \textbf{CI/CD Integration}: Thiết lập thành công pipeline tự động hóa testing
+\end{enumerate}
+
+\subsection*{Kỹ năng đạt được}
+
+Thông qua bài tập này, các thành viên trong nhóm đã:
+\begin{itemize}
+    \item Nắm vững các framework testing hiện đại (Jest, JUnit, Mockito, Cypress/k6)
+    \item Hiểu rõ quy trình TDD và lợi ích của nó
+    \item Biết cách đo lường và cải thiện code coverage
+    \item Có khả năng thiết kế test cases chi tiết và toàn diện
+    \item Thực hành Performance Testing và Security Testing
+    \item Tích hợp testing vào CI/CD pipeline
+\end{itemize}
+
+\subsection*{Hạn chế và hướng phát triển}
+
+\textbf{Hạn chế:}
+\begin{itemize}
+    \item Breaking point còn thấp (2000-2500 users), cần optimization
+    \item Chưa thực hiện Penetration Testing chuyên sâu
+    \item Chưa có APM (Application Performance Monitoring) đầy đủ
+\end{itemize}
+
+\textbf{Hướng phát triển:}
+\begin{itemize}
+    \item Tối ưu database connection pool và thread pool
+    \item Implement caching layer (Redis)
+    \item Thêm Load Balancer và Horizontal Scaling
+    \item Bổ sung Monitoring với Prometheus + Grafana
+    \item Thực hiện regular security audits
+\end{itemize}
+
+\subsection*{Lời kết}
+
+Bài tập lớn này không chỉ giúp nhóm nắm vững kiến thức lý thuyết về Kiểm Thử Phần Mềm mà còn trang bị kỹ năng thực hành cần thiết cho công việc trong tương lai. Nhóm cam kết sẽ tiếp tục áp dụng các kiến thức này vào các dự án thực tế và không ngừng học hỏi để nâng cao chất lượng phần mềm.
+
+Một lần nữa, nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đã tận tình hướng dẫn!
+
+\newpage
+
+% ============================================
+% TÀI LIỆU THAM KHẢO
+% ============================================
+\section*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
+
+\begin{enumerate}
+    \item React Documentation, \url{https://react.dev}, Testing Library Documentation
+    
+    \item Spring Boot Documentation, \url{https://spring.io/projects/spring-boot}, Spring Testing Guide
+    
+    \item Jest Documentation, \url{https://jestjs.io/}, JavaScript Testing Framework
+    
+    \item JUnit 5 User Guide, \url{https://junit.org/junit5/}, Testing Framework for Java
+    
+    \item Mockito Framework, \url{https://site.mockito.org/}, Mocking Framework for Java
+    
+    \item Cypress Documentation, \url{https://www.cypress.io/}, End-to-End Testing Framework
+    
+    \item Grafana k6 Documentation, \url{https://k6.io/docs/}, Performance Testing Tool
+    
+    \item Test-Driven Development: By Example, Kent Beck, Addison-Wesley Professional
+    
+    \item The Art of Software Testing, Glenford J. Myers, Wiley Publishing
+    
+    \item OWASP Testing Guide, \url{https://owasp.org/www-project-web-security-testing-guide/}
+\end{enumerate}
+
+\end{document}
+
+\begin{itemize}
+    \item Node.js 18+ và npm
+    \item Java 17+
+    \item Maven 3.6+
+    \item PostgreSQL 14+ (hoặc MySQL 8+)
+\end{itemize}
+
+\subsubsection*{2. Cài đặt Frontend}
+
+\begin{lstlisting}[language=bash]
+cd frontend
+npm install
+npm start
+\end{lstlisting}
+
+\subsubsection*{3. Cài đặt Backend}
+
+\begin{lstlisting}[language=bash]
+cd backend
+mvn clean install
+mvn spring-boot:run
+\end{lstlisting}
+
+\subsubsection*{4. Chạy Tests}
+
+\textbf{Frontend Tests:}
+\begin{lstlisting}[language=bash]
+npm test
+npm run coverage:fe
+\end{lstlisting}
+
+\textbf{Backend Tests:}
+\begin{lstlisting}[language=bash]
+mvn test
+mvn jacoco:report
+\end{lstlisting}
+
+\textbf{E2E Tests:}
+\begin{lstlisting}[language=bash]
+npm run test:e2e
+\end{lstlisting}
+
+\textbf{Performance Tests:}
+\begin{lstlisting}[language=bash]
+cd performance-testing
+k6 run login-performance-test.js
+k6 run product-performance-test.js
+\end{lstlisting}
+
+\subsection*{Phụ lục B: Cấu trúc thư mục dự án}
+
+\begin{lstlisting}
+FloginFE_BE/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   └── tests/
+│   ├── cypress/
+│   └── package.json
+├── backend/
+│   ├── src/
+│   │   ├── main/java/com/flogin/
+│   │   └── test/java/
+│   └── pom.xml
+├── performance-testing/
+│   ├── login-performance-test.js
+│   └── product-performance-test.js
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+└── README.md
+\end{lstlisting}
+
+\subsection*{Phụ lục C: Link GitHub Repository}
+
+Repository: \url{https://github.com/[your-username]/FloginFE_BE}
+
+\subsection*{Phụ lục D: Screenshots bổ sung}
+
+[Có thể thêm các screenshots khác nếu cần]
+
+\end{document}

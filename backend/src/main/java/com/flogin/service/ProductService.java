@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.flogin.dto.ProductDto;
 import com.flogin.entity.Category;
@@ -23,21 +26,27 @@ public class ProductService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    // Lấy tất cả sản phẩm
+    // Lấy tất cả sản phẩm với cache
+    @Cacheable(value = "products", key = "'all'")
+    @Transactional(readOnly = true)
     public List<ProductDto> getAllProducts() {
-        return productRepository.findAll().stream()
+        return productRepository.findAllWithCategory().stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
     }
     
-    // Lấy 1 sản phẩm theo ID
+    // Lấy 1 sản phẩm theo ID với cache
+    @Cacheable(value = "products", key = "#id")
+    @Transactional(readOnly = true)
     public ProductDto getProductById(Integer id) {
-        Product product = productRepository.findById(id)
+        Product product = productRepository.findByIdWithCategory(id)
                 .orElseThrow(() -> new EntityNotFoundException("Không tìm thấy sản phẩm với ID: " + id));
         return mapToDto(product);
     }
 
-    // Tạo sản phẩm mới
+    // Tạo sản phẩm mới và clear cache
+    @CacheEvict(value = "products", allEntries = true)
+    @Transactional
     public ProductDto createProduct(ProductDto productDto) {
         // 1. Kiểm tra trùng tên
         if (productRepository.existsByName(productDto.getName())) {
@@ -49,7 +58,9 @@ public class ProductService {
         return mapToDto(savedProduct);
     }
 
-    // Cập nhật sản phẩm
+    // Cập nhật sản phẩm và clear cache
+    @CacheEvict(value = "products", allEntries = true)
+    @Transactional
     public ProductDto updateProduct(Integer id, ProductDto productDto) {
         // 1. Kiểm tra sản phẩm tồn tại
         Product existingProduct = productRepository.findById(id)
@@ -80,7 +91,9 @@ public class ProductService {
         return mapToDto(updatedProduct);
     }
     
-    // Xóa sản phẩm
+    // Xóa sản phẩm và clear cache
+    @CacheEvict(value = "products", allEntries = true)
+    @Transactional
     public void deleteProduct(Integer id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Không tìm thấy sản phẩm với ID: " + id));

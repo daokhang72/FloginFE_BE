@@ -25,7 +25,7 @@ export const validateProduct = (product) => {
   }
 
   // 3. Quantity [cite: 116]
-  const quantity = parseInt(product.quantity, 10);
+  const quantity = Number(product.quantity);
   if (isNaN(quantity)) {
     errors.quantity = 'Số lượng không hợp lệ';
   } else if (!Number.isInteger(quantity)) {

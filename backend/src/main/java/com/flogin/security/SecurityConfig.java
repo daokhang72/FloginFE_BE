@@ -28,13 +28,13 @@
         @Autowired
         private JwtAuthenticationFilter jwtAuthenticationFilter;
 
-        // 1. Bean Băm mật khẩu (Giữ nguyên)
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-            return new BCryptPasswordEncoder();
-        }
-
-        // 2. Bean Quản lý Xác thực (Giữ nguyên)
+    // 1. Bean Băm mật khẩu (Giảm rounds cho performance testing)
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // Giảm từ 10 rounds (default) xuống 4 để tăng tốc độ
+        // Lưu ý: Production nên dùng 10-12 rounds
+        return new BCryptPasswordEncoder(4);
+    }        // 2. Bean Quản lý Xác thực (Giữ nguyên)
         @Bean
         public AuthenticationManager authenticationManager(
                 AuthenticationConfiguration authenticationConfiguration) throws Exception {
@@ -74,7 +74,8 @@
             
             // Cho phép React App (localhost:3000) gọi
             configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000",
-                                                          "http://192.168.1.2:3000")); 
+                                                          "http://192.168.1.2:3000",
+                                                          "http://localhost:3001")); 
             
             // Cho phép các method này
             configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); 

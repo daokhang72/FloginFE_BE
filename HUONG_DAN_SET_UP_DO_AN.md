@@ -76,21 +76,6 @@ npm start
     "email": "admin@example.com"
     }
 ```
-**Hoặc**
-## 👤 Hướng dẫn Đăng nhập (Tài khoản có sẵn)
-
-Hệ thống đã được nạp sẵn tài khoản Admin để phục vụ kiểm thử. Không cần đăng ký mới.
-
-* **Username:** `testuser`
-* **Password:** `Test123`
-
-2. Đăng nhập
-- Truy cập http://localhost:3000
-- Tài khoản: testuser / Test123 (hoặc tài khoản bạn vừa tạo)
-
-3. Quản lý sản phẩm
-- Sau khi đăng nhập, bạn sẽ được chuyển đến trang Quản lý Sản phẩm.
-- Có thể Thêm, Sửa (kèm ảnh), Xóa và Xem chi tiết sản phẩm.
 
 ---
 

@@ -4,12 +4,34 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: create-drop # Reset database mỗi lần restart để apply BCrypt rounds mới
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
   h2:
     console:
       enabled: true
 server:
   port: 8080
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+
+# JWT Configuration
+app:
+  jwt-secret: XqOzXZH0RMqLUOgH17nK3xzW28f89bVx3tsy2tNpKJYKEwZB9LXPnvYXY5w2NPKmkIcikrLXcx8AcaEc4syGlg==
+  jwt-expiration-ms: 86400000

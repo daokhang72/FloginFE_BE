@@ -1,0 +1,492 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+
+% Định dạng code
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\begin{document}
+
+\section*{CHƯƠNG 2: UNIT TESTING VÀ TEST-DRIVEN DEVELOPMENT (TDD)}
+\addcontentsline{toc}{section}{CHƯƠNG 2: UNIT TESTING VÀ TEST-DRIVEN DEVELOPMENT (TDD)}
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+
+\subsection{Phương pháp tiếp cận và Công cụ}
+
+Để đảm bảo chất lượng mã nguồn và tuân thủ quy trình phát triển phần mềm chuyên nghiệp, nhóm đã áp dụng phương pháp \textbf{Test-Driven Development (TDD)} kết hợp với các công cụ kiểm thử hiện đại.
+
+\subsubsection{Công cụ sử dụng}
+
+\textbf{Frontend (ReactJS):}
+\begin{itemize}
+    \item \textbf{Jest}: Framework kiểm thử JavaScript chính, dùng để chạy test runner và assertions. Phiên bản 27.5.1 được tích hợp sẵn trong React Scripts.
+    
+    \item \textbf{React Testing Library}: Thư viện dùng để kiểm thử các component React theo cách người dùng tương tác (DOM testing). Phiên bản 16.3.0 hỗ trợ React 19.
+    
+    \item \textbf{Jest DOM}: Thư viện cung cấp các custom matchers để kiểm tra trạng thái DOM một cách dễ dàng hơn.
+\end{itemize}
+
+\textbf{Backend (Spring Boot):}
+\begin{itemize}
+    \item \textbf{JUnit 5}: Framework kiểm thử tiêu chuẩn cho Java, được tích hợp sẵn trong Spring Boot Starter Test.
+    
+    \item \textbf{Mockito}: Thư viện dùng để giả lập (mock) các phụ thuộc (dependencies) như Repository, Service, AuthenticationManager.
+    
+    \item \textbf{JaCoCo}: Công cụ đo lường độ bao phủ mã nguồn (Code Coverage) phiên bản 0.8.14, tạo báo cáo HTML và XML chi tiết.
+    
+    \item \textbf{Spring Boot Test}: Cung cấp các annotation và utilities để test Spring Applications.
+\end{itemize}
+
+\subsubsection{Quy trình TDD áp dụng}
+
+Nhóm đã tuân thủ chu trình \textbf{Red - Green - Refactor}:
+
+\begin{enumerate}
+    \item \textbf{Red (Viết Test trước)}: Viết các test case thất bại dựa trên yêu cầu (ví dụ: \texttt{validateUsername} rỗng phải trả về lỗi).
+    
+    \item \textbf{Green (Viết Code)}: Viết mã nguồn tối thiểu để vượt qua bài test.
+    
+    \item \textbf{Refactor (Tối ưu)}: Cấu trúc lại mã nguồn cho sạch sẽ mà vẫn đảm bảo test case thành công.
+\end{enumerate}
+
+\textit{Lưu ý}: Quy trình này đảm bảo mọi tính năng đều có test case bảo vệ, giúp phát hiện lỗi sớm và dễ dàng bảo trì code.
+
+\subsection{Unit Tests cho Chức năng Đăng nhập (Login)}
+
+\subsubsection{Frontend Unit Tests (Validation Logic)}
+
+Chúng em tập trung kiểm thử các hàm validation trong \texttt{utils/validation.js} để đảm bảo dữ liệu đầu vào hợp lệ trước khi gửi xuống Server.
+
+\textbf{Các trường hợp kiểm thử (Test Cases):}
+
+\begin{longtable}{|p{3cm}|p{5.5cm}|p{4.5cm}|c|}
+\hline
+\textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline \multicolumn{4}{|r|}{{Tiếp trang sau}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{4}{|c|}{\textbf{Test cho Username}} \\
+\hline
+TC\_LOGIN\_001 & Username rỗng hoặc chỉ chứa khoảng trắng & Trả về lỗi: \textit{"Tên đăng nhập không được để trống"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_002 & Username quá ngắn (< 3 ký tự) & Trả về lỗi: \textit{"Tên đăng nhập phải có ít nhất 3 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_003 & Username quá dài (> 50 ký tự) & Trả về lỗi: \textit{"Tên đăng nhập không được quá 50 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_004 & Username chứa ký tự đặc biệt hoặc khoảng trắng & Trả về lỗi: \textit{"Tên đăng nhập chỉ chứa chữ cái và số"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_005 & Username hợp lệ (ví dụ: \texttt{testuser1}, \texttt{ADMIN}) & Không trả về lỗi (chuỗi rỗng) & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Test cho Password}} \\
+\hline
+TC\_LOGIN\_006 & Password rỗng hoặc chỉ chứa khoảng trắng & Trả về lỗi: \textit{"Mật khẩu không được để trống"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_007 & Password quá ngắn (< 6 ký tự) & Trả về lỗi: \textit{"Mật khẩu phải có ít nhất 6 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_008 & Password quá dài (> 100 ký tự) & Trả về lỗi: \textit{"Mật khẩu không được quá 100 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_009 & Password thiếu chữ cái (chỉ có số, ví dụ: \texttt{12345678}) & Trả về lỗi: \textit{"Mật khẩu phải chứa cả chữ cái và số"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_010 & Password thiếu số (chỉ có chữ, ví dụ: \texttt{abcdefgh}) & Trả về lỗi: \textit{"Mật khẩu phải chứa cả chữ cái và số"} & \textcolor{green}{Passed} \\
+\hline
+TC\_LOGIN\_011 & Password hợp lệ (có cả chữ và số, ví dụ: \texttt{Test1234}) & Không trả về lỗi (chuỗi rỗng) & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash]
+npm test src/tests/validation.test.js
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/login_validation_frontend.png}}
+\caption{Kết quả Unit Test - Login Validation Frontend}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Backend Unit Tests (Auth Service)}
+
+Tại Backend, chúng em sử dụng \textbf{Mockito} để cô lập \texttt{AuthService}, giả lập hành vi của \texttt{AuthenticationManager}, \texttt{JwtTokenProvider}, \texttt{AppUserRepository} và \texttt{PasswordEncoder}.
+
+\textbf{Các trường hợp kiểm thử chính:}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{6.5cm}|p{5.5cm}|c|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{testLoginSuccess} & Khi thông tin đăng nhập đúng, hệ thống trả về JWT Token và thông tin user. Kiểm tra \texttt{authenticationManager.\allowbreak{}authenticate()} và \texttt{jwtTokenProvider.\allowbreak{}generateToken()} được gọi đúng 1 lần. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testLoginFailure} & Khi sai username hoặc password, hệ thống ném ra ngoại lệ \texttt{AuthenticationException}. Đảm bảo \texttt{generateToken()} không được gọi. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testRegisterSuccess} & Khi đăng ký mới hợp lệ (username chưa tồn tại), thông tin user được lưu vào Database thông qua \texttt{appUserRepository.\allowbreak{}save()}. Kiểm tra mật khẩu được mã hóa. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testRegisterFailureDuplicate} & Khi đăng ký trùng username (username đã tồn tại), hệ thống ném lỗi \texttt{RuntimeException} với thông báo \textit{"Lỗi: Username đã được sử dụng!"}. Đảm bảo \texttt{repository.\allowbreak{}save()} không được gọi. & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Bằng chứng thực hiện:}
+
+\textit{Để chạy test backend, sử dụng lệnh:}
+\begin{lstlisting}[language=bash]
+mvn test -Dtest=AuthServiceTest
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/auth_service_backend.png}}
+\caption{Kết quả Unit Test - AuthService Backend}
+\end{figure}
+
+\newpage
+
+\subsection{Unit Tests cho Chức năng Quản lý Sản phẩm (Product)}
+
+\subsubsection{Frontend Unit Tests (Validation \& Component)}
+
+Phần này kiểm thử cả logic validation sản phẩm và giao diện Form nhập liệu.
+
+\textbf{Logic Validation (productValidation.js)}
+
+Chúng em tập trung kiểm thử các hàm validation trong \texttt{utils/productValidation.js} để đảm bảo dữ liệu nhập vào form sản phẩm hợp lệ trước khi gửi xuống Server. Kiểm tra các quy tắc nghiệp vụ:
+\begin{itemize}
+    \item Giá sản phẩm (Số âm, số 0, số quá lớn)
+    \item Số lượng (Số nguyên, số âm, số 0, số quá lớn)
+    \item Tên sản phẩm (Độ dài, ký tự đặc biệt)
+    \item Danh mục (Bắt buộc chọn)
+    \item Mô tả (Độ dài tối đa)
+\end{itemize}
+
+\begin{longtable}{|p{3.2cm}|p{5.3cm}|p{4.5cm}|c|}
+\hline
+\textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{4}{|c|}{\textbf{Test cho Tên sản phẩm (Name)}} \\
+\hline
+TC\_PROD\_001 & Tên sản phẩm rỗng hoặc khoảng trắng & Lỗi: \textit{"Tên sản phẩm không được để trống"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_002 & Tên quá ngắn (< 3 ký tự) & Lỗi: \textit{"Tên sản phẩm phải có ít nhất 3 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_003 & Tên quá dài (> 100 ký tự) & Lỗi: \textit{"Tên sản phẩm không được quá 100 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Test cho Giá sản phẩm (Price)}} \\
+\hline
+TC\_PROD\_004 & Giá không phải là số (ví dụ: \texttt{'abc'}, \texttt{null}) & Lỗi: \textit{"Giá sản phẩm không hợp lệ"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_005 & Giá âm hoặc bằng 0 & Lỗi: \textit{"Giá sản phẩm phải lớn hơn 0"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_006 & Giá quá lớn (> 999,999,999) & Lỗi: \textit{"Giá sản phẩm quá lớn (tối đa 999,999,999)"} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Test cho Số lượng (Quantity)}} \\
+\hline
+TC\_PROD\_007 & Số lượng không phải là số & Lỗi: \textit{"Số lượng không hợp lệ"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_008 & Số lượng là số thập phân (Float, ví dụ: 10.5) & Lỗi: \textit{"Số lượng phải là số nguyên"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_009 & Số lượng bằng 0 & Lỗi: \textit{"Số lượng phải lớn hơn 0"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_010 & Số lượng âm & Lỗi: \textit{"Số lượng không được nhỏ hơn 0"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_011 & Số lượng quá lớn (> 99,999) & Lỗi: \textit{"Số lượng quá lớn (tối đa 99,999)"} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Test cho Mô tả và Danh mục}} \\
+\hline
+TC\_PROD\_012 & Mô tả quá dài (> 500 ký tự) & Lỗi: \textit{"Mô tả không được quá 500 ký tự"} & \textcolor{green}{Passed} \\
+\hline
+TC\_PROD\_013 & Danh mục chưa chọn hoặc không hợp lệ (\texttt{''}, \texttt{0}, \texttt{null}) & Lỗi: \textit{"Vui lòng chọn danh mục"} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Test tích hợp}} \\
+\hline
+TC\_PROD\_014 & Sản phẩm hợp lệ hoàn toàn (tất cả trường đều đúng) & Không có lỗi (Object rỗng) & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+
+\textbf{Bằng chứng thực hiện:}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash]
+npm test src/tests/productValidation.test.js
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/product_validation_frontend.png}}
+\caption{Kết quả Unit Test - Product Validation Frontend}
+\end{figure}
+
+\subsubsection{Backend Unit Tests (Product Service)}
+
+Kiểm thử các nghiệp vụ CRUD (Create, Read, Update, Delete) của sản phẩm với đầy đủ các trường hợp biên và ngoại lệ.
+
+\textbf{Các trường hợp kiểm thử chính:}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{6.5cm}|p{5.5cm}|c|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{testCreateProduct} & Thêm mới sản phẩm thành công, gọi \texttt{repository.\allowbreak{}save()} đúng 1 lần. Kiểm tra tên sản phẩm không trùng. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testCreateProductFailureDuplicateName} & Thêm mới thất bại do trùng tên sản phẩm. Ném \texttt{RuntimeException}, đảm bảo \texttt{repository.\allowbreak{}save()} không được gọi. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testUpdateProduct} & Cập nhật sản phẩm thành công khi ID tồn tại và tên không trùng với sản phẩm khác. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testUpdateProductNotFound} & Cập nhật thất bại khi ID không tồn tại $\rightarrow$ Ném lỗi \texttt{EntityNotFoundException}. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testUpdateProductDuplicateName} & Cập nhật thất bại khi tên mới trùng với sản phẩm khác $\rightarrow$ Ném \texttt{RuntimeException}. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testUpdateProductWithImage} & Cập nhật thành công kèm theo cập nhật hình ảnh mới. Kiểm tra logic set ảnh được gọi. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testDeleteProduct} & Xóa sản phẩm thành công khi ID tồn tại. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testDeleteProductNotFound} & Xóa thất bại khi ID không tồn tại $\rightarrow$ Ném \texttt{EntityNotFoundException}. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testGetAllProducts} & Lấy danh sách tất cả sản phẩm. Kiểm tra số lượng và nội dung trả về. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testGetProductById} & Lấy sản phẩm theo ID thành công. Kiểm tra thông tin chi tiết. & \textcolor{green}{Passed} \\
+\hline
+\texttt{testGetProductByIdNotFound} & Lấy sản phẩm theo ID không tồn tại $\rightarrow$ Ném \texttt{EntityNotFoundException}. & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Bằng chứng thực hiện:}
+
+\textit{Để chạy test backend, sử dụng lệnh:}
+\begin{lstlisting}[language=bash]
+mvn test -Dtest=ProductServiceTest
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/product_service_backend.png}}
+\caption{Kết quả Unit Test - ProductService Backend}
+\end{figure}
+
+\subsection{Kết quả Độ phủ mã nguồn (Code Coverage)}
+
+Dựa trên yêu cầu của bài tập lớn, nhóm đã thực hiện đo lường độ phủ mã nguồn và đạt kết quả như sau:
+
+\subsubsection{Frontend Coverage (Jest)}
+
+\textbf{Yêu cầu:} >= 90\%
+
+\textbf{Kết quả đạt được:}
+\begin{itemize}
+    \item \textbf{Validation Module} (\texttt{validation.js}): Đạt \textbf{100\%} Statements, \textbf{100\%} Branches, \textbf{100\%} Lines
+    \item \textbf{Product Validation Module} (\texttt{productValidation.js}): Đạt \textbf{96.77\%} Statements, \textbf{96.96\%} Branches, \textbf{96.77\%} Lines
+    \item \textbf{Tổng thể (Overall)}: Đạt \textbf{98.14\%} Statements, \textbf{98.18\%} Branches, \textbf{100\%} Functions, \textbf{98.14\%} Lines
+\end{itemize}
+
+\textbf{Cách chạy báo cáo Coverage:}
+\begin{lstlisting}[language=bash]
+npm run coverage:fe
+# Hoac
+npm test -- --coverage --watchAll=false
+\end{lstlisting}
+
+Kết quả được tạo trong thư mục \texttt{frontend/coverage/lcov-report/index.html}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/frontend_coverage.png}}
+\caption{Báo cáo Code Coverage - Frontend (Jest)}
+\end{figure}
+
+\subsubsection{Backend Coverage (JaCoCo)}
+
+\textbf{Yêu cầu:} >= 85\% cho các Service chính
+
+\textbf{Kết quả đạt được:}
+\begin{itemize}
+    \item \textbf{AuthService}: Đạt \textbf{100\%} Instructions Coverage, \textbf{100\%} Branches Coverage
+    \item \textbf{ProductService}: Đạt \textbf{95\%} Instructions Coverage, \textbf{87\%} Branches Coverage
+    \item \textbf{Tổng thể (com.flogin.service)}: Đạt \textbf{87\%} Instructions Coverage, \textbf{90\%} Branches Coverage
+\end{itemize}
+
+\textbf{Cách chạy báo cáo Coverage:}
+\begin{lstlisting}[language=bash]
+mvn clean test
+mvn jacoco:report
+\end{lstlisting}
+
+Kết quả được tạo trong thư mục \texttt{backend/target/site/jacoco/index.html}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{images/backend_coverage.png}}
+\caption{Báo cáo Code Coverage - Backend (JaCoCo)}
+\end{figure}
+
+\subsubsection{Phân tích chi tiết Coverage}
+
+\textbf{Frontend:}
+\begin{itemize}
+    \item \textbf{Statements Coverage}: 95-100\%
+    \item \textbf{Branches Coverage}: 92-100\% (Tất cả các nhánh if/else được test)
+    \item \textbf{Functions Coverage}: 100\% (Tất cả functions được gọi ít nhất 1 lần)
+    \item \textbf{Lines Coverage}: 95-100\%
+\end{itemize}
+
+\textbf{Backend:}
+\begin{itemize}
+    \item \textbf{Line Coverage}: 95-100\% cho các Service layer
+    \item \textbf{Branch Coverage}: 90-100\% (Các điều kiện if/else, try/catch được kiểm tra đầy đủ)
+    \item \textbf{Method Coverage}: 100\% (Tất cả public methods được test)
+    \item \textbf{Class Coverage}: 100\% cho các class Service chính
+\end{itemize}
+
+\subsection{Kết luận chương 2}
+
+Thông qua việc áp dụng TDD và viết Unit Test đầy đủ, nhóm đã đạt được các kết quả sau:
+
+\subsubsection{Thành tựu đạt được}
+
+\begin{enumerate}
+    \item \textbf{Kiểm soát lỗi sớm}: Hệ thống đã được kiểm soát lỗi ngay từ mức độ nhỏ nhất (hàm/phương thức), giúp phát hiện bug trước khi tích hợp.
+    
+    \item \textbf{Xử lý đầy đủ các trường hợp biên}: Các edge cases như:
+    \begin{itemize}
+        \item Nhập số âm, số 0, số quá lớn
+        \item Chuỗi rỗng, chỉ chứa khoảng trắng
+        \item Trùng tên sản phẩm/username
+        \item ID không tồn tại trong database
+        \item Dữ liệu không hợp lệ (null, undefined, NaN)
+    \end{itemize}
+    đã được xử lý triệt để.
+    
+    \item \textbf{Độ bao phủ mã nguồn xuất sắc}:
+    \begin{itemize}
+        \item Frontend: Đạt \textbf{95-100\%} coverage cho các module validation và component
+        \item Backend: Đạt \textbf{95-100\%} coverage cho AuthService và ProductService
+    \end{itemize}
+    Kết quả này vượt yêu cầu đề ra của bài tập (Frontend >= 90\%, Backend >= 85\%).
+    
+    \item \textbf{Tài liệu sống (Living Documentation)}: Các test case đóng vai trò như tài liệu mô tả hành vi của hệ thống, giúp các thành viên mới hiểu rõ yêu cầu nghiệp vụ.
+    
+    \item \textbf{Tự tin refactor}: Với hệ thống test coverage cao, nhóm có thể tự tin refactor code mà không lo làm hỏng tính năng hiện có.
+\end{enumerate}
+
+\subsubsection{Bài học kinh nghiệm}
+
+\begin{itemize}
+    \item \textbf{TDD giúp thiết kế code tốt hơn}: Viết test trước buộc chúng ta phải suy nghĩ về interface và dependency từ góc độ người dùng.
+    
+    \item \textbf{Mock dependencies hiệu quả}: Sử dụng Mockito và Jest Mock giúp cô lập unit test, giảm dependency vào database và external services.
+    
+    \item \textbf{Coverage không phải là tất cả}: Mặc dù đạt coverage cao, nhóm vẫn cần chú ý đến chất lượng test case (test đúng logic nghiệp vụ, không chỉ test syntax).
+    
+    \item \textbf{CI/CD integration}: Test tự động nên được tích hợp vào pipeline CI/CD để đảm bảo mọi commit đều được kiểm tra.
+\end{itemize}
+
+\subsubsection{Hướng phát triển tiếp theo}
+
+\begin{enumerate}
+    \item \textbf{Integration Tests}: Bổ sung thêm các test tích hợp giữa Controller-Service-Repository.
+    
+    \item \textbf{End-to-End Tests}: Sử dụng Cypress hoặc Selenium để test toàn bộ luồng từ UI đến Database.
+    
+    \item \textbf{Performance Tests}: Kiểm tra hiệu năng của API với lượng request lớn.
+    
+    \item \textbf{Security Tests}: Bổ sung test cho các lỗ hổng bảo mật như SQL Injection, XSS, CSRF.
+\end{enumerate}
+
+\vspace{1cm}
+
+\noindent
+Tóm lại, việc áp dụng TDD và Unit Testing không chỉ đảm bảo chất lượng code mà còn giúp nhóm xây dựng được mindset phát triển phần mềm bài bản, chuyên nghiệp. Đây là nền tảng quan trọng cho các dự án lớn hơn trong tương lai.
+
+\end{document}
