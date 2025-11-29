@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 01:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 01:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,8 +709,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 ...line {7}Pháº§n Má»Ÿ Rá»™ng}{22}{section.7}
-                                                  % [1]
+l.45 ...¿ Test Scenarios}{16}{subsubsection.7.2.1}
+                                                  % [1])
+\tf@toc=\write4
+\openout4 = `BaoCao_TongHop.toc'.
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -718,11 +722,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[2])
-\tf@toc=\write4
-\openout4 = `BaoCao_TongHop.toc'.
-
-
+[2]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -739,138 +739,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [4] (../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex
-Overfull \hbox (26.77925pt too wide) in alignment at lines 52--56
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+[]|\T5/cmr/bx/n/10 Tr¤ng
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 56--63
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]|\T5/cmr/bx/n/10 Tr¤ng
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 63--66
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+[]|\T5/cmr/m/n/10 Password thi¸u chú
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 66--69
- [] [] [] [] 
+Underfull \hbox (badness 1331) in paragraph at lines 76--76
+\T5/cmr/m/n/10 c¡i (ch¿ câ sè, v½ dö:
  []
 
 
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 73--73
-[]|\T5/cmr/m/n/12 TC_LOGIN_001| 
+Underfull \hbox (badness 7030) in paragraph at lines 80--80
+[]|\T5/cmr/m/n/10 Password hñp l» (câ
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 73--73
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "T¶n ^^_«ng
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--73
-\T5/cmr/m/it/12 nhªp khæng ^^_÷ñc ^^_º
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 75--75
-[]|\T5/cmr/m/n/12 TC_LOGIN_002| 
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 75--75
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "T¶n ^^_«ng
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 77--77
-[]|\T5/cmr/m/n/12 TC_LOGIN_003| 
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 77--77
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "T¶n ^^_«ng
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 79--79
-[]|\T5/cmr/m/n/12 TC_LOGIN_004| 
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 79--79
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "T¶n ^^_«ng
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 81--81
-[]|\T5/cmr/m/n/12 TC_LOGIN_005| 
- []
-
-
-Underfull \hbox (badness 7081) in paragraph at lines 81--81
-[]|\T5/cmr/m/n/12 Username hñp l» (v½ dö:
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 86--86
-[]|\T5/cmr/m/n/12 TC_LOGIN_006| 
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 86--86
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "Mªt kh©u
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 88--88
-[]|\T5/cmr/m/n/12 TC_LOGIN_007| 
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 88--88
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "Mªt kh©u
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 90--90
-[]|\T5/cmr/m/n/12 TC_LOGIN_008| 
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 90--90
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "Mªt kh©u
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 92--92
-[]|\T5/cmr/m/n/12 TC_LOGIN_009| 
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 92--92
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "Mªt kh©u
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 94--94
-[]|\T5/cmr/m/n/12 TC_LOGIN_010| 
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 94--94
-[]|\T5/cmr/m/n/12 Tr£ v· léi: \T5/cmr/m/it/12 "Mªt kh©u
- []
-
-
-Overfull \hbox (6.24153pt too wide) in paragraph at lines 96--96
-[]|\T5/cmr/m/n/12 TC_LOGIN_011| 
- []
-
-
-Overfull \hbox (26.77925pt too wide) in alignment at lines 69--99
- [] [] [] [] 
+Underfull \hbox (badness 2197) in paragraph at lines 80--80
+\T5/cmr/m/n/10 c£ chú v  sè, v½ dö:
  []
 
 
@@ -888,108 +783,97 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 105.
-<../bao_cao_unit_testing/images/login_validation_frontend.png, id=491, 485.5640
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 90.
+<../bao_cao_unit_testing/images/login_validation_frontend.png, id=439, 485.5640
 6pt x 261.22594pt>
 File: ../bao_cao_unit_testing/images/login_validation_frontend.png Graphic file
  (type png)
 <use ../bao_cao_unit_testing/images/login_validation_frontend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/login_validation_fronte
-nd.png  used on input line 110.
+nd.png  used on input line 95.
 (pdftex.def)             Requested size: 386.96027pt x 208.17584pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.93912pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[6]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[7 <../bao_cao_unit_testing/images/login_validation_frontend.png>]
-Overfull \hbox (2.37885pt too wide) in paragraph at lines 118--119
+[6 <../bao_cao_unit_testing/images/login_validation_frontend.png>]
+Overfull \hbox (2.37885pt too wide) in paragraph at lines 103--104
 \T5/cmtt/m/n/12 AuthenticationManager\T5/cmr/m/n/12 , \T5/cmtt/m/n/12 JwtTokenP
 rovider\T5/cmr/m/n/12 , \T5/cmtt/m/n/12 AppUserRepository \T5/cmr/m/n/12 v  \T5
 /cmtt/m/n/12 PasswordEncoder\T5/cmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 142--142
+Underfull \hbox (badness 1242) in paragraph at lines 127--127
 []|\T5/cmr/m/n/10 Khi thæng tin ^^_«ng nhªp ^^_óng,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
 \T5/cmr/m/n/10 h» thèng tr£ v· JWT To-
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 142--142
+Underfull \hbox (badness 6741) in paragraph at lines 127--127
 \T5/cmr/m/n/10 ken v  thæng tin user. Kiºm
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
 \T5/cmr/m/n/10 tra \T5/cmtt/m/n/10 authenticationManager.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
 \T5/cmtt/m/n/10 authenticate() \T5/cmr/m/n/10 v 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
 \T5/cmtt/m/n/10 jwtTokenProvider.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []|\T5/cmr/m/n/10 Khi sai user-name ho°c pass-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
 \T5/cmtt/m/n/10 AuthenticationException\T5/cmr/m/n/10 . ^^^£m
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 146--146
+Underfull \hbox (badness 1418) in paragraph at lines 131--131
 []|\T5/cmr/m/n/10 Khi ^^_«ng kþ mîi hñp l» (user-
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 148--148
+Underfull \hbox (badness 2285) in paragraph at lines 133--133
 \T5/cmr/m/n/10 léi \T5/cmtt/m/n/10 RuntimeException \T5/cmr/m/n/10 vîi thæng
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 148--148
+Underfull \hbox (badness 1226) in paragraph at lines 133--133
 \T5/cmr/m/n/10 b¡o \T5/cmr/m/it/10 "Léi: User-name ^^_¢ ^^_÷ñc sû
  []
 
 
-Underfull \hbox (badness 6978) in paragraph at lines 148--148
+Underfull \hbox (badness 6978) in paragraph at lines 133--133
 \T5/cmr/m/it/10 döng!"\T5/cmr/m/n/10 . ^^^£m b£o \T5/cmtt/m/n/10 repository.
  []
 
-<../bao_cao_unit_testing/images/auth_service_backend.png, id=509, 730.22812pt x
+<../bao_cao_unit_testing/images/auth_service_backend.png, id=451, 730.22812pt x
  125.71968pt>
 File: ../bao_cao_unit_testing/images/auth_service_backend.png Graphic file (typ
 e png)
 <use ../bao_cao_unit_testing/images/auth_service_backend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/auth_service_backend.pn
-g  used on input line 163.
+g  used on input line 148.
 (pdftex.def)             Requested size: 386.96027pt x 66.6215pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -998,72 +882,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[8
+[7
 
  <../bao_cao_unit_testing/images/auth_service_backend.png>]
-Overfull \hbox (1.39645pt too wide) in paragraph at lines 177--178
+Overfull \hbox (1.39645pt too wide) in paragraph at lines 162--163
 []\T5/cmr/m/n/12 Chóng em tªp trung kiºm thû c¡c h m val-i-da-tion trong \T5/cm
 tt/m/n/12 utils/productValidation.js
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 186--190
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+[]|\T5/cmr/bx/n/10 Tr¤ng
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 190--197
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+[]|\T5/cmr/bx/n/10 Tr¤ng
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 197--200
- [] [] [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
+[]|\T5/cmr/m/n/10 Gi¡ qu¡ lîn (>
  []
 
 
-Overfull \hbox (26.77925pt too wide) in alignment at lines 200--203
- [] [] [] [] 
+Underfull \hbox (badness 7888) in paragraph at lines 213--213
+[]|\T5/cmr/m/n/10 Léi: \T5/cmr/m/it/10 "Sè l÷ñng ph£i l  sè
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 207--207
-[]|\T5/cmr/m/n/12 T¶n s£n ph©m réng ho°c
+Underfull \hbox (badness 2512) in paragraph at lines 219--219
+[]|\T5/cmr/m/n/10 Sè l÷ñng qu¡ lîn (>
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T5/cmr/m/n/12 Léi: \T5/cmr/m/it/12 "T¶n s£n ph©m
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--211
-[]|\T5/cmr/m/n/12 Léi: \T5/cmr/m/it/12 "T¶n s£n ph©m
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--216
-[]|\T5/cmr/m/n/12 Léi: \T5/cmr/m/it/12 "Gi¡ s£n ph©m
- []
-
-
-Underfull \hbox (badness 1158) in paragraph at lines 227--227
-[]|\T5/cmr/m/n/12 Sè l÷ñng l  sè thªp ph¥n
- []
-
-
-Underfull \hbox (badness 5161) in paragraph at lines 231--231
-[]|\T5/cmr/m/n/12 Léi: \T5/cmr/m/it/12 "Sè l÷ñng khæng
- []
-
-
-Underfull \hbox (badness 3579) in paragraph at lines 245--245
-[]|\T5/cmr/m/n/12 Khæng câ léi (Ob-ject
- []
-
-
-Overfull \hbox (26.77925pt too wide) in alignment at lines 203--248
- [] [] [] [] 
+Underfull \hbox (badness 3138) in paragraph at lines 226--226
+[]|\T5/cmr/m/n/10 Danh möc ch÷a chån
  []
 
 
@@ -1073,52 +927,52 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[9]
-<../bao_cao_unit_testing/images/product_validation_frontend.png, id=527, 493.09
+[8]
+<../bao_cao_unit_testing/images/product_validation_frontend.png, id=466, 493.09
 22pt x 274.77657pt>
 File: ../bao_cao_unit_testing/images/product_validation_frontend.png Graphic fi
 le (type png)
 <use ../bao_cao_unit_testing/images/product_validation_frontend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/product_validation_fron
-tend.png  used on input line 259.
+tend.png  used on input line 246.
 (pdftex.def)             Requested size: 386.96027pt x 215.64555pt.
 
-Overfull \hbox (9.25967pt too wide) in paragraph at lines 291--291
+Overfull \hbox (9.25967pt too wide) in paragraph at lines 278--278
 []|\T5/cmtt/m/n/10 testCreateProductFailureDuplicateName|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--291
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
 \T5/cmr/m/n/10 ph©m. N²m \T5/cmtt/m/n/10 RuntimeException\T5/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--291
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
 \T5/cmr/m/n/10 ^^_£m b£o \T5/cmtt/m/n/10 repository.save()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
 []|\T5/cmr/m/n/10 Cªp nhªt th§t b¤i khi ID
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
 \T5/cmr/m/n/10 khæng tçn t¤i $\OMS/cmsy/m/n/10 !$ \T5/cmr/m/n/10 N²m léi
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 297--297
+Underfull \hbox (badness 1292) in paragraph at lines 284--284
 []|\T5/cmr/m/n/10 Cªp nhªt th§t b¤i khi t¶n mîi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
 []|\T5/cmr/m/n/10 L§y s£n ph©m theo ID
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
 \T5/cmr/m/n/10 khæng tçn t¤i $\OMS/cmsy/m/n/10 !$ \T5/cmr/m/n/10 N²m
  []
 
@@ -1129,21 +983,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[10 <../bao_cao_unit_testing/images/product_validation_frontend.png>]
-<../bao_cao_unit_testing/images/product_service_backend.png, id=538, 804.00375p
+[9 <../bao_cao_unit_testing/images/product_validation_frontend.png>]
+<../bao_cao_unit_testing/images/product_service_backend.png, id=477, 804.00375p
 t x 267.24844pt>
 File: ../bao_cao_unit_testing/images/product_service_backend.png Graphic file (
 type png)
 <use ../bao_cao_unit_testing/images/product_service_backend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/product_service_backend
-.png  used on input line 324.
+.png  used on input line 311.
 (pdftex.def)             Requested size: 386.96027pt x 128.6244pt.
 
-Overfull \hbox (1.6345pt too wide) in paragraph at lines 339--340
+Overfull \hbox (1.6345pt too wide) in paragraph at lines 326--327
 []\T5/cmr/bx/n/12 Product Val-i-da-tion Mod-ule \T5/cmr/m/n/12 (\T5/cmtt/m/n/12
  productValidation.js\T5/cmr/m/n/12 ): ^^^¤t \T5/cmr/bx/n/12 96.77% \T5/cmr/m/n
 /12 State-ments,
  []
+
+<../bao_cao_unit_testing/images/frontend_coverage.png, id=478, 1444.64719pt x 3
+22.20375pt>
+File: ../bao_cao_unit_testing/images/frontend_coverage.png Graphic file (type p
+ng)
+<use ../bao_cao_unit_testing/images/frontend_coverage.png>
+Package pdftex.def Info: ../bao_cao_unit_testing/images/frontend_coverage.png  
+used on input line 341.
+(pdftex.def)             Requested size: 386.96027pt x 86.30295pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1152,22 +1017,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[11 <../bao_cao_unit_testing/images/product_service_backend.png>]
-<../bao_cao_unit_testing/images/frontend_coverage.png, id=547, 1444.64719pt x 3
-22.20375pt>
-File: ../bao_cao_unit_testing/images/frontend_coverage.png Graphic file (type p
-ng)
-<use ../bao_cao_unit_testing/images/frontend_coverage.png>
-Package pdftex.def Info: ../bao_cao_unit_testing/images/frontend_coverage.png  
-used on input line 354.
-(pdftex.def)             Requested size: 386.96027pt x 86.30295pt.
-<../bao_cao_unit_testing/images/backend_coverage.png, id=548, 1444.64719pt x 21
+[10 <../bao_cao_unit_testing/images/product_service_backend.png>]
+<../bao_cao_unit_testing/images/backend_coverage.png, id=491, 1444.64719pt x 21
 7.5628pt>
 File: ../bao_cao_unit_testing/images/backend_coverage.png Graphic file (type pn
 g)
 <use ../bao_cao_unit_testing/images/backend_coverage.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/backend_coverage.png  u
-sed on input line 379.
+sed on input line 366.
 (pdftex.def)             Requested size: 386.96027pt x 58.27466pt.
 
 
@@ -1177,8 +1034,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[12 <../bao_cao_unit_testing/images/frontend_coverage.png> <../bao_cao_unit_tes
-ting/images/backend_coverage.png>]
+[11 <../bao_cao_unit_testing/images/frontend_coverage.png> <../bao_cao_unit_tes
+ting/images/backend_coverage.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[12]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1187,12 +1052,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [13]
-Overfull \hbox (12.622pt too wide) in paragraph at lines 447--448
-[]\T5/cmr/bx/n/12 Integration Tests\T5/cmr/m/n/12 : Bê sung th¶m c¡c test t½ch 
-hñp giúa Controller-Service-Repository. 
- []
-
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1208,7 +1067,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[15]
+[15] (../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
+Overfull \hbox (51.13896pt too wide) in paragraph at lines 27--28
+[]\T5/cmr/m/it/12 L÷u þ: H÷îng d¨n c i ^^_°t k6 v  ch¤y tests chi ti¸t câ trong
+ file performance-testing/README.md 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1217,30 +1081,46 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [16]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[17] (../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[18]
-<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=603, 569.87906pt
+<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=525, 569.87906pt
  x 284.56313pt>
 File: ../bao_cao_phan_mo_rong/images/login_performance_test.png Graphic file (t
 ype png)
 <use ../bao_cao_phan_mo_rong/images/login_performance_test.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/login_performance_test.
-png  used on input line 101.
+png  used on input line 74.
 (pdftex.def)             Requested size: 432.48051pt x 215.95325pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[17 <../bao_cao_phan_mo_rong/images/login_performance_test.png>]
+<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=535, 559.33969
+pt x 285.31593pt>
+File: ../bao_cao_phan_mo_rong/images/product_performance_test.png Graphic file 
+(type png)
+<use ../bao_cao_phan_mo_rong/images/product_performance_test.png>
+Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/product_performance_tes
+t.png  used on input line 129.
+(pdftex.def)             Requested size: 432.48051pt x 220.61255pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[18
+
+ <../bao_cao_phan_mo_rong/images/product_performance_test.png>]
+Overfull \hbox (14.24718pt too wide) in paragraph at lines 165--166
+[]\T5/cmr/m/n/12 Error rate = 0.00% cho t§t c£ op-er-a-tions (CRE-ATE, READ, UP
+-DATE, DELETE) 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1262,16 +1142,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[20 <../bao_cao_phan_mo_rong/images/login_performance_test.png>]
-<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=631, 559.33969
-pt x 285.31593pt>
-File: ../bao_cao_phan_mo_rong/images/product_performance_test.png Graphic file 
-(type png)
-<use ../bao_cao_phan_mo_rong/images/product_performance_test.png>
-Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/product_performance_tes
-t.png  used on input line 179.
-(pdftex.def)             Requested size: 432.48051pt x 220.61255pt.
-
+[20]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1279,50 +1150,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[21
-
- <../bao_cao_phan_mo_rong/images/product_performance_test.png>]
-Overfull \hbox (14.24718pt too wide) in paragraph at lines 217--218
-[]\T5/cmr/m/n/12 Error rate = 0.00% cho t§t c£ op-er-a-tions (CRE-ATE, READ, UP
--DATE, DELETE) 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[22
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[23]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[24]
-<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=669, 1004.553pt 
+[21]
+<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=575, 1004.553pt 
 x 502.2765pt>
 File: ../bao_cao_phan_mo_rong/images/response_time_analysis.png Graphic file (t
 ype png)
 <use ../bao_cao_phan_mo_rong/images/response_time_analysis.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/response_time_analysis.
-png  used on input line 376.
+png  used on input line 324.
 (pdftex.def)             Requested size: 386.96027pt x 193.48051pt.
 
 
@@ -1332,7 +1167,66 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[25 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
+[22 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[23]
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+<../bao_cao_phan_mo_rong/images/security_test_results.png, id=596, 718.18312pt 
+x 430.60875pt>
+File: ../bao_cao_phan_mo_rong/images/security_test_results.png Graphic file (ty
+pe png)
+<use ../bao_cao_phan_mo_rong/images/security_test_results.png>
+Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/security_test_results.p
+ng  used on input line 490.
+(pdftex.def)             Requested size: 386.96027pt x 232.01932pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (38.30289pt too wide) in alignment at lines 499--503
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (38.30289pt too wide) in alignment at lines 503--507
+ [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 5008) in paragraph at lines 562--562
+[]|\T5/cmr/m/n/12 Kiºm tra HTTP se-cu-rity head-ers
+ []
+
+
+Overfull \hbox (38.30289pt too wide) in alignment at lines 507--567
+ [] [] [] [] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[24]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.93912pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.93912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+
+[25 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1341,41 +1235,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [26]
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-<../bao_cao_phan_mo_rong/images/security_test_results.png, id=688, 718.18312pt 
-x 430.60875pt>
-File: ../bao_cao_phan_mo_rong/images/security_test_results.png Graphic file (ty
-pe png)
-<use ../bao_cao_phan_mo_rong/images/security_test_results.png>
-Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/security_test_results.p
-ng  used on input line 542.
-(pdftex.def)             Requested size: 386.96027pt x 232.01932pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (38.30289pt too wide) in alignment at lines 551--555
- [] [] [] [] 
- []
-
-
-Overfull \hbox (38.30289pt too wide) in alignment at lines 555--559
- [] [] [] [] 
- []
-
-
-Underfull \hbox (badness 5008) in paragraph at lines 614--614
-[]|\T5/cmr/m/n/12 Kiºm tra HTTP se-cu-rity head-ers
- []
-
-
-Overfull \hbox (38.30289pt too wide) in alignment at lines 559--619
- [] [] [] [] 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1391,7 +1250,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[28 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
+[28]
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 791.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1407,7 +1269,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[30]
+[30])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1416,9 +1278,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [31]
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 843.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.93912pt, for example:
@@ -1435,39 +1294,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [33]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[34])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[35]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[36]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[37]
-Overfull \hbox (50.85652pt too wide) in paragraph at lines 355--356
+Overfull \hbox (50.85652pt too wide) in paragraph at lines 371--372
 []\T5/cmr/m/n/12 OWASP Test-ing Guide, []$\T5/cmtt/m/n/12 https : / / owasp . o
 rg / www-[]project-[]web-[]security-[]testing-[]guide/$[] 
  []
@@ -1479,43 +1306,82 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
-[38] (BaoCao_TongHop.aux)
+[34] (BaoCao_TongHop.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `BaoCao_TongHop.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: File `BaoCao_TongHop.out' has not changed.
-(rerunfilecheck)             Checksum: 3B1E81CBF000E460266876B46F87B33B;18139.
+Package rerunfilecheck Info: Checksums for `BaoCao_TongHop.out':
+(rerunfilecheck)             Before: 8FBEDE90E8D44DAECD2020F73665FF45;15511
+(rerunfilecheck)             After:  BA79E5EA719AE0F64947CABB92ECD155;15676.
  ) 
 Here is how much of TeX's memory you used:
- 14022 strings out of 474486
- 216055 string characters out of 5743754
- 2161542 words of memory out of 5000000
- 35711 multiletter control sequences out of 15000+600000
+ 13860 strings out of 474486
+ 213854 string characters out of 5743754
+ 2121542 words of memory out of 5000000
+ 35636 multiletter control sequences out of 15000+600000
  576868 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,527b,2085s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1200.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/vntex/vnr/vnbx10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/vntex/vnr/vnbx12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/vntex/vnr/vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/vntex/vnr/vnr12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/vntex/vnr/vnr6.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vnti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vnti12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vntt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vntt12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vntt8.pfb>
-Output written on BaoCao_TongHop.pdf (39 pages, 888829 bytes).
+
+pdfTeX warning (dest): name{subsubsection.7.12.3} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.12.2} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.12.1} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.8.2} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.4.5} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.4.4} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.2.3} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.2.2} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.7.2.1} has been referenced but does n
+ot exist, replaced by a fixed one
+
+ <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm12
+00.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmmi12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/vntex/vnr/vnbx10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/vntex/vnr/vnbx12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/vntex/vnr/vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type
+1/vntex/vnr/vnr12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
+/vntex/vnr/vnr6.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
+ntex/vnr/vnti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
+ntex/vnr/vnti12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
+ntex/vnr/vntt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
+ntex/vnr/vntt12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
+ntex/vnr/vntt8.pfb>
+Output written on BaoCao_TongHop.pdf (35 pages, 871603 bytes).
 PDF statistics:
- 1083 PDF objects out of 1200 (max. 8388607)
- 409 named destinations out of 1000 (max. 500000)
- 779 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 919 PDF objects out of 1000 (max. 8388607)
+ 322 named destinations out of 1000 (max. 500000)
+ 691 words of extra memory for PDF output out of 10000 (max. 10000000)
 

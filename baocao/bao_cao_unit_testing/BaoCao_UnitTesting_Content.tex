@@ -1,45 +1,28 @@
 \section{Unit Testing và Test-Driven Development (TDD)}
 \setcounter{subsection}{0}
 
-\subsection{Phương pháp tiếp cận và Công cụ}
+\subsection{Giới thiệu chương}
 
-Để đảm bảo chất lượng mã nguồn và tuân thủ quy trình phát triển phần mềm chuyên nghiệp, nhóm đã áp dụng phương pháp \textbf{Test-Driven Development (TDD)} kết hợp với các công cụ kiểm thử hiện đại.
+Chương này trình bày quá trình thực hiện Unit Testing cho hệ thống FloginFE\_BE theo phương pháp \textbf{Test-Driven Development (TDD)}. Unit Testing là mức kiểm thử cơ bản nhất, tập trung kiểm thử từng đơn vị nhỏ nhất của code (function, method, class) một cách độc lập.
 
-\subsubsection{Công cụ sử dụng}
-
-\textbf{Frontend (ReactJS):}
+\textbf{Nội dung chính của chương:}
 \begin{itemize}
-    \item \textbf{Jest}: Framework kiểm thử JavaScript chính, dùng để chạy test runner và assertions. Phiên bản 27.5.1 được tích hợp sẵn trong React Scripts.
-    
-    \item \textbf{React Testing Library}: Thư viện dùng để kiểm thử các component React theo cách người dùng tương tác (DOM testing). Phiên bản 16.3.0 hỗ trợ React 19.
-    
-    \item \textbf{Jest DOM}: Thư viện cung cấp các custom matchers để kiểm tra trạng thái DOM một cách dễ dàng hơn.
+    \item Công cụ kiểm thử: Jest (Frontend), JUnit 5 (Backend), Mockito, JaCoCo
+    \item Unit Tests cho chức năng Login: Validation và Authentication
+    \item Unit Tests cho chức năng Product: Validation và CRUD operations
+    \item Code Coverage analysis: Đo lường độ bao phủ mã nguồn
+    \item Kết luận và đánh giá kết quả
 \end{itemize}
 
-\textbf{Backend (Spring Boot):}
-\begin{itemize}
-    \item \textbf{JUnit 5}: Framework kiểm thử tiêu chuẩn cho Java, được tích hợp sẵn trong Spring Boot Starter Test.
-    
-    \item \textbf{Mockito}: Thư viện dùng để giả lập (mock) các phụ thuộc (dependencies) như Repository, Service, AuthenticationManager.
-    
-    \item \textbf{JaCoCo}: Công cụ đo lường độ bao phủ mã nguồn (Code Coverage) phiên bản 0.8.14, tạo báo cáo HTML và XML chi tiết.
-    
-    \item \textbf{Spring Boot Test}: Cung cấp các annotation và utilities để test Spring Applications.
-\end{itemize}
+\subsection{Công cụ kiểm thử}
 
-\subsubsection{Quy trình TDD áp dụng}
+\textbf{Frontend:} Jest, React Testing Library, Jest DOM
 
-Nhóm đã tuân thủ chu trình \textbf{Red - Green - Refactor}:
+\textbf{Backend:} JUnit 5, Mockito, JaCoCo (Code Coverage)
 
-\begin{enumerate}
-    \item \textbf{Red (Viết Test trước)}: Viết các test case thất bại dựa trên yêu cầu (ví dụ: \texttt{validateUsername} rỗng phải trả về lỗi).
-    
-    \item \textbf{Green (Viết Code)}: Viết mã nguồn tối thiểu để vượt qua bài test.
-    
-    \item \textbf{Refactor (Tối ưu)}: Cấu trúc lại mã nguồn cho sạch sẽ mà vẫn đảm bảo test case thành công.
-\end{enumerate}
+\textbf{Phương pháp:} Test-Driven Development (TDD) - Red, Green, Refactor
 
-\textit{Lưu ý}: Quy trình này đảm bảo mọi tính năng đều có test case bảo vệ, giúp phát hiện lỗi sớm và dễ dàng bảo trì code.
+\textit{Lưu ý: Hướng dẫn setup chi tiết có trong file README.md tại thư mục gốc project.}
 
 \subsection{Unit Tests cho Chức năng Đăng nhập (Login)}
 
@@ -49,7 +32,8 @@ Chúng em tập trung kiểm thử các hàm validation trong \texttt{utils/vali
 
 \textbf{Các trường hợp kiểm thử (Test Cases):}
 
-\begin{longtable}{|p{3cm}|p{5.5cm}|p{4.5cm}|c|}
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.8cm}|p{3.8cm}|p{5cm}|p{1.8cm}|}
 \hline
 \textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
 \hline
@@ -62,7 +46,7 @@ Chúng em tập trung kiểm thử các hàm validation trong \texttt{utils/vali
 \hline
 \endhead
 
-\hline \multicolumn{4}{|r|}{{Tiếp trang sau}} \\ \hline
+\hline
 \endfoot
 
 \hline
@@ -97,6 +81,7 @@ TC\_LOGIN\_011 & Password hợp lệ (có cả chữ và số, ví dụ: \texttt
 \hline
 
 \end{longtable}
+}
 
 \textbf{Bằng chứng thực hiện (Evidence):}
 
@@ -183,7 +168,8 @@ Chúng em tập trung kiểm thử các hàm validation trong \texttt{utils/prod
     \item Mô tả (Độ dài tối đa)
 \end{itemize}
 
-\begin{longtable}{|p{3.2cm}|p{5.3cm}|p{4.5cm}|c|}
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.8cm}|p{3.8cm}|p{5cm}|p{1.8cm}|}
 \hline
 \textbf{ID Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
 \hline
@@ -246,6 +232,7 @@ TC\_PROD\_014 & Sản phẩm hợp lệ hoàn toàn (tất cả trường đều
 \hline
 
 \end{longtable}
+}
 
 \textbf{Bằng chứng thực hiện:}
 
@@ -398,62 +385,34 @@ Kết quả được tạo trong thư mục \texttt{backend/target/site/jacoco/i
     \item \textbf{Class Coverage}: 100\% cho các class Service chính
 \end{itemize}
 
-\subsection{Kết luận chương 2}
+\subsection{Kết luận}
 
-Thông qua việc áp dụng TDD và viết Unit Test đầy đủ, nhóm đã đạt được các kết quả sau:
-
-\subsubsection{Thành tựu đạt được}
-
-\begin{enumerate}
-    \item \textbf{Kiểm soát lỗi sớm}: Hệ thống đã được kiểm soát lỗi ngay từ mức độ nhỏ nhất (hàm/phương thức), giúp phát hiện bug trước khi tích hợp.
-    
-    \item \textbf{Xử lý đầy đủ các trường hợp biên}: Các edge cases như:
-    \begin{itemize}
-        \item Nhập số âm, số 0, số quá lớn
-        \item Chuỗi rỗng, chỉ chứa khoảng trắng
-        \item Trùng tên sản phẩm/username
-        \item ID không tồn tại trong database
-        \item Dữ liệu không hợp lệ (null, undefined, NaN)
-    \end{itemize}
-    đã được xử lý triệt để.
-    
-    \item \textbf{Độ bao phủ mã nguồn xuất sắc}:
-    \begin{itemize}
-        \item Frontend: Đạt \textbf{95-100\%} coverage cho các module validation và component
-        \item Backend: Đạt \textbf{95-100\%} coverage cho AuthService và ProductService
-    \end{itemize}
-    Kết quả này vượt yêu cầu đề ra của bài tập (Frontend >= 90\%, Backend >= 85\%).
-    
-    \item \textbf{Tài liệu sống (Living Documentation)}: Các test case đóng vai trò như tài liệu mô tả hành vi của hệ thống, giúp các thành viên mới hiểu rõ yêu cầu nghiệp vụ.
-    
-    \item \textbf{Tự tin refactor}: Với hệ thống test coverage cao, nhóm có thể tự tin refactor code mà không lo làm hỏng tính năng hiện có.
-\end{enumerate}
-
-\subsubsection{Bài học kinh nghiệm}
+\textbf{Thành tựu đạt được:}
 
 \begin{itemize}
-    \item \textbf{TDD giúp thiết kế code tốt hơn}: Viết test trước buộc chúng ta phải suy nghĩ về interface và dependency từ góc độ người dùng.
+    \item \textbf{Test Coverage xuất sắc}:
+    \begin{itemize}
+        \item Frontend: 95-100\% coverage (vượt yêu cầu >= 90\%)
+        \item Backend: 95-100\% coverage (vượt yêu cầu >= 85\%)
+    \end{itemize}
     
-    \item \textbf{Mock dependencies hiệu quả}: Sử dụng Mockito và Jest Mock giúp cô lập unit test, giảm dependency vào database và external services.
+    \item \textbf{Test Cases toàn diện}: 40+ test cases cho Login và Product, bao gồm:
+    \begin{itemize}
+        \item Validation: username, password, product fields
+        \item Business logic: authentication, CRUD operations
+        \item Edge cases: empty input, invalid data, duplicate names
+        \item Error handling: not found, unauthorized access
+    \end{itemize}
     
-    \item \textbf{Coverage không phải là tất cả}: Mặc dù đạt coverage cao, nhóm vẫn cần chú ý đến chất lượng test case (test đúng logic nghiệp vụ, không chỉ test syntax).
+    \item \textbf{100\% Pass Rate}: Tất cả test cases đều passed, không có lỗi
     
-    \item \textbf{CI/CD integration}: Test tự động nên được tích hợp vào pipeline CI/CD để đảm bảo mọi commit đều được kiểm tra.
+    \item \textbf{TDD Workflow}: Áp dụng thành công quy trình Red-Green-Refactor
 \end{itemize}
 
-\subsubsection{Hướng phát triển tiếp theo}
-
-\begin{enumerate}
-    \item \textbf{Integration Tests}: Bổ sung thêm các test tích hợp giữa Controller-Service-Repository.
-    
-    \item \textbf{End-to-End Tests}: Sử dụng Cypress hoặc Selenium để test toàn bộ luồng từ UI đến Database.
-    
-    \item \textbf{Performance Tests}: Kiểm tra hiệu năng của API với lượng request lớn.
-    
-    \item \textbf{Security Tests}: Bổ sung test cho các lỗ hổng bảo mật như SQL Injection, XSS, CSRF.
-\end{enumerate}
-
-\vspace{1cm}
-
-\noindent
-Tóm lại, việc áp dụng TDD và Unit Testing không chỉ đảm bảo chất lượng code mà còn giúp nhóm xây dựng được mindset phát triển phần mềm bài bản, chuyên nghiệp. Đây là nền tảng quan trọng cho các dự án lớn hơn trong tương lai.
+\textbf{Kỹ năng đạt được:}
+\begin{itemize}
+    \item Viết test cases hiệu quả với Jest và JUnit
+    \item Sử dụng Mockito để mock dependencies
+    \item Đo lường và cải thiện code coverage
+    \item Tư duy test-first trong phát triển phần mềm
+\end{itemize}
