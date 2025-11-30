@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 01:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 04:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
 \c@section=\count188
@@ -23,8 +23,8 @@ File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 )
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\vietnam.sty
-Package: vietnam 2009/07/12 v1.3 support for Vietnamese
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\vntex.sty
+Package: vntex 2009/07/12 v1.1 support for Vietnamese
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
@@ -197,6 +197,10 @@ LaTeX Font Info:    Trying to load font information for T5+cmr on input line 11
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
+
+Package vntex Warning: No input encoding specified, using UTF-8 as default on i
+nput line 88.
+
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
@@ -205,80 +209,32 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\vncaps.tex
 File: vncaps.tex 2006/06/07 v1.1 Captions in Vietnamese
 ))
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip50
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/a4wide\a4wide.sty
+Package: a4wide 1994/08/30
 
-For additional information on amsmath, use the `?' option.
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
-
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks19
-\ex@=\dimen141
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/ntgclass\a4.sty
+Package: a4 2023/01/10 v1.2g A4 based page layout
 ))
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen142
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
-)
-\inf@bad=\count195
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count196
-\leftroot@=\count197
-LaTeX Info: Redefining \overline on input line 399.
-LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count198
-\DOTSCASE@=\count199
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box51
-\strutbox@=\box52
-LaTeX Info: Redefining \big on input line 722.
-LaTeX Info: Redefining \Big on input line 723.
-LaTeX Info: Redefining \bigg on input line 724.
-LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen143
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count266
-LaTeX Info: Redefining \bmod on input line 905.
-LaTeX Info: Redefining \pmod on input line 910.
-LaTeX Info: Redefining \smash on input line 940.
-LaTeX Info: Redefining \relbar on input line 970.
-LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count267
-\dotsspace@=\muskip16
-\c@parentequation=\count268
-\dspbrk@lvl=\count269
-\tag@help=\toks20
-\row@=\count270
-\column@=\count271
-\maxfields@=\count272
-\andhelp@=\toks21
-\eqnshift@=\dimen144
-\alignsep@=\dimen145
-\tagshift@=\dimen146
-\tagwidth@=\dimen147
-\totwidth@=\dimen148
-\lineht@=\dimen149
-\@envbody=\toks22
-\multlinegap=\skip51
-\multlinetaggap=\skip52
-\mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks24
+\KV@toks@=\toks20
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
@@ -295,15 +251,673 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen150
-\Gin@req@width=\dimen151
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
 )
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+\epsfxsize=\dimen143
+\epsfysize=\dimen144
+) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count195
+\mult@box=\box51
+\multicol@leftmargin=\dimen145
+\c@unbalance=\count196
+\c@collectmore=\count197
+\doublecol@number=\count198
+\multicoltolerance=\count199
+\multicolpretolerance=\count266
+\full@width=\dimen146
+\page@free=\dimen147
+\premulticols=\dimen148
+\postmulticols=\dimen149
+\multicolsep=\skip50
+\multicolbaselineskip=\skip51
+\partial@page=\box52
+\last@line=\box53
+\mc@boxedresult=\box54
+\maxbalancingoverflow=\dimen150
+\mult@rightbox=\box55
+\mult@grightbox=\box56
+\mult@firstbox=\box57
+\mult@gfirstbox=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\c@minrows=\count267
+\c@columnbadness=\count268
+\c@finalcolumnbadness=\count269
+\last@try=\dimen151
+\multicolovershoot=\dimen152
+\multicolundershoot=\dimen153
+\mult@nat@firstbox=\box95
+\colbreak@box=\box96
+\mc@col@check@num=\count270
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen154
+\ar@mcellbox=\box97
+\extrarowheight=\dimen155
+\NC@list=\toks21
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box98
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip54
+\f@nch@offset@elh=\skip55
+\f@nch@offset@erh=\skip56
+\f@nch@offset@olh=\skip57
+\f@nch@offset@orh=\skip58
+\f@nch@offset@elf=\skip59
+\f@nch@offset@erf=\skip60
+\f@nch@offset@olf=\skip61
+\f@nch@offset@orf=\skip62
+\f@nch@height=\skip63
+\f@nch@footalignment=\skip64
+\f@nch@widthL=\skip65
+\f@nch@widthC=\skip66
+\f@nch@widthR=\skip67
+\@temptokenb=\toks22
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen156
+\lightrulewidth=\dimen157
+\cmidrulewidth=\dimen158
+\belowrulesep=\dimen159
+\belowbottomsep=\dimen160
+\aboverulesep=\dimen161
+\abovetopsep=\dimen162
+\cmidrulesep=\dimen163
+\cmidrulekern=\dimen164
+\defaultaddspace=\dimen165
+\@cmidla=\count271
+\@cmidlb=\count272
+\@aboverulesep=\dimen166
+\@belowrulesep=\dimen167
+\@thisruleclass=\count273
+\@lastruleclass=\count274
+\@thisrulewidth=\dimen168
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip68
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks23
+\ex@=\dimen169
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen170
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count275
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count276
+\leftroot@=\count277
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count278
+\DOTSCASE@=\count279
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box99
+\strutbox@=\box100
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen171
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count280
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count281
+\dotsspace@=\muskip16
+\c@parentequation=\count282
+\dspbrk@lvl=\count283
+\tag@help=\toks24
+\row@=\count284
+\column@=\count285
+\maxfields@=\count286
+\andhelp@=\toks25
+\eqnshift@=\dimen172
+\alignsep@=\dimen173
+\tagshift@=\dimen174
+\tagwidth@=\dimen175
+\totwidth@=\dimen176
+\lineht@=\dimen177
+\@envbody=\toks26
+\multlinegap=\skip69
+\multlinetaggap=\skip70
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+Package: lastpage 2025/08/14 v2.1h lastpage: 2.09 or 2e? (HMM)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+Package: lastpage2e 2025/08/14 v2.1h Decide which 2e lastpage version to use (H
+MM)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpageclassi
+c.sty
+Package: lastpageclassic 2025/08/14 v2.1h Refers to last page's name (HMM; JPG)
+
+) 
+)) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\enumerate.sty
+Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
+\@enLab=\toks28
+) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen178
+\TX@old@table=\dimen179
+\TX@old@col=\dimen180
+\TX@target=\dimen181
+\TX@delta=\dimen182
+\TX@cols=\count287
+\TX@ftn=\toks29
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen183
+\captionmargin=\dimen184
+\caption@leftmargin=\dimen185
+\caption@rightmargin=\dimen186
+\caption@width=\dimen187
+\caption@indent=\dimen188
+\caption@parindent=\dimen189
+\caption@hangindent=\dimen190
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count288
+\c@continuedfloat=\count289
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip71
+\multirow@cntb=\count290
+\multirow@dima=\skip72
+\bigstrutjot=\dimen191
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count291
+\rotFPtop=\skip73
+\rotFPbot=\skip74
+\rot@float@box=\box101
+\rot@mess@toks=\toks30
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count292
+\Gm@cntv=\count293
+\c@Gm@tempcnt=\count294
+\Gm@bindingoffset=\dimen192
+\Gm@wd@mp=\dimen193
+\Gm@odd@mp=\dimen194
+\Gm@even@mp=\dimen195
+\Gm@layoutwidth=\dimen196
+\Gm@layoutheight=\dimen197
+\Gm@layouthoffset=\dimen198
+\Gm@layoutvoffset=\dimen199
+\Gm@dimlist=\toks31
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
 )
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip75
+\LTright=\skip76
+\LTpre=\skip77
+\LTpost=\skip78
+\LTchunksize=\count295
+\LTcapwidth=\dimen256
+\LT@head=\box102
+\LT@firsthead=\box103
+\LT@foot=\box104
+\LT@lastfoot=\box105
+\LT@gbox=\box106
+\LT@cols=\count296
+\LT@rows=\count297
+\c@LT@tables=\count298
+\c@LT@chunks=\count299
+\LT@p@ftn=\toks32
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count300
+\float@exts=\toks33
+\float@box=\box107
+\@float@everytoks=\toks34
+\@floatcapt=\box108
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks35
+\pgfutil@tempdima=\dimen257
+\pgfutil@tempdimb=\dimen258
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box109
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks38
+))
+\pgf@x=\dimen259
+\pgf@y=\dimen260
+\pgf@xa=\dimen261
+\pgf@ya=\dimen262
+\pgf@xb=\dimen263
+\pgf@yb=\dimen264
+\pgf@xc=\dimen265
+\pgf@yc=\dimen266
+\pgf@xd=\dimen267
+\pgf@yd=\dimen268
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count301
+\c@pgf@countb=\count302
+\c@pgf@countc=\count303
+\c@pgf@countd=\count304
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
+\pgf@sys@id@count=\count305
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count306
+\pgfsyssoftpath@bigbuffer@items=\count307
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 758.
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen269
+\pgfmath@count=\count308
+\pgfmath@box=\box110
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count309
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen270
+\pgf@picmaxx=\dimen271
+\pgf@picminy=\dimen272
+\pgf@picmaxy=\dimen273
+\pgf@pathminx=\dimen274
+\pgf@pathmaxx=\dimen275
+\pgf@pathminy=\dimen276
+\pgf@pathmaxy=\dimen277
+\pgf@xx=\dimen278
+\pgf@xy=\dimen279
+\pgf@yx=\dimen280
+\pgf@yy=\dimen281
+\pgf@zx=\dimen282
+\pgf@zy=\dimen283
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen284
+\pgf@path@lasty=\dimen285
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen286
+\pgf@shorten@start@additional=\dimen287
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box111
+\pgf@hbox=\box112
+\pgf@layerbox@main=\box113
+\pgf@picture@serial@count=\count310
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen288
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen289
+\pgf@pt@y=\dimen290
+\pgf@pt@temp=\dimen291
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen292
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen293
+\pgf@sys@shading@range@num=\count311
+\pgf@shadingcount=\count312
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box114
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box115
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen294
+\pgf@nodesepend=\dimen295
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen296
+\pgffor@skip=\dimen297
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count313
+\pgfplotmarksize=\dimen298
+)
+\tikz@lastx=\dimen299
+\tikz@lasty=\dimen300
+\tikz@lastxsaved=\dimen301
+\tikz@lastysaved=\dimen302
+\tikz@lastmovetox=\dimen303
+\tikz@lastmovetoy=\dimen304
+\tikzleveldistance=\dimen305
+\tikzsiblingdistance=\dimen306
+\tikz@figbox=\box116
+\tikz@figbox@bg=\box117
+\tikz@tempbox=\box118
+\tikz@tempbox@bg=\box119
+\tikztreelevel=\count314
+\tikznumberofchildren=\count315
+\tikznumberofcurrentchild=\count316
+\tikz@fig@count=\count317
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count318
+\pgfmatrixcurrentcolumn=\count319
+\pgf@matrix@numberofcolumns=\count320
+)
+\tikz@expandcount=\count321
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count322
+\lst@gtempboxa=\box120
+\lst@token=\toks47
+\lst@length=\count323
+\lst@currlwidth=\dimen307
+\lst@column=\count324
+\lst@pos=\count325
+\lst@lostspace=\dimen308
+\lst@width=\dimen309
+\lst@newlines=\count326
+\lst@lineno=\count327
+\lst@maxwidth=\dimen310
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count328
+\lst@skipnumbers=\count329
+\lst@framebox=\box121
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
 ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -353,15 +967,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count273
+\c@section@level=\count330
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count274
+\etb@tempcnta=\count331
 )
-\@linkdim=\dimen152
-\Hy@linkcounter=\count275
-\Hy@pagecounter=\count276
+\@linkdim=\dimen311
+\Hy@linkcounter=\count332
+\Hy@pagecounter=\count333
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
@@ -371,7 +985,7 @@ Now handling font encoding PD1 ...
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count277
+\Hy@SavedSpaceFactor=\count334
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
@@ -385,14 +999,14 @@ Package hyperref Info: Plain pages OFF on input line 4196.
 Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4448.
-\c@Hy@tempcnt=\count278
+\c@Hy@tempcnt=\count335
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4786.
-\XeTeXLinkMargin=\dimen153
+\XeTeXLinkMargin=\dimen312
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -402,9 +1016,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count279
-\Field@Width=\dimen154
-\Fld@charsize=\dimen155
+\Fld@menulength=\count336
+\Field@Width=\dimen313
+\Fld@charsize=\dimen314
 Package hyperref Info: Hyper figures OFF on input line 6065.
 Package hyperref Info: Link nesting OFF on input line 6070.
 Package hyperref Info: Hyper index ON on input line 6073.
@@ -417,9 +1031,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6095.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count280
-\c@Item=\count281
-\c@Hfootnote=\count282
+\Hy@abspage=\count337
+\c@Item=\count338
+\c@Hfootnote=\count339
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -430,8 +1044,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count283
-\c@bookmark@seq@number=\count284
+\Fld@listcount=\count340
+\c@bookmark@seq@number=\count341
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -444,182 +1058,56 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip53
+\Hy@SectionHShift=\skip79
 )
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count285
-\lst@gtempboxa=\box53
-\lst@token=\toks25
-\lst@length=\count286
-\lst@currlwidth=\dimen156
-\lst@column=\count287
-\lst@pos=\count288
-\lst@lostspace=\dimen157
-\lst@width=\dimen158
-\lst@newlines=\count289
-\lst@lineno=\count290
-\lst@maxwidth=\dimen159
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
 
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count291
-\lst@skipnumbers=\count292
-\lst@framebox=\box54
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
-))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
-
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 274.
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count293
-\Gm@cntv=\count294
-\c@Gm@tempcnt=\count295
-\Gm@bindingoffset=\dimen160
-\Gm@wd@mp=\dimen161
-\Gm@odd@mp=\dimen162
-\Gm@even@mp=\dimen163
-\Gm@layoutwidth=\dimen164
-\Gm@layoutheight=\dimen165
-\Gm@layouthoffset=\dimen166
-\Gm@layoutvoffset=\dimen167
-\Gm@dimlist=\toks26
-
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen168
-\ar@mcellbox=\box55
-\extrarowheight=\dimen169
-\NC@list=\toks27
-\extratabsurround=\skip54
-\backup@length=\skip55
-\ar@cellbox=\box56
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen170
-\lightrulewidth=\dimen171
-\cmidrulewidth=\dimen172
-\belowrulesep=\dimen173
-\belowbottomsep=\dimen174
-\aboverulesep=\dimen175
-\abovetopsep=\dimen176
-\cmidrulesep=\dimen177
-\cmidrulekern=\dimen178
-\defaultaddspace=\dimen179
-\@cmidla=\count296
-\@cmidlb=\count297
-\@aboverulesep=\dimen180
-\@belowrulesep=\dimen181
-\@thisruleclass=\count298
-\@lastruleclass=\count299
-\@thisrulewidth=\dimen182
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
-Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
-\LTleft=\skip56
-\LTright=\skip57
-\LTpre=\skip58
-\LTpost=\skip59
-\LTchunksize=\count300
-\LTcapwidth=\dimen183
-\LT@head=\box57
-\LT@firsthead=\box58
-\LT@foot=\box59
-\LT@lastfoot=\box60
-\LT@gbox=\box61
-\LT@cols=\count301
-\LT@rows=\count302
-\c@LT@tables=\count303
-\c@LT@chunks=\count304
-\LT@p@ftn=\toks28
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
-Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-
-\f@nch@headwidth=\skip60
-\f@nch@offset@elh=\skip61
-\f@nch@offset@erh=\skip62
-\f@nch@offset@olh=\skip63
-\f@nch@offset@orh=\skip64
-\f@nch@offset@elf=\skip65
-\f@nch@offset@erf=\skip66
-\f@nch@offset@olf=\skip67
-\f@nch@offset@orf=\skip68
-\f@nch@height=\skip69
-\f@nch@footalignment=\skip70
-\f@nch@widthL=\skip71
-\f@nch@widthC=\skip72
-\f@nch@widthR=\skip73
-\@temptokenb=\toks29
-)
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
-Package: setspace 2022/12/04 v6.7b set line spacing
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count305
-\l__pdf_internal_box=\box62
+\l__color_backend_stack_int=\count342
+\l__pdf_internal_box=\box122
 ) (BaoCao_TongHop.aux)
 \openout1 = `BaoCao_TongHop.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count306
-\scratchdimen=\dimen184
-\scratchbox=\box63
-\nofMPsegments=\count307
-\nofMParguments=\count308
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count309
-\MPscratchDim=\dimen185
-\MPnumerator=\count310
-\makeMPintoPDFobject=\count311
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count343
+\scratchdimen=\dimen315
+\scratchbox=\box123
+\nofMPsegments=\count344
+\nofMParguments=\count345
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count346
+\MPscratchDim=\dimen316
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
+\everyMPtoPDFconversion=\toks49
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -631,12 +1119,17 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
- (BaoCao_TongHop.out) (BaoCao_TongHop.out)
-\@outlinefile=\write3
-\openout3 = `BaoCao_TongHop.out'.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
 
-\c@lstlisting=\count312
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -646,23 +1139,23 @@ Package hyperref Info: Link coloring OFF on input line 37.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 455.24411pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=731.23584pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
-* \topmargin=-52.36449pt
-* \headheight=12.0pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=40.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=54.2025pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -672,109 +1165,106 @@ Package hyperref Info: Link coloring OFF on input line 37.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\c@lstlisting=\count349
+Package hyperref Info: Link coloring ON on input line 78.
+(BaoCao_TongHop.out) (BaoCao_TongHop.out)
+\@outlinefile=\write4
+\openout4 = `BaoCao_TongHop.out'.
 
-LaTeX Warning: File `logo.png' not found on input line 50.
+<logoITSGU.png, id=226, 803.0pt x 803.0pt>
+File: logoITSGU.png Graphic file (type png)
+<use logoITSGU.png>
+Package pdftex.def Info: logoITSGU.png  used on input line 92.
+(pdftex.def)             Requested size: 85.35826pt x 85.35284pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+.
 
-
-! Package pdftex.def Error: File `logo.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 ...udegraphics[width=0.3\textwidth]{logo.png}
-                                                   % Th√™m logo tr∆∞·ªùng n·...
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 5
-0.
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-[1
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+.
 
-{C:/Users/Admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(BaoCao_TongHop.toc
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
+0.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1
 
-
+{C:/Users/Admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logoITSGU.
+png (PNG copy)>] (BaoCao_TongHop.toc
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.45 ...ø Test Scenarios}{16}{subsubsection.7.2.1}
+l.44 ...2}Performance Testing}{16}{subsection.6.2}
                                                   % [1])
-\tf@toc=\write4
-\openout4 = `BaoCao_TongHop.toc'.
+\tf@toc=\write5
+\openout5 = `BaoCao_TongHop.toc'.
 
+<logoITSGUsmall.png, id=296, 803.0pt x 803.0pt>
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 143.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
+43.
 
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
+File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 143.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[2]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[3]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[4] (../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-[]|\T5/cmr/bx/n/10 Tr§ng
+[2 <./logoITSGUsmall.png>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 185.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [3]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 226.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [4]
+(../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex
+Overfull \hbox (13.01346pt too wide) in alignment at lines 36--40
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-[]|\T5/cmr/bx/n/10 Tr§ng
+Overfull \hbox (13.01346pt too wide) in alignment at lines 40--47
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
-[]|\T5/cmr/m/n/10 Password thi∏u ch˙
+Overfull \hbox (13.01346pt too wide) in alignment at lines 47--50
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 76--76
-\T5/cmr/m/n/10 c°i (chø c‚ sË, vΩ dˆ:
+Overfull \hbox (13.01346pt too wide) in alignment at lines 50--53
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 7030) in paragraph at lines 80--80
-[]|\T5/cmr/m/n/10 Password hÒp lª (c‚
+Underfull \hbox (badness 3407) in paragraph at lines 65--65
+[]|\T5/cmr/m/n/8 Username hÒp lª (vΩ dˆ:
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 80--80
-\T5/cmr/m/n/10 c£ ch˙ v† sË, vΩ dˆ:
+Overfull \hbox (13.01346pt too wide) in alignment at lines 53--83
+ [] [] [] [] 
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 83.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [5]
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -782,606 +1272,392 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 90.
-<../bao_cao_unit_testing/images/login_validation_frontend.png, id=439, 485.5640
+<../bao_cao_unit_testing/images/login_validation_frontend.png, id=328, 485.5640
 6pt x 261.22594pt>
 File: ../bao_cao_unit_testing/images/login_validation_frontend.png Graphic file
  (type png)
 <use ../bao_cao_unit_testing/images/login_validation_frontend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/login_validation_fronte
 nd.png  used on input line 95.
-(pdftex.def)             Requested size: 386.96027pt x 208.17584pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
+(pdftex.def)             Requested size: 355.51817pt x 191.26332pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 99.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 
 [6 <../bao_cao_unit_testing/images/login_validation_frontend.png>]
-Overfull \hbox (2.37885pt too wide) in paragraph at lines 103--104
-\T5/cmtt/m/n/12 AuthenticationManager\T5/cmr/m/n/12 , \T5/cmtt/m/n/12 JwtTokenP
-rovider\T5/cmr/m/n/12 , \T5/cmtt/m/n/12 AppUserRepository \T5/cmr/m/n/12 v† \T5
-/cmtt/m/n/12 PasswordEncoder\T5/cmr/m/n/12 . 
+Overfull \hbox (59.00478pt too wide) in paragraph at lines 103--104
+\T5/cmr/m/n/10 T§i Back-end, chÛng em s˚ dˆng \T5/cmr/bx/n/10 Mock-ito \T5/cmr/
+m/n/10 ^^_∫ cÊ l™p \T5/cmtt/m/n/10 AuthService\T5/cmr/m/n/10 , gi£ l™p h†nh vi 
+cıa \T5/cmtt/m/n/10 AuthenticationManager\T5/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 127--127
-[]|\T5/cmr/m/n/10 Khi thÊng tin ^^_´ng nh™p ^^_Ûng,
+Overfull \hbox (5.935pt too wide) in alignment at lines 108--112
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\T5/cmr/m/n/10 hª thËng tr£ v∑ JWT To-
+Overfull \hbox (5.935pt too wide) in alignment at lines 112--119
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 127--127
-\T5/cmr/m/n/10 ken v† thÊng tin user. Ki∫m
+Overfull \hbox (5.935pt too wide) in alignment at lines 119--122
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\T5/cmr/m/n/10 tra \T5/cmtt/m/n/10 authenticationManager.
+Overfull \hbox (5.935pt too wide) in alignment at lines 122--125
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\T5/cmtt/m/n/10 authenticate() \T5/cmr/m/n/10 v†
+Underfull \hbox (badness 3792) in paragraph at lines 127--127
+[]|\T5/cmr/m/n/8 Khi thÊng tin ^^_´ng nh™p ^^_Ûng, hª
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\T5/cmtt/m/n/10 jwtTokenProvider.
- []
+Underfull \hbox (badness 5607) in paragraph at lines 127--127
+\T5/cmtt/m/n/8 authenticate() \T5/cmr/m/n/8 v† \T5/cmtt/m/n/8 jwtTokenProvider.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
-[]|\T5/cmr/m/n/10 Khi sai user-name ho∞c pass-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
-\T5/cmtt/m/n/10 AuthenticationException\T5/cmr/m/n/10 . ^^^£m
+[]|\T5/cmr/m/n/8 Khi sai user-name ho∞c pass-
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 131--131
-[]|\T5/cmr/m/n/10 Khi ^^_´ng k˛ mÓi hÒp lª (user-
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+\T5/cmr/m/n/8 word, hª thËng n≤m ra ngo§i lª
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 133--133
-\T5/cmr/m/n/10 lÈi \T5/cmtt/m/n/10 RuntimeException \T5/cmr/m/n/10 vÓi thÊng
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+\T5/cmtt/m/n/8 AuthenticationException\T5/cmr/m/n/8 . ^^^£m b£o
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 133--133
-\T5/cmr/m/n/10 b°o \T5/cmr/m/it/10 "LÈi: User-name ^^_¢ ^^_˜Òc s˚
+Underfull \hbox (badness 4467) in paragraph at lines 133--133
+[]|\T5/cmr/m/n/8 Khi ^^_´ng k˛ trÚng user-name (user-
  []
 
 
-Underfull \hbox (badness 6978) in paragraph at lines 133--133
-\T5/cmr/m/it/10 dˆng!"\T5/cmr/m/n/10 . ^^^£m b£o \T5/cmtt/m/n/10 repository.
+Underfull \hbox (badness 1742) in paragraph at lines 133--133
+\T5/cmr/m/n/8 name ^^_¢ tÁn t§i), hª thËng n≤m lÈi
  []
 
-<../bao_cao_unit_testing/images/auth_service_backend.png, id=451, 730.22812pt x
+
+Underfull \hbox (badness 1168) in paragraph at lines 133--133
+\T5/cmtt/m/n/8 RuntimeException \T5/cmr/m/n/8 vÓi thÊng b°o \T5/cmr/m/it/8 "LÈi
+:
+ []
+
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 125--136
+ [] [] [] 
+ []
+
+<../bao_cao_unit_testing/images/auth_service_backend.png, id=341, 730.22812pt x
  125.71968pt>
 File: ../bao_cao_unit_testing/images/auth_service_backend.png Graphic file (typ
 e png)
 <use ../bao_cao_unit_testing/images/auth_service_backend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/auth_service_backend.pn
 g  used on input line 148.
-(pdftex.def)             Requested size: 386.96027pt x 66.6215pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
+(pdftex.def)             Requested size: 355.51817pt x 61.208pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 152.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [7
 
  <../bao_cao_unit_testing/images/auth_service_backend.png>]
-Overfull \hbox (1.39645pt too wide) in paragraph at lines 162--163
-[]\T5/cmr/m/n/12 ChÛng em t™p trung ki∫m th˚ c°c h†m val-i-da-tion trong \T5/cm
-tt/m/n/12 utils/productValidation.js
+Overfull \hbox (13.01346pt too wide) in alignment at lines 172--176
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-[]|\T5/cmr/bx/n/10 Tr§ng
+Overfull \hbox (13.01346pt too wide) in alignment at lines 176--183
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-[]|\T5/cmr/bx/n/10 Tr§ng
+Overfull \hbox (13.01346pt too wide) in alignment at lines 183--186
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--206
-[]|\T5/cmr/m/n/10 Gi° qu° lÓn (>
+Overfull \hbox (13.01346pt too wide) in alignment at lines 186--189
+ [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 7888) in paragraph at lines 213--213
-[]|\T5/cmr/m/n/10 LÈi: \T5/cmr/m/it/10 "SË l˜Òng ph£i l† sË
+Underfull \hbox (badness 2351) in paragraph at lines 193--193
+[]|\T5/cmr/m/n/8 T∂n s£n ph©m rÈng ho∞c
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 219--219
-[]|\T5/cmr/m/n/10 SË l˜Òng qu° lÓn (>
+Underfull \hbox (badness 5119) in paragraph at lines 219--219
+[]|\T5/cmr/m/n/8 LÈi: \T5/cmr/m/it/8 "SË l˜Òng qu° lÓn (tËi ^^_a
  []
 
 
-Underfull \hbox (badness 3138) in paragraph at lines 226--226
-[]|\T5/cmr/m/n/10 Danh mˆc ch˜a chÂn
+Overfull \hbox (13.01346pt too wide) in alignment at lines 189--234
+ [] [] [] [] 
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[8]
-<../bao_cao_unit_testing/images/product_validation_frontend.png, id=466, 493.09
+<../bao_cao_unit_testing/images/product_validation_frontend.png, id=352, 493.09
 22pt x 274.77657pt>
 File: ../bao_cao_unit_testing/images/product_validation_frontend.png Graphic fi
 le (type png)
 <use ../bao_cao_unit_testing/images/product_validation_frontend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/product_validation_fron
 tend.png  used on input line 246.
-(pdftex.def)             Requested size: 386.96027pt x 215.64555pt.
+(pdftex.def)             Requested size: 355.51817pt x 198.12407pt.
 
-Overfull \hbox (9.25967pt too wide) in paragraph at lines 278--278
-[]|\T5/cmtt/m/n/10 testCreateProductFailureDuplicateName|  
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 254.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[8]
+Overfull \hbox (5.935pt too wide) in alignment at lines 257--261
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--278
-\T5/cmr/m/n/10 ph©m. N≤m \T5/cmtt/m/n/10 RuntimeException\T5/cmr/m/n/10 ,
+Overfull \hbox (5.935pt too wide) in alignment at lines 261--268
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--278
-\T5/cmr/m/n/10 ^^_£m b£o \T5/cmtt/m/n/10 repository.save()
+Overfull \hbox (5.935pt too wide) in alignment at lines 268--271
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--282
-[]|\T5/cmr/m/n/10 C™p nh™t thßt b§i khi ID
+Overfull \hbox (5.935pt too wide) in alignment at lines 271--274
+ [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--282
-\T5/cmr/m/n/10 khÊng tÁn t§i $\OMS/cmsy/m/n/10 !$ \T5/cmr/m/n/10 N≤m lÈi
+Underfull \hbox (badness 1127) in paragraph at lines 276--276
+[]|\T5/cmr/m/n/8 Th∂m mÓi s£n ph©m th†nh cÊng, gÂi
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 284--284
-[]|\T5/cmr/m/n/10 C™p nh™t thßt b§i khi t∂n mÓi
+Overfull \hbox (5.935pt too wide) in alignment at lines 274--299
+ [] [] [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--296
-[]|\T5/cmr/m/n/10 Lßy s£n ph©m theo ID
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--296
-\T5/cmr/m/n/10 khÊng tÁn t§i $\OMS/cmsy/m/n/10 !$ \T5/cmr/m/n/10 N≤m
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 305.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [9 <../bao_cao_unit_testing/images/product_validation_frontend.png>]
-<../bao_cao_unit_testing/images/product_service_backend.png, id=477, 804.00375p
+<../bao_cao_unit_testing/images/product_service_backend.png, id=370, 804.00375p
 t x 267.24844pt>
 File: ../bao_cao_unit_testing/images/product_service_backend.png Graphic file (
 type png)
 <use ../bao_cao_unit_testing/images/product_service_backend.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/product_service_backend
 .png  used on input line 311.
-(pdftex.def)             Requested size: 386.96027pt x 128.6244pt.
+(pdftex.def)             Requested size: 355.51817pt x 118.1728pt.
 
-Overfull \hbox (1.6345pt too wide) in paragraph at lines 326--327
-[]\T5/cmr/bx/n/12 Product Val-i-da-tion Mod-ule \T5/cmr/m/n/12 (\T5/cmtt/m/n/12
- productValidation.js\T5/cmr/m/n/12 ): ^^^§t \T5/cmr/bx/n/12 96.77% \T5/cmr/m/n
-/12 State-ments,
+Overfull \hbox (8.7107pt too wide) in paragraph at lines 326--327
+[]\T5/cmr/bx/n/10 Product Val-i-da-tion Mod-ule \T5/cmr/m/n/10 (\T5/cmtt/m/n/10
+ productValidation.js\T5/cmr/m/n/10 ): ^^^§t \T5/cmr/bx/n/10 96.77% \T5/cmr/m/n
+/10 State-ments, \T5/cmr/bx/n/10 96.96%
  []
 
-<../bao_cao_unit_testing/images/frontend_coverage.png, id=478, 1444.64719pt x 3
+<../bao_cao_unit_testing/images/frontend_coverage.png, id=371, 1444.64719pt x 3
 22.20375pt>
 File: ../bao_cao_unit_testing/images/frontend_coverage.png Graphic file (type p
 ng)
 <use ../bao_cao_unit_testing/images/frontend_coverage.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/frontend_coverage.png  
 used on input line 341.
-(pdftex.def)             Requested size: 386.96027pt x 86.30295pt.
+(pdftex.def)             Requested size: 355.51817pt x 79.29213pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 354.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [10 <../bao_cao_unit_testing/images/product_service_backend.png>]
-<../bao_cao_unit_testing/images/backend_coverage.png, id=491, 1444.64719pt x 21
+<../bao_cao_unit_testing/images/backend_coverage.png, id=385, 1444.64719pt x 21
 7.5628pt>
 File: ../bao_cao_unit_testing/images/backend_coverage.png Graphic file (type pn
 g)
 <use ../bao_cao_unit_testing/images/backend_coverage.png>
 Package pdftex.def Info: ../bao_cao_unit_testing/images/backend_coverage.png  u
 sed on input line 366.
-(pdftex.def)             Requested size: 386.96027pt x 58.27466pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[11 <../bao_cao_unit_testing/images/frontend_coverage.png> <../bao_cao_unit_tes
-ting/images/backend_coverage.png>])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[12]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[13]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[14]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[15] (../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
-Overfull \hbox (51.13896pt too wide) in paragraph at lines 27--28
-[]\T5/cmr/m/it/12 L˜u ˛: H˜Óng d®n c†i ^^_∞t k6 v† ch§y tests chi ti∏t c‚ trong
+(pdftex.def)             Requested size: 355.51817pt x 53.54071pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 395.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [11 <../bao_cao_unit_testing/images/frontend_coverage.png> <../bao_cao_unit_te
+sting/images/backend_coverage.png>])
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 234.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [12]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 268.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [13]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 290.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [14]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 312.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [15]
+(../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
+Overfull \hbox (13.06306pt too wide) in paragraph at lines 27--28
+[]\T5/cmr/m/it/10 L˜u ˛: H˜Óng d®n c†i ^^_∞t k6 v† ch§y tests chi ti∏t c‚ trong
  file performance-testing/README.md 
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[16]
-<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=525, 569.87906pt
+<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=419, 569.87906pt
  x 284.56313pt>
 File: ../bao_cao_phan_mo_rong/images/login_performance_test.png Graphic file (t
 ype png)
 <use ../bao_cao_phan_mo_rong/images/login_performance_test.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/login_performance_test.
-png  used on input line 74.
-(pdftex.def)             Requested size: 432.48051pt x 215.95325pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[17 <../bao_cao_phan_mo_rong/images/login_performance_test.png>]
-<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=535, 559.33969
+png  used on input line 44.
+(pdftex.def)             Requested size: 200.75996pt x 100.24554pt.
+<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=420, 559.33969
 pt x 285.31593pt>
 File: ../bao_cao_phan_mo_rong/images/product_performance_test.png Graphic file 
 (type png)
 <use ../bao_cao_phan_mo_rong/images/product_performance_test.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/product_performance_tes
-t.png  used on input line 129.
-(pdftex.def)             Requested size: 432.48051pt x 220.61255pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[18
-
- <../bao_cao_phan_mo_rong/images/product_performance_test.png>]
-Overfull \hbox (14.24718pt too wide) in paragraph at lines 165--166
-[]\T5/cmr/m/n/12 Error rate = 0.00% cho tßt c£ op-er-a-tions (CRE-ATE, READ, UP
--DATE, DELETE) 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[19
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[20]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[21]
-<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=575, 1004.553pt 
+t.png  used on input line 45.
+(pdftex.def)             Requested size: 200.75996pt x 102.40454pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 74.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[16 <../bao_cao_phan_mo_rong/images/login_performance_test.png> <../bao_cao_pha
+n_mo_rong/images/product_performance_test.png>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 117.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [17]
+<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=439, 1004.553pt 
 x 502.2765pt>
 File: ../bao_cao_phan_mo_rong/images/response_time_analysis.png Graphic file (t
 ype png)
 <use ../bao_cao_phan_mo_rong/images/response_time_analysis.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/response_time_analysis.
-png  used on input line 324.
-(pdftex.def)             Requested size: 386.96027pt x 193.48051pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[22 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[23]
-(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-<../bao_cao_phan_mo_rong/images/security_test_results.png, id=596, 718.18312pt 
+png  used on input line 180.
+(pdftex.def)             Requested size: 313.69025pt x 156.84605pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 183.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [18]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 232.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [19 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
+<../bao_cao_phan_mo_rong/images/security_test_results.png, id=465, 718.18312pt 
 x 430.60875pt>
 File: ../bao_cao_phan_mo_rong/images/security_test_results.png Graphic file (ty
 pe png)
 <use ../bao_cao_phan_mo_rong/images/security_test_results.png>
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/security_test_results.p
-ng  used on input line 490.
-(pdftex.def)             Requested size: 386.96027pt x 232.01932pt.
+ng  used on input line 246.
+(pdftex.def)             Requested size: 355.51817pt x 213.16841pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 304.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[20 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 350.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [21])
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 320.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [22]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 383.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 
-Overfull \hbox (38.30289pt too wide) in alignment at lines 499--503
- [] [] [] [] 
+[23]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 394.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [24]
+Overfull \hbox (12.54955pt too wide) in paragraph at lines 421--422
+[]\T5/cmr/m/n/10 OWASP Test-ing Guide, [][]$\T5/cmtt/m/n/10 https : / / owasp .
+ org / www-[]project-[]web-[]security-[]testing-[]guide/$[][] 
  []
 
 
-Overfull \hbox (38.30289pt too wide) in alignment at lines 503--507
- [] [] [] [] 
- []
-
-
-Underfull \hbox (badness 5008) in paragraph at lines 562--562
-[]|\T5/cmr/m/n/12 Ki∫m tra HTTP se-cu-rity head-ers
- []
-
-
-Overfull \hbox (38.30289pt too wide) in alignment at lines 507--567
- [] [] [] [] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[24]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[25 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[26]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[27]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[28]
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 791.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[29]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[30])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[31]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[32]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[33]
-Overfull \hbox (50.85652pt too wide) in paragraph at lines 371--372
-[]\T5/cmr/m/n/12 OWASP Test-ing Guide, []$\T5/cmtt/m/n/12 https : / / owasp . o
-rg / www-[]project-[]web-[]security-[]testing-[]guide/$[] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.93912pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.93912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
-
-[34] (BaoCao_TongHop.aux)
+AED: lastpage setting LastPage
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 424.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[25] (BaoCao_TongHop.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `BaoCao_TongHop.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `BaoCao_TongHop.out':
-(rerunfilecheck)             Before: 8FBEDE90E8D44DAECD2020F73665FF45;15511
-(rerunfilecheck)             After:  BA79E5EA719AE0F64947CABB92ECD155;15676.
+Package rerunfilecheck Info: File `BaoCao_TongHop.out' has not changed.
+(rerunfilecheck)             Checksum: 9D17A0733C3B9D2F8FA7DB0D371CF3BC;10855.
  ) 
 Here is how much of TeX's memory you used:
- 13860 strings out of 474486
- 213854 string characters out of 5743754
- 2121542 words of memory out of 5000000
- 35636 multiletter control sequences out of 15000+600000
- 576868 words of font info for 69 fonts, out of 8000000 for 9000
+ 26062 strings out of 474486
+ 476004 string characters out of 5743754
+ 1959542 words of memory out of 5000000
+ 47714 multiletter control sequences out of 15000+600000
+ 578339 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,527b,2085s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsubsection.7.12.3} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.12.2} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.12.1} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.8.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.4.5} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.4.4} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.2.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.2.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.7.2.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
- <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm12
-00.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmmi12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/vntex/vnr/vnbx10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/vntex/vnr/vnbx12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/vntex/vnr/vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type
-1/vntex/vnr/vnr12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1
-/vntex/vnr/vnr6.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
-ntex/vnr/vnti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
-ntex/vnr/vnti12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
-ntex/vnr/vntt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
-ntex/vnr/vntt12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/v
-ntex/vnr/vntt8.pfb>
-Output written on BaoCao_TongHop.pdf (35 pages, 871603 bytes).
+ 84i,25n,93p,504b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX
+/fonts/type1/vntex/vnr/vnbx10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX
+/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX
+/fonts/type1/vntex/vnr/vnbx8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/
+fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/f
+onts/type1/vntex/vnr/vnr5.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fon
+ts/type1/vntex/vnr/vnr8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts
+/type1/vntex/vnr/vnti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts
+/type1/vntex/vnr/vnti8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/
+type1/vntex/vnr/vntt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/
+type1/vntex/vnr/vntt8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/vntex/vnr/vntt9.pfb>
+Output written on BaoCao_TongHop.pdf (26 pages, 1409179 bytes).
 PDF statistics:
- 919 PDF objects out of 1000 (max. 8388607)
- 322 named destinations out of 1000 (max. 500000)
- 691 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 627 PDF objects out of 1000 (max. 8388607)
+ 152 named destinations out of 1000 (max. 500000)
+ 513 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -86,7 +86,7 @@ TC\_LOGIN\_011 & Password hợp lệ (có cả chữ và số, ví dụ: \texttt
 \textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test, sử dụng lệnh:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 npm test src/tests/validation.test.js
 \end{lstlisting}
 
@@ -136,10 +136,10 @@ Tại Backend, chúng em sử dụng \textbf{Mockito} để cô lập \texttt{Au
 \end{longtable}
 }
 
-\textbf{Bằng chứng thực hiện:}
+\textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test backend, sử dụng lệnh:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 mvn test -Dtest=AuthServiceTest
 \end{lstlisting}
 
@@ -234,10 +234,10 @@ TC\_PROD\_014 & Sản phẩm hợp lệ hoàn toàn (tất cả trường đều
 \end{longtable}
 }
 
-\textbf{Bằng chứng thực hiện:}
+\textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test, sử dụng lệnh:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 npm test src/tests/productValidation.test.js
 \end{lstlisting}
 
@@ -299,10 +299,10 @@ Kiểm thử các nghiệp vụ CRUD (Create, Read, Update, Delete) của sản 
 \end{longtable}
 }
 
-\textbf{Bằng chứng thực hiện:}
+\textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test backend, sử dụng lệnh:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 mvn test -Dtest=ProductServiceTest
 \end{lstlisting}
 
@@ -328,7 +328,7 @@ Dựa trên yêu cầu của bài tập lớn, nhóm đã thực hiện đo lư�
 \end{itemize}
 
 \textbf{Cách chạy báo cáo Coverage:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 npm run coverage:fe
 # Hoac
 npm test -- --coverage --watchAll=false
@@ -354,7 +354,7 @@ Kết quả được tạo trong thư mục \texttt{frontend/coverage/lcov-repor
 \end{itemize}
 
 \textbf{Cách chạy báo cáo Coverage:}
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, breaklines=true]
 mvn clean test
 mvn jacoco:report
 \end{lstlisting}

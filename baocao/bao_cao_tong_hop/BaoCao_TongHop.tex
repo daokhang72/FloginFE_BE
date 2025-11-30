@@ -1,38 +1,79 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{vietnam}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{geometry}
-\usepackage{array}
+\documentclass[a4paper]{article}
+\usepackage{vntex}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
 \usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true}
+\usepackage{xcolor}
 
-\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
-% Định dạng code
-\lstset{
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{green!60!black},
-    stringstyle=\color{red},
-    showstringspaces=false,
-    breaklines=true,
-    frame=single,
-    numbers=left,
-    numberstyle=\tiny\color{gray}
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	numbers=left,
+	stepnumber=1,
+	numbersep=1pt,    
+	firstnumber=1,
+	numberfirstline=true
 }
 
-% Định dạng header và footer
+\setlength{\headheight}{40pt}
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{Bài tập lớn môn Kiểm Thử Phần Mềm}
-\fancyhead[R]{Niên khóa 2025-2026}
-\fancyfoot[C]{\thepage}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{logoITSGUsmall.png}}
+   \end{picture}&
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại học Sài Gòn}\\
+		\textbf{\bf \ttfamily Khoa Công Nghệ Thông Tin}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn môn Kiểm thử phần mềm - Niên khóa 2025-2026}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
 
 \begin{document}
 
@@ -40,50 +81,59 @@
 % TRANG BÌA
 % ============================================
 \begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-        
-        \textbf{\Large TRƯỜNG ĐẠI HỌC SÀI GÒN}\\
-        \textbf{\Large KHOA CÔNG NGHỆ THÔNG TIN}\\
-        \vspace{1cm}
-        
-        \includegraphics[width=0.3\textwidth]{logo.png} % Thêm logo trường nếu có
-        
-        \vspace{1.5cm}
-        
-        \textbf{\LARGE BÀI TẬP LỚN}\\
-        \vspace{0.5cm}
-        \textbf{\LARGE MÔN: KIỂM THỬ PHẦN MỀM}\\
-        
-        \vspace{1.5cm}
-        
-        \textbf{\Large ỨNG DỤNG ĐĂNG NHẬP \& QUẢN LÝ SẢN PHẨM}\\
-        \textbf{\Large (FloginFE\_BE)}\\
-        
-        \vspace{2cm}
-        
-        \begin{flushleft}
-        \textbf{Giảng viên hướng dẫn:} Từ Lãng Phiêu\\
-        \vspace{0.5cm}
-        \textbf{Nhóm sinh viên thực hiện:}\\
-        \begin{tabular}{ll}
-            1. & [Họ tên sinh viên 1] - [MSSV] \\
-            2. & [Họ tên sinh viên 2] - [MSSV] \\
-            3. & [Họ tên sinh viên 3] - [MSSV] \\
-            4. & [Họ tên sinh viên 4] - [MSSV] \\
-        \end{tabular}
-        \end{flushleft}
-        
-        \vfill
-        
-        \textbf{TP. HỒ CHÍ MINH, THÁNG 11/2025}
-        
-    \end{center}
+\begin{center}
+TRƯỜNG ĐẠI HỌC SÀI GÒN \\
+KHOA CÔNG NGHỆ THÔNG TIN
+\end{center}
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{logoITSGU.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+	\multicolumn{1}{l}{\textbf{{\Large KIỂM THỬ PHẦN MỀM}}}\\
+	~~\\
+	\hline
+	\\
+	\multicolumn{1}{l}{\textbf{{\Large BÁO CÁO BÀI TẬP LỚN}}}\\
+	\\
+	
+	\textbf{{\Large Ứng dụng Đăng nhập \& Quản lý Sản phẩm}}\\
+	\\
+	\textbf{{\large (FloginFE\_BE)}}\\
+	\\
+	\hline
+\end{tabular}
+\end{center}
+
+\vspace{2cm}
+
+\begin{tabular}{rrl}
+\hspace{5 cm} & GVHD: & Từ Lãng Phiêu\\
+& SV: & [Họ tên SV1] - [MSSV1]\\
+& & [Họ tên SV2] - [MSSV2] \\
+& & [Họ tên SV3] - [MSSV3] \\
+& & [Họ tên SV4] - [MSSV4]\\
+\end{tabular}
+
+\vspace{1.5 cm}
+
+\begin{center}
+
+{\footnotesize TP. HỒ CHÍ MINH, THÁNG 11/2025}
+\end{center}
 \end{titlepage}
 
-% ============================================
-% MỤC LỤC
-% ============================================
+
+\thispagestyle{empty}
+
 \newpage
 \tableofcontents
 
@@ -138,7 +188,6 @@ Nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đã hướng dẫn t�
 % CHƯƠNG 1: PHÂN TÍCH VÀ THIẾT KẾ TEST CASES
 % ============================================
 \section{Phân tích và Thiết kế Test Cases}
-\setcounter{section}{1}
 
 \subsection{Giới thiệu chương}
 
@@ -179,14 +228,15 @@ Chương này trình bày quá trình phân tích yêu cầu và thiết kế te
 % ============================================
 % CHƯƠNG 2: UNIT TESTING VÀ TDD
 % ============================================
+\setcounter{section}{1}
 \input{../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex}
 
 \newpage
 
 % ============================================
-% CHƯƠNG 4: INTEGRATION TESTING
+% CHƯƠNG 3: INTEGRATION TESTING
 % ============================================
-\setcounter{section}{3}
+\setcounter{section}{2}
 \section{Integration Testing}
 
 \subsection{Giới thiệu chương}
@@ -218,9 +268,9 @@ Chương này trình bày quá trình thực hiện Integration Testing cho cả
 \newpage
 
 % ============================================
-% CHƯƠNG 5: MOCK TESTING
+% CHƯƠNG 4: MOCK TESTING
 % ============================================
-\setcounter{section}{4}
+\setcounter{section}{3}
 \section{Mock Testing}
 
 \subsection{Giới thiệu chương}
@@ -240,9 +290,9 @@ Chương này trình bày việc sử dụng Mock objects để cô lập các d
 \newpage
 
 % ============================================
-% CHƯƠNG 6: AUTOMATION TESTING VÀ CI/CD
+% CHƯƠNG 5: AUTOMATION TESTING VÀ CI/CD
 % ============================================
-\setcounter{section}{5}
+\setcounter{section}{4}
 \section{Automation Testing và CI/CD}
 
 \subsection{Giới thiệu chương}
@@ -262,9 +312,9 @@ Chương này trình bày quá trình thiết lập và thực hiện E2E Automa
 \newpage
 
 % ============================================
-% CHƯƠNG 7: PHẦN MỞ RỘNG
+% CHƯƠNG 6: PHẦN MỞ RỘNG
 % ============================================
-\setcounter{section}{6}
+\setcounter{section}{5}
 \input{../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex}
 
 \newpage
