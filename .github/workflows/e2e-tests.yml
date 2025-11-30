@@ -62,21 +62,14 @@ jobs:
           SPRING_DATASOURCE_PASSWORD: root
           # Bật chế độ tự động chạy schema.sql (nếu bạn đã tạo file này)
           SPRING_SQL_INIT_MODE: always
-          SPRING_SQL_INIT_PLATFORM: mysql
-          SPRING_JPA_HIBERNATE_DDL_AUTO: none
+          
 
-      - name: Wait for Backend & Create User
+      - name: Create Test User
         run: |
-          # 1. Chờ Backend khởi động (Vòng lặp tối đa 60s)
-          echo "Waiting for backend to be ready..."
-          timeout 60 bash -c 'until curl --silent --output /dev/null --fail http://localhost:8080/api/products; do printf "."; sleep 2; done'
-          echo "Backend is UP!"
-
-          # 2. Tạo User Test (Dự phòng trường hợp schema.sql chưa chạy)
-          echo "Creating test user..."
+          # Register test user qua API
           curl -X POST http://localhost:8080/api/auth/register \
             -H "Content-Type: application/json" \
-            -d '{"username":"testuser","password":"Test123","email":"test@example.com"}' || echo "User creation skipped (maybe exists)"
+            -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
 
       - name: Start Frontend Server
         run: |
