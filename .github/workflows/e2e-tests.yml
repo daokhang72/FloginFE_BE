@@ -55,17 +55,7 @@ jobs:
           cd backend
           ./mvnw spring-boot:run &
           echo "Waiting for backend to start..."
-          sleep 60
-
-          # Health check với retry
-          for i in {1..10}; do
-            if curl -f http://localhost:8080/actuator/health; then
-              echo "Backend is ready!"
-              break
-            fi
-            echo "Attempt $i: Backend not ready, waiting 5s..."
-            sleep 5
-          done
+          sleep 30
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
@@ -96,20 +86,20 @@ jobs:
       - name: Run Product Unit Tests
         run: |
           cd frontend
-          npm test src/tests/product.test.js
+          npm test src/tests/productValidation.test.js
         continue-on-error: true
 
       - name: Run Login E2E Tests
         run: |
           cd frontend
-          npm cypress run -- --spec "cypress/e2e/login.cy.js"
+          npm run cypress:run -- --spec "cypress/e2e/login.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
       - name: Run Product E2E Tests
         run: |
           cd frontend
-          npm cypress run -- --spec "cypress/e2e/product.cy.js"
+          npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
