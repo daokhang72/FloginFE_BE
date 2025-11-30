@@ -56,11 +56,27 @@ jobs:
           ./mvnw spring-boot:run &
           echo "Waiting for backend to start..."
           sleep 60
-          curl -f http://localhost:8080/actuator/health || echo "Backend not ready yet"
+          
+          # Health check với retry
+          for i in {1..10}; do
+            if curl -f http://localhost:8080/actuator/health; then
+              echo "Backend is ready!"
+              break
+            fi
+            echo "Attempt $i: Backend not ready, waiting 5s..."
+            sleep 5
+          done
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
+
+      - name: Create Test User
+        run: |
+          # Register test user qua API
+          curl -X POST http://localhost:8080/api/auth/register \
+            -H "Content-Type: application/json" \
+            -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
 
       - name: Start Frontend Server
         run: |
