@@ -1,4 +1,4 @@
-package com.flogin;
+package com.flogin.controller;
 
 import com.flogin.controller.AuthController;
 import com.flogin.dto.LoginResponse;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(AuthController.class)
 @AutoConfigureMockMvc(addFilters = false)
-public class AuthControllerTest {
+public class AuthControllerMockTest {
 
     @Autowired
     private MockMvc mockMvc;

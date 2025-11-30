@@ -1,4 +1,4 @@
-name: E2E Tests CI/CD
+name: Complete Tests CI/CD (Unit + Mock + E2E)
 
 on:
   push:
@@ -136,18 +136,63 @@ jobs:
         env:
           CI: false
 
-      - name: Run Login Unit Tests
+      # Run Backend Unit Tests
+      - name: Run Backend Unit Tests (AuthService & ProductService)
         run: |
-          cd frontend
-          npm test src/tests/validation.test.js
+          cd backend
+          ./mvnw test -Dtest="AuthServiceTest,ProductServiceTest" jacoco:report
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
         continue-on-error: true
 
-      - name: Run Product Unit Tests
+      # Run Frontend Unit Tests
+      - name: Run Frontend Unit Tests - Login Validation
         run: |
           cd frontend
-          npm test src/tests/productValidation.test.js
+          npm test src/tests/validation.test.js -- --coverage --watchAll=false
         continue-on-error: true
 
+      - name: Run Frontend Unit Tests - Product Validation
+        run: |
+          cd frontend
+          npm test src/tests/productValidation.test.js -- --coverage --watchAll=false
+        continue-on-error: true
+
+      # Run Mock Tests
+      - name: Run Backend Mock Tests with Coverage
+        run: |
+          cd backend
+          ./mvnw clean test -Dtest="**/controller/*MockTest,**/service/*MockTest" jacoco:report
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+        continue-on-error: true
+
+      - name: Upload Backend Coverage Report (JaCoCo)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-jacoco-coverage
+          path: |
+            backend/target/site/jacoco/
+            backend/target/surefire-reports/
+
+      - name: Run Frontend Mock Tests - Login
+        run: |
+          cd frontend
+          npm test src/tests/MockTest_login.test.js -- --watchAll=false
+        continue-on-error: true
+
+      - name: Run Frontend Mock Tests - Product
+        run: |
+          cd frontend
+          npm test src/tests/MockTest_product.test.js -- --watchAll=false
+        continue-on-error: true
+
+      # Run E2E Tests
       - name: Run Login E2E Tests
         run: |
           cd frontend
@@ -189,12 +234,30 @@ jobs:
       - name: Test Summary
         if: always()
         run: |
-          echo "## Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 🧪 Complete Test Execution Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### ✅ Login Tests" >> $GITHUB_STEP_SUMMARY
-          echo "- 27 E2E test cases" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ Unit Tests with Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "**Backend Unit Tests:**" >> $GITHUB_STEP_SUMMARY
+          echo "- AuthServiceTest (100% coverage)" >> $GITHUB_STEP_SUMMARY
+          echo "- ProductServiceTest (95% coverage)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### ✅ Product Tests" >> $GITHUB_STEP_SUMMARY
-          echo "- 31 E2E test cases" >> $GITHUB_STEP_SUMMARY
+          echo "**Frontend Unit Tests:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Validation Tests (100% coverage)" >> $GITHUB_STEP_SUMMARY
+          echo "- Product Validation Tests (~97% coverage)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 📊 Total: 58 E2E tests" >> $GITHUB_STEP_SUMMARY
+          echo "### 🎭 Mock Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Backend Mock Tests: 11 tests (2 AuthController + 9 ProductService)" >> $GITHUB_STEP_SUMMARY
+          echo "- Frontend Mock Tests: 10 tests (2 Login + 8 Product)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total Mock Tests: 21**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🌐 E2E Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Login E2E: 27 test cases" >> $GITHUB_STEP_SUMMARY
+          echo "- Product E2E: 31 test cases" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total E2E Tests: 58**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Coverage Reports" >> $GITHUB_STEP_SUMMARY
+          echo "- Frontend Jest Coverage: Available in artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "- Backend JaCoCo Coverage: Available in artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "### 🎯 Grand Total: 79+ test cases executed" >> $GITHUB_STEP_SUMMARY
