@@ -68,6 +68,36 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
 
+      - name: Seed Categories
+        run: |
+          # Login để lấy token
+          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/register \
+            -H "Content-Type: application/json" \
+            -d '{"username":"admin","password":"Admin123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
+          
+          # Tạo 4 categories
+          curl -X POST http://localhost:8080/api/categories \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"Điện thoại","description":"Điện thoại di động các loại"}'
+          
+          curl -X POST http://localhost:8080/api/categories \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"Laptop","description":"Máy tính xách tay"}'
+          
+          curl -X POST http://localhost:8080/api/categories \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"Tablet","description":"Máy tính bảng"}'
+          
+          curl -X POST http://localhost:8080/api/categories \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"Phụ kiện","description":"Phụ kiện điện tử"}'
+          
+          echo "✅ Seeded 4 categories"
+
       - name: Start Frontend Server
         run: |
           cd frontend
