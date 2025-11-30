@@ -1,0 +1,913 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 31,
+    "passes": 3,
+    "pending": 0,
+    "failures": 28,
+    "start": "2025-11-30T11:46:52.392Z",
+    "end": "2025-11-30T11:50:55.256Z",
+    "duration": 242864,
+    "testsRegistered": 31,
+    "passPercent": 9.67741935483871,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bf5a554f-e27e-4a53-b99c-51b19382c5b3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\product.cy.js",
+      "file": "cypress\\e2e\\product.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3e25e0ba-0ec7-458a-bc23-0fb52d047bdd",
+          "title": "Product E2E Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+              "title": "a) Create Product Flow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên tạo sản phẩm mới thành công với đầy đủ thông tin",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên tạo sản phẩm mới thành công với đầy đủ thông tin",
+                  "timedOut": null,
+                  "duration": 7880,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const newProduct = {\n  name: 'Laptop Dell',\n  price: '15000000',\n  quantity: '10',\n  description: 'Laptop Dell XPS 13 inch',\n  categoryId: '1'\n};\nproductPage.clickAddNew();\nproductPage.shouldShowForm();\nproductPage.shouldHaveFormTitle('Tạo Sản Phẩm Mới');\nproductPage.fillProductForm(newProduct);\nproductPage.clickSave();\ncy.wait(1000);\nproductPage.shouldShowSuccessMessage('Thêm mới thành công');\nproductPage.shouldNotShowForm();\nproductPage.shouldContainProductName('Laptop Dell');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:26:18)",
+                    "diff": null
+                  },
+                  "uuid": "40c28b16-4d77-4289-8a8b-8044b1bd9051",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hiển thị form tạo mới khi click \"Thêm Mới\"",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên hiển thị form tạo mới khi click \"Thêm Mới\"",
+                  "timedOut": null,
+                  "duration": 7900,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickAddNew();\nproductPage.shouldShowForm();\nproductPage.shouldHaveFormTitle('Tạo Sản Phẩm Mới');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:40:18)",
+                    "diff": null
+                  },
+                  "uuid": "e8d72fd8-e25b-41fb-a022-ff07d6f1347e",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên đóng form khi click \"Hủy bỏ\"",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên đóng form khi click \"Hủy bỏ\"",
+                  "timedOut": null,
+                  "duration": 7585,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickAddNew();\nproductPage.shouldShowForm();\nproductPage.clickCancel();\nproductPage.shouldNotShowForm();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:46:18)",
+                    "diff": null
+                  },
+                  "uuid": "520615f5-c3f2-4059-81a3-c3aac68fc614",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên validate tên sản phẩm không được để trống",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên validate tên sản phẩm không được để trống",
+                  "timedOut": null,
+                  "duration": 7777,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickAddNew();\nproductPage.fillProductForm({\n  name: '',\n  price: '10000',\n  quantity: '5',\n  categoryId: '1'\n});\nproductPage.clickSave();\nproductPage.shouldShowFormError('name', 'không được để trống');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:53:18)",
+                    "diff": null
+                  },
+                  "uuid": "ad6d3f7b-d7ce-4a37-bfb5-f01e1e83a15e",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên validate giá sản phẩm phải lớn hơn 0",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên validate giá sản phẩm phải lớn hơn 0",
+                  "timedOut": null,
+                  "duration": 8082,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickAddNew();\nproductPage.fillProductForm({\n  name: 'Test Product',\n  price: '0',\n  quantity: '5',\n  categoryId: '1'\n});\nproductPage.clickSave();\nproductPage.shouldShowFormError('price', 'phải lớn hơn 0');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:65:18)",
+                    "diff": null
+                  },
+                  "uuid": "1041722e-75bc-446b-99be-8a1a84ad3362",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên validate số lượng phải lớn hơn hoặc bằng 0",
+                  "fullTitle": "Product E2E Tests a) Create Product Flow Nên validate số lượng phải lớn hơn hoặc bằng 0",
+                  "timedOut": null,
+                  "duration": 8117,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickAddNew();\nproductPage.fillProductForm({\n  name: 'Test Product',\n  price: '10000',\n  quantity: '-1',\n  categoryId: '1'\n});\nproductPage.clickSave();\nproductPage.shouldShowFormError('quantity', 'không được âm');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-primary`, but never found it.\n    at ProductPage.clickAddNew (webpack://frontend/./cypress/support/pages/ProductPage.js:92:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:77:18)",
+                    "diff": null
+                  },
+                  "uuid": "45912b6b-cbb7-4365-ba56-a37118964c4a",
+                  "parentUUID": "b4f8bd6b-1d1c-42aa-b5ee-fa746acf802c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "40c28b16-4d77-4289-8a8b-8044b1bd9051",
+                "e8d72fd8-e25b-41fb-a022-ff07d6f1347e",
+                "520615f5-c3f2-4059-81a3-c3aac68fc614",
+                "ad6d3f7b-d7ce-4a37-bfb5-f01e1e83a15e",
+                "1041722e-75bc-446b-99be-8a1a84ad3362",
+                "45912b6b-cbb7-4365-ba56-a37118964c4a"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 47341,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+              "title": "b) Read/List Products Flow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên hiển thị danh sách sản phẩm khi vào trang",
+                  "fullTitle": "Product E2E Tests b) Read/List Products Flow Nên hiển thị danh sách sản phẩm khi vào trang",
+                  "timedOut": null,
+                  "duration": 7898,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.shouldHaveTitle('Quản Lý Sản Phẩm');\nproductPage.shouldHaveSearchInput();\nproductPage.shouldHaveAddButton();\nproductPage.shouldHaveFilterSection();\nproductPage.waitForProducts();\nproductPage.shouldHaveMinimumProducts(1);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h1`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h1`, but never found it.\n    at ProductPage.shouldHaveTitle (webpack://frontend/./cypress/support/pages/ProductPage.js:223:37)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:94:18)",
+                    "diff": null
+                  },
+                  "uuid": "d4b4c3aa-d7b3-4725-8728-1bd3ba22d072",
+                  "parentUUID": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên xem chi tiết sản phẩm khi click \"Xem Chi Tiết\"",
+                  "fullTitle": "Product E2E Tests b) Read/List Products Flow Nên xem chi tiết sản phẩm khi click \"Xem Chi Tiết\"",
+                  "timedOut": null,
+                  "duration": 7942,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Lấy tên sản phẩm đầu tiên\nproductPage.getProductNameByIndex(0).then(productName => {\n  productPage.clickViewDetail(0);\n  productPage.shouldShowDetailModal();\n  productPage.shouldShowDetailName(productName);\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductNameByIndex (webpack://frontend/./cypress/support/pages/ProductPage.js:393:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:104:18)",
+                    "diff": null
+                  },
+                  "uuid": "75fe6e70-4171-4ff9-8e2c-84ca13bffb20",
+                  "parentUUID": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên đóng modal chi tiết khi click nút đóng",
+                  "fullTitle": "Product E2E Tests b) Read/List Products Flow Nên đóng modal chi tiết khi click nút đóng",
+                  "timedOut": null,
+                  "duration": 7991,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickViewDetail(0);\nproductPage.shouldShowDetailModal();\nproductPage.closeDetailModal();\nproductPage.shouldNotShowDetailModal();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:112:18)",
+                    "diff": null
+                  },
+                  "uuid": "f69cb33c-38e5-438b-b932-085cf421f91e",
+                  "parentUUID": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hiển thị đầy đủ thông tin trong modal chi tiết",
+                  "fullTitle": "Product E2E Tests b) Read/List Products Flow Nên hiển thị đầy đủ thông tin trong modal chi tiết",
+                  "timedOut": null,
+                  "duration": 7946,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickViewDetail(0);\nproductPage.shouldShowDetailModal();\n// Verify các elements hiển thị\ncy.get('.detail-name').should('be.visible');\ncy.get('.detail-price').should('be.visible');\ncy.get('.detail-category').should('be.visible');\ncy.get('.detail-row:contains(\"Tồn kho\")').should('be.visible');\ncy.get('.detail-description-content').should('be.visible');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:119:18)",
+                    "diff": null
+                  },
+                  "uuid": "1e9c23f7-0611-469f-8c4d-bd8295005890",
+                  "parentUUID": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên phân trang đúng khi có nhiều sản phẩm",
+                  "fullTitle": "Product E2E Tests b) Read/List Products Flow Nên phân trang đúng khi có nhiều sản phẩm",
+                  "timedOut": null,
+                  "duration": 3555,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Kiểm tra xem có pagination không\ncy.get('body').then($body => {\n  if ($body.find('.pagination').length > 0) {\n    productPage.shouldHavePagination();\n    productPage.shouldBeOnPage(1);\n    // Click next page\n    cy.get('.page-btn:last').then($btn => {\n      if (!$btn.prop('disabled')) {\n        productPage.clickNextPage();\n        cy.wait(500);\n        productPage.shouldBeOnPage(2);\n      }\n    });\n  }\n});",
+                  "err": {},
+                  "uuid": "6aa18597-3707-4bd2-9b42-a2a23034f3f2",
+                  "parentUUID": "faeeef8b-13f9-476f-933c-3460b89a7f8b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6aa18597-3707-4bd2-9b42-a2a23034f3f2"
+              ],
+              "failures": [
+                "d4b4c3aa-d7b3-4725-8728-1bd3ba22d072",
+                "75fe6e70-4171-4ff9-8e2c-84ca13bffb20",
+                "f69cb33c-38e5-438b-b932-085cf421f91e",
+                "1e9c23f7-0611-469f-8c4d-bd8295005890"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 35332,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "644804f0-b305-41a6-bd45-30abf64c0f4b",
+              "title": "c) Update Product Flow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên cập nhật sản phẩm thành công",
+                  "fullTitle": "Product E2E Tests c) Update Product Flow Nên cập nhật sản phẩm thành công",
+                  "timedOut": null,
+                  "duration": 7952,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Click vào sản phẩm đầu tiên để xem chi tiết\nproductPage.clickViewDetail(0);\nproductPage.shouldShowDetailModal();\n// Click edit từ modal\nproductPage.clickDetailEdit();\nproductPage.shouldShowForm();\nproductPage.shouldHaveFormTitle('Chỉnh Sửa Sản Phẩm');\n// Update thông tin\ncy.get('[name=\"price\"]').clear().type('18000000');\nproductPage.clickSave();\ncy.wait(1000);\nproductPage.shouldShowSuccessMessage('Cập nhật thành công');\nproductPage.shouldNotShowForm();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:156:18)",
+                    "diff": null
+                  },
+                  "uuid": "6ec5d35a-6352-422d-a1c1-c16201675d40",
+                  "parentUUID": "644804f0-b305-41a6-bd45-30abf64c0f4b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên mở form edit với dữ liệu hiện tại của sản phẩm",
+                  "fullTitle": "Product E2E Tests c) Update Product Flow Nên mở form edit với dữ liệu hiện tại của sản phẩm",
+                  "timedOut": null,
+                  "duration": 8467,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.getProductNameByIndex(0).then(productName => {\n  productPage.clickViewDetail(0);\n  productPage.clickDetailEdit();\n  productPage.shouldShowForm();\n  productPage.shouldHaveFormTitle('Chỉnh Sửa Sản Phẩm');\n  productPage.shouldHaveFormValue('name', productName);\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductNameByIndex (webpack://frontend/./cypress/support/pages/ProductPage.js:393:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:174:18)",
+                    "diff": null
+                  },
+                  "uuid": "e06fae92-5350-4c9f-9303-720fc21965e6",
+                  "parentUUID": "644804f0-b305-41a6-bd45-30abf64c0f4b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên validate khi update với dữ liệu không hợp lệ",
+                  "fullTitle": "Product E2E Tests c) Update Product Flow Nên validate khi update với dữ liệu không hợp lệ",
+                  "timedOut": null,
+                  "duration": 8069,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickViewDetail(0);\nproductPage.clickDetailEdit();\n// Xóa tên sản phẩm (invalid)\ncy.get('[name=\"name\"]').clear();\nproductPage.clickSave();\nproductPage.shouldShowFormError('name', 'không được để trống');\nproductPage.shouldShowForm(); // Form vẫn mở",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:185:18)",
+                    "diff": null
+                  },
+                  "uuid": "2fa2a3f3-aebe-40e6-911b-08ccf4ed02c2",
+                  "parentUUID": "644804f0-b305-41a6-bd45-30abf64c0f4b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hủy bỏ update khi click \"Hủy bỏ\"",
+                  "fullTitle": "Product E2E Tests c) Update Product Flow Nên hủy bỏ update khi click \"Hủy bỏ\"",
+                  "timedOut": null,
+                  "duration": 7988,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickViewDetail(0);\nproductPage.clickDetailEdit();\nproductPage.shouldShowForm();\n// Thay đổi dữ liệu nhưng không save\ncy.get('[name=\"price\"]').clear().type('99999999');\nproductPage.clickCancel();\nproductPage.shouldNotShowForm();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:197:18)",
+                    "diff": null
+                  },
+                  "uuid": "4ea032c7-c60f-4309-87b8-ba0d781caf62",
+                  "parentUUID": "644804f0-b305-41a6-bd45-30abf64c0f4b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "6ec5d35a-6352-422d-a1c1-c16201675d40",
+                "e06fae92-5350-4c9f-9303-720fc21965e6",
+                "2fa2a3f3-aebe-40e6-911b-08ccf4ed02c2",
+                "4ea032c7-c60f-4309-87b8-ba0d781caf62"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 32476,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "9546c131-b752-4f20-b565-47ea2a1b6399",
+              "title": "d) Delete Product Flow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên hiển thị modal xác nhận khi xóa sản phẩm",
+                  "fullTitle": "Product E2E Tests d) Delete Product Flow Nên hiển thị modal xác nhận khi xóa sản phẩm",
+                  "timedOut": null,
+                  "duration": 8069,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.getProductNameByIndex(0).then(productName => {\n  productPage.clickViewDetail(0);\n  productPage.clickDetailDelete();\n  productPage.shouldShowDeleteModal();\n  productPage.shouldShowDeleteConfirmation(productName);\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductNameByIndex (webpack://frontend/./cypress/support/pages/ProductPage.js:393:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:214:18)",
+                    "diff": null
+                  },
+                  "uuid": "072f908e-8480-4a98-8a3b-ef20ad54f01c",
+                  "parentUUID": "9546c131-b752-4f20-b565-47ea2a1b6399",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hủy xóa khi click \"Hủy bỏ\" trong modal xác nhận",
+                  "fullTitle": "Product E2E Tests d) Delete Product Flow Nên hủy xóa khi click \"Hủy bỏ\" trong modal xác nhận",
+                  "timedOut": null,
+                  "duration": 8136,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.clickViewDetail(0);\nproductPage.clickDetailDelete();\nproductPage.shouldShowDeleteModal();\nproductPage.cancelDelete();\nproductPage.shouldNotShowDeleteModal();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.clickViewDetail (webpack://frontend/./cypress/support/pages/ProductPage.js:130:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:224:18)",
+                    "diff": null
+                  },
+                  "uuid": "08b6e41a-22ff-4ad9-b75b-4e70fc7f641d",
+                  "parentUUID": "9546c131-b752-4f20-b565-47ea2a1b6399",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên xóa sản phẩm thành công khi xác nhận",
+                  "fullTitle": "Product E2E Tests d) Delete Product Flow Nên xóa sản phẩm thành công khi xác nhận",
+                  "timedOut": null,
+                  "duration": 8052,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Đếm số sản phẩm trước khi xóa\nproductPage.getProductCount().then(initialCount => {\n  productPage.getProductNameByIndex(0).then(productName => {\n    productPage.clickViewDetail(0);\n    productPage.clickDetailDelete();\n    productPage.shouldShowDeleteModal();\n    productPage.confirmDelete();\n    cy.wait(1000);\n    productPage.shouldShowSuccessMessage('Đã xóa sản phẩm thành công');\n    productPage.shouldNotShowDeleteModal();\n    // Verify sản phẩm đã bị xóa\n    cy.get('.product-card').should('have.length.lessThan', initialCount);\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductCount (webpack://frontend/./cypress/support/pages/ProductPage.js:388:14)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:234:18)",
+                    "diff": null
+                  },
+                  "uuid": "1a6a2fa6-93ce-439f-83a1-da088b691193",
+                  "parentUUID": "9546c131-b752-4f20-b565-47ea2a1b6399",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên xóa đúng sản phẩm được chọn",
+                  "fullTitle": "Product E2E Tests d) Delete Product Flow Nên xóa đúng sản phẩm được chọn",
+                  "timedOut": null,
+                  "duration": 8011,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.getProductNameByIndex(0).then(productNameToDelete => {\n  productPage.clickViewDetail(0);\n  productPage.clickDetailDelete();\n  productPage.confirmDelete();\n  cy.wait(1000);\n  // Verify sản phẩm không còn trong danh sách\n  cy.get('.product-card').each($card => {\n    cy.wrap($card).find('.card-title').should('not.contain', productNameToDelete);\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductNameByIndex (webpack://frontend/./cypress/support/pages/ProductPage.js:393:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:253:18)",
+                    "diff": null
+                  },
+                  "uuid": "e1c22959-dec8-47e5-b65e-1e7a7410811e",
+                  "parentUUID": "9546c131-b752-4f20-b565-47ea2a1b6399",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "072f908e-8480-4a98-8a3b-ef20ad54f01c",
+                "08b6e41a-22ff-4ad9-b75b-4e70fc7f641d",
+                "1a6a2fa6-93ce-439f-83a1-da088b691193",
+                "e1c22959-dec8-47e5-b65e-1e7a7410811e"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 32268,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+              "title": "e) Search and Filter Functionality",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên tìm kiếm sản phẩm theo tên",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên tìm kiếm sản phẩm theo tên",
+                  "timedOut": null,
+                  "duration": 8259,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.getProductNameByIndex(0).then(productName => {\n  const searchTerm = productName.substring(0, 5);\n  productPage.typeSearch(searchTerm);\n  cy.wait(500);\n  // Verify kết quả tìm kiếm\n  cy.get('.product-card').each($card => {\n    cy.wrap($card).find('.card-title').invoke('text').should('match', new RegExp(searchTerm, 'i'));\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductNameByIndex (webpack://frontend/./cypress/support/pages/ProductPage.js:393:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:273:18)",
+                    "diff": null
+                  },
+                  "uuid": "1b219c82-d8de-4649-8a96-b30b3432f569",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hiển thị \"Không tìm thấy\" khi search không có kết quả",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên hiển thị \"Không tìm thấy\" khi search không có kết quả",
+                  "timedOut": null,
+                  "duration": 8301,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.typeSearch('ProductNotExist123456789');\ncy.wait(500);\nproductPage.shouldShowNoResults();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.search-input`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.search-input`, but never found it.\n    at ProductPage.typeSearch (webpack://frontend/./cypress/support/pages/ProductPage.js:102:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:287:18)",
+                    "diff": null
+                  },
+                  "uuid": "4b3a2653-c6fc-4d5c-ba13-b8b9c0ffbc96",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên clear search và hiển thị lại tất cả sản phẩm",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên clear search và hiển thị lại tất cả sản phẩm",
+                  "timedOut": null,
+                  "duration": 8499,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Search trước\nproductPage.typeSearch('test');\ncy.wait(500);\n// Clear search\nproductPage.clearSearch();\ncy.wait(500);\n// Verify hiển thị lại products\nproductPage.shouldHaveMinimumProducts(1);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.search-input`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.search-input`, but never found it.\n    at ProductPage.typeSearch (webpack://frontend/./cypress/support/pages/ProductPage.js:102:7)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:294:18)",
+                    "diff": null
+                  },
+                  "uuid": "f2fda031-9163-42cc-983f-68bb817fd6d0",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên lọc sản phẩm theo danh mục",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên lọc sản phẩm theo danh mục",
+                  "timedOut": null,
+                  "duration": 9009,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Click vào filter đầu tiên (không phải \"Tất cả\")\ncy.get('.filter-pill').eq(1).then($pill => {\n  const categoryName = $pill.text().trim();\n  cy.wrap($pill).click();\n  cy.wait(500);\n  productPage.shouldHaveActiveFilter(categoryName);\n  // Verify tất cả sản phẩm đều thuộc category này\n  cy.get('.product-card').each($card => {\n    cy.wrap($card).find('.card-category').should('contain', categoryName);\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:307:9)",
+                    "diff": null
+                  },
+                  "uuid": "f7a0e793-5fec-406c-9ee0-44a5556413b5",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên reset filter về \"Tất cả\"",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên reset filter về \"Tất cả\"",
+                  "timedOut": null,
+                  "duration": 8203,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Chọn một category cụ thể\ncy.get('.filter-pill').eq(1).click();\ncy.wait(500);\n// Click \"Tất cả\"\nproductPage.selectFilter('Tất cả');\ncy.wait(500);\nproductPage.shouldHaveActiveFilter('Tất cả');\nproductPage.shouldHaveMinimumProducts(1);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:324:9)",
+                    "diff": null
+                  },
+                  "uuid": "bfcc9f58-9cab-4f38-a82d-443686c3ccb7",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên kết hợp search và filter",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên kết hợp search và filter",
+                  "timedOut": null,
+                  "duration": 8204,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Chọn category\ncy.get('.filter-pill').eq(1).then($pill => {\n  const categoryName = $pill.text().trim();\n  cy.wrap($pill).click();\n  cy.wait(500);\n  // Sau đó search\n  productPage.getProductNameByIndex(0).then(productName => {\n    const searchTerm = productName.substring(0, 3);\n    productPage.typeSearch(searchTerm);\n    cy.wait(500);\n    // Verify cả filter và search đều hoạt động\n    productPage.shouldHaveActiveFilter(categoryName);\n    cy.get('.search-input').should('have.value', searchTerm);\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.filter-pill`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:337:9)",
+                    "diff": null
+                  },
+                  "uuid": "e0564493-5279-48a8-ab46-94208f3f3c76",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên reset về trang 1 khi search hoặc filter",
+                  "fullTitle": "Product E2E Tests e) Search and Filter Functionality Nên reset về trang 1 khi search hoặc filter",
+                  "timedOut": null,
+                  "duration": 3847,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Nếu có pagination, đi đến trang 2\ncy.get('body').then($body => {\n  if ($body.find('.pagination').length > 0) {\n    cy.get('.page-btn:last').then($btn => {\n      if (!$btn.prop('disabled')) {\n        productPage.clickNextPage();\n        cy.wait(500);\n        // Sau đó search -> nên reset về trang 1\n        productPage.typeSearch('test');\n        cy.wait(500);\n        // Verify về trang 1\n        cy.get('.page-btn.active').should('contain', '1');\n      }\n    });\n  }\n});",
+                  "err": {},
+                  "uuid": "7c0cb5f9-2a87-47e4-b154-3cf5348f7ca7",
+                  "parentUUID": "a1d85be7-ecf7-4e2d-ba9e-1f3673596e5d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7c0cb5f9-2a87-47e4-b154-3cf5348f7ca7"
+              ],
+              "failures": [
+                "1b219c82-d8de-4649-8a96-b30b3432f569",
+                "4b3a2653-c6fc-4d5c-ba13-b8b9c0ffbc96",
+                "f2fda031-9163-42cc-983f-68bb817fd6d0",
+                "f7a0e793-5fec-406c-9ee0-44a5556413b5",
+                "bfcc9f58-9cab-4f38-a82d-443686c3ccb7",
+                "e0564493-5279-48a8-ab46-94208f3f3c76"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 54322,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+              "title": "Additional E2E Scenarios",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Nên hiển thị placeholder image khi sản phẩm không có ảnh",
+                  "fullTitle": "Product E2E Tests Additional E2E Scenarios Nên hiển thị placeholder image khi sản phẩm không có ảnh",
+                  "timedOut": null,
+                  "duration": 8170,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.card-image').first().should('have.attr', 'src');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-image`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-image`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:382:9)",
+                    "diff": null
+                  },
+                  "uuid": "47c278aa-01f9-486f-9aea-c9a7da25c0d3",
+                  "parentUUID": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên format giá tiền đúng định dạng VND",
+                  "fullTitle": "Product E2E Tests Additional E2E Scenarios Nên format giá tiền đúng định dạng VND",
+                  "timedOut": null,
+                  "duration": 8371,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.card-price').first().invoke('text').should('match', /\\d{1,3}(,\\d{3})*\\s*đ/);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-price`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-price`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:386:9)",
+                    "diff": null
+                  },
+                  "uuid": "1d5befeb-0861-461a-8e13-414cafc301a5",
+                  "parentUUID": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên có nút logout và hoạt động đúng",
+                  "fullTitle": "Product E2E Tests Additional E2E Scenarios Nên có nút logout và hoạt động đúng",
+                  "timedOut": null,
+                  "duration": 8002,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.shouldHaveLogoutButton();\nproductPage.clickLogout();\n// Verify redirect về login\ncy.url().should('include', '/login');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-danger`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button.btn-danger`, but never found it.\n    at ProductPage.shouldHaveLogoutButton (webpack://frontend/./cypress/support/pages/ProductPage.js:238:40)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:390:18)",
+                    "diff": null
+                  },
+                  "uuid": "9f497f0b-334d-4e89-9458-4b0ee0f54af8",
+                  "parentUUID": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên persist data sau khi reload trang",
+                  "fullTitle": "Product E2E Tests Additional E2E Scenarios Nên persist data sau khi reload trang",
+                  "timedOut": null,
+                  "duration": 8247,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "productPage.getProductCount().then(initialCount => {\n  cy.reload();\n  cy.wait(1000);\n  productPage.getProductCount().should('equal', initialCount);\n});",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.product-card`, but never found it.\n    at ProductPage.getProductCount (webpack://frontend/./cypress/support/pages/ProductPage.js:388:14)\n    at Context.eval (webpack://frontend/./cypress/e2e/product.cy.js:398:18)",
+                    "diff": null
+                  },
+                  "uuid": "d5ef9abd-9562-44e4-a5fa-568e4b6d1c83",
+                  "parentUUID": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Nên hiển thị loading state khi tải dữ liệu",
+                  "fullTitle": "Product E2E Tests Additional E2E Scenarios Nên hiển thị loading state khi tải dữ liệu",
+                  "timedOut": null,
+                  "duration": 4249,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('GET', '**/api/products**', req => {\n  req.reply(res => {\n    res.setDelay(1000); // Delay 1s để thấy loading\n  });\n}).as('getProducts');\ncy.reload();\n// Có thể check loading spinner hoặc message nếu có\ncy.get('body').should('be.visible');",
+                  "err": {},
+                  "uuid": "d822a7f1-78b3-41d9-bab2-3b5c65d99b3e",
+                  "parentUUID": "31fe1630-d44b-43a2-919f-7d624e6c4ce7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d822a7f1-78b3-41d9-bab2-3b5c65d99b3e"
+              ],
+              "failures": [
+                "47c278aa-01f9-486f-9aea-c9a7da25c0d3",
+                "1d5befeb-0861-461a-8e13-414cafc301a5",
+                "9f497f0b-334d-4e89-9458-4b0ee0f54af8",
+                "d5ef9abd-9562-44e4-a5fa-568e4b6d1c83"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 37039,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Login E2E Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
