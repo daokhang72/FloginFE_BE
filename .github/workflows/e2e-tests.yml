@@ -9,6 +9,7 @@ on:
 jobs:
   test-e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     services:
       mysql:
@@ -30,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "18.18.2"
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -46,6 +47,7 @@ jobs:
       - name: Build Backend
         run: |
           cd backend
+          chmod +x mvnw # Cấp quyền thực thi cho chắc chắn
           ./mvnw clean package -DskipTests
 
       - name: Start Backend Server
@@ -53,7 +55,7 @@ jobs:
           cd backend
           ./mvnw spring-boot:run &
           echo "Waiting for backend to start..."
-          sleep 45
+          sleep 60
           curl -f http://localhost:8080/actuator/health || echo "Backend not ready yet"
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
@@ -84,14 +86,14 @@ jobs:
       - name: Run Login E2E Tests
         run: |
           cd frontend
-          NO_COLOR=1 npx cypress run --spec "cypress/e2e/login.cy.js" --config video=false
+          npx cypress run --spec "cypress/e2e/login.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
       - name: Run Product E2E Tests
         run: |
           cd frontend
-          NO_COLOR=1 npx cypress run --spec "cypress/e2e/product.cy.js" --config video=false
+          npx cypress run --spec "cypress/e2e/product.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
