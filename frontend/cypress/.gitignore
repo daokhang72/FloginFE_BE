@@ -1,0 +1,10 @@
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+cypress/reports/
+cypress/downloads/
+
+# Test results
+*.xml
+junit*.xml
+test-results/
