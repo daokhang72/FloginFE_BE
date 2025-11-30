@@ -60,6 +60,15 @@ jobs:
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
 
+      - name: Start Frontend Server
+        run: |
+          cd frontend
+          BROWSER=none npm start &
+          echo "Waiting for frontend to start..."
+          sleep 30
+        env:
+          CI: false
+
       - name: Run Login Unit Tests
         run: |
           cd frontend
@@ -75,12 +84,12 @@ jobs:
       - name: Run Login E2E Tests
         run: |
           cd frontend
-          npm run cypress:test -- --spec "cypress/e2e/login.cy.js"
+          npx cypress run --spec "cypress/e2e/login.cy.js"
 
       - name: Run Product E2E Tests
         run: |
           cd frontend
-          npm run cypress:test -- --spec "cypress/e2e/product.cy.js"
+          npx cypress run --spec "cypress/e2e/product.cy.js"
 
       - name: Generate Combined Mochawesome Report
         if: always()
