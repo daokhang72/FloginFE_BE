@@ -9,6 +9,11 @@ module.exports = defineConfig({
     viewportHeight: 720,
     video: true,
     screenshotOnRunFailure: true,
+    // Timeout settings for CI/CD
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 60000,
+    requestTimeout: 10000,
+    responseTimeout: 30000,
     // Reporter configuration for CI/CD
     reporter: "mochawesome",
     reporterOptions: {
