@@ -60,43 +60,23 @@ jobs:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
+          # Bật chế độ tự động chạy schema.sql (nếu bạn đã tạo file này)
+          SPRING_SQL_INIT_MODE: always
+          SPRING_SQL_INIT_PLATFORM: mysql
+          SPRING_JPA_HIBERNATE_DDL_AUTO: none
 
-      - name: Create Test User
+      - name: Wait for Backend & Create User
         run: |
-          # Register test user qua API
+          # 1. Chờ Backend khởi động (Vòng lặp tối đa 60s)
+          echo "Waiting for backend to be ready..."
+          timeout 60 bash -c 'until curl --silent --output /dev/null --fail http://localhost:8080/api/products; do printf "."; sleep 2; done'
+          echo "Backend is UP!"
+
+          # 2. Tạo User Test (Dự phòng trường hợp schema.sql chưa chạy)
+          echo "Creating test user..."
           curl -X POST http://localhost:8080/api/auth/register \
             -H "Content-Type: application/json" \
-            -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
-
-      - name: Seed Categories
-        run: |
-          # Login để lấy token
-          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/register \
-            -H "Content-Type: application/json" \
-            -d '{"username":"admin","password":"Admin123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
-          
-          # Tạo 4 categories
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Điện thoại","description":"Điện thoại di động các loại"}'
-          
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Laptop","description":"Máy tính xách tay"}'
-          
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Tablet","description":"Máy tính bảng"}'
-          
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Phụ kiện","description":"Phụ kiện điện tử"}'
-          
-          echo "✅ Seeded 4 categories"
+            -d '{"username":"testuser","password":"Test123","email":"test@example.com"}' || echo "User creation skipped (maybe exists)"
 
       - name: Start Frontend Server
         run: |
