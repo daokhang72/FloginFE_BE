@@ -136,7 +136,7 @@ jobs:
         env:
           CI: false
 
-      # Seed Test Data for Unit Tests
+      # Seed Test Data for Unit Tests (TRƯỚC KHI CHẠY TESTS)
       - name: Seed Test Data for Unit Tests
         run: |
           echo "🌱 Seeding test data for unit tests..."
@@ -145,13 +145,18 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
 
+          echo "Token: $TOKEN"
+
           # Tạo 1 test product
           curl -X POST http://localhost:8080/api/products \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"name":"Test Product","description":"For unit tests","price":100,"stock":10,"categoryId":1}'
 
-      # Run Backend Unit Tests
+          echo "✅ Test data seeded, waiting 5 seconds..."
+          sleep 5
+
+      # Run Backend Unit Tests (SAU KHI SEED XONG)
       - name: Run Backend Unit Tests (AuthService & ProductService)
         run: |
           cd backend
@@ -194,6 +199,11 @@ jobs:
           path: |
             backend/target/site/jacoco/
             backend/target/surefire-reports/
+
+      - name: Install react-router-dom for Mock Tests
+        run: |
+          cd frontend
+          npm install react-router-dom --legacy-peer-deps
 
       - name: Run Frontend Mock Tests - Login
         run: |
