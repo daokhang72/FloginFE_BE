@@ -56,7 +56,7 @@ jobs:
           ./mvnw spring-boot:run &
           echo "Waiting for backend to start..."
           sleep 60
-          
+
           # Health check với retry
           for i in {1..10}; do
             if curl -f http://localhost:8080/actuator/health; then
@@ -90,26 +90,26 @@ jobs:
       - name: Run Login Unit Tests
         run: |
           cd frontend
-          npm test -- --testPathPattern=Login --coverage
+          npm test src/tests/validation.test.js
         continue-on-error: true
 
       - name: Run Product Unit Tests
         run: |
           cd frontend
-          npm test -- --testPathPattern=Product --coverage
+          npm test src/tests/product.test.js
         continue-on-error: true
 
       - name: Run Login E2E Tests
         run: |
           cd frontend
-          npx cypress run --spec "cypress/e2e/login.cy.js"
+          npm cypress run -- --spec "cypress/e2e/login.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
       - name: Run Product E2E Tests
         run: |
           cd frontend
-          npx cypress run --spec "cypress/e2e/product.cy.js"
+          npm cypress run -- --spec "cypress/e2e/product.cy.js"
         env:
           NODE_OPTIONS: "--no-warnings"
 
