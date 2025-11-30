@@ -83,7 +83,7 @@ class ProductPage {
 
   // Navigation
   visit() {
-    cy.visit('/product');
+    cy.visit("/product");
     return this;
   }
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 04:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.29)  1 DEC 2025 02:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1171,7 +1171,7 @@ Package hyperref Info: Link coloring ON on input line 78.
 \@outlinefile=\write4
 \openout4 = `BaoCao_TongHop.out'.
 
-<logoITSGU.png, id=226, 803.0pt x 803.0pt>
+<logoITSGU.png, id=314, 803.0pt x 803.0pt>
 File: logoITSGU.png Graphic file (type png)
 <use logoITSGU.png>
 Package pdftex.def Info: logoITSGU.png  used on input line 92.
@@ -1201,12 +1201,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 ...2}Performance Testing}{16}{subsection.6.2}
+l.45 ...n Testing (5 Ä‘iá»ƒm)}{17}{subsection.5.3}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `BaoCao_TongHop.toc'.
 
-<logoITSGUsmall.png, id=296, 803.0pt x 803.0pt>
+<logoITSGUsmall.png, id=406, 803.0pt x 803.0pt>
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 143.
@@ -1272,7 +1272,7 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-<../bao_cao_unit_testing/images/login_validation_frontend.png, id=328, 485.5640
+<../bao_cao_unit_testing/images/login_validation_frontend.png, id=438, 485.5640
 6pt x 261.22594pt>
 File: ../bao_cao_unit_testing/images/login_validation_frontend.png Graphic file
  (type png)
@@ -1359,7 +1359,7 @@ Overfull \hbox (5.935pt too wide) in alignment at lines 125--136
  [] [] [] 
  []
 
-<../bao_cao_unit_testing/images/auth_service_backend.png, id=341, 730.22812pt x
+<../bao_cao_unit_testing/images/auth_service_backend.png, id=451, 730.22812pt x
  125.71968pt>
 File: ../bao_cao_unit_testing/images/auth_service_backend.png Graphic file (typ
 e png)
@@ -1408,7 +1408,7 @@ Overfull \hbox (13.01346pt too wide) in alignment at lines 189--234
  [] [] [] [] 
  []
 
-<../bao_cao_unit_testing/images/product_validation_frontend.png, id=352, 493.09
+<../bao_cao_unit_testing/images/product_validation_frontend.png, id=462, 493.09
 22pt x 274.77657pt>
 File: ../bao_cao_unit_testing/images/product_validation_frontend.png Graphic fi
 le (type png)
@@ -1458,7 +1458,7 @@ File: logoITSGUsmall.png Graphic file (type png)
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 305.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [9 <../bao_cao_unit_testing/images/product_validation_frontend.png>]
-<../bao_cao_unit_testing/images/product_service_backend.png, id=370, 804.00375p
+<../bao_cao_unit_testing/images/product_service_backend.png, id=480, 804.00375p
 t x 267.24844pt>
 File: ../bao_cao_unit_testing/images/product_service_backend.png Graphic file (
 type png)
@@ -1473,7 +1473,7 @@ Overfull \hbox (8.7107pt too wide) in paragraph at lines 326--327
 /10 State-ments, \T5/cmr/bx/n/10 96.96%
  []
 
-<../bao_cao_unit_testing/images/frontend_coverage.png, id=371, 1444.64719pt x 3
+<../bao_cao_unit_testing/images/frontend_coverage.png, id=481, 1444.64719pt x 3
 22.20375pt>
 File: ../bao_cao_unit_testing/images/frontend_coverage.png Graphic file (type p
 ng)
@@ -1489,7 +1489,7 @@ File: logoITSGUsmall.png Graphic file (type png)
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 354.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 [10 <../bao_cao_unit_testing/images/product_service_backend.png>]
-<../bao_cao_unit_testing/images/backend_coverage.png, id=385, 1444.64719pt x 21
+<../bao_cao_unit_testing/images/backend_coverage.png, id=495, 1444.64719pt x 21
 7.5628pt>
 File: ../bao_cao_unit_testing/images/backend_coverage.png Graphic file (type pn
 g)
@@ -1518,18 +1518,151 @@ File: logoITSGUsmall.png Graphic file (type png)
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 290.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
  [14]
+(../bao_cao_automation_testing/BaoCao_AutomationTesting_Content_Short.tex
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
-Package pdftex.def Info: logoITSGUsmall.png  used on input line 312.
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 58.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [15]
-(../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
+
+[15]
+<../bao_cao_automation_testing/images/login_e2e_results.png.png, id=529, 628.59
+843pt x 602.25pt>
+File: ../bao_cao_automation_testing/images/login_e2e_results.png.png Graphic fi
+le (type png)
+<use ../bao_cao_automation_testing/images/login_e2e_results.png.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/login_e2e_results
+.png.png  used on input line 87.
+(pdftex.def)             Requested size: 355.51817pt x 340.6119pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 90.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [16]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 118.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [17 <../bao_cao_automation_testing/images/login_e2e_results.png.png>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 171.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[18]
+<../bao_cao_automation_testing/images/product_e2e_results.png, id=552, 516.4293
+8pt x 642.90187pt>
+File: ../bao_cao_automation_testing/images/product_e2e_results.png Graphic file
+ (type png)
+<use ../bao_cao_automation_testing/images/product_e2e_results.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/product_e2e_resul
+ts.png  used on input line 191.
+(pdftex.def)             Requested size: 355.51817pt x 442.60216pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 194.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [19]
+<../bao_cao_automation_testing/images/mochawesome_report_login.png, id=561, 363
+.60844pt x 575.90157pt>
+File: ../bao_cao_automation_testing/images/mochawesome_report_login.png Graphic
+ file (type png)
+<use ../bao_cao_automation_testing/images/mochawesome_report_login.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/mochawesome_repor
+t_login.png  used on input line 217.
+(pdftex.def)             Requested size: 200.75996pt x 317.98589pt.
+<../bao_cao_automation_testing/images/mochawesome_report_product.png, id=562, 3
+65.11406pt x 664.73344pt>
+File: ../bao_cao_automation_testing/images/mochawesome_report_product.png Graph
+ic file (type png)
+<use ../bao_cao_automation_testing/images/mochawesome_report_product.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/mochawesome_repor
+t_product.png  used on input line 223.
+(pdftex.def)             Requested size: 200.75996pt x 365.5031pt.
+
+Underfull \hbox (badness 1137) in paragraph at lines 224--224
+[]\T5/cmr/m/n/10 H¼nh 10: |Mochawe-some Re-port - Prod-uct
+ []
+
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 226.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[20 <../bao_cao_automation_testing/images/product_e2e_results.png>]
+<../bao_cao_automation_testing/images/e2e_tests_summary.png, id=571, 740.7675pt
+ x 210.7875pt>
+File: ../bao_cao_automation_testing/images/e2e_tests_summary.png Graphic file (
+type png)
+<use ../bao_cao_automation_testing/images/e2e_tests_summary.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/e2e_tests_summary
+.png  used on input line 241.
+(pdftex.def)             Requested size: 376.42575pt x 107.11424pt.
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 244.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [21 <../bao_cao_automation_testing/images/mochawesome_report_login.png> <../ba
+o_cao_automation_testing/images/mochawesome_report_product.png>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 298.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [22 <../bao_cao_automation_testing/images/e2e_tests_summary.png>]
+<../bao_cao_automation_testing/images/github_actions_workflow.png, id=595, 1918
+.16624pt x 763.85374pt>
+File: ../bao_cao_automation_testing/images/github_actions_workflow.png Graphic 
+file (type png)
+<use ../bao_cao_automation_testing/images/github_actions_workflow.png>
+Package pdftex.def Info: ../bao_cao_automation_testing/images/github_actions_wo
+rkflow.png  used on input line 328.
+(pdftex.def)             Requested size: 376.42575pt x 149.90079pt.
+
+
+! LaTeX Error: Unicode character âœ“ (U+2713)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.329 ...Workflow - Táº¥t cáº£ steps passed (âœ“)}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! LaTeX Error: Unicode character âœ“ (U+2713)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.329 ...Workflow - Táº¥t cáº£ steps passed (âœ“)}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 347.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+[23 <../bao_cao_automation_testing/images/github_actions_workflow.png (PNG copy
+)>]
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 398.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [24])
+File: logoITSGUsmall.png Graphic file (type png)
+<use logoITSGUsmall.png>
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 298.
+(pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
+ [25] (../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
 Overfull \hbox (13.06306pt too wide) in paragraph at lines 27--28
 []\T5/cmr/m/it/10 L÷u þ: H÷îng d¨n c i ^^_°t k6 v  ch¤y tests chi ti¸t câ trong
  file performance-testing/README.md 
  []
 
-<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=419, 569.87906pt
+<../bao_cao_phan_mo_rong/images/login_performance_test.png, id=618, 569.87906pt
  x 284.56313pt>
 File: ../bao_cao_phan_mo_rong/images/login_performance_test.png Graphic file (t
 ype png)
@@ -1537,7 +1670,7 @@ ype png)
 Package pdftex.def Info: ../bao_cao_phan_mo_rong/images/login_performance_test.
 png  used on input line 44.
 (pdftex.def)             Requested size: 200.75996pt x 100.24554pt.
-<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=420, 559.33969
+<../bao_cao_phan_mo_rong/images/product_performance_test.png, id=619, 559.33969
 pt x 285.31593pt>
 File: ../bao_cao_phan_mo_rong/images/product_performance_test.png Graphic file 
 (type png)
@@ -1549,14 +1682,14 @@ File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 74.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
-[16 <../bao_cao_phan_mo_rong/images/login_performance_test.png> <../bao_cao_pha
+[26 <../bao_cao_phan_mo_rong/images/login_performance_test.png> <../bao_cao_pha
 n_mo_rong/images/product_performance_test.png>]
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 117.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [17]
-<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=439, 1004.553pt 
+ [27]
+<../bao_cao_phan_mo_rong/images/response_time_analysis.png, id=638, 1004.553pt 
 x 502.2765pt>
 File: ../bao_cao_phan_mo_rong/images/response_time_analysis.png Graphic file (t
 ype png)
@@ -1568,13 +1701,13 @@ File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 183.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [18]
+ [28]
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 232.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [19 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
-<../bao_cao_phan_mo_rong/images/security_test_results.png, id=465, 718.18312pt 
+ [29 <../bao_cao_phan_mo_rong/images/response_time_analysis.png>]
+<../bao_cao_phan_mo_rong/images/security_test_results.png, id=663, 718.18312pt 
 x 430.60875pt>
 File: ../bao_cao_phan_mo_rong/images/security_test_results.png Graphic file (ty
 pe png)
@@ -1590,29 +1723,29 @@ File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 304.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
-[20 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
+[30 <../bao_cao_phan_mo_rong/images/security_test_results.png>]
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
 Package pdftex.def Info: logoITSGUsmall.png  used on input line 350.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [21])
+ [31])
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
-Package pdftex.def Info: logoITSGUsmall.png  used on input line 320.
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 306.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [22]
+ [32]
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
-Package pdftex.def Info: logoITSGUsmall.png  used on input line 383.
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 369.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
 
-[23]
+[33]
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
-Package pdftex.def Info: logoITSGUsmall.png  used on input line 394.
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 380.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
- [24]
-Overfull \hbox (12.54955pt too wide) in paragraph at lines 421--422
+ [34]
+Overfull \hbox (12.54955pt too wide) in paragraph at lines 407--408
 []\T5/cmr/m/n/10 OWASP Test-ing Guide, [][]$\T5/cmtt/m/n/10 https : / / owasp .
  org / www-[]project-[]web-[]security-[]testing-[]guide/$[][] 
  []
@@ -1621,21 +1754,21 @@ Overfull \hbox (12.54955pt too wide) in paragraph at lines 421--422
 AED: lastpage setting LastPage
 File: logoITSGUsmall.png Graphic file (type png)
 <use logoITSGUsmall.png>
-Package pdftex.def Info: logoITSGUsmall.png  used on input line 424.
+Package pdftex.def Info: logoITSGUsmall.png  used on input line 410.
 (pdftex.def)             Requested size: 22.7534pt x 22.7534pt.
-[25] (BaoCao_TongHop.aux)
+[35] (BaoCao_TongHop.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `BaoCao_TongHop.out' has not changed.
-(rerunfilecheck)             Checksum: 9D17A0733C3B9D2F8FA7DB0D371CF3BC;10855.
+(rerunfilecheck)             Checksum: 6BF2EE46EED59FB461DCE6335D0D4D42;14787.
  ) 
 Here is how much of TeX's memory you used:
- 26062 strings out of 474486
- 476004 string characters out of 5743754
+ 26204 strings out of 474486
+ 481105 string characters out of 5743754
  1959542 words of memory out of 5000000
- 47714 multiletter control sequences out of 15000+600000
+ 47793 multiletter control sequences out of 15000+600000
  578339 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,25n,93p,504b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1655,9 +1788,9 @@ ts/type1/vntex/vnr/vnr8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts
 type1/vntex/vnr/vntt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/
 type1/vntex/vnr/vntt8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/vntex/vnr/vntt9.pfb>
-Output written on BaoCao_TongHop.pdf (26 pages, 1409179 bytes).
+Output written on BaoCao_TongHop.pdf (36 pages, 1671772 bytes).
 PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 152 named destinations out of 1000 (max. 500000)
- 513 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 835 PDF objects out of 1000 (max. 8388607)
+ 210 named destinations out of 1000 (max. 500000)
+ 719 words of extra memory for PDF output out of 10000 (max. 10000000)
 

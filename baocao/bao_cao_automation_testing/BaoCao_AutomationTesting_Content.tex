@@ -1,0 +1,921 @@
+% ============================================
+% CHƯƠNG 5: AUTOMATION TESTING VÀ CI/CD
+% ============================================
+\section{Automation Testing và CI/CD}
+
+\subsection{Giới thiệu}
+
+Automation Testing (Kiểm thử tự động) là phương pháp quan trọng trong quy trình phát triển phần mềm hiện đại. Chương này trình bày quá trình thiết lập và thực hiện E2E (End-to-End) Automation Testing cho hai chức năng chính: \textbf{Login} và \textbf{Product Management}, cùng với tích hợp CI/CD pipeline.
+
+\subsubsection{Công nghệ sử dụng}
+
+\begin{itemize}
+    \item \textbf{Testing Framework}: Cypress 15.6.0 - E2E Testing
+    \item \textbf{Design Pattern}: Page Object Model (POM)
+    \item \textbf{Test Reporter}: Mochawesome với HTML/JSON reports
+    \item \textbf{CI/CD}: GitHub Actions
+    \item \textbf{Build Tool}: npm, Maven
+\end{itemize}
+
+\subsubsection{Lợi ích}
+
+\begin{enumerate}
+    \item \textbf{Tăng tốc độ testing}: Tự động hóa các test cases lặp lại
+    \item \textbf{Giảm lỗi}: Loại bỏ sai sót do test thủ công
+    \item \textbf{Regression Testing}: Phát hiện lỗi sớm khi có code changes
+    \item \textbf{CI/CD Integration}: Tests tự động chạy trong pipeline
+\end{enumerate}
+
+\subsection{Câu 5.1: Login - E2E Automation Testing (5 điểm)}
+
+\subsubsection{Page Object Model Design}
+
+Nhóm đã thiết kế \texttt{LoginPage.js} theo mô hình Page Object Model (POM) để tách biệt logic test và cấu trúc UI. File này chứa:
+
+\textbf{Thành phần chính:}
+\begin{itemize}
+    \item \textbf{Selectors}: data-testid cho username, password, login button, error/success messages
+    \item \textbf{Navigation methods}: visit(), navigateToRegister()
+    \item \textbf{Action methods}: typeUsername(), typePassword(), clickLoginButton()
+    \item \textbf{Assertion methods}: checkUsernameError(), checkSuccessMessage(), checkRedirectToProduct()
+    \item \textbf{Utility methods}: clearAuth(), checkTokenSaved()
+\end{itemize}
+
+\textbf{Ưu điểm của POM:}
+\begin{itemize}
+    \item Dễ bảo trì khi UI thay đổi
+    \item Tái sử dụng code trong nhiều test cases
+    \item Test code rõ ràng, dễ đọc
+    \item Method chaining cho cú pháp gọn gàng
+\end{itemize}
+
+\subsubsection{Test Cases cho Login}
+
+Nhóm đã thiết kế \textbf{27 test cases} toàn diện cho chức năng Login, phân chia thành 5 nhóm:
+
+\textbf{1. Complete Login Flow (3 tests):}
+\begin{itemize}
+    \item Hiển thị đầy đủ UI elements (username, password, login button)
+    \item Đăng nhập thành công với credentials hợp lệ
+    \item Thực hiện complete flow và redirect đến /product
+\end{itemize}
+
+\textbf{2. Validation Messages (6 tests):}
+\begin{itemize}
+    \item Username/Password trống → Hiển thị error "không được để trống"
+    \item Username quá ngắn (< 3 ký tự) → Error validation
+    \item Password quá ngắn (< 6 ký tự) → Error validation
+    \item Clear error khi người dùng nhập đúng format
+\end{itemize}
+
+\textbf{3. Success/Error Flows (5 tests):}
+\begin{itemize}
+    \item Hiển thị error khi credentials không đúng
+    \item Xử lý username/password sai
+    \item Cho phép retry sau login thất bại
+    \item Hiển thị loading state
+\end{itemize}
+
+\textbf{4. UI Interactions (10 tests):}
+\begin{itemize}
+    \item Focus management (auto-focus, Tab navigation)
+    \item Submit form bằng Enter key
+    \item Password masking (*)
+    \item Clear và re-type inputs
+    \item Invalid class cho fields lỗi
+    \item Prevent multiple submissions
+    \item Responsive mobile viewport
+\end{itemize}
+
+\textbf{5. Edge Cases \& Security (3 tests):}
+\begin{itemize}
+    \item Xử lý special characters và spaces
+    \item Clear old error messages
+    \item Security validations
+\end{itemize}
+
+\subsubsection{Kết quả Login Tests}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Total Test Cases & 27 \\
+Passing Tests & 27 \\
+Failing Tests & 0 \\
+Success Rate & 100\% \\
+Execution Time & ~36 seconds \\
+\hline
+\end{tabular}
+\caption{Kết quả Login E2E Tests}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_automation_testing/images/login_e2e_results.png}
+\caption{Kết quả chạy 27 Login E2E test cases}
+\end{figure}
+
+\subsection{Câu 5.2: Product - E2E Automation Testing (5 điểm)}
+
+\subsubsection{Page Object Model cho Product}
+
+\texttt{ProductPage.js} được thiết kế với nhiều interactions phức tạp hơn LoginPage:
+
+\begin{lstlisting}[language=JavaScript]
+class ProductPage {
+  constructor() {
+    this.selectors = {
+      // Header elements
+      pageTitle: 'h1',
+      searchInput: '.search-input',
+      addNewButton: 'button.btn-primary',
+      logoutButton: 'button.btn-danger',
+      
+      // Filter section
+      filterSection: '.filter-section',
+      filterPill: '.filter-pill',
+      activeFilterPill: '.filter-pill.active',
+      
+      // Product grid
+      productGrid: '.product-grid',
+      productCard: '.product-card',
+      productCardTitle: '.card-title',
+      productCardPrice: '.card-price',
+      viewDetailButton: '.view-btn',
+      
+      // Product Form Modal
+      formModal: '.modal-overlay',
+      nameInput: 'input[name="name"]',
+      priceInput: 'input[name="price"]',
+      quantityInput: 'input[name="quantity"]',
+      categorySelect: 'select[name="categoryId"]',
+      saveButton: 'button[type="submit"]',
+      
+      // Detail Modal
+      detailModal: '.modal-content.detail-modal-width',
+      detailEditButton: '.detail-footer .btn-warning',
+      detailDeleteButton: '.detail-footer .btn-danger',
+      
+      // Delete Confirmation Modal
+      deleteModal: '.delete-modal-content',
+      confirmDeleteButton: '.delete-actions .btn-danger',
+      
+      // Messages
+      toastMessage: '.toast-message',
+    };
+  }
+
+  // Navigation
+  visit() {
+    cy.visit('/product');
+    return this;
+  }
+
+  // Header actions
+  clickAddNew() {
+    cy.get(this.selectors.addNewButton).click();
+    return this;
+  }
+
+  typeSearch(text) {
+    cy.get(this.selectors.searchInput).clear().type(text);
+    return this;
+  }
+
+  // Filter actions
+  selectFilter(categoryName) {
+    if (categoryName === 'Tat ca') {
+      cy.get(this.selectors.filterPill).first().click();
+    } else {
+      cy.get(this.selectors.filterSection)
+        .contains('.filter-pill', categoryName).click();
+    }
+    return this;
+  }
+
+  // Form actions
+  fillProductForm(product) {
+    if (product.name) {
+      cy.get(this.selectors.nameInput)
+        .clear().type(product.name);
+    }
+    if (product.price) {
+      cy.get(this.selectors.priceInput)
+        .clear().type(product.price.toString());
+    }
+    if (product.quantity) {
+      cy.get(this.selectors.quantityInput)
+        .clear().type(product.quantity.toString());
+    }
+    if (product.categoryId) {
+      cy.get(this.selectors.categorySelect)
+        .select(product.categoryId.toString());
+    }
+    return this;
+  }
+
+  clickSave() {
+    cy.get(this.selectors.saveButton).click();
+    return this;
+  }
+
+  // Detail modal actions
+  clickViewDetail(index = 0) {
+    cy.get(this.selectors.productCard).eq(index)
+      .find(this.selectors.viewDetailButton)
+      .click({ force: true });
+    return this;
+  }
+
+  clickDetailEdit() {
+    cy.get(this.selectors.detailEditButton).click();
+    return this;
+  }
+
+  clickDetailDelete() {
+    cy.get(this.selectors.detailDeleteButton).click();
+    return this;
+  }
+
+  // Delete modal actions
+  confirmDelete() {
+    cy.get(this.selectors.confirmDeleteButton).click();
+    return this;
+  }
+
+  // Assertions
+  shouldShowSuccessMessage(message) {
+    cy.get(this.selectors.toastMessage)
+      .should('be.visible')
+      .and('contain', message);
+    return this;
+  }
+
+  shouldContainProductName(name) {
+    cy.get(this.selectors.productCardTitle)
+      .should('contain', name);
+    return this;
+  }
+
+  shouldShowForm() {
+    cy.get(this.selectors.formModal).should('be.visible');
+    return this;
+  }
+}
+
+export default ProductPage;
+\end{lstlisting}
+
+\subsubsection{Test Cases cho Product}
+
+Nhóm đã thiết kế và implement \textbf{31 test cases} cho chức năng Product Management, được phân chia thành 5 nhóm chính:
+
+\textbf{a) Create Product Flow (6 tests - 0.5 điểm):}
+
+\begin{lstlisting}[language=JavaScript]
+describe('a) Create Product Flow', () => {
+  it('Nen tao san pham moi thanh cong', () => {
+    const timestamp = Date.now();
+    const newProduct = {
+      name: `Test Product ${timestamp}`,
+      price: '15000000',
+      quantity: '10',
+      description: 'Test description',
+      categoryId: '1'
+    };
+
+    productPage.clickAddNew();
+    productPage.shouldShowForm();
+    productPage.fillProductForm(newProduct);
+    productPage.clickSave();
+    
+    cy.wait(2000);
+    cy.get('.toast-message').should('contain', 'thanh cong');
+    productPage.shouldNotShowForm();
+    productPage.shouldContainProductName('Test Product');
+  });
+
+  it('Nen validate ten san pham khong duoc de trong', () => {
+    productPage.clickAddNew();
+    productPage.fillProductForm({
+      name: '',
+      price: '10000',
+      quantity: '5',
+      categoryId: '1'
+    });
+    productPage.clickSave();
+    productPage.shouldShowFormError('name', 
+      'khong duoc de trong');
+  });
+
+  // ... 4 tests khac
+});
+\end{lstlisting}
+
+Test cases bao gồm:
+\begin{itemize}
+    \item Tạo sản phẩm thành công với đầy đủ thông tin
+    \item Hiển thị form tạo mới khi click "Thêm Mới"
+    \item Đóng form khi click "Hủy bỏ"
+    \item Validate tên sản phẩm không được để trống
+    \item Validate giá sản phẩm phải lớn hơn 0
+    \item Validate số lượng phải lớn hơn hoặc bằng 0
+\end{itemize}
+
+\textbf{b) Read/List Products Flow (5 tests - 0.5 điểm):}
+
+\begin{itemize}
+    \item Hiển thị danh sách sản phẩm khi vào trang
+    \item Xem chi tiết sản phẩm khi click "Xem Chi Tiết"
+    \item Đóng modal chi tiết khi click nút đóng
+    \item Hiển thị đầy đủ thông tin trong modal chi tiết
+    \item Phân trang đúng khi có nhiều sản phẩm
+\end{itemize}
+
+\textbf{c) Update Product Flow (4 tests - 0.5 điểm):}
+
+\begin{lstlisting}[language=JavaScript]
+describe('c) Update Product Flow', () => {
+  it('Nen cap nhat san pham thanh cong', () => {
+    productPage.clickViewDetail(0);
+    productPage.shouldShowDetailModal();
+    
+    productPage.clickDetailEdit();
+    productPage.shouldShowForm();
+    
+    cy.get('[name="price"]').clear().type('18000000');
+    productPage.clickSave();
+    
+    cy.wait(1000);
+    productPage.shouldShowSuccessMessage('Cap nhat thanh cong');
+  });
+
+  // ... 3 tests khac
+});
+\end{lstlisting}
+
+Test cases bao gồm:
+\begin{itemize}
+    \item Cập nhật sản phẩm thành công
+    \item Mở form edit với dữ liệu hiện tại của sản phẩm
+    \item Validate khi update với dữ liệu không hợp lệ
+    \item Hủy bỏ update khi click "Hủy bỏ"
+\end{itemize}
+
+\textbf{d) Delete Product Flow (4 tests - 0.5 điểm):}
+
+\begin{itemize}
+    \item Hiển thị modal xác nhận khi xóa sản phẩm
+    \item Hủy xóa khi click "Hủy bỏ" trong modal xác nhận
+    \item Xóa sản phẩm thành công khi xác nhận
+    \item Xóa đúng sản phẩm được chọn
+\end{itemize}
+
+\textbf{e) Search/Filter Functionality (7 tests - 0.5 điểm):}
+
+\begin{lstlisting}[language=JavaScript]
+describe('e) Search and Filter Functionality', () => {
+  it('Nen tim kiem san pham theo ten', () => {
+    productPage.getProductNameByIndex(0)
+      .then((productName) => {
+        const searchTerm = productName.substring(0, 5);
+        
+        productPage.typeSearch(searchTerm);
+        cy.wait(500);
+        
+        cy.get('.product-card').each(($card) => {
+          cy.wrap($card).find('.card-title')
+            .invoke('text')
+            .should('match', new RegExp(searchTerm, 'i'));
+        });
+      });
+  });
+
+  it('Nen loc san pham theo danh muc', () => {
+    cy.get('.filter-pill').eq(1).then(($pill) => {
+      const categoryName = $pill.text().trim();
+      cy.wrap($pill).click();
+      cy.wait(500);
+      
+      productPage.shouldHaveActiveFilter(categoryName);
+      
+      cy.get('body').then(($body) => {
+        if ($body.find('.product-card').length > 0) {
+          cy.get('.product-card').each(($card) => {
+            cy.wrap($card).find('.card-category')
+              .should('contain', categoryName);
+          });
+        }
+      });
+    });
+  });
+
+  // ... 5 tests khac
+});
+\end{lstlisting}
+
+Test cases bao gồm:
+\begin{itemize}
+    \item Tìm kiếm sản phẩm theo tên
+    \item Hiển thị "Không tìm thấy" khi search không có kết quả
+    \item Clear search và hiển thị lại tất cả sản phẩm
+    \item Lọc sản phẩm theo danh mục
+    \item Reset filter về "Tất cả"
+    \item Kết hợp search và filter
+    \item Reset về trang 1 khi search hoặc filter
+\end{itemize}
+
+\textbf{Additional E2E Scenarios (5 bonus tests):}
+
+\begin{itemize}
+    \item Hiển thị placeholder image khi sản phẩm không có ảnh
+    \item Format giá tiền đúng định dạng VND
+    \item Có nút logout và hoạt động đúng
+    \item Persist data sau khi reload trang
+    \item Hiển thị loading state khi tải dữ liệu
+\end{itemize}
+
+\subsubsection{Kết quả Product Tests}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Metric} & \textbf{Value} & \textbf{Status} \\
+\hline
+Total Test Cases & 31 & - \\
+Passing Tests & 31 & \checkmark \\
+Failing Tests & 0 & \checkmark \\
+Success Rate & 100\% & \checkmark \\
+Execution Time & 2m 18s & \checkmark \\
+\hline
+\end{tabular}
+\caption{Kết quả Product E2E Tests}
+\end{table}
+
+\subsection{Tổng kết Test Coverage}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Feature} & \textbf{Test Cases} & \textbf{Passed} & \textbf{Success Rate} \\
+\hline
+Login & 27 & 27 & 100\% \\
+Product & 31 & 31 & 100\% \\
+\hline
+\textbf{Total} & \textbf{58} & \textbf{58} & \textbf{100\%} \\
+\hline
+\end{tabular}
+\caption{Tổng hợp Test Coverage cho E2E Tests}
+\end{table}
+
+\subsection{Câu 6.1.3: CI/CD Integration (1.5 điểm)}
+
+\subsubsection{GitHub Actions Workflow}
+
+Nhóm đã thiết lập CI/CD pipeline sử dụng GitHub Actions để tự động hóa quá trình testing. File workflow được đặt tại \texttt{.github/workflows/e2e-tests.yml}.
+
+\textbf{Cấu hình Workflow:}
+
+\begin{lstlisting}[language=yaml]
+name: E2E Tests CI/CD
+
+on:
+  push:
+    branches: [main, develop, devTriet]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-e2e:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: flogin_project_db
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Build Backend
+        run: |
+          cd backend
+          ./mvnw clean package -DskipTests
+
+      - name: Start Backend Server
+        run: |
+          cd backend
+          ./mvnw spring-boot:run &
+          sleep 45
+        env:
+          SPRING_DATASOURCE_URL: 
+            jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+
+      - name: Run Login Unit Tests
+        run: |
+          cd frontend
+          npm test -- --testPathPattern=Login --coverage
+        continue-on-error: true
+
+      - name: Run Product Unit Tests
+        run: |
+          cd frontend
+          npm test -- --testPathPattern=Product --coverage
+        continue-on-error: true
+
+      - name: Run Login E2E Tests
+        run: |
+          cd frontend
+          npm run cypress:test -- 
+            --spec "cypress/e2e/login.cy.js"
+
+      - name: Run Product E2E Tests
+        run: |
+          cd frontend
+          npm run cypress:test -- 
+            --spec "cypress/e2e/product.cy.js"
+
+      - name: Generate Combined Mochawesome Report
+        if: always()
+        run: |
+          cd frontend
+          npm run cypress:merge || echo "No reports to merge"
+          npm run cypress:generate || 
+            echo "Could not generate report"
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-test-results
+          path: |
+            frontend/cypress/videos
+            frontend/cypress/screenshots
+            frontend/cypress/reports
+
+      - name: Upload Coverage Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: frontend/coverage
+
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "## Test Execution Summary" >> 
+            $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Login Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- 27 E2E test cases" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Product Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- 31 E2E test cases" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Total: 58 E2E tests" >> 
+            $GITHUB_STEP_SUMMARY
+\end{lstlisting}
+
+\subsubsection{Workflow Stages}
+
+\textbf{1. Environment Setup:}
+\begin{itemize}
+    \item Checkout code từ repository
+    \item Setup Node.js 18 và Java 17
+    \item Khởi động MySQL 8.0 service container
+    \item Install dependencies (npm ci)
+\end{itemize}
+
+\textbf{2. Backend Preparation:}
+\begin{itemize}
+    \item Build backend với Maven
+    \item Start Spring Boot application
+    \item Wait cho backend sẵn sàng (45 seconds)
+    \item Configure database connection
+\end{itemize}
+
+\textbf{3. Test Execution:}
+\begin{itemize}
+    \item Chạy Login Unit Tests với coverage
+    \item Chạy Product Unit Tests với coverage
+    \item Chạy Login E2E Tests (27 tests)
+    \item Chạy Product E2E Tests (31 tests)
+\end{itemize}
+
+\textbf{4. Report Generation:}
+\begin{itemize}
+    \item Merge tất cả Mochawesome JSON reports
+    \item Generate combined HTML report
+    \item Upload artifacts (videos, screenshots, reports)
+    \item Generate test summary trong GitHub Actions UI
+\end{itemize}
+
+\subsubsection{Artifacts và Reports}
+
+Workflow tự động upload các artifacts sau khi test:
+
+\begin{enumerate}
+    \item \textbf{cypress-test-results}:
+    \begin{itemize}
+        \item Videos: Recording của toàn bộ test execution
+        \item Screenshots: Ảnh chụp màn hình khi tests fail
+        \item Reports: Mochawesome HTML/JSON reports
+    \end{itemize}
+    
+    \item \textbf{coverage-report}:
+    \begin{itemize}
+        \item Code coverage cho Unit Tests
+        \item HTML reports có thể xem trong browser
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Benefits của CI/CD Integration}
+
+\begin{enumerate}
+    \item \textbf{Continuous Testing}: Tests tự động chạy mỗi khi có code push
+    \item \textbf{Early Bug Detection}: Phát hiện lỗi sớm trong development cycle
+    \item \textbf{Quality Gate}: Prevent merge code có tests fail
+    \item \textbf{Documentation}: Test results làm documentation cho team
+    \item \textbf{Confidence}: Đảm bảo code mới không break existing features
+\end{enumerate}
+
+\subsection{Best Practices đã áp dụng}
+
+\subsubsection{1. Test Isolation}
+
+Mỗi test case hoàn toàn độc lập, không phụ thuộc vào test khác:
+
+\begin{lstlisting}[language=JavaScript]
+beforeEach(() => {
+  // Clear localStorage trước mỗi test
+  cy.clearAuth();
+  
+  // Login fresh cho Product tests
+  cy.loginWithValidCredentials();
+  productPage.visit();
+  cy.wait(1000);
+});
+\end{lstlisting}
+
+\subsubsection{2. Data-testid Selectors}
+
+Sử dụng \texttt{data-testid} thay vì class/id để tránh break tests khi CSS thay đổi:
+
+\begin{lstlisting}[language=HTML]
+<input data-testid="username-input" 
+       type="text" 
+       name="username" />
+       
+<button data-testid="login-button" 
+        type="submit">
+  Dang nhap
+</button>
+\end{lstlisting}
+
+\subsubsection{3. Wait Strategies}
+
+Sử dụng explicit waits thay vì fixed delays:
+
+\begin{lstlisting}[language=JavaScript]
+// Good: Wait for element
+cy.get('.toast-message').should('be.visible');
+
+// Good: Wait for API response
+cy.wait(1000); // Wait for backend processing
+
+// Bad: Fixed delay without reason
+cy.wait(5000);
+\end{lstlisting}
+
+\subsubsection{4. Meaningful Test Names}
+
+Test names mô tả rõ ràng expected behavior:
+
+\begin{lstlisting}[language=JavaScript]
+// Good
+it('Nen hien thi loi khi username trong', () => {
+  // ...
+});
+
+// Good
+it('Nen cap nhat san pham thanh cong', () => {
+  // ...
+});
+
+// Bad
+it('Test 1', () => {
+  // ...
+});
+\end{lstlisting}
+
+\subsubsection{5. Page Object Model}
+
+Tách biệt selectors và logic test:
+
+\begin{lstlisting}[language=JavaScript]
+// Good: Using POM
+productPage.clickAddNew();
+productPage.fillProductForm(newProduct);
+productPage.clickSave();
+
+// Bad: Direct interaction
+cy.get('button.btn-primary').click();
+cy.get('input[name="name"]').type('Product');
+cy.get('button[type="submit"]').click();
+\end{lstlisting}
+
+\subsection{Challenges và Solutions}
+
+\subsubsection{Challenge 1: Port Conflicts}
+
+\textbf{Problem}: Port 3000 thường bị chiếm dụng bởi processes cũ.
+
+\textbf{Solution}: 
+\begin{itemize}
+    \item Sử dụng \texttt{start-server-and-test} package
+    \item Thêm script kill port trong package.json
+    \item Sử dụng \texttt{cmd.exe //c taskkill //PID <PID> //F} trên Windows
+\end{itemize}
+
+\subsubsection{Challenge 2: Test Data Management}
+
+\textbf{Problem}: Test "Create Product" tạo dữ liệu trùng lặp.
+
+\textbf{Solution}: Sử dụng timestamp để generate unique names:
+
+\begin{lstlisting}[language=JavaScript]
+const timestamp = Date.now();
+const newProduct = {
+  name: `Test Product ${timestamp}`,
+  // ...
+};
+\end{lstlisting}
+
+\subsubsection{Challenge 3: Filter Tests với Empty Categories}
+
+\textbf{Problem}: Test filter chọn category không có sản phẩm.
+
+\textbf{Solution}: Kiểm tra và lấy category từ sản phẩm có sẵn:
+
+\begin{lstlisting}[language=JavaScript]
+cy.get('.product-card').first().then(($card) => {
+  const categoryName = 
+    $card.find('.card-category').text().trim();
+  
+  cy.get('.filter-pill')
+    .contains(categoryName).click();
+  
+  // Test với category chắc chắn có sản phẩm
+});
+\end{lstlisting}
+
+\subsubsection{Challenge 4: CI/CD Timing Issues}
+
+\textbf{Problem}: Backend chưa sẵn sàng khi tests bắt đầu.
+
+\textbf{Solution}:
+\begin{itemize}
+    \item Tăng wait time lên 45 seconds
+    \item Thêm health check endpoint
+    \item Sử dụng MySQL service với health check
+\end{itemize}
+
+\subsection{Mochawesome Reports}
+
+Nhóm đã tích hợp Mochawesome reporter để generate HTML reports đẹp và chi tiết:
+
+\textbf{Cấu hình trong cypress.config.js:}
+
+\begin{lstlisting}[language=JavaScript]
+module.exports = defineConfig({
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true,
+    charts: true,
+    embeddedScreenshots: true,
+    inlineAssets: true,
+  },
+  // ...
+});
+\end{lstlisting}
+
+\textbf{Features của Mochawesome Reports:}
+\begin{itemize}
+    \item Interactive HTML reports
+    \item Charts và statistics
+    \item Embedded screenshots khi tests fail
+    \item Test duration breakdown
+    \item Filter tests by status (passed/failed)
+    \item Export JSON data
+\end{itemize}
+
+\subsection{Test Execution Metrics}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{Login} & \textbf{Product} & \textbf{Total} \\
+\hline
+Test Cases & 27 & 31 & 58 \\
+Execution Time & 36s & 2m 18s & 2m 54s \\
+Success Rate & 100\% & 100\% & 100\% \\
+Failed Tests & 0 & 0 & 0 \\
+Screenshots & 0 & 0 & 0 \\
+Videos Generated & 1 & 1 & 2 \\
+\hline
+\end{tabular}
+\caption{Test Execution Metrics}
+\end{table}
+
+\subsection{Kết luận Automation Testing}
+
+\subsubsection{Thành tựu đạt được}
+
+\begin{enumerate}
+    \item \textbf{Test Coverage toàn diện}:
+    \begin{itemize}
+        \item 27 test cases cho Login (100\% pass)
+        \item 31 test cases cho Product (100\% pass)
+        \item Tổng 58 E2E test cases cover tất cả user flows
+    \end{itemize}
+    
+    \item \textbf{Design Pattern hiện đại}:
+    \begin{itemize}
+        \item Page Object Model cho maintainability
+        \item Custom Cypress commands cho reusability
+        \item Data-driven testing với fixtures
+    \end{itemize}
+    
+    \item \textbf{CI/CD Integration}:
+    \begin{itemize}
+        \item GitHub Actions workflow tự động hóa 100\%
+        \item Mochawesome reports cho visibility
+        \item Artifacts upload cho debugging
+    \end{itemize}
+    
+    \item \textbf{Quality Assurance}:
+    \begin{itemize}
+        \item Zero test failures
+        \item Consistent test execution
+        \item Early bug detection
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Lessons Learned}
+
+\begin{itemize}
+    \item \textbf{Test Isolation is Critical}: Mỗi test phải độc lập hoàn toàn
+    \item \textbf{Page Object Model Pays Off}: Dễ maintain khi UI thay đổi
+    \item \textbf{Explicit Waits Better Than Fixed Delays}: Giảm flaky tests
+    \item \textbf{CI/CD Requires Careful Timing}: Backend phải sẵn sàng trước khi tests chạy
+    \item \textbf{Data Management Matters}: Unique test data tránh conflicts
+\end{itemize}
+
+\subsubsection{Future Improvements}
+
+\begin{enumerate}
+    \item \textbf{Visual Regression Testing}: Thêm screenshot comparison
+    \item \textbf{API Testing}: Thêm tests trực tiếp cho REST APIs
+    \item \textbf{Parallel Execution}: Chạy tests song song để giảm thời gian
+    \item \textbf{Test Data Factories}: Tạo test data programmatically
+    \item \textbf{Cross-browser Testing}: Test trên Chrome, Firefox, Safari
+    \item \textbf{Mobile Testing}: Thêm tests cho responsive design
+\end{enumerate}
+
+Automation Testing và CI/CD đã giúp nhóm đảm bảo chất lượng code và phát hiện bugs sớm trong development cycle. Đây là nền tảng vững chắc cho việc phát triển và bảo trì ứng dụng trong tương lai.

@@ -29,7 +29,7 @@ Trước khi chạy dự án, đảm bảo máy tính của bạn đã cài đ�
 1.  Mở **MySQL Workbench**.
 2.  Chạy đoạn script SQL sau để tạo Database và Bảng dữ liệu:
 
-**File:** `backend/src/main/java/com/flogin/sql/imprort_databse.sql`
+**File:** `C:\DoAn\FloginFE_BE\backend\src\main\resources\schema.sql`
 
 ---
 
@@ -71,9 +71,9 @@ npm start
 
 ``` json
     {
-    "username": "Do bạn tự chọn",
-    "password": "Do bạn tự chọn",
-    "email": "admin@example.com"
+    "username": "testuser",
+    "password": "Test123",
+    "email": "test@example.com"
     }
 ```
 

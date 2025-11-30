@@ -1,0 +1,412 @@
+% ============================================
+% CHƯƠNG 5: AUTOMATION TESTING VÀ CI/CD
+% ============================================
+\section{Automation Testing và CI/CD}
+
+\subsection{Giới thiệu chương}
+
+Automation Testing (Kiểm thử tự động) là phương pháp quan trọng trong quy trình phát triển phần mềm hiện đại. Chương này trình bày quá trình thiết lập và thực hiện E2E (End-to-End) Automation Testing cho hai chức năng chính: \textbf{Login} và \textbf{Product Management}, cùng với tích hợp CI/CD pipeline.
+
+\subsubsection{Công nghệ sử dụng}
+
+\begin{itemize}
+    \item \textbf{Testing Framework}: Cypress 15.6.0
+    \item \textbf{Design Pattern}: Page Object Model (POM)
+    \item \textbf{Test Reporter}: Mochawesome
+    \item \textbf{CI/CD}: GitHub Actions
+\end{itemize}
+
+\subsection{Câu 5.1: Login - E2E Automation Testing (5 điểm)}
+
+\subsubsection{Page Object Model Design}
+
+Nhóm đã thiết kế \texttt{LoginPage.js} theo mô hình Page Object Model để tách biệt logic test và UI:
+
+\textbf{Thành phần chính:}
+\begin{itemize}
+    \item \textbf{Selectors}: data-testid cho các elements (username, password, buttons, messages)
+    \item \textbf{Navigation methods}: visit(), navigateToRegister()
+    \item \textbf{Action methods}: typeUsername(), typePassword(), clickLoginButton()
+    \item \textbf{Assertion methods}: checkUsernameError(), checkSuccessMessage(), checkRedirectToProduct()
+\end{itemize}
+
+\textbf{Ưu điểm:} Dễ bảo trì, tái sử dụng code, test rõ ràng, method chaining.
+
+\subsubsection{Test Cases}
+
+\textbf{27 test cases} được phân chia thành 5 nhóm:
+
+\textbf{1. Complete Login Flow (3 tests):}
+\begin{itemize}
+    \item Hiển thị đầy đủ UI elements
+    \item Đăng nhập thành công với credentials hợp lệ
+    \item Complete flow và redirect đến /product
+\end{itemize}
+
+\textbf{2. Validation Messages (6 tests):}
+\begin{itemize}
+    \item Username/Password trống
+    \item Username/Password quá ngắn
+    \item Clear error khi nhập đúng
+\end{itemize}
+
+\textbf{3. Success/Error Flows (5 tests):}
+\begin{itemize}
+    \item Error khi credentials sai
+    \item Retry sau login thất bại
+    \item Loading state
+\end{itemize}
+
+\textbf{4. UI Interactions (10 tests):}
+\begin{itemize}
+    \item Focus management, Tab navigation
+    \item Submit bằng Enter key
+    \item Password masking
+    \item Responsive mobile
+\end{itemize}
+
+\textbf{5. Edge Cases \& Security (3 tests):}
+\begin{itemize}
+    \item Special characters và spaces
+    \item Security validations
+\end{itemize}
+
+\subsubsection{Kết quả Login Tests}
+
+\textbf{Lệnh chạy tests:}
+
+\begin{lstlisting}[language=bash]
+cd frontend
+npm run cypress:run -- --spec "cypress/e2e/login.cy.js"
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_automation_testing/images/login_e2e_results.png}
+\caption{Kết quả chạy 27 Login E2E test cases - 100\% passed}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Total Test Cases & 27 \\
+Passing Tests & 27 \\
+Failing Tests & 0 \\
+Success Rate & 100\% \\
+Execution Time & ~35 seconds \\
+\hline
+\end{tabular}
+\caption{Tổng hợp kết quả Login E2E Tests}
+\end{table}
+
+\subsection{Câu 5.2: Product - E2E Automation Testing (5 điểm)}
+
+\subsubsection{Page Object Model cho Product}
+
+\texttt{ProductPage.js} phức tạp hơn với nhiều interactions:
+
+\textbf{Thành phần:}
+\begin{itemize}
+    \item \textbf{Header elements}: Search input, Add New button, Logout button
+    \item \textbf{Filter section}: Category pills, active state
+    \item \textbf{Product grid}: Cards, titles, prices, view detail buttons
+    \item \textbf{Form Modal}: Name, price, quantity, category inputs
+    \item \textbf{Detail Modal}: View, edit, delete actions
+    \item \textbf{Delete Modal}: Confirmation dialog
+\end{itemize}
+
+\subsubsection{Test Cases}
+
+\textbf{31 test cases} phân chia thành 5 nhóm:
+
+\textbf{a) Create Product Flow (6 tests):}
+\begin{itemize}
+    \item Tạo sản phẩm thành công
+    \item Hiển thị/đóng form
+    \item Validate tên, giá, số lượng
+\end{itemize}
+
+\textbf{b) Read/List Products (5 tests):}
+\begin{itemize}
+    \item Hiển thị danh sách
+    \item Xem chi tiết
+    \item Đóng modal
+    \item Phân trang
+\end{itemize}
+
+\textbf{c) Update Product (4 tests):}
+\begin{itemize}
+    \item Cập nhật thành công
+    \item Pre-fill data
+    \item Validate khi update
+    \item Hủy update
+\end{itemize}
+
+\textbf{d) Delete Product (4 tests):}
+\begin{itemize}
+    \item Modal xác nhận
+    \item Hủy xóa
+    \item Xóa thành công
+    \item Xóa đúng sản phẩm
+\end{itemize}
+
+\textbf{e) Search/Filter (7 tests):}
+\begin{itemize}
+    \item Tìm kiếm theo tên
+    \item "Không tìm thấy" message
+    \item Clear search
+    \item Lọc theo category
+    \item Reset filter
+    \item Kết hợp search + filter
+    \item Reset pagination
+\end{itemize}
+
+\textbf{Additional (5 tests):}
+\begin{itemize}
+    \item Placeholder image
+    \item Format giá VND
+    \item Logout functionality
+    \item Data persistence
+    \item Loading state
+\end{itemize}
+
+\subsubsection{Kết quả Product Tests}
+
+\textbf{Lệnh chạy tests:}
+
+\begin{lstlisting}[language=bash]
+cd frontend
+npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_automation_testing/images/product_e2e_results.png}
+\caption{Kết quả chạy 31 Product E2E test cases - 100\% passed}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Total Test Cases & 31 \\
+Passing Tests & 31 \\
+Failing Tests & 0 \\
+Success Rate & 100\% \\
+Execution Time & ~2m 18s \\
+\hline
+\end{tabular}
+\caption{Tổng hợp kết quả Product E2E Tests}
+\end{table}
+
+\textbf{Mochawesome Reports - Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_login.png}
+    \caption{Mochawesome Report - Login Tests (27 tests)}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_product.png}
+    \caption{Mochawesome Report - Product Tests (31 tests)}
+\end{minipage}
+\end{figure}
+
+\subsection{Tổng kết Test Coverage}
+
+\textbf{Lệnh chạy tất cả tests:}
+
+\begin{lstlisting}[language=bash]
+cd frontend
+npm run cypress:run
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{../bao_cao_automation_testing/images/e2e_tests_summary.png}
+\caption{Tổng kết 58 E2E tests (27 Login + 31 Product) - 100\% passed}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Feature} & \textbf{Test Cases} & \textbf{Passed} & \textbf{Success Rate} \\
+\hline
+Login & 27 & 27 & 100\% \\
+Product & 31 & 31 & 100\% \\
+\hline
+\textbf{Total} & \textbf{58} & \textbf{58} & \textbf{100\%} \\
+\hline
+\end{tabular}
+\caption{Tổng hợp E2E Test Coverage}
+\end{table}
+
+\subsection{Mochawesome Reports}
+
+Nhóm đã tích hợp Mochawesome reporter để tạo HTML reports chi tiết với charts, statistics, và screenshots.
+
+\textbf{Lệnh generate report:}
+
+\begin{lstlisting}[language=bash]
+cd frontend
+npm run cypress:merge  # Merge JSON reports
+npm run cypress:generate  # Generate HTML report
+\end{lstlisting}
+
+\subsection{CI/CD Integration với GitHub Actions}
+
+\subsubsection{Workflow Configuration}
+
+File workflow: \texttt{.github/workflows/e2e-tests.yml}
+
+\textbf{Trigger:}
+\begin{itemize}
+    \item Push to branches: main, develop, devTriet
+    \item Pull requests to main
+\end{itemize}
+
+\textbf{Environment Setup:}
+\begin{itemize}
+    \item Ubuntu latest
+    \item Node.js 18
+    \item Java 17
+    \item MySQL 8.0 service container
+\end{itemize}
+
+\textbf{Pipeline Stages:}
+
+\textbf{1. Setup Phase:}
+\begin{itemize}
+    \item Checkout code
+    \item Install Node.js và Java
+    \item Setup MySQL service
+    \item Install dependencies (npm ci)
+\end{itemize}
+
+\textbf{2. Build Phase:}
+\begin{itemize}
+    \item Build backend với Maven
+    \item Start Spring Boot application
+    \item Wait 45 seconds cho backend ready
+\end{itemize}
+
+\textbf{3. Test Execution:}
+\begin{itemize}
+    \item Run Login E2E Tests (27 tests)
+    \item Run Product E2E Tests (31 tests)
+    \item Generate Mochawesome reports
+\end{itemize}
+
+\textbf{4. Artifacts:}
+\begin{itemize}
+    \item Upload videos recordings
+    \item Upload screenshots
+    \item Upload test reports
+    \item Generate test summary
+\end{itemize}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{../bao_cao_automation_testing/images/github_actions_workflow.png}
+\caption{GitHub Actions Workflow - Tất cả steps passed (✓)}
+\end{figure}
+
+\subsubsection{Benefits của CI/CD}
+
+\begin{enumerate}
+    \item \textbf{Continuous Testing}: Tests tự động chạy mỗi khi push code
+    \item \textbf{Early Bug Detection}: Phát hiện lỗi sớm trong cycle
+    \item \textbf{Quality Gate}: Prevent merge code có tests fail
+    \item \textbf{Automated Reports}: Test results tự động generate
+\end{enumerate}
+
+\subsection{Best Practices}
+
+\subsubsection{1. Test Isolation}
+
+Mỗi test case hoàn toàn độc lập:
+\begin{itemize}
+    \item Clear localStorage/sessionStorage trước mỗi test
+    \item Fresh login cho Product tests
+    \item Không phụ thuộc vào test khác
+\end{itemize}
+
+\subsubsection{2. Data-testid Selectors}
+
+Sử dụng \texttt{data-testid} thay vì class/id để tránh break tests khi CSS thay đổi.
+
+\subsubsection{3. Wait Strategies}
+
+\begin{itemize}
+    \item Sử dụng explicit waits (cy.wait() với thời gian hợp lý)
+    \item Wait for elements visibility
+    \item Wait for API responses
+\end{itemize}
+
+\subsubsection{4. Unique Test Data}
+
+Sử dụng timestamp để tạo unique product names, tránh data pollution.
+
+\subsubsection{5. Page Object Model}
+
+Tách biệt selectors và logic test để dễ maintain.
+
+\subsection{Challenges và Solutions}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{7cm}|}
+\hline
+\textbf{Challenge} & \textbf{Solution} \\
+\hline
+Port 3000 bị chiếm dụng & Sử dụng taskkill để kill process cũ \\
+\hline
+Test data trùng lặp & Sử dụng timestamp trong tên sản phẩm \\
+\hline
+Filter test với empty categories & Lấy category từ product có sẵn \\
+\hline
+CI/CD timing issues & Tăng wait time lên 45s, thêm health check \\
+\hline
+\end{tabular}
+\caption{Challenges và Solutions}
+\end{table}
+
+\subsection{Kết luận}
+
+\subsubsection{Thành tựu}
+
+\begin{itemize}
+    \item \textbf{58 test cases} (27 Login + 31 Product) - 100\% passing
+    \item \textbf{Page Object Model} cho maintainability
+    \item \textbf{CI/CD Integration} với GitHub Actions
+    \item \textbf{Mochawesome Reports} cho visibility
+    \item \textbf{Zero failures} - Consistent execution
+\end{itemize}
+
+\subsubsection{Lessons Learned}
+
+\begin{itemize}
+    \item Test Isolation is critical
+    \item Page Object Model pays off
+    \item Explicit waits better than fixed delays
+    \item CI/CD requires careful timing
+    \item Data management matters
+\end{itemize}
