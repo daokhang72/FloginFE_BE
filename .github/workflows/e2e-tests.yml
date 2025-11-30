@@ -62,7 +62,6 @@ jobs:
           SPRING_DATASOURCE_PASSWORD: root
           # Bật chế độ tự động chạy schema.sql (nếu bạn đã tạo file này)
           SPRING_SQL_INIT_MODE: always
-          
 
       - name: Create Test User
         run: |
@@ -78,36 +77,55 @@ jobs:
           TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/login \
             -H "Content-Type: application/json" \
             -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
-          
+
           if [ -z "$TOKEN" ]; then
             echo "❌ Failed to get token"
             exit 1
           fi
-          
+
           echo "✅ Got token, creating categories..."
-          
+
           # Tạo 4 categories
           curl -X POST http://localhost:8080/api/categories \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"name":"Điện thoại","description":"Điện thoại di động các loại"}'
-          
+
           curl -X POST http://localhost:8080/api/categories \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"name":"Laptop","description":"Máy tính xách tay"}'
-          
+
           curl -X POST http://localhost:8080/api/categories \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"name":"Tablet","description":"Máy tính bảng"}'
-          
+
           curl -X POST http://localhost:8080/api/categories \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"name":"Phụ kiện","description":"Phụ kiện điện tử"}'
-          
+
           echo "✅ Seeded 4 categories successfully"
+
+      - name: Seed Sample Products
+        run: |
+          echo "🌱 Seeding sample products..."
+          # Login để lấy token
+          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/login \
+            -H "Content-Type: application/json" \
+            -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
+
+          # Tạo 10 sản phẩm mẫu để test có dữ liệu
+          for i in {1..10}; do
+            CATEGORY_ID=$((($i % 4) + 1))
+            curl -s -X POST http://localhost:8080/api/products \
+              -H "Authorization: Bearer $TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "{\"name\":\"Sample Product $i\",\"price\":$((10000000 + i * 1000000)),\"quantity\":$((10 + i)),\"description\":\"Sample description for product $i\",\"categoryId\":$CATEGORY_ID}" > /dev/null
+          done
+
+          echo "✅ Seeded 10 sample products successfully"
 
       - name: Start Frontend Server
         run: |
