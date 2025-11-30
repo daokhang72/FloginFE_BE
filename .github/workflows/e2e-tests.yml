@@ -84,12 +84,16 @@ jobs:
       - name: Run Login E2E Tests
         run: |
           cd frontend
-          npx cypress run --spec "cypress/e2e/login.cy.js"
+          NO_COLOR=1 npx cypress run --spec "cypress/e2e/login.cy.js" --config video=false
+        env:
+          NODE_OPTIONS: "--no-warnings"
 
       - name: Run Product E2E Tests
         run: |
           cd frontend
-          npx cypress run --spec "cypress/e2e/product.cy.js"
+          NO_COLOR=1 npx cypress run --spec "cypress/e2e/product.cy.js" --config video=false
+        env:
+          NODE_OPTIONS: "--no-warnings"
 
       - name: Generate Combined Mochawesome Report
         if: always()
