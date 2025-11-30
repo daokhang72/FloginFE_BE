@@ -60,8 +60,8 @@ jobs:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
-          # Bật chế độ tự động chạy schema.sql (nếu bạn đã tạo file này)
-          SPRING_SQL_INIT_MODE: always
+          # Tắt schema.sql vì sẽ seed data qua API
+          SPRING_SQL_INIT_MODE: never
 
       - name: Create Test User
         run: |
