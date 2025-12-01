@@ -249,8 +249,8 @@ jobs:
           name: login-test-results
           path: |
             frontend/cypress/videos/login.cy.js.mp4
-            frontend/cypress/screenshots/login.cy.js
-            frontend/cypress/reports/mochawesome_login*.json
+            frontend/cypress/screenshots/login.cy.js/
+            frontend/cypress/reports/
 
       - name: Upload Product Test Results
         if: always()
@@ -259,9 +259,9 @@ jobs:
           name: product-test-results
           path: |
             frontend/cypress/videos/product.cy.js.mp4
-            frontend/cypress/screenshots/product.cy.js
-            frontend/cypress/reports/mochawesome_product*.json
-            
+            frontend/cypress/screenshots/product.cy.js/
+            frontend/cypress/reports/
+
       - name: Test Summary
         if: always()
         run: |
