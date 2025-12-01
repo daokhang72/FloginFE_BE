@@ -12,10 +12,9 @@ jest.mock('../services/apiService', () => ({
   },
 }));
 
-// Mock useNavigate
+// Mock react-router-dom
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockNavigate,
 }));
 
