@@ -33,7 +33,7 @@ describe("Login Component - Mock Tests", () => {
     authService.login.mockResolvedValue({
       data: {
         token: "mock-token",
-        user: { username: "admin01" },
+        user: { username: "testuser" },
       },
     });
 
@@ -41,10 +41,10 @@ describe("Login Component - Mock Tests", () => {
 
     // Nhập username + password
     fireEvent.change(screen.getByTestId("username-input"), {
-      target: { value: "admin01" },
+      target: { value: "testuser" },
     });
     fireEvent.change(screen.getByTestId("password-input"), {
-      target: { value: "Admin123" },
+      target: { value: "Test123" },
     });
 
     fireEvent.click(screen.getByTestId("login-button"));
@@ -63,8 +63,8 @@ describe("Login Component - Mock Tests", () => {
     // --- Verify API được gọi đúng ---
     expect(authService.login).toHaveBeenCalledTimes(1);
     expect(authService.login).toHaveBeenCalledWith({
-      username: "admin01",
-      password: "Admin123",
+      username: "testuser",
+      password: "Test123",
     });
 
     // --- Verify cấu trúc API trả về ---
