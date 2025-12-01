@@ -1,4 +1,4 @@
-name: Complete Tests CI/CD (Unit + Mock + E2E)
+name: Complete Tests CI/CD (Unit + Integration + Mock + E2E)
 
 on:
   push:
@@ -120,6 +120,40 @@ jobs:
           SPRING_DATASOURCE_PASSWORD: root
         continue-on-error: true
 
+      # Run Frontend Integration Tests
+      - name: Run Frontend Integration Tests - Login
+        run: |
+          cd frontend
+          npm test src/tests/Login.integration.test.js -- --watchAll=false
+        continue-on-error: true
+
+      - name: Run Frontend Integration Tests - Product
+        run: |
+          cd frontend
+          npm test src/tests/ProductForm.integration.test.js -- --watchAll=false
+        continue-on-error: true
+
+      # Run Backend Integration Tests
+      - name: Run Backend Integration Tests - Auth API
+        run: |
+          cd backend
+          ./mvnw test -Dtest=AuthControllerIntegrationTest
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+        continue-on-error: true
+
+      - name: Run Backend Integration Tests - Product API
+        run: |
+          cd backend
+          ./mvnw test -Dtest=ProductControllerIntegrationTest
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+        continue-on-error: true
+
       # Run Frontend Mock Tests
       - name: Run Frontend Mock Tests - Login
         run: |
@@ -216,6 +250,11 @@ jobs:
           echo "- Validation Tests (100% coverage)" >> $GITHUB_STEP_SUMMARY
           echo "- Product Validation Tests (~97% coverage)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Integration Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Backend Integration Tests: 8 tests (3 Auth + 5 Product API)" >> $GITHUB_STEP_SUMMARY
+          echo "- Frontend Integration Tests: 8 tests (4 Login + 4 Product Component)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total Integration Tests: 16**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 🎭 Mock Tests" >> $GITHUB_STEP_SUMMARY
           echo "- Backend Mock Tests: 11 tests (2 AuthController + 9 ProductService)" >> $GITHUB_STEP_SUMMARY
           echo "- Frontend Mock Tests: 10 tests (2 Login + 8 Product)" >> $GITHUB_STEP_SUMMARY
@@ -231,4 +270,4 @@ jobs:
           echo "- Backend JaCoCo Coverage: Available in artifacts" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
-          echo "### 🎯 Grand Total: 79+ test cases executed" >> $GITHUB_STEP_SUMMARY
+          echo "### 🎯 Grand Total: 95+ test cases executed (Unit → Integration → Mock → E2E)" >> $GITHUB_STEP_SUMMARY

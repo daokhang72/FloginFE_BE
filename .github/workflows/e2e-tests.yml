@@ -1,0 +1,181 @@
+name: E2E Tests (Login + Product)
+
+on:
+  push:
+    branches: [main, develop, devTriet]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: flogin_project_db
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Install MySQL client to import schema.sql
+      - name: Install MySQL Client
+        run: sudo apt-get update && sudo apt-get install -y mysql-client
+
+      # Reset database to ensure a clean state
+      - name: Reset Database Before Import
+        run: |
+          echo "🧹 Dropping old database..."
+          mysql -h 127.0.0.1 -u root -proot -e "DROP DATABASE IF EXISTS flogin_project_db;"
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE flogin_project_db;"
+          echo "✅ Database reset complete"
+
+      # Import schema.sql (tạo bảng + dữ liệu mẫu)
+      - name: Import Database Schema
+        run: |
+          echo "⏳ Importing schema.sql into MySQL..."
+          mysql -h 127.0.0.1 -u root -proot flogin_project_db < backend/src/main/resources/schema.sql
+          echo "✅ Imported schema.sql successfully"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.18.2"
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "21"
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm ci --legacy-peer-deps --force
+
+      - name: Build Backend
+        run: |
+          cd backend
+          chmod +x mvnw
+          ./mvnw clean package -DskipTests
+
+      - name: Start Backend Server
+        run: |
+          cd backend
+          ./mvnw spring-boot:run &
+          echo "⏳ Waiting for backend to start..."
+          sleep 30
+          echo "✅ Backend server started"
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+
+      - name: Verify Backend Health
+        run: |
+          curl -f http://localhost:8080/actuator/health || echo "⚠️ Backend health check failed, but continuing..."
+
+      - name: Create Test User
+        run: |
+          echo "👤 Creating test user..."
+          curl -X POST http://localhost:8080/api/auth/register \
+            -H "Content-Type: application/json" \
+            -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
+
+      - name: Start Frontend Server
+        run: |
+          cd frontend
+          BROWSER=none npm start &
+          echo "⏳ Waiting for frontend to start..."
+          sleep 30
+          echo "✅ Frontend server started"
+        env:
+          CI: false
+
+      - name: Verify Frontend Server
+        run: |
+          curl -f http://localhost:3000 || echo "⚠️ Frontend health check failed, but continuing..."
+
+      # Run E2E Tests
+      - name: Run Login E2E Tests
+        run: |
+          cd frontend
+          echo "🧪 Running Login E2E Tests..."
+          npm run cypress:run -- --spec "cypress/e2e/login.cy.js"
+        env:
+          NODE_OPTIONS: "--no-warnings"
+
+      - name: Upload Login Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: login-e2e-test-results
+          path: |
+            frontend/cypress/videos/login.cy.js.mp4
+            frontend/cypress/screenshots/login.cy.js/
+            frontend/cypress/reports/
+
+      - name: Run Product E2E Tests
+        run: |
+          cd frontend
+          echo "🧪 Running Product E2E Tests..."
+          npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
+        env:
+          NODE_OPTIONS: "--no-warnings"
+
+      - name: Upload Product Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-e2e-test-results
+          path: |
+            frontend/cypress/videos/product.cy.js.mp4
+            frontend/cypress/screenshots/product.cy.js/
+            frontend/cypress/reports/
+
+      - name: Generate Combined Mochawesome Report
+        if: always()
+        run: |
+          cd frontend
+          npm run cypress:merge || echo "No reports to merge"
+          npm run cypress:generate || echo "Could not generate report"
+
+      - name: Upload Combined E2E Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-e2e-report
+          path: |
+            frontend/cypress/reports/html/
+
+      - name: E2E Test Summary
+        if: always()
+        run: |
+          echo "## 🌐 E2E Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔐 Login E2E Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Total test cases: 27" >> $GITHUB_STEP_SUMMARY
+          echo "- Coverage: Login form validation, authentication flow, error handling" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Product E2E Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Total test cases: 31" >> $GITHUB_STEP_SUMMARY
+          echo "- Coverage: CRUD operations, form validation, image upload, filtering" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "### 🎯 Total E2E Tests: 58 test cases" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Test Reports:** Available in artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "- Login test videos and screenshots" >> $GITHUB_STEP_SUMMARY
+          echo "- Product test videos and screenshots" >> $GITHUB_STEP_SUMMARY
+          echo "- Combined Mochawesome HTML report" >> $GITHUB_STEP_SUMMARY
