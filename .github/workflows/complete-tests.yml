@@ -31,6 +31,14 @@ jobs:
       # Install MySQL client to import schema.sql
       - name: Install MySQL Client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
+      
+      # Reset database to ensure a clean state
+      - name: Reset Database Before Import
+        run: |
+          echo "🧹 Dropping old database..."
+          mysql -h 127.0.0.1 -u root -proot -e "DROP DATABASE IF EXISTS flogin_project_db;"
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE flogin_project_db;"
+          echo "✅ Database reset complete"
 
       # Import schema.sql (tạo bảng + dữ liệu mẫu)
       - name: Import Database Schema
@@ -71,8 +79,6 @@ jobs:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
-          # Tắt schema.sql vì sẽ seed data qua API
-          SPRING_SQL_INIT_MODE: never
 
       - name: Create Test User
         run: |
