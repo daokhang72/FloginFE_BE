@@ -1,0 +1,461 @@
+\documentclass[12pt,a4paper]{article}
+
+% ====== Preamble (khai báo gói) ======
+\usepackage[utf8]{inputenc}     % hỗ trợ UTF-8
+\usepackage[T5]{fontenc}        % font cho tiếng Việt
+\usepackage[vietnamese]{babel}  % chia âm tiếng Việt
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{verbatim}           % dùng cho \begin{verbatim}
+\usepackage{graphicx}
+\usepackage{listingsutf8}
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={đ}{{\dj}}1 {Đ}{{\DJ}}1
+}
+\usepackage{xcolor}
+\usepackage{float}
+
+
+
+
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codeframe}{RGB}{200,200,200}
+\definecolor{codekeyword}{RGB}{0,0,150}
+\definecolor{codestring}{RGB}{150,0,0}
+\definecolor{codecomment}{RGB}{0,120,0}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    language=JavaScript,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{codekeyword}\bfseries,
+    stringstyle=\color{codestring},
+    commentstyle=\color{codecomment}\itshape,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=2
+}
+
+% Tạo bảng màu
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codekeyword}{RGB}{0,0,180}
+\definecolor{codestring}{RGB}{150,0,0}
+\definecolor{codecomment}{RGB}{0,120,0}
+\definecolor{codenumber}{RGB}{150,0,150}
+\definecolor{codeframe}{RGB}{180,180,180}
+
+% Định nghĩa JavaScript cho listings
+\lstdefinelanguage{JavaScript}{
+    keywords={const, let, var, import, export, return, async, await, function,
+              if, else, try, catch, class, new, true, false, describe, test,
+              expect, mock, beforeEach},
+    keywordstyle=\color{codekeyword}\bfseries,
+    ndkeywords={=>},
+    ndkeywordstyle=\color{codekeyword},
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    commentstyle=\color{codecomment}\ttfamily\itshape,
+    stringstyle=\color{codestring},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% Style code
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    language=JavaScript,
+    basicstyle=\ttfamily\small,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=2,
+    numbers=left,
+    numberstyle=\tiny\color{codenumber},
+}
+
+\begin{document}
+
+% ====== BẮT ĐẦU NỘI DUNG BÁO CÁO ======
+
+\section*{Chương 4: Câu 3 - Integration Testing}
+\addcontentsline{toc}{section}{Chương 4: Câu 3 - Integration Testing}
+\section*{4 \quad Integration Testing}
+\addcontentsline{toc}{section}{4\quad Integration Testing}
+
+\subsection*{4.1\quad Giới thiệu chương}
+\addcontentsline{toc}{subsection}{4.1\quad Giới thiệu chương}
+
+Chương này trình bày quy trình kiểm thử tích hợp (\textit{Integration Testing}), nhằm đánh giá khả năng làm việc phối hợp giữa các thành phần giao diện frontend, các dịch vụ xử lý nghiệp vụ phía backend và các API liên quan. Mục tiêu của chương là đảm bảo khi các module được kết hợp, hệ thống vẫn vận hành đúng yêu cầu, dữ liệu được truyền chính xác qua các lớp và phản hồi được xử lý theo đúng luồng.
+
+\vspace{0.2cm}
+
+\noindent \textit{Các phần tiếp theo sẽ mô tả chi tiết việc kiểm thử tích hợp cho từng chức năng trong hệ thống.}
+\section*{4.2\quad Các công cụ kiểm thử sử dụng}
+Trong chương này, nhóm sử dụng các công cụ kiểm thử cho cả frontend và backend nhằm 
+mô phỏng hành vi người dùng và đánh giá tính đúng đắn của API.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{5.5cm}|p{4cm}|}
+\hline
+\textbf{Phần} & \textbf{Công cụ sử dụng} & \textbf{Mục đích} \\ \hline
+
+Frontend (React) &
+Jest, React Testing Library, Jest-DOM, MSW (Mock Service Worker) &
+Kiểm thử giao diện, hành vi người dùng, mock API \\ \hline
+
+Backend (Spring Boot) &
+JUnit 5, MockMvc, Mockito, ObjectMapper, Maven Surefire Plugin &
+Kiểm thử endpoint, kiểm tra status/JSON, mô phỏng tầng Service \\ \hline
+
+CI/CD &
+GitHub Actions / Overleaf &
+Tự động chạy test, tạo báo cáo \\ \hline
+
+\end{tabular}
+\caption{Bảng tổng hợp công cụ kiểm thử được sử dụng}
+\end{table}
+
+\subsection*
+
+Việc kết hợp các công cụ trên giúp kiểm thử tự động hoá, đảm bảo tính chính xác 
+của giao diện người dùng, logic xử lý API và độ ổn định của toàn bộ hệ thống.
+
+\section*{4.3 Login – Integration Testing}
+
+\subsection*{4.3.1 Frontend Component Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Đảm bảo Login component hoạt động đúng khi tích hợp với API mock, gồm render giao diện, tương tác người dùng, submit form và hiển thị thông báo.
+
+\subsubsection*{Bảng Test Case – Frontend Login}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.5cm}|p{5cm}|p{4.5cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\
+\hline
+TC-LOGIN-A1 & Render và nhập liệu & Mở Login, nhập username/password & Field hiển thị và nhận input \\
+\hline
+TC-LOGIN-A2 & Submit form rỗng & Nhấn “Đăng nhập” khi chưa nhập dữ liệu & Hiện lỗi thiếu thông tin \\
+\hline
+TC-LOGIN-B1 & Submit hợp lệ và gọi API & Nhập đúng; mock API trả về thành công & Gọi API và chuyển hướng sang /product \\
+\hline
+TC-LOGIN-C1  & Xử lý lỗi API & Mock API trả lỗi & Hiển thị thông báo thất bại \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: frontend/src/tests/login.integration.test.js}
+\begin{lstlisting}[language=JavaScript, style=mystyle]
+import '@testing-library/jest-dom';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
+import Login from "../components/Login/login";
+
+// Mock navigate
+const mockNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useNavigate: () => mockNavigate,
+}));
+
+// Mock API service
+jest.mock("../services/apiService");
+
+describe("Login Component Integration Tests", () => {
+
+    // === (a) Rendering + User Interaction ===
+    test("TC_LOGIN_FE_A1 - Render dung va cho phep nhap lieu", () => {
+        render(
+            <BrowserRouter>
+                <Login />
+            </BrowserRouter>
+        );
+
+        expect(screen.getByTestId("username-input")).toBeInTheDocument();
+        expect(screen.getByTestId("password-input")).toBeInTheDocument();
+
+        fireEvent.change(screen.getByTestId("username-input"), {
+            target: { value: "user123" }
+        });
+
+        fireEvent.change(screen.getByTestId("password-input"), {
+            target: { value: "Pass123" }
+        });
+
+        expect(screen.getByTestId("username-input").value).toBe("user123");
+        expect(screen.getByTestId("password-input").value).toBe("Pass123");
+    });
+
+    // === (a) Submit form rong ===
+    test("TC_LOGIN_FE_A2 - Hien thi loi khi submit form rong", async () => {
+        render(
+            <BrowserRouter>
+                <Login />
+            </BrowserRouter>
+        );
+
+        fireEvent.click(screen.getByTestId("login-button"));
+
+        await waitFor(() => {
+            expect(screen.getByTestId("username-error")).toBeInTheDocument();
+            expect(screen.getByTestId("password-error")).toBeInTheDocument();
+        });
+    });
+
+    // === (b + c) Submit form hop le + API + navigate ===
+    test("TC_LOGIN_FE_B1 - Submit hop le goi API login va navigate", async () => {
+        apiService.authService.login.mockResolvedValue({
+            message: "Dang nhap thanh cong!",
+            token: "fake-jwt-token"
+        });
+
+        render(
+            <BrowserRouter>
+                <Login />
+            </BrowserRouter>
+        );
+
+        fireEvent.change(screen.getByTestId("username-input"), {
+            target: { value: "user123" }
+        });
+
+        fireEvent.change(screen.getByTestId("password-input"), {
+            target: { value: "Pass123" }
+        });
+
+        fireEvent.click(screen.getByTestId("login-button"));
+
+        await waitFor(() => {
+            expect(apiService.authService.login).toHaveBeenCalled();
+        });
+
+        await waitFor(() => {
+            expect(mockNavigate).toHaveBeenCalledWith("/product");
+        });
+
+        expect(screen.getByText(/Dang nhap thanh cong/i)).toBeInTheDocument();
+    });
+
+    // === (c) Xu ly loi API ===
+    test("TC_LOGIN_FE_C1 - Hien thi loi khi API login that bai", async () => {
+        apiService.authService.login.mockRejectedValue({
+            message: "Sai thong tin dang nhap!"
+        });
+
+        render(
+            <BrowserRouter>
+                <Login />
+            </BrowserRouter>
+        );
+
+        fireEvent.change(screen.getByTestId("username-input"), {
+            target: { value: "user123" }
+        });
+
+        fireEvent.change(screen.getByTestId("password-input"), {
+            target: { value: "WrongPass" }
+        });
+
+        fireEvent.click(screen.getByTestId("login-button"));
+
+        await waitFor(() => {
+            expect(screen.getByText(/Sai thong tin dang nhap/i)).toBeInTheDocument();
+        });
+    });
+});
+\end{lstlisting}
+
+\vspace{0.5cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+\end{center}
+
+
+\begin{lstlisting}[style=mystyle]
+npm test src/tests/login.integration.test.js
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{login_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (tất cả test đều Passed).}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+
+\subsection*{4.3.2 Backend API Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Xác minh API \texttt{/api/auth/login} xử lý đúng dữ liệu đầu vào, trả về cấu trúc JSON hợp lệ và hỗ trợ CORS.
+
+\subsubsection*{Bảng Test Case – Backend Login}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.8cm}|p{5cm}|p{4.5cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Input} & \textbf{Kết quả mong đợi} \\
+\hline
+TC-BE-A1 & Kiểm thử đăng nhập thành công & username/password hợp lệ & Status 200, trả về token \\
+\hline
+TC-BE-A2 & Sai thông tin đăng nhập & username/password sai & Status 400, message lỗi \\
+\hline
+TC-BE-C1 & Kiểm tra CORS preflight & OPTIONS request & Trả CORS headers hợp lệ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: backend/src/test/.../controller/AuthControllerIntegrationTest.java}
+
+\begin{lstlisting}[language=Java, style=mystyle]
+@WebMvcTest(AuthController.class)
+@AutoConfigureMockMvc(addFilters = false)
+@DisplayName("Login API Integration Tests")
+class AuthControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @MockBean
+    private AuthService authService;
+
+    @MockBean
+    private JwtTokenProvider jwtTokenProvider;
+
+    @MockBean
+    private CustomUserDetailsService customUserDetailsService;
+
+    @BeforeEach
+    void setUp() {
+        given(jwtTokenProvider.validateToken(any(String.class))).willReturn(true);
+        given(jwtTokenProvider.getUsernameFromToken(any(String.class))).willReturn("testuser");
+    }
+
+    // ===== (a + b) POST /api/auth/login - THANH CONG =====
+    @Test
+    @DisplayName("TC_BE_A1 - POST /api/auth/login - Dang nhap thanh cong")
+    void testLoginSuccess() throws Exception {
+        // Arrange
+        LoginRequest request = new LoginRequest();
+        request.setUsername("testuser");
+        request.setPassword("Test123");
+
+        LoginResponse mockResponse = new LoginResponse(
+                "Dang nhap thanh cong!",
+                "fake-jwt-token"
+        );
+
+        given(authService.loginUser(any(LoginRequest.class)))
+                .willReturn(mockResponse);
+
+        // Act + Assert
+        mockMvc.perform(
+                        post("/api/auth/login")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(request))
+                )
+                // (b) status code + content type
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+
+                // (b) response structure: message, token, tokenType
+                .andExpect(jsonPath("$.message").value("Dang nhap thanh cong!"))
+                .andExpect(jsonPath("$.token").value("fake-jwt-token"))
+                .andExpect(jsonPath("$.tokenType").value("Bearer"));
+    }
+
+    // ===== (a + b) POST /api/auth/login - SAI TAI KHOAN / MAT KHAU =====
+    @Test
+    @DisplayName("TC_BE_A2 - POST /api/auth/login - Sai username/password")
+    void testLoginInvalidCredentials() throws Exception {
+        LoginRequest request = new LoginRequest();
+        request.setUsername("wrongUser");
+        request.setPassword("WrongPass1");
+
+        // gia lap AuthService nem loi (vi du dang nhap sai)
+        willThrow(new RuntimeException("Ten dang nhap hoac mat khau khong dung."))
+                .given(authService)
+                .loginUser(any(LoginRequest.class));
+
+        mockMvc.perform(
+                        post("/api/auth/login")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(request))
+                )
+                // (b) GlobalExceptionHandler map RuntimeException -> 400
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("Ten dang nhap hoac mat khau khong dung."));
+    }
+
+    // ===== (c) Test CORS va headers cho /api/auth/login =====
+    @Test
+    @DisplayName("TC_BE_C1 - CORS preflight cho POST /api/auth/login")
+    void testLoginCorsPreflight() throws Exception {
+        String origin = "http://localhost:3000";
+
+        mockMvc.perform(
+                        options("/api/auth/login")
+                                .header(HttpHeaders.ORIGIN, origin)
+                                .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "POST")
+                                .header(HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS, "Content-Type, Authorization")
+                )
+                .andExpect(status().isOk())
+                // allowedOrigins("http://localhost:3000")
+                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, origin))
+                // allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS,
+                        containsString("POST")))
+                // allowedHeaders("*")
+                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
+                        containsString("Content-Type")));
+    }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+    
+\end{center}
+\begin{lstlisting}[style=mystyle]
+mvn test src/test/.../controller/uthControllerIntegrationTest.java
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{login_backend_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (tất cả test đều Passed).}
+\end{figure}
+
+\noindent\hrulefill
+
+% ====== HẾT NỘI DUNG (có thể thêm các mục khác phía dưới) ======
+
+\end{document}
