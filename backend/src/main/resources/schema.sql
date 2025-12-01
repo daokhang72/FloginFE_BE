@@ -64,23 +64,13 @@ ENGINE = InnoDB
 COMMENT = 'Bảng lưu trữ thông tin các sản phẩm';
 
 -- -----------------------------------------------------
--- Thêm một số dữ liệu mẫu (Tùy chọn)
+-- Thêm cột image vào bảng products
 -- -----------------------------------------------------
-INSERT INTO `categories` (`name`, `description`) 
-VALUES 
-('Electronics', 'Đồ điện tử'),
-('Books', 'Sách và truyện'),
-('Clothing', 'Quần áo thời trang');
+ALTER TABLE products ADD COLUMN IF NOT EXISTS image VARCHAR(255) NULL;
 
-
-INSERT INTO `products` (`name`, `description`, `price`, `quantity`, `category_id`) 
-VALUES 
-('Laptop Dell', 'Laptop Dell XPS 15 mới', 15000000.00, 10, 1),
-('Chuột máy tính', 'Chuột không dây Logitech', 200000.00, 50, 1);
-
-USE flogin_project_db;
-ALTER TABLE products ADD COLUMN image VARCHAR(255) NULL;
-
+-- -----------------------------------------------------
+-- Thêm dữ liệu mẫu cho categories và products
+-- -----------------------------------------------------
 INSERT INTO categories (id, name, description) VALUES 
 (1, 'Electronics', 'Thiết bị điện tử'),
 (2, 'Books', 'Sách và văn phòng phẩm'),
