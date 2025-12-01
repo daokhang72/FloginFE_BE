@@ -30,7 +30,7 @@ export const validateProduct = (product) => {
     errors.quantity = 'Số lượng không hợp lệ';
   } else if (!Number.isInteger(quantity)) {
     errors.quantity = 'Số lượng phải là số nguyên';
-  } else if (quantity == 0) {
+  } else if (quantity === 0) {
     errors.quantity = 'Số lượng phải lớn hơn 0';
   } else if (quantity < 0) {
     errors.quantity = 'Số lượng không được nhỏ hơn 0';

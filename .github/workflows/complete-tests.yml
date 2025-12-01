@@ -242,23 +242,26 @@ jobs:
           npm run cypress:merge || echo "No reports to merge"
           npm run cypress:generate || echo "Could not generate report"
 
-      - name: Upload Test Results
+      - name: Upload Login Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-test-results
+          name: login-test-results
           path: |
-            frontend/cypress/videos
-            frontend/cypress/screenshots
-            frontend/cypress/reports
+            frontend/cypress/videos/login.cy.js.mp4
+            frontend/cypress/screenshots/login.cy.js
+            frontend/cypress/reports/mochawesome_login*.json
 
-      - name: Upload Coverage Report
+      - name: Upload Product Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-report
-          path: frontend/coverage
-
+          name: product-test-results
+          path: |
+            frontend/cypress/videos/product.cy.js.mp4
+            frontend/cypress/screenshots/product.cy.js
+            frontend/cypress/reports/mochawesome_product*.json
+            
       - name: Test Summary
         if: always()
         run: |
