@@ -1,7 +1,11 @@
 // MockTest_login.test.js
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-// Mock react-router-dom TRƯỚC KHI import bất cứ thứ gì
+// Mock navigate function
 const mockNavigate = jest.fn();
+
+// Mock react-router-dom module - MUST return mockNavigate
 jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
@@ -13,7 +17,6 @@ jest.mock("../services/apiService", () => ({
   },
 }));
 
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Login from "../components/Login/login";
 import { authService } from "../services/apiService";
 
@@ -22,6 +25,7 @@ jest.useFakeTimers();
 describe("Login Component - Mock Tests", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockNavigate.mockClear();
   });
 
   test("Successful login - mock API", async () => {

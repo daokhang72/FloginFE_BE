@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test-e2e:
+  complete-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -181,14 +181,21 @@ jobs:
         continue-on-error: true
 
       # Run Mock Tests
-      - name: Run Backend Mock Tests with Coverage
+      - name: Run Backend Mock Tests
         run: |
           cd backend
-          ./mvnw clean test -Dtest="**/controller/*MockTest,**/service/*MockTest" jacoco:report
+          ./mvnw test -Dtest="**/controller/*MockTest,**/service/*MockTest"
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: root
+        continue-on-error: true
+
+      # Generate combined coverage report after all tests
+      - name: Generate Combined Backend Coverage Report
+        run: |
+          cd backend
+          ./mvnw jacoco:report
         continue-on-error: true
 
       - name: Upload Backend Coverage Report (JaCoCo)
