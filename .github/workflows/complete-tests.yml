@@ -31,7 +31,7 @@ jobs:
       # Install MySQL client to import schema.sql
       - name: Install MySQL Client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
-      
+
       # Reset database to ensure a clean state
       - name: Reset Database Before Import
         run: |
@@ -168,20 +168,6 @@ jobs:
         env:
           NODE_OPTIONS: "--no-warnings"
 
-      - name: Run Product E2E Tests
-        run: |
-          cd frontend
-          npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
-        env:
-          NODE_OPTIONS: "--no-warnings"
-
-      - name: Generate Combined Mochawesome Report
-        if: always()
-        run: |
-          cd frontend
-          npm run cypress:merge || echo "No reports to merge"
-          npm run cypress:generate || echo "Could not generate report"
-
       - name: Upload Login Test Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -192,6 +178,13 @@ jobs:
             frontend/cypress/screenshots/login.cy.js/
             frontend/cypress/reports/
 
+      - name: Run Product E2E Tests
+        run: |
+          cd frontend
+          npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
+        env:
+          NODE_OPTIONS: "--no-warnings"
+
       - name: Upload Product Test Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -201,6 +194,13 @@ jobs:
             frontend/cypress/videos/product.cy.js.mp4
             frontend/cypress/screenshots/product.cy.js/
             frontend/cypress/reports/
+
+      - name: Generate Combined Mochawesome Report
+        if: always()
+        run: |
+          cd frontend
+          npm run cypress:merge || echo "No reports to merge"
+          npm run cypress:generate || echo "Could not generate report"
 
       - name: Test Summary
         if: always()
