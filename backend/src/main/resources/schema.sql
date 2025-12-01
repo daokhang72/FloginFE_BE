@@ -64,9 +64,9 @@ ENGINE = InnoDB
 COMMENT = 'Bảng lưu trữ thông tin các sản phẩm';
 
 -- -----------------------------------------------------
--- Thêm cột image vào bảng products
+-- Thêm cột image vào bảng products (nếu chưa có)
 -- -----------------------------------------------------
-ALTER TABLE products ADD COLUMN IF NOT EXISTS image VARCHAR(255) NULL;
+ALTER TABLE products ADD COLUMN image VARCHAR(255) NULL;
 
 -- -----------------------------------------------------
 -- Thêm dữ liệu mẫu cho categories và products
