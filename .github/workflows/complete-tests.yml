@@ -28,6 +28,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Install MySQL client to import schema.sql
+      - name: Install MySQL Client
+        run: sudo apt-get update && sudo apt-get install -y mysql-client
+
+      # Import schema.sql (tạo bảng + dữ liệu mẫu)
+      - name: Import Database Schema
+        run: |
+          echo "⏳ Importing schema.sql into MySQL..."
+          mysql -h 127.0.0.1 -u root -proot flogin_project_db < backend/src/main/resources/schema.sql
+          echo "✅ Imported schema.sql successfully"
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -70,63 +81,6 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"username":"testuser","password":"Test123"}' || echo "User may already exist"
 
-      - name: Seed Categories
-        run: |
-          echo "🌱 Seeding categories..."
-          # Login để lấy token
-          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/login \
-            -H "Content-Type: application/json" \
-            -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
-
-          if [ -z "$TOKEN" ]; then
-            echo "❌ Failed to get token"
-            exit 1
-          fi
-
-          echo "✅ Got token, creating categories..."
-
-          # Tạo 4 categories
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Điện thoại","description":"Điện thoại di động các loại"}'
-
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Laptop","description":"Máy tính xách tay"}'
-
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Tablet","description":"Máy tính bảng"}'
-
-          curl -X POST http://localhost:8080/api/categories \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Phụ kiện","description":"Phụ kiện điện tử"}'
-
-          echo "✅ Seeded 4 categories successfully"
-
-      - name: Seed Sample Products
-        run: |
-          echo "🌱 Seeding sample products..."
-          # Login để lấy token
-          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/login \
-            -H "Content-Type: application/json" \
-            -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
-
-          # Tạo 10 sản phẩm mẫu để test có dữ liệu
-          for i in {1..10}; do
-            CATEGORY_ID=$((($i % 4) + 1))
-            curl -s -X POST http://localhost:8080/api/products \
-              -H "Authorization: Bearer $TOKEN" \
-              -H "Content-Type: application/json" \
-              -d "{\"name\":\"Sample Product $i\",\"price\":$((10000000 + i * 1000000)),\"quantity\":$((10 + i)),\"description\":\"Sample description for product $i\",\"categoryId\":$CATEGORY_ID}" > /dev/null
-          done
-
-          echo "✅ Seeded 10 sample products successfully"
-
       - name: Start Frontend Server
         run: |
           cd frontend
@@ -135,26 +89,6 @@ jobs:
           sleep 30
         env:
           CI: false
-
-      # Seed Test Data for Unit Tests (TRƯỚC KHI CHẠY TESTS)
-      - name: Seed Test Data for Unit Tests
-        run: |
-          echo "🌱 Seeding test data for unit tests..."
-          # Login để lấy token
-          TOKEN=$(curl -s -X POST http://localhost:8080/api/auth/login \
-            -H "Content-Type: application/json" \
-            -d '{"username":"testuser","password":"Test123"}' | grep -o '"token":"[^"]*' | cut -d'"' -f4)
-
-          echo "Token: $TOKEN"
-
-          # Tạo 1 test product
-          curl -X POST http://localhost:8080/api/products \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"Test Product","description":"For unit tests","price":100,"stock":10,"categoryId":1}'
-
-          echo "✅ Test data seeded, waiting 5 seconds..."
-          sleep 5
 
         # Run Frontend Unit Tests
       - name: Run Frontend Unit Tests - Login Validation
