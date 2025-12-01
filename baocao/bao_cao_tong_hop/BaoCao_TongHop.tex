@@ -271,21 +271,7 @@ Chương này trình bày quá trình thực hiện Integration Testing cho cả
 % CHƯƠNG 4: MOCK TESTING
 % ============================================
 \setcounter{section}{3}
-\section{Mock Testing}
-
-\subsection{Giới thiệu chương}
-
-Chương này trình bày việc sử dụng Mock objects để cô lập các dependencies trong quá trình testing.
-
-\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
-
-\subsection{Login - Mock Testing}
-
-[Nội dung sẽ được bổ sung]
-
-\subsection{Product - Mock Testing}
-
-[Nội dung sẽ được bổ sung]
+\input{../bao_cao_mock_testing/BaoCao_MockTesting_Content.tex}
 
 \newpage
 
@@ -406,90 +392,5 @@ Một lần nữa, nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đ�
     
     \item OWASP Testing Guide, \url{https://owasp.org/www-project-web-security-testing-guide/}
 \end{enumerate}
-
-\end{document}
-
-\begin{itemize}
-    \item Node.js 18+ và npm
-    \item Java 17+
-    \item Maven 3.6+
-    \item PostgreSQL 14+ (hoặc MySQL 8+)
-\end{itemize}
-
-\subsubsection*{2. Cài đặt Frontend}
-
-\begin{lstlisting}[language=bash]
-cd frontend
-npm install
-npm start
-\end{lstlisting}
-
-\subsubsection*{3. Cài đặt Backend}
-
-\begin{lstlisting}[language=bash]
-cd backend
-mvn clean install
-mvn spring-boot:run
-\end{lstlisting}
-
-\subsubsection*{4. Chạy Tests}
-
-\textbf{Frontend Tests:}
-\begin{lstlisting}[language=bash]
-npm test
-npm run coverage:fe
-\end{lstlisting}
-
-\textbf{Backend Tests:}
-\begin{lstlisting}[language=bash]
-mvn test
-mvn jacoco:report
-\end{lstlisting}
-
-\textbf{E2E Tests:}
-\begin{lstlisting}[language=bash]
-npm run test:e2e
-\end{lstlisting}
-
-\textbf{Performance Tests:}
-\begin{lstlisting}[language=bash]
-cd performance-testing
-k6 run login-performance-test.js
-k6 run product-performance-test.js
-\end{lstlisting}
-
-\subsection*{Phụ lục B: Cấu trúc thư mục dự án}
-
-\begin{lstlisting}
-FloginFE_BE/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── tests/
-│   ├── cypress/
-│   └── package.json
-├── backend/
-│   ├── src/
-│   │   ├── main/java/com/flogin/
-│   │   └── test/java/
-│   └── pom.xml
-├── performance-testing/
-│   ├── login-performance-test.js
-│   └── product-performance-test.js
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-└── README.md
-\end{lstlisting}
-
-\subsection*{Phụ lục C: Link GitHub Repository}
-
-Repository: \url{https://github.com/[your-username]/FloginFE_BE}
-
-\subsection*{Phụ lục D: Screenshots bổ sung}
-
-[Có thể thêm các screenshots khác nếu cần]
 
 \end{document}

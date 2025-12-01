@@ -26,6 +26,19 @@ Chương này trình bày phần mở rộng với 2 loại kiểm thử nâng c
 
 \textit{Lưu ý: Hướng dẫn cài đặt k6 và chạy tests chi tiết có trong file performance-testing/README.md}
 
+\subsubsection{Cấu hình Performance Test}
+
+\textbf{Tóm tắt cấu hình:}
+\begin{itemize}
+    \item Công cụ: k6 (Grafana k6) - CLI-based load testing tool
+    \item Test configuration: 8 stages tăng dần từ 100 đến 1000 concurrent users
+    \item Thresholds: p(95) < 500ms, error rate < 1\%
+    \item Mock test users với random selection
+    \item Verify response status và token validity
+\end{itemize}
+
+\textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/login-performance-test.js}}
+
 \subsection{Kết quả Performance Testing}
 
 \textbf{Phương pháp:} Sử dụng k6 để test Login API và Product API với 8 stages tăng dần từ 100 đến 1000 concurrent users trong 10 phút.
@@ -106,6 +119,17 @@ Test Duration & 10m 32s & 10m 31s \\
 \subsection{Stress Test - Tìm Breaking Point}
 
 Stress test được thực hiện bằng cách tăng tải dần từ 100 lên 3000 concurrent users trong 18 phút để tìm ngưỡng tối đa hệ thống có thể chịu.
+
+\textbf{Tóm tắt cấu hình:}
+\begin{itemize}
+    \item Test tìm breaking point: 9 stages tăng dần từ 100 đến 3000 concurrent users
+    \item Duration: 1-3 phút per stage, total ~18 minutes
+    \item Thresholds: p(95) < 1000ms, error rate < 10\% (more lenient for stress test)
+    \item Mixed load operations: 40\% Login, 30\% Get Products, 30\% CRUD operations
+    \item Measure system behavior under extreme load conditions
+\end{itemize}
+
+\textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/stress-test.js}}
 
 \textbf{Kết quả:}
 
@@ -230,6 +254,28 @@ Breaking Point & > 1000 VUs & > 1000 VUs & Tie \\
 
 Security Testing kiểm tra các lỗ hổng bảo mật: SQL Injection, XSS, CSRF, Authentication/Authorization và Input Validation. Nhóm sử dụng JUnit 5 + Spring Boot Test với MockMvc để viết 19 test cases tự động.
 
+\subsubsection{Implementation Security Tests}
+
+\textbf{Tóm tắt security tests:}
+\begin{itemize}
+    \item \textbf{SQL Injection Tests (3 cases)}: Kiểm tra SQL injection trong login username/password và product search
+    \item \textbf{XSS Prevention Tests (2 cases)}: Test XSS payloads trong product name và description
+    \item \textbf{CSRF Protection (1 case)}: Verify CSRF token validation cho state-changing requests
+    \item \textbf{Authentication \& Authorization (6 cases)}: Test access without token, expired token, invalid token, role-based access
+    \item \textbf{Input Validation (6 cases)}: Test null/empty inputs, special characters, SQL keywords blocking
+    \item \textbf{Security Headers (1 case)}: Verify X-Frame-Options, X-Content-Type-Options headers
+    \item \textbf{Password Encryption (1 case)}: Test BCrypt password hashing
+\end{itemize}
+
+\textbf{Công cụ sử dụng:}
+\begin{itemize}
+    \item JUnit 5 + Spring Boot Test + MockMvc
+    \item 19 test cases covering OWASP Top 10 vulnerabilities
+    \item Integration tests với security configuration thực tế
+\end{itemize}
+
+\textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/backend/src/test/java/com/flogin/security/SecurityTest.java}}
+
 \textbf{Chạy tests:}
 
 \textit{Để chạy security tests, sử dụng lệnh:}
@@ -241,14 +287,14 @@ mvn test -Dtest=SecurityTest
 
 \textbf{Bằng chứng thực hiện (Evidence):}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_phan_mo_rong/images/security_test_results.png}}
 \caption{Kết quả chạy Security Tests với JUnit - 19 tests passed}
 \label{fig:security_results}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Tổng hợp Security Test Results}
 \begin{tabular}{|l|c|c|}

@@ -16,7 +16,7 @@ Automation Testing (Kiểm thử tự động) là phương pháp quan trọng t
     \item \textbf{CI/CD}: GitHub Actions
 \end{itemize}
 
-\subsection{Câu 5.1: Login - E2E Automation Testing (5 điểm)}
+\subsection{Câu 5.1: Login - E2E Automation Testing}
 
 \subsubsection{Page Object Model Design}
 
@@ -84,7 +84,7 @@ npm run cypress:run -- --spec "cypress/e2e/login.cy.js"
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{../bao_cao_automation_testing/images/login_e2e_results.png}
+\includegraphics[width=0.85\textwidth, scale=0.9]{../bao_cao_automation_testing/images/login_e2e_results.png}
 \caption{Kết quả chạy 27 Login E2E test cases - 100\% passed}
 \end{figure}
 
@@ -104,7 +104,7 @@ Execution Time & ~35 seconds \\
 \caption{Tổng hợp kết quả Login E2E Tests}
 \end{table}
 
-\subsection{Câu 5.2: Product - E2E Automation Testing (5 điểm)}
+\subsection{Câu 5.2: Product - E2E Automation Testing} 
 
 \subsubsection{Page Object Model cho Product}
 
@@ -188,7 +188,7 @@ npm run cypress:run -- --spec "cypress/e2e/product.cy.js"
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{../bao_cao_automation_testing/images/product_e2e_results.png}
+\includegraphics[width=0.85\textwidth, scale=0.9]{../bao_cao_automation_testing/images/product_e2e_results.png}
 \caption{Kết quả chạy 31 Product E2E test cases - 100\% passed}
 \end{figure}
 
@@ -207,23 +207,6 @@ Execution Time & ~2m 18s \\
 \end{tabular}
 \caption{Tổng hợp kết quả Product E2E Tests}
 \end{table}
-
-\textbf{Mochawesome Reports - Bằng chứng thực hiện (Evidence):}
-
-\begin{figure}[t]
-\centering
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_login.png}
-    \caption{Mochawesome Report - Login Tests (27 tests)}
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_product.png}
-    \caption{Mochawesome Report - Product Tests (31 tests)}
-\end{minipage}
-\end{figure}
 
 \subsection{Tổng kết Test Coverage}
 
@@ -268,6 +251,23 @@ cd frontend
 npm run cypress:merge  # Merge JSON reports
 npm run cypress:generate  # Generate HTML report
 \end{lstlisting}
+
+\textbf{Mochawesome Reports - Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_login.png}
+    \caption{Mochawesome Report - Login Tests (27 tests)}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../bao_cao_automation_testing/images/mochawesome_report_product.png}
+    \caption{Mochawesome Report - Product Tests (31 tests)}
+\end{minipage}
+\end{figure}
 
 \subsection{CI/CD Integration với GitHub Actions}
 

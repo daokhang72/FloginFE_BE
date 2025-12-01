@@ -1,0 +1,1417 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(BaoCao_TongHop.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\vntex.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.def
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.dfu))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd))
+
+Package vntex Warning: No input encoding specified, using UTF-8 as default on i
+nput line 88.
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\vncaps.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/a4wide\a4wide.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/ntgclass\a4.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+ (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+)))) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty)
+ (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\hhline.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpageclassi
+c.sty) 
+)) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\enumerate.sty)
+ (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty)))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def) (BaoCao_TongHop.aux)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg))
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(BaoCao_TongHop.out) (BaoCao_TongHop.out)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd) [1{C:/Us
+ers/Admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logoITSGU.png (P
+NG copy)>] (BaoCao_TongHop.toc
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.46 ...ng thực hiện}{21}{subsubsection.4.3.4}
+                                                  % [1])
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd)
+[2 <./logoITSGUsmall.png>] [3] [4] [5]
+(../bao_cao_unit_testing/BaoCao_UnitTesting_Content.tex
+Overfull \hbox (13.01346pt too wide) in alignment at lines 36--40
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 40--47
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 47--50
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 50--53
+ [] [] [] [] 
+
+Underfull \hbox (badness 3407) in paragraph at lines 65--65
+[]|\T5/cmr/m/n/8 Username h�p l� (v� d�:
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 53--83
+ [] [] [] [] 
+[6]
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty)
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty)
+[7 <../bao_cao_unit_testing/images/login_validation_frontend.png>]
+Overfull \hbox (59.00478pt too wide) in paragraph at lines 125--126
+\T5/cmr/m/n/10 T�i Back-end, ch�ng em s� d�ng \T5/cmr/bx/n/10 Mock-ito \T5/cmr/
+m/n/10 ^^_� c� l�p \T5/cmtt/m/n/10 AuthService\T5/cmr/m/n/10 , gi� l�p h�nh vi 
+c�a \T5/cmtt/m/n/10 AuthenticationManager\T5/cmr/m/n/10 ,
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 130--134
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 134--141
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 141--144
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 144--147
+ [] [] [] 
+
+Underfull \hbox (badness 3792) in paragraph at lines 149--149
+[]|\T5/cmr/m/n/8 Khi th�ng tin ^^_�ng nh�p ^^_�ng, h�
+
+Underfull \hbox (badness 5607) in paragraph at lines 149--149
+\T5/cmtt/m/n/8 authenticate() \T5/cmr/m/n/8 v� \T5/cmtt/m/n/8 jwtTokenProvider.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+[]|\T5/cmr/m/n/8 Khi sai user-name ho�c pass-
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+\T5/cmr/m/n/8 word, h� th�ng n�m ra ngo�i l�
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+\T5/cmtt/m/n/8 AuthenticationException\T5/cmr/m/n/8 . ^^^�m b�o
+
+Underfull \hbox (badness 4467) in paragraph at lines 155--155
+[]|\T5/cmr/m/n/8 Khi ^^_�ng k� tr�ng user-name (user-
+
+Underfull \hbox (badness 1742) in paragraph at lines 155--155
+\T5/cmr/m/n/8 name ^^_� t�n t�i), h� th�ng n�m l�i
+
+Underfull \hbox (badness 1168) in paragraph at lines 155--155
+\T5/cmtt/m/n/8 RuntimeException \T5/cmr/m/n/8 v�i th�ng b�o \T5/cmr/m/it/8 "L�i
+:
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 147--158
+ [] [] [] 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+Overfull \hbox (13.01346pt too wide) in alignment at lines 222--226
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 226--233
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 233--236
+ [] [] [] [] 
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 236--239
+ [] [] [] [] 
+
+Underfull \hbox (badness 2351) in paragraph at lines 243--243
+[]|\T5/cmr/m/n/8 T�n s�n ph�m r�ng ho�c
+
+Underfull \hbox (badness 5119) in paragraph at lines 269--269
+[]|\T5/cmr/m/n/8 L�i: \T5/cmr/m/it/8 "S� l��ng qu� l�n (t�i ^^_a
+
+Overfull \hbox (13.01346pt too wide) in alignment at lines 239--284
+ [] [] [] [] 
+[9 <../bao_cao_unit_testing/images/auth_service_backend.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 338--342
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 342--349
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 349--352
+ [] [] [] 
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 352--355
+ [] [] [] 
+
+Underfull \hbox (badness 1127) in paragraph at lines 357--357
+[]|\T5/cmr/m/n/8 Th�m m�i s�n ph�m th�nh c�ng, g�i
+
+Overfull \hbox (5.935pt too wide) in alignment at lines 355--380
+ [] [] [] 
+[10]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11]
+Overfull \hbox (8.7107pt too wide) in paragraph at lines 441--442
+[]\T5/cmr/bx/n/10 Product Val-i-da-tion Mod-ule \T5/cmr/m/n/10 (\T5/cmtt/m/n/10
+ productValidation.js\T5/cmr/m/n/10 ): ^^^�t \T5/cmr/bx/n/10 96.77% \T5/cmr/m/n
+/10 State-ments, \T5/cmr/bx/n/10 96.96%
+[12 <../bao_cao_unit_testing/images/product_validation_frontend.png> <../bao_ca
+o_unit_testing/images/product_service_backend.png>] [13 <../bao_cao_unit_testin
+g/images/frontend_coverage.png> <../bao_cao_unit_testing/images/backend_coverag
+e.png>]) [14] [15] (../bao_cao_mock_testing/BaoCao_MockTesting_Content.tex
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+[]|\T5/cmr/bx/n/8 Tr�ng
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 32--36
+ [] [] [] [] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+[]|\T5/cmr/bx/n/8 Tr�ng
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 36--43
+ [] [] [] [] 
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 43--46
+ [] [] [] [] 
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 46--49
+ [] [] [] [] 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52     \item H
+                iển thị thông báo "Đăng nhập thành công"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52     \item H
+                iển thị thông báo "Đăng nhập thành công"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52     \item H
+                iển thị thông báo "Đăng nhập thành công"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần v�...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần v�...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần v�...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item \texttt
+                      {navigate("/product")} được gọi sau timeout
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item \texttt
+                      {navigate("/product")} được gọi sau timeout
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item \texttt
+                      {navigate("/product")} được gọi sau timeout
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item T
+                oken và user được lưu vào localStorage
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item T
+                oken và user được lưu vào localStorage
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item T
+                oken và user được lưu vào localStorage
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56 \end{itemize}
+                   & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--56
+[]|\T5/cmr/m/n/8 [leftmargin=*]Hi�n th� th�ng
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--56
+\T5/cmr/m/n/8 b�o "^^^�ng nh�p th�nh c�ng"
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--56
+[]\T5/cmtt/m/n/8 authService.login() \T5/cmr/m/n/8 ^^_��c g�i
+
+Underfull \hbox (badness 5637) in paragraph at lines 51--56
+\T5/cmr/m/n/8 ^^_�ng 1 l�n v�i cre-den-tials ch�nh
+
+Underfull \hbox (badness 1810) in paragraph at lines 51--56
+\T5/cmr/m/n/8 x�c []\T5/cmtt/m/n/8 navigate("/product") \T5/cmr/m/n/8 ^^_��c g�
+i
+
+Underfull \hbox (badness 1038) in paragraph at lines 59--59
+[]|\T5/cmr/m/n/8 ^^^�ng nh�p th�t b�i v�i
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item H
+                iển thị thông báo lỗi "Sai mật khẩu!"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item H
+                iển thị thông báo lỗi "Sai mật khẩu!"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item H
+                iển thị thông báo lỗi "Sai mật khẩu!"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61     \item \texttt
+                      {authService.login()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62     \item \texttt
+                      {navigate()} KHÔNG được gọi
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62     \item \texttt
+                      {navigate()} KHÔNG được gọi
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62     \item \texttt
+                      {navigate()} KHÔNG được gọi
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63     \item l
+                ocalStorage KHÔNG được cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63     \item l
+                ocalStorage KHÔNG được cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63     \item l
+                ocalStorage KHÔNG được cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 \end{itemize}
+                   & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 5231) in paragraph at lines 59--64
+\T5/cmr/m/n/8 ^^_��c g�i ^^_�ng 1 l�n []\T5/cmtt/m/n/8 navigate()
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--64
+\T5/cmr/m/n/8 KH�NG ^^_��c g�i []localStorage
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 49--67
+ [] [] [] [] 
+[16]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.00383pt too wide) in paragraph at lines 139--140
+\T5/cmr/m/n/10 T�i Back-end, ch�ng em s� d�ng \T5/cmr/bx/n/10 @Mock-Bean \T5/cm
+r/m/n/10 ^^_� mock \T5/cmtt/m/n/10 AuthService \T5/cmr/m/n/10 v� ki�m th� \T5/c
+mtt/m/n/10 AuthController
+[17] [18 <../bao_cao_mock_testing/images/login_mock_test_results.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+[]|\T5/cmr/bx/n/8 Tr�ng
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 218--222
+ [] [] [] [] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+[]|\T5/cmr/bx/n/8 Tr�ng
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 222--229
+ [] [] [] [] 
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 229--232
+ [] [] [] [] 
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 232--235
+ [] [] [] [] 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240     \item \texttt
+                       {createProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240     \item \texttt
+                       {createProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240     \item \texttt
+                       {createProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241     \item S
+                 ervice trả về object sản phẩm mới
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241     \item S
+                 ervice trả về object sản phẩm mới
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241     \item S
+                 ervice trả về object sản phẩm mới
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242     \item D
+                 ata được validate chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242     \item D
+                 ata được validate chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242     \item D
+                 ata được validate chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.243 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--243
+[]|\T5/cmr/m/n/8 [leftmargin=*]\T5/cmtt/m/n/8 createProduct() \T5/cmr/m/n/8 ^^_
+��c
+
+Underfull \hbox (badness 1609) in paragraph at lines 246--246
+[]|\T5/cmr/m/n/8 T�o s�n ph�m th�t b�i
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247     \item S
+                 ervice throw exception với message "Create failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247     \item S
+                 ervice throw exception với message "Create failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247     \item S
+                 ervice throw exception với message "Create failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.249 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--249
+[]|\T5/cmr/m/n/8 [leftmargin=*]Service throw ex-cep-
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--249
+\T5/cmr/m/n/8 tion v�i mes-sage "Cre-ate failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255     \item \texttt
+                       {getProducts()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255     \item \texttt
+                       {getProducts()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255     \item \texttt
+                       {getProducts()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.256     \item S
+                 ervice trả về array sản phẩm
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.256     \item S
+                 ervice trả về array sản phẩm
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.256     \item S
+                 ervice trả về array sản phẩm
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257     \item D
+                 ata structure chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257     \item D
+                 ata structure chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257     \item D
+                 ata structure chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.258 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 1281) in paragraph at lines 261--261
+[]|\T5/cmr/m/n/8 L�y danh s�ch th�t b�i
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262     \item S
+                 ervice throw exception với message "Fetch failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262     \item S
+                 ervice throw exception với message "Fetch failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262     \item S
+                 ervice throw exception với message "Fetch failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.264 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--264
+[]|\T5/cmr/m/n/8 [leftmargin=*]Service throw ex-cep-
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--264
+\T5/cmr/m/n/8 tion v�i mes-sage "Fetch failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \item \texttt
+                       {updateProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \item \texttt
+                       {updateProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \item \texttt
+                       {updateProduct()} được gọi đúng 1 lần
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271     \item S
+                 ervice trả về sản phẩm đã cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271     \item S
+                 ervice trả về sản phẩm đã cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271     \item S
+                 ervice trả về sản phẩm đã cập nhật
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272     \item C
+                 hanges được reflected chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272     \item C
+                 hanges được reflected chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272     \item C
+                 hanges được reflected chính xác
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.273 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--273
+[]|\T5/cmr/m/n/8 [leftmargin=*]\T5/cmtt/m/n/8 updateProduct() \T5/cmr/m/n/8 ^^_
+��c
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.277     \item S
+                 ervice throw exception với message "Update failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.277     \item S
+                 ervice throw exception với message "Update failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.277     \item S
+                 ervice throw exception với message "Update failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.278     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.278     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.278     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.279 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--279
+[]|\T5/cmr/m/n/8 [leftmargin=*]Service throw ex-cep-
+
+Underfull \hbox (badness 6775) in paragraph at lines 276--279
+\T5/cmr/m/n/8 tion v�i mes-sage "Up-date failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285     \item \texttt
+                       {deleteProduct()} được gọi đúng 1 lần với...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285     \item \texttt
+                       {deleteProduct()} được gọi đúng 1 lần với...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285     \item \texttt
+                       {deleteProduct()} được gọi đúng 1 lần với...
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286     \item S
+                 ervice trả về success response
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286     \item S
+                 ervice trả về success response
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286     \item S
+                 ervice trả về success response
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--287
+[]|\T5/cmr/m/n/8 [leftmargin=*]\T5/cmtt/m/n/8 deleteProduct() \T5/cmr/m/n/8 ^^_
+��c
+
+Underfull \hbox (badness 1314) in paragraph at lines 290--290
+[]|\T5/cmr/m/n/8 X�a s�n ph�m th�t b�i
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291     \item S
+                 ervice throw exception với message "Delete failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291     \item S
+                 ervice throw exception với message "Delete failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291     \item S
+                 ervice throw exception với message "Delete failed"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292     \item P
+                 romise.reject được xử lý đúng
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.293 \end{itemize}
+                    & \textcolor{green}{Passed} \\
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--293
+[]|\T5/cmr/m/n/8 [leftmargin=*]Service throw ex-cep-
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--293
+\T5/cmr/m/n/8 tion v�i mes-sage "Delete failed"
+
+Overfull \hbox (44.31122pt too wide) in alignment at lines 235--296
+ [] [] [] [] 
+[19 <../bao_cao_mock_testing/images/login_mock_test_backend_results.png>]
+[20]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (37.49614pt too wide) in paragraph at lines 366--367
+\T5/cmr/m/n/10 T�i Back-end, ch�ng em s� d�ng \T5/cmr/bx/n/10 @Mock-Bean \T5/cm
+r/m/n/10 ^^_� mock \T5/cmtt/m/n/10 ProductService \T5/cmr/m/n/10 v� ki�m th� \T
+5/cmtt/m/n/10 ProductController
+[21] [22 <../bao_cao_mock_testing/images/product_mock_test_results.png>]
+[23 <../bao_cao_mock_testing/images/product_mock_test_backend_results.png>])
+[24] (../bao_cao_automation_testing/BaoCao_AutomationTesting_Content_Short.tex
+[25] [26] [27 <../bao_cao_automation_testing/images/login_e2e_results.png.png>]
+[28] [29]
+Underfull \hbox (badness 1137) in paragraph at lines 224--224
+[]\T5/cmr/m/n/10 H�nh 14: |Mochawe-some Re-port - Prod-uct
+[30 <../bao_cao_automation_testing/images/product_e2e_results.png>] [31 <../bao
+_cao_automation_testing/images/mochawesome_report_login.png> <../bao_cao_automa
+tion_testing/images/mochawesome_report_product.png>] [32 <../bao_cao_automation
+_testing/images/e2e_tests_summary.png>]
+
+! LaTeX Error: Unicode character ✓ (U+2713)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.329 ...Workflow - Tất cả steps passed (✓)}
+                                                  
+
+! LaTeX Error: Unicode character ✓ (U+2713)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.329 ...Workflow - Tất cả steps passed (✓)}
+                                                  
+[33 <../bao_cao_automation_testing/images/github_actions_workflow.png (PNG copy
+)>] [34]) [35] (../bao_cao_phan_mo_rong/BaoCao_PhanMoRong_Content.tex
+Overfull \hbox (13.06306pt too wide) in paragraph at lines 27--28
+[]\T5/cmr/m/it/10 L�u �: H��ng d�n c�i ^^_�t k6 v� ch�y tests chi ti�t c� trong
+ file performance-testing/README.md 
+[36 <../bao_cao_phan_mo_rong/images/login_performance_test.png> <../bao_cao_pha
+n_mo_rong/images/product_performance_test.png>] [37] [38] [39 <../bao_cao_phan_
+mo_rong/images/response_time_analysis.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[40 <../bao_cao_phan_mo_rong/images/security_test_results.png>] [41]) [42]
+[43] [44]
+Overfull \hbox (12.54955pt too wide) in paragraph at lines 393--394
+[]\T5/cmr/m/n/10 OWASP Test-ing Guide, [][]$\T5/cmtt/m/n/10 https : / / owasp .
+ org / www-[]project-[]web-[]security-[]testing-[]guide/$[][] 
+
+AED: lastpage setting LastPage
+[45] (BaoCao_TongHop.aux) )
+(see the transcript file for additional information) <C:\Users\Admin\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk> <C:\Users\Admin\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Admin
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Us
+ers/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/
+vnbx10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/
+vnbx12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/
+vnbx8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
+nr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
+r5.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8
+.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti10
+.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti8.
+pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10.
+pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt8.p
+fb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt9.pf
+b>
+Output written on BaoCao_TongHop.pdf (46 pages, 1834042 bytes).
+Transcript written on BaoCao_TongHop.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.

@@ -1,0 +1,509 @@
+\section{Mock Testing}
+\setcounter{subsection}{0}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình thực hiện Mock Testing cho hệ thống FloginFE\_BE. Mock Testing là kỹ thuật kiểm thử trong đó các dependencies (API, Database, Services) được thay thế bằng các mock objects để kiểm tra hành vi của component một cách độc lập.
+
+\textbf{Nội dung chính của chương:}
+\begin{itemize}
+    \item Công cụ kiểm thử: Jest (Frontend), Mockito (Backend)
+    \item Login - Mock Testing: Mock API Service và Navigation
+    \item Product - Mock Testing: Mock CRUD operations
+    \item Kết luận và đánh giá kết quả
+\end{itemize}
+
+\subsection{Login - Mock Testing}
+
+\subsubsection{Giới thiệu}
+
+Mock Testing cho chức năng Login tập trung vào việc kiểm thử component \texttt{Login} với các dependencies được mock hoàn toàn:
+\begin{itemize}
+    \item \textbf{authService.login()}: Mock API call đến backend
+    \item \textbf{useNavigate()}: Mock navigation function từ react-router-dom
+    \item \textbf{localStorage}: Mock storage operations
+\end{itemize}
+
+\textbf{Mục tiêu:} Đảm bảo component Login xử lý đúng các tình huống thành công và thất bại mà không cần kết nối thực tế đến Backend.
+
+\subsubsection{Các trường hợp kiểm thử}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+TC\_MOCK\_LOGIN\_001 & Đăng nhập thành công với mock API trả về token và user & \begin{itemize}
+    \item Hiển thị thông báo "Đăng nhập thành công"
+    \item \texttt{authService.login()} được gọi đúng 1 lần với credentials chính xác
+    \item \texttt{navigate("/product")} được gọi sau timeout
+    \item Token và user được lưu vào localStorage
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_MOCK\_LOGIN\_002 & Đăng nhập thất bại với mock API trả về lỗi & \begin{itemize}
+    \item Hiển thị thông báo lỗi "Sai mật khẩu!"
+    \item \texttt{authService.login()} được gọi đúng 1 lần
+    \item \texttt{navigate()} KHÔNG được gọi
+    \item localStorage KHÔNG được cập nhật
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\subsubsection{Kỹ thuật Mock Implementation}
+
+\textbf{Mock Dependencies chính:}
+\begin{itemize}
+    \item \textbf{authService.login()}: Mock API call với \texttt{jest.fn()}
+    \item \textbf{useNavigate()}: Mock navigation function từ react-router-dom
+    \item \textbf{localStorage}: Mock storage operations
+\end{itemize}
+
+\textbf{Verification Methods:}
+\begin{itemize}
+    \item \texttt{toHaveBeenCalledTimes(1)}: Verify số lần gọi function
+    \item \texttt{toHaveBeenCalledWith(\{...\})}: Verify parameters truyền vào
+    \item \texttt{mockResolvedValue(\{...\})}: Mock successful response
+    \item \texttt{mockRejectedValue(\{...\})}: Mock error response
+\end{itemize}
+
+\subsubsection{Bằng chứng thực hiện}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/MockTest_login.test.js
+import { authService } from "../services/apiService";
+
+const mockNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  useNavigate: () => mockNavigate,
+}));
+
+jest.mock("../services/apiService", () => ({
+  authService: { login: jest.fn() },
+}));
+
+describe("Login Component - Mock Tests", () => {
+  test("Successful login - mock API", async () => {
+    // Mock API thanh cong
+    authService.login.mockResolvedValue({
+      data: { token: "mock-token", user: { username: "testuser" } },
+    });
+
+    // Nhap username + password va click login
+    fireEvent.click(screen.getByTestId("login-button"));
+
+    // Verify navigate duoc goi
+    expect(mockNavigate).toHaveBeenCalledWith("/product");
+    
+    // Verify API duoc goi dung 1 lan
+    expect(authService.login).toHaveBeenCalledTimes(1);
+    expect(authService.login).toHaveBeenCalledWith({
+      username: "testuser", password: "Test123"
+    });
+  });
+});
+\end{lstlisting}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash, breaklines=true]
+npm test -- --testPathPattern=MockTest_login --watchAll=false
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_mock_testing/images/login_mock_test_results.png}}
+\caption{Kết quả Mock Test - Login Component (Frontend)}
+\end{figure}
+
+\subsubsection{Backend Mock Testing}
+
+Tại Backend, chúng em sử dụng \textbf{@MockBean} để mock \texttt{AuthService} và kiểm thử \texttt{AuthController} một cách độc lập.
+
+\textbf{Kỹ thuật Mock Backend:}
+\begin{itemize}
+    \item \textbf{@WebMvcTest}: Test controller layer isolation
+    \item \textbf{@MockBean}: Mock AuthService dependencies
+    \item \textbf{MockMvc}: Test HTTP requests/responses
+    \item \textbf{@AutoConfigureMockMvc(addFilters = false)}: Disable security filters
+\end{itemize}
+
+\textbf{Verification Backend:}
+\begin{itemize}
+    \item \texttt{when().thenReturn()}: Mock service response
+    \item \texttt{andExpect(status().isOk())}: Verify HTTP status
+    \item \texttt{andExpect(content().json())}: Verify JSON response
+\end{itemize}
+
+\textbf{Bằng chứng thực hiện:}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/.../controller/AuthControllerMockTest.java
+@WebMvcTest(AuthController.class)
+@AutoConfigureMockMvc(addFilters = false)
+public class AuthControllerMockTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private AuthService authService;
+
+    @Test
+    void login_success() throws Exception {
+        LoginResponse loginResponse = new LoginResponse(
+            "Dang nhap thanh cong!", "fake-token"
+        );
+        when(authService.loginUser(any())).thenReturn(loginResponse);
+
+        mockMvc.perform(post("/api/auth/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"username\":\"user01\",\"password\":\"User12345\"}"))
+               .andExpect(status().isOk())
+               .andExpect(content().json(
+                   "{\"message\":\"Dang nhap thanh cong!\",\"token\":\"fake-token\"}"
+               ));
+    }
+}
+\end{lstlisting}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash, breaklines=true]
+mvn test -Dtest=AuthControllerMockTest
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_mock_testing/images/login_mock_test_backend_results.png}}
+\caption{Kết quả Mock Test - AuthController (Backend)}
+\end{figure}
+
+\subsection{Product - Mock Testing}
+
+\subsubsection{Giới thiệu}
+
+Mock Testing cho chức năng Product tập trung vào việc kiểm thử các CRUD operations với \texttt{productService} được mock hoàn toàn. Các test case bao phủ:
+\begin{itemize}
+    \item \textbf{CREATE}: Tạo sản phẩm mới (thành công \& thất bại)
+    \item \textbf{READ}: Lấy danh sách sản phẩm (thành công \& thất bại)
+    \item \textbf{UPDATE}: Cập nhật sản phẩm (thành công \& thất bại)
+    \item \textbf{DELETE}: Xóa sản phẩm (thành công \& thất bại)
+\end{itemize}
+
+\textbf{Mục tiêu:} Kiểm tra logic xử lý của service layer mà không cần kết nối thực tế đến Backend API.
+
+\subsubsection{Các trường hợp kiểm thử}
+
+\clearpage
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{4}{|c|}{\textbf{CREATE Operations}} \\
+\hline
+TC\_MOCK\_PROD\_001 & Tạo sản phẩm thành công với mock service & \begin{itemize}
+    \item \texttt{createProduct()} được gọi đúng 1 lần
+    \item Service trả về object sản phẩm mới
+    \item Data được validate chính xác
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_MOCK\_PROD\_002 & Tạo sản phẩm thất bại (mock error) & \begin{itemize}
+    \item Service throw exception với message "Create failed"
+    \item Promise.reject được xử lý đúng
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{READ Operations}} \\
+\hline
+TC\_MOCK\_PROD\_003 & Lấy danh sách sản phẩm thành công & \begin{itemize}
+    \item \texttt{getProducts()} được gọi đúng 1 lần
+    \item Service trả về array sản phẩm
+    \item Data structure chính xác
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_MOCK\_PROD\_004 & Lấy danh sách thất bại (mock error) & \begin{itemize}
+    \item Service throw exception với message "Fetch failed"
+    \item Promise.reject được xử lý đúng
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{UPDATE Operations}} \\
+\hline
+TC\_MOCK\_PROD\_005 & Cập nhật sản phẩm thành công & \begin{itemize}
+    \item \texttt{updateProduct()} được gọi đúng 1 lần
+    \item Service trả về sản phẩm đã cập nhật
+    \item Changes được reflected chính xác
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_MOCK\_PROD\_006 & Cập nhật sản phẩm thất bại (mock error) & \begin{itemize}
+    \item Service throw exception với message "Update failed"
+    \item Promise.reject được xử lý đúng
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{DELETE Operations}} \\
+\hline
+TC\_MOCK\_PROD\_007 & Xóa sản phẩm thành công & \begin{itemize}
+    \item \texttt{deleteProduct()} được gọi đúng 1 lần với ID chính xác
+    \item Service trả về success response
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_MOCK\_PROD\_008 & Xóa sản phẩm thất bại (mock error) & \begin{itemize}
+    \item Service throw exception với message "Delete failed"
+    \item Promise.reject được xử lý đúng
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\subsubsection{Kỹ thuật Mock Implementation}
+
+\textbf{Mock CRUD Operations:}
+\begin{itemize}
+    \item \textbf{CREATE}: Mock \texttt{createProduct()} với \texttt{mockResolvedValue()}
+    \item \textbf{READ}: Mock \texttt{getProducts()} trả về array
+    \item \textbf{UPDATE}: Mock \texttt{updateProduct()} với data mới
+    \item \textbf{DELETE}: Mock \texttt{deleteProduct()} với ID
+\end{itemize}
+
+\textbf{Error Handling Tests:}
+\begin{itemize}
+    \item Mock failed responses với \texttt{mockRejectedValue()}
+    \item Verify error messages: "Create failed", "Fetch failed", "Update failed", "Delete failed"
+    \item Test Promise.reject xử lý đúng
+\end{itemize}
+
+\subsubsection{Bằng chứng thực hiện}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/MockTest_product.test.js
+import * as ProductModule from '../services/productService';
+
+jest.mock('../services/productService', () => ({
+  productService: {
+    createProduct: jest.fn(), getProducts: jest.fn(),
+    updateProduct: jest.fn(), deleteProduct: jest.fn(),
+  },
+}));
+
+describe('Product Mock Tests', () => {
+  const mockProduct = { id: 1, name: 'Laptop', price: 15000000 };
+
+  test('Mock: Create product thanh cong', async () => {
+    productService.createProduct.mockResolvedValue(mockProduct);
+
+    const result = await productService.createProduct(mockProduct);
+
+    expect(productService.createProduct).toHaveBeenCalledTimes(1);
+    expect(result).toEqual(mockProduct);
+  });
+
+  test('Mock: Delete product thanh cong', async () => {
+    productService.deleteProduct.mockResolvedValue({ success: true });
+
+    const result = await productService.deleteProduct(1);
+
+    expect(productService.deleteProduct).toHaveBeenCalledWith(1);
+  });
+});
+\end{lstlisting}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash, breaklines=true]
+npm test -- --testPathPattern=MockTest_product --watchAll=false
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_mock_testing/images/product_mock_test_results.png}}
+\caption{Kết quả Mock Test - Product Service (Frontend)}
+\end{figure}
+
+\subsubsection{Backend Mock Testing}
+
+Tại Backend, chúng em sử dụng \textbf{@MockBean} để mock \texttt{ProductService} và kiểm thử \texttt{ProductController} với các CRUD operations.
+
+\textbf{Kỹ thuật Mock Backend:}
+\begin{itemize}
+    \item \textbf{@WebMvcTest(ProductController.class)}: Test controller layer
+    \item \textbf{@MockBean ProductService}: Mock service dependencies
+    \item \textbf{MockMvc}: Simulate HTTP requests (POST, GET, PUT, DELETE)
+    \item \textbf{jsonPath()}: Verify JSON response fields
+\end{itemize}
+
+\textbf{Test Coverage:}
+\begin{itemize}
+    \item CREATE: Mock \texttt{createProduct()} return Product object
+    \item READ: Mock \texttt{getProducts()} return Product list
+    \item UPDATE: Mock \texttt{updateProduct()} với data mới
+    \item DELETE: Mock \texttt{deleteProduct()} verify success
+\end{itemize}
+
+\textbf{Bằng chứng thực hiện:}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/.../service/ProductServiceMockTest.java
+@ExtendWith(MockitoExtension.class)
+@DisplayName("Product Service Mock Tests")
+public class ProductServiceMockTest {
+
+    @Mock
+    private ProductRepository productRepository;
+    @InjectMocks
+    private ProductService productService;
+
+    @Test
+    @DisplayName("Test createProduct - Success")
+    void testCreateProductSuccess() {
+        when(productRepository.existsByName("Laptop")).thenReturn(false);
+        when(categoryRepository.findById(1)).thenReturn(Optional.of(testCategory));
+        when(productRepository.save(any(Product.class))).thenReturn(testProduct);
+
+        ProductDto result = productService.createProduct(testProductDto);
+
+        assertNotNull(result);
+        verify(productRepository, times(1)).save(any(Product.class));
+    }
+
+    @Test
+    @DisplayName("Test deleteProduct - Success")
+    void testDeleteProductSuccess() {
+        when(productRepository.findById(1)).thenReturn(Optional.of(testProduct));
+        doNothing().when(productRepository).delete(testProduct);
+
+        assertDoesNotThrow(() -> productService.deleteProduct(1));
+        verify(productRepository, times(1)).delete(testProduct);
+    }
+}
+\end{lstlisting}
+
+\textit{Để chạy test, sử dụng lệnh:}
+\begin{lstlisting}[language=bash, breaklines=true]
+mvn test -Dtest=ProductServiceMockTest
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_mock_testing/images/product_mock_test_backend_results.png}}
+\caption{Kết quả Mock Test - ProductController (Backend)}
+\end{figure}
+
+\subsection{Kết luận}
+
+\subsubsection{Tổng kết kết quả}
+
+Mock Testing đã được thực hiện thành công cho cả Frontend và Backend với các kết quả như sau:
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|c|c|c|}
+\hline
+\textbf{Component/Service} & \textbf{Total Tests} & \textbf{Passed} & \textbf{Coverage} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Component/Service} & \textbf{Total Tests} & \textbf{Passed} & \textbf{Coverage} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{4}{|c|}{\textbf{Frontend Mock Tests}} \\
+\hline
+Login Component & 2 & 2 & 100\% \\
+\hline
+Product Service & 8 & 8 & 100\% \\
+\hline
+
+\multicolumn{4}{|c|}{\textbf{Backend Mock Tests}} \\
+\hline
+AuthController & 2 & 2 & 100\% \\
+\hline
+ProductController & 4 & 4 & 100\% \\
+\hline
+
+\textbf{TỔNG} & \textbf{16} & \textbf{16} & \textbf{100\%} \\
+\hline
+
+\end{longtable}
+}
+
+\subsubsection{Đánh giá}
+
+\textbf{Ưu điểm của Mock Testing:}
+\begin{itemize}
+    \item \textbf{Độc lập}: Tests không phụ thuộc vào Backend API hoặc Database
+    \item \textbf{Tốc độ}: Chạy nhanh hơn nhiều so với Integration Tests
+    \item \textbf{Kiểm soát}: Dễ dàng test các edge cases và error scenarios
+    \item \textbf{Isolation}: Phát hiện bug trong logic component mà không bị ảnh hưởng bởi external dependencies
+\end{itemize}
+
+\textbf{Kết luận:}
+\begin{itemize}
+    \item Tất cả 10 test cases đều PASS với 100\% success rate
+    \item Mock Testing giúp đảm bảo component logic hoạt động chính xác trong mọi tình huống
+    \item Các dependencies (API, Navigation, Storage) được mock hoàn toàn và verify chính xác
+    \item Tests có thể chạy độc lập mà không cần setup Backend hoặc Database
+\end{itemize}
+
+\textbf{Best Practices đã áp dụng:}
+\begin{itemize}
+    \item Clear test structure với \texttt{describe()} và \texttt{test()}
+    \item \texttt{beforeEach()} để reset mocks giữa các tests
+    \item Comprehensive assertions với \texttt{expect()} và matchers
+    \item Mock verification với \texttt{toHaveBeenCalledTimes()} và \texttt{toHaveBeenCalledWith()}
+    \item Async/await handling cho promises
+    \item Timer mocking với \texttt{jest.useFakeTimers()} và \texttt{jest.runAllTimers()}
+\end{itemize}

@@ -83,6 +83,28 @@ TC\_LOGIN\_011 & Password hợp lệ (có cả chữ và số, ví dụ: \texttt
 \end{longtable}
 }
 
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/validation.test.js
+import { validateUsername, validatePassword } from '../utils/validation';
+
+describe('Login Validation Tests', () => {
+    test('TC_LOGIN_001: Username rong hoac khoang trang', () => {
+        expect(validateUsername('')).toBe('Ten dang nhap khong duoc de trong');
+        expect(validateUsername('   ')).toBe('Ten dang nhap khong duoc de trong');
+    });
+
+    test('TC_LOGIN_004: Username chua ky tu dac biet', () => {
+        expect(validateUsername('user@123')).toBe('Ten dang nhap chi chua chu cai va so');
+    });
+
+    test('TC_LOGIN_009: Password thieu chu cai (Chi co so)', () => {
+        expect(validatePassword('12345678')).toBe('Mat khau phai chua ca chu cai va so');
+    });
+});
+\end{lstlisting}
+
 \textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test, sử dụng lệnh:}
@@ -135,6 +157,34 @@ Tại Backend, chúng em sử dụng \textbf{Mockito} để cô lập \texttt{Au
 
 \end{longtable}
 }
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/.../service/AuthServiceTest.java
+@DisplayName("Login Service Unit Tests")
+class AuthServiceTest {
+    @Mock private AuthenticationManager authenticationManager;
+    @Mock private JwtTokenProvider jwtTokenProvider;
+    @InjectMocks private AuthService authService;
+
+    @Test
+    @DisplayName("TC1: Login thanh cong voi credentials hop le")
+    void testLoginSuccess() {
+        LoginRequest request = new LoginRequest();
+        request.setUsername("testuser");
+        request.setPassword("Test123");
+        
+        when(authenticationManager.authenticate(any())).thenReturn(mock(Authentication.class));
+        when(jwtTokenProvider.generateToken(any())).thenReturn("mock-jwt-token");
+        
+        String token = authService.loginUser(request).getToken();
+        
+        assertNotNull(token);
+        verify(authenticationManager, times(1)).authenticate(any());
+    }
+}
+\end{lstlisting}
 
 \textbf{Bằng chứng thực hiện (Evidence):}
 
@@ -234,6 +284,37 @@ TC\_PROD\_014 & Sản phẩm hợp lệ hoàn toàn (tất cả trường đều
 \end{longtable}
 }
 
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/productValidation.test.js
+import { validateProduct } from '../utils/productValidation';
+
+describe('Product Validation Tests', () => {
+    const validProduct = {
+        name: 'Laptop Dell', price: 15000000, quantity: 10,
+        description: 'Mo ta ngan gon', categoryId: 1
+    };
+
+    test('TC_PROD_005: Gia am hoac bang 0', () => {
+        expect(validateProduct({ ...validProduct, price: -5000 }).price)
+            .toBe('Gia san pham phai lon hon 0');
+        expect(validateProduct({ ...validProduct, price: 0 }).price)
+            .toBe('Gia san pham phai lon hon 0');
+    });
+
+    test('TC_PROD_008: So luong la so thap phan (Float)', () => {
+        expect(validateProduct({ ...validProduct, quantity: 10.5 }).quantity)
+            .toBe('So luong phai la so nguyen');
+    });
+
+    test('TC_PROD_014: San pham hop le hoan toan', () => {
+        const errors = validateProduct(validProduct);
+        expect(Object.keys(errors).length).toBe(0);
+    });
+});
+\end{lstlisting}
+
 \textbf{Bằng chứng thực hiện (Evidence):}
 
 \textit{Để chạy test, sử dụng lệnh:}
@@ -298,6 +379,40 @@ Kiểm thử các nghiệp vụ CRUD (Create, Read, Update, Delete) của sản 
 
 \end{longtable}
 }
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/.../service/ProductServiceTest.java
+@DisplayName("Product Service Unit Tests")
+class ProductServiceTest {
+    @Mock private ProductRepository productRepository;
+    @InjectMocks private ProductService productService;
+
+    @Test
+    @DisplayName("TC1: Tao san pham moi thanh cong")
+    void testCreateProduct() {
+        when(productRepository.existsByName(anyString())).thenReturn(false);
+        when(productRepository.save(any(Product.class))).thenReturn(product);
+
+        ProductDto result = productService.createProduct(productDto);
+        
+        assertNotNull(result);
+        verify(productRepository, times(1)).save(any(Product.class));
+    }
+
+    @Test
+    @DisplayName("TC9: Update that bai do ID khong ton tai")
+    void testUpdateProductNotFound() {
+        when(productRepository.findById(99)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> {
+            productService.updateProduct(99, productDto);
+        });
+        verify(productRepository, never()).save(any());
+    }
+}
+\end{lstlisting}
 
 \textbf{Bằng chứng thực hiện (Evidence):}
 

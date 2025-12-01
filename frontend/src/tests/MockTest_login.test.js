@@ -1,6 +1,8 @@
 // MockTest_login.test.js
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import Login from "../components/Login/login";
+import { authService } from "../services/apiService";
 
 // Mock navigate function
 const mockNavigate = jest.fn();
@@ -16,9 +18,6 @@ jest.mock("../services/apiService", () => ({
     login: jest.fn(),
   },
 }));
-
-import Login from "../components/Login/login";
-import { authService } from "../services/apiService";
 
 jest.useFakeTimers();
 

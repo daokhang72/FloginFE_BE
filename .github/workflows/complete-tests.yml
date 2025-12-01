@@ -156,18 +156,7 @@ jobs:
           echo "✅ Test data seeded, waiting 5 seconds..."
           sleep 5
 
-      # Run Backend Unit Tests (SAU KHI SEED XONG)
-      - name: Run Backend Unit Tests (AuthService & ProductService)
-        run: |
-          cd backend
-          ./mvnw test -Dtest="AuthServiceTest,ProductServiceTest" jacoco:report
-        env:
-          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
-          SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD: root
-        continue-on-error: true
-
-      # Run Frontend Unit Tests
+        # Run Frontend Unit Tests
       - name: Run Frontend Unit Tests - Login Validation
         run: |
           cd frontend
@@ -180,8 +169,32 @@ jobs:
           npm test src/tests/productValidation.test.js -- --coverage --watchAll=false
         continue-on-error: true
 
-      # Run Mock Tests
-      - name: Run Backend Mock Tests
+      # Run Backend Unit Tests (SAU KHI SEED XONG)
+      - name: Run Backend Unit Tests (AuthService & ProductService)
+        run: |
+          cd backend
+          ./mvnw test -Dtest="AuthServiceTest,ProductServiceTest" jacoco:report
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/flogin_project_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: root
+        continue-on-error: true
+
+      # Run Frontend Mock Tests
+      - name: Run Frontend Mock Tests - Login
+        run: |
+          cd frontend
+          npm test src/tests/MockTest_login.test.js -- --watchAll=false
+        continue-on-error: true
+
+      - name: Run Frontend Mock Tests - Product
+        run: |
+          cd frontend
+          npm test src/tests/MockTest_product.test.js -- --watchAll=false
+        continue-on-error: true
+
+      # Run Backend Mock Tests
+      - name: Run Backend Mock Tests (AuthController & ProductService)
         run: |
           cd backend
           ./mvnw test -Dtest="**/controller/*MockTest,**/service/*MockTest"
@@ -206,18 +219,6 @@ jobs:
           path: |
             backend/target/site/jacoco/
             backend/target/surefire-reports/
-
-      - name: Run Frontend Mock Tests - Login
-        run: |
-          cd frontend
-          npm test src/tests/MockTest_login.test.js -- --watchAll=false
-        continue-on-error: true
-
-      - name: Run Frontend Mock Tests - Product
-        run: |
-          cd frontend
-          npm test src/tests/MockTest_product.test.js -- --watchAll=false
-        continue-on-error: true
 
       # Run E2E Tests
       - name: Run Login E2E Tests
