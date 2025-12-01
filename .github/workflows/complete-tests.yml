@@ -200,11 +200,6 @@ jobs:
             backend/target/site/jacoco/
             backend/target/surefire-reports/
 
-      - name: Install react-router-dom for Mock Tests
-        run: |
-          cd frontend
-          npm install react-router-dom --legacy-peer-deps
-
       - name: Run Frontend Mock Tests - Login
         run: |
           cd frontend

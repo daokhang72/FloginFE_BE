@@ -127,31 +127,34 @@ class ProductServiceTest {
     @DisplayName("TC5: Lay danh sach san pham")
     void testGetAllProducts() {
         // Giả lập trả về list chứa 1 sản phẩm
-        when(productRepository.findAll()).thenReturn(Arrays.asList(product));
+        when(productRepository.findAllWithCategory()).thenReturn(Arrays.asList(product));
 
         List<ProductDto> result = productService.getAllProducts();
 
+        assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("Laptop Dell", result.get(0).getName());
+        verify(productRepository, times(1)).findAllWithCategory();
     }
 
     // TC6: Get By ID Success
     @Test
     @DisplayName("TC6: Lay san pham theo ID thanh cong")
     void testGetProductById() {
-        when(productRepository.findById(1)).thenReturn(Optional.of(product));
+        when(productRepository.findByIdWithCategory(1)).thenReturn(Optional.of(product));
 
         ProductDto result = productService.getProductById(1);
 
         assertNotNull(result);
         assertEquals(1, result.getId());
+        verify(productRepository, times(1)).findByIdWithCategory(1);
     }
 
     // TC7: Get By ID Not Found
     @Test
     @DisplayName("TC7: Lay san pham that bai do khong ton tai")
     void testGetProductByIdNotFound() {
-        when(productRepository.findById(99)).thenReturn(Optional.empty());
+        when(productRepository.findByIdWithCategory(99)).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class, () -> {
             productService.getProductById(99);
