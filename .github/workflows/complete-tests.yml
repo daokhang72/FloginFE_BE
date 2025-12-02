@@ -179,6 +179,20 @@ jobs:
         continue-on-error: true
 
       # Generate combined coverage report after all tests
+      - name: Generate Combined Frontend Coverage Report
+        run: |
+          cd frontend
+          npm test -- --coverage --watchAll=false --coverageReporters=html --coverageReporters=text
+        continue-on-error: true
+
+      - name: Upload Frontend Coverage Report (Jest)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-jest-coverage
+          path: |
+            frontend/coverage/
+
       - name: Generate Combined Backend Coverage Report
         run: |
           cd backend
