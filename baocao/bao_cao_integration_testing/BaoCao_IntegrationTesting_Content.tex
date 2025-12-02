@@ -1,0 +1,569 @@
+\section{Integration Testing}
+\setcounter{subsection}{0}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình thực hiện Integration Testing cho hệ thống FloginFE\_BE. Integration Testing là mức kiểm thử tập trung vào việc kiểm tra sự tương tác giữa các module/component khác nhau trong hệ thống, đảm bảo chúng hoạt động đúng khi được tích hợp với nhau.
+
+\textbf{Nội dung chính của chương:}
+\begin{itemize}
+    \item Công cụ kiểm thử: Jest (Frontend), MockMvc (Backend), React Testing Library
+    \item Integration Tests cho chức năng Login: Component và API Integration
+    \item Integration Tests cho chức năng Product: Component và API Integration
+    \item CI/CD Integration với GitHub Actions
+    \item Kết luận và đánh giá kết quả
+\end{itemize}
+
+\subsection{Công cụ kiểm thử}
+
+\textbf{Frontend Integration Testing:}
+\begin{itemize}
+    \item Jest với React Testing Library
+    \item @testing-library/user-event (v16.3.0) - Simulate user interactions
+    \item @testing-library/react - Component integration testing
+\end{itemize}
+
+\textbf{Backend Integration Testing:}
+\begin{itemize}
+    \item Spring Boot Test với MockMvc
+    \item @SpringBootTest annotation với @AutoConfigureMockMvc
+    \item Mockito để mock Service layer
+    \item ObjectMapper cho JSON serialization/deserialization
+\end{itemize}
+
+\textit{Lưu ý: Hướng dẫn chi tiết có trong file HUONG\_DAN\_CHAY\_CAU\_3.md}
+
+\subsection{Login - Integration Testing}
+
+\subsubsection{Frontend Component Integration}
+
+\textbf{Mục tiêu:} Kiểm thử tích hợp giữa Login component với các services (API calls, routing, storage).
+
+\textbf{File test:} \texttt{frontend/src/tests/Login.integration.test.js}
+
+\textbf{Các trường hợp kiểm thử (Test Cases):}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+TC\_INT\_LOGIN\_001 & Render Login component với form elements & \begin{itemize}
+    \item Hiển thị Username input field
+    \item Hiển thị Password input field
+    \item Hiển thị Login button
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_LOGIN\_002 & Submit form thành công và tích hợp với API service & \begin{itemize}
+    \item apiService.login() được gọi với credentials
+    \item Navigate đến /product sau khi login
+    \item Token và username được lưu vào localStorage
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_LOGIN\_003 & Hiển thị error message khi API trả về lỗi & \begin{itemize}
+    \item API reject với error response
+    \item Hiển thị thông báo lỗi trên UI
+    \item Không navigate đến page khác
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_LOGIN\_004 & Hiển thị success message trước khi redirect & \begin{itemize}
+    \item API resolve với token và username
+    \item Hiển thị "Đăng nhập thành công!"
+    \item Chờ 2 giây trước khi redirect
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/Login.integration.test.js
+// ... imports ...
+
+describe("Login Integration Tests", () => {
+  test("TC_INT_LOGIN_002: Submit form thanh cong", async () => {
+    apiService.login.mockResolvedValue({
+      token: "test-token",
+      username: "testuser",
+    });
+
+    render(<BrowserRouter><Login /></BrowserRouter>);
+
+    fireEvent.change(screen.getByPlaceholderText(/username/i), {
+      target: { value: "testuser" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/password/i), {
+      target: { value: "Test123" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /login/i }));
+
+    await waitFor(() => {
+      expect(mockNavigate).toHaveBeenCalledWith("/product");
+    });
+
+    expect(apiService.login).toHaveBeenCalledWith({
+      username: "testuser",
+      password: "Test123",
+    });
+  });
+});
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_integration_testing/images/frontend_login_integration.png}
+\caption{Kết quả Frontend Login Integration Tests - 4/4 tests passed}
+\end{figure}
+
+\subsubsection{Backend API Integration}
+
+\textbf{Mục tiêu:} Kiểm thử tích hợp giữa Controller layer và Service layer với MockMvc.
+
+\textbf{File test:} \texttt{backend/src/test/java/com/flogin/integration/AuthControllerIntegrationTest.java}
+
+\textbf{Các trường hợp kiểm thử (Test Cases):}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+TC\_INT\_AUTH\_001 & POST /api/auth/login với credentials hợp lệ & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item Response chứa token và username
+    \item authService.login() được gọi
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_AUTH\_002 & Kiểm tra cấu trúc response JSON & \begin{itemize}
+    \item Response có field "token"
+    \item Response có field "username"
+    \item Content-Type: application/json
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_AUTH\_003 & Kiểm tra CORS headers và security & \begin{itemize}
+    \item Response headers có Access-Control-Allow-Origin
+    \item Endpoint không yêu cầu authentication
+    \item MockMvc addFilters = false
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/com/flogin/integration/
+//       AuthControllerIntegrationTest.java
+// ... imports ...
+
+@SpringBootTest
+@AutoConfigureMockMvc(addFilters = false)
+public class AuthControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @MockBean
+    private AuthService authService;
+
+    @Test
+    public void testLoginEndpoint_Success() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("testuser");
+        loginRequest.setPassword("Test123");
+
+        LoginResponse mockResponse = new LoginResponse();
+        mockResponse.setToken("mock-jwt-token-12345");
+        mockResponse.setUsername("testuser");
+
+        when(authService.login(any(LoginRequest.class)))
+            .thenReturn(mockResponse);
+
+        mockMvc.perform(post("/api/auth/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(loginRequest)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.token").value("mock-jwt-token-12345"))
+            .andExpect(jsonPath("$.username").value("testuser"));
+    }
+}
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_integration_testing/images/backend_auth_integration.png}
+\caption{Kết quả Backend Auth Integration Tests - 3/3 tests passed}
+\end{figure}
+
+\subsection{Product - Integration Testing}
+
+\subsubsection{Frontend Component Integration}
+
+\textbf{Mục tiêu:} Kiểm thử tích hợp ProductForm component với các modes (create, edit, detail).
+
+\textbf{File test:} \texttt{frontend/src/tests/ProductForm.integration.test.js}
+
+\textbf{Các trường hợp kiểm thử (Test Cases):}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+TC\_INT\_PROD\_001 & Render ProductForm trong create mode & \begin{itemize}
+    \item Hiển thị empty form fields
+    \item Hiển thị "Thêm sản phẩm" title
+    \item Hiển thị category dropdown
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_002 & Submit form tạo product mới với image upload & \begin{itemize}
+    \item User nhập thông tin product
+    \item User upload image file
+    \item apiService.createProduct() được gọi với FormData
+    \item Navigate về /product sau khi thành công
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_003 & Edit mode load và update existing product & \begin{itemize}
+    \item Load product data từ API
+    \item Pre-fill form với existing data
+    \item apiService.updateProduct() được gọi
+    \item Xử lý image upload mới (optional)
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_004 & Detail mode hiển thị product read-only & \begin{itemize}
+    \item Load product data từ API
+    \item Tất cả fields bị disable
+    \item Không có submit button
+    \item Hiển thị existing image
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: frontend/src/tests/ProductForm.integration.test.js
+// ... imports ...
+
+describe("ProductForm Integration Tests", () => {
+  const mockCategories = [
+    { id: 1, name: "Electronics" },
+    { id: 2, name: "Clothing" },
+  ];
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    apiService.getCategories.mockResolvedValue(mockCategories);
+  });
+
+  test("TC_INT_PROD_002: Submit tao product moi", async () => {
+    apiService.createProduct.mockResolvedValue({ id: 1 });
+
+    render(<BrowserRouter><ProductForm mode="create" /></BrowserRouter>);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Them san pham/i)).toBeInTheDocument();
+    });
+
+    fireEvent.change(screen.getByLabelText(/Ten san pham/i), {
+      target: { value: "Laptop Dell XPS 15" },
+    });
+    fireEvent.change(screen.getByLabelText(/Gia/i), {
+      target: { value: "25000000" },
+    });
+
+    const file = new File(["laptop"], "laptop.jpg", 
+                          { type: "image/jpeg" });
+    fireEvent.change(screen.getByLabelText(/Hinh anh/i), 
+                     { target: { files: [file] } });
+
+    fireEvent.click(screen.getByRole("button", { name: /Luu/i }));
+
+    await waitFor(() => {
+      expect(apiService.createProduct)
+        .toHaveBeenCalledWith(expect.any(FormData));
+      expect(mockNavigate).toHaveBeenCalledWith("/product");
+    });
+  });
+});
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_integration_testing/images/frontend_product_integration.png}
+\caption{Kết quả Frontend Product Integration Tests - 4/4 tests passed}
+\end{figure}
+
+\subsubsection{Backend API Integration}
+
+\textbf{Mục tiêu:} Kiểm thử đầy đủ CRUD operations của Product API với MockMvc.
+
+\textbf{File test:} \texttt{backend/src/test/java/com/flogin/integration/ProductControllerIntegrationTest.java}
+
+\textbf{Các trường hợp kiểm thử (Test Cases):}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\tablename\ \thetable{} -- tiếp theo trang trước}} \\
+\hline
+\textbf{Test Case} & \textbf{Mô tả} & \textbf{Kết quả mong đợi} & \textbf{Trạng thái} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+TC\_INT\_PROD\_API\_001 & POST /api/products - Create product with image & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item MockMultipartFile upload thành công
+    \item productService.createProduct() được gọi
+    \item Response chứa product ID
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_API\_002 & GET /api/products - Get all products & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item Response là JSON array
+    \item productService.getAllProducts() được gọi
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_API\_003 & GET /api/products/\{id\} - Get product by ID & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item Response chứa product details
+    \item productService.getProductById() được gọi với đúng ID
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_API\_004 & PUT /api/products/\{id\} - Update product & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item Mock existing product data
+    \item productService.updateProduct() được gọi
+    \item Xử lý optional image update
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+TC\_INT\_PROD\_API\_005 & DELETE /api/products/\{id\} - Delete product & \begin{itemize}
+    \item HTTP Status: 200 OK
+    \item Response message: "Xóa sản phẩm thành công"
+    \item productService.deleteProduct() được gọi với đúng ID
+\end{itemize} & \textcolor{green}{Passed} \\
+\hline
+
+\end{longtable}
+}
+
+\textbf{Code minh chứng (Code Snippet):}
+
+\begin{lstlisting}[language=Java, breaklines=true, basicstyle=\footnotesize\ttfamily]
+// File: backend/src/test/java/com/flogin/integration/
+//       ProductControllerIntegrationTest.java
+// ... imports ...
+
+@SpringBootTest
+@AutoConfigureMockMvc(addFilters = false)
+public class ProductControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private ProductService productService;
+
+    @Test
+    public void testCreateProduct_Success() throws Exception {
+        ProductDto mockProduct = new ProductDto();
+        mockProduct.setId(1);
+        mockProduct.setName("Laptop Dell");
+        mockProduct.setPrice(new BigDecimal("25000000"));
+
+        when(productService.createProduct(any(), any()))
+            .thenReturn(mockProduct);
+
+        MockMultipartFile image = new MockMultipartFile(
+            "image", "laptop.jpg", "image/jpeg", 
+            "test image".getBytes()
+        );
+
+        mockMvc.perform(multipart("/api/products")
+                .file(image)
+                .param("name", "Laptop Dell")
+                .param("price", "25000000")
+                .param("categoryId", "1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value(1))
+            .andExpect(jsonPath("$.name").value("Laptop Dell"));
+
+        verify(productService, times(1)).createProduct(any(), any());
+    }
+
+    @Test
+    public void testDeleteProduct_Success() throws Exception {
+        doNothing().when(productService).deleteProduct(anyInt());
+
+        mockMvc.perform(delete("/api/products/1"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Xoa san pham thanh cong"));
+
+        verify(productService, times(1)).deleteProduct(1);
+    }
+}
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../bao_cao_integration_testing/images/backend_product_integration.png}
+\caption{Kết quả Backend Product Integration Tests - 5/5 tests passed}
+\end{figure}
+
+
+
+\subsection{Kết luận và đánh giá}
+
+\subsubsection{Tổng kết kết quả}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Test Level} & \textbf{Số lượng Tests} & \textbf{Passed} & \textbf{Tỷ lệ} \\
+\hline
+Frontend Integration & 8 & 8 & 100\% \\
+\hline
+Backend Integration & 8 & 8 & 100\% \\
+\hline
+\textbf{Tổng} & \textbf{16} & \textbf{16} & \textbf{100\%} \\
+\hline
+\end{tabular}
+\caption{Kết quả Integration Testing}
+\end{table}
+
+\subsubsection{Ưu điểm của Integration Testing}
+
+\begin{itemize}
+    \item \textbf{Phát hiện lỗi tích hợp sớm}: Catch bugs khi modules tương tác với nhau
+    \item \textbf{Đảm bảo API contracts}: Verify request/response structures giữa Frontend và Backend
+    \item \textbf{Test realistic scenarios}: Gần với production environment hơn Unit Tests
+    \item \textbf{CI/CD ready}: Tự động chạy trong pipeline để đảm bảo quality
+\end{itemize}
+
+\subsubsection{Thách thức và giải pháp}
+
+\textbf{1. Mock dependencies phức tạp:}
+\begin{itemize}
+    \item \textit{Vấn đề}: Service layer có nhiều dependencies (Repository, File Storage, etc.)
+    \item \textit{Giải pháp}: Sử dụng @MockBean trong Spring Boot Test và jest.mock() trong Jest
+\end{itemize}
+
+\textbf{2. Type mismatches trong Backend tests:}
+\begin{itemize}
+    \item \textit{Vấn đề}: ProductDto dùng Integer và BigDecimal, test ban đầu dùng Long và Double
+    \item \textit{Giải pháp}: Kiểm tra DTOs kỹ và dùng đúng types: \texttt{new BigDecimal("25000000")}
+\end{itemize}
+
+\textbf{3. Image upload testing:}
+\begin{itemize}
+    \item \textit{Vấn đề}: Frontend tests cần mock URL.createObjectURL
+    \item \textit{Giải pháp}: Mock global function: \texttt{global.URL.createObjectURL = jest.fn()}
+\end{itemize}
+
+\subsubsection{Bài học kinh nghiệm}
+
+\begin{enumerate}
+    \item \textbf{Always check DTOs}: Verify exact types (Integer vs Long, BigDecimal vs Double)
+    \item \textbf{Mock intermediate calls}: PUT test cần mock getProductById() để retrieve existing image
+    \item \textbf{Verify HTTP status codes}: DELETE trả về 200 OK (không phải 204 No Content)
+    \item \textbf{Use setters for Lombok @Data}: LoginRequest không có constructor, dùng setters
+    \item \textbf{Test realistic flows}: Integration tests nên simulate real user interactions
+\end{enumerate}
+
+\subsubsection{Kết luận}
+
+Integration Testing là bước quan trọng trong testing pyramid. Qua chương này, nhóm đã:
+
+\begin{itemize}
+    \item Triển khai thành công 16 Integration Tests cho Login và Product (16/16 passed)
+    \item Kiểm thử tích hợp Frontend Components với Services và API calls
+    \item Kiểm thử tích hợp Backend Controllers với Service layers
+    \item Đảm bảo code quality và functional correctness khi các modules tương tác
+\end{itemize}
+
+Integration Testing giúp phát hiện các lỗi không thể tìm thấy bằng Unit Tests, đặc biệt là các lỗi xảy ra khi các components tương tác với nhau. Đây là foundation vững chắc để đảm bảo hệ thống hoạt động đúng khi tích hợp các modules.
