@@ -19,36 +19,15 @@
 \usepackage{xcolor}
 \usepackage{float}
 
-
-
-
 \definecolor{codebg}{RGB}{245,245,245}
 \definecolor{codeframe}{RGB}{200,200,200}
 \definecolor{codekeyword}{RGB}{0,0,150}
 \definecolor{codestring}{RGB}{150,0,0}
 \definecolor{codecomment}{RGB}{0,120,0}
 
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{codebg},
-    frame=single,
-    rulecolor=\color{codeframe},
-    language=JavaScript,
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{codekeyword}\bfseries,
-    stringstyle=\color{codestring},
-    commentstyle=\color{codecomment}\itshape,
-    showstringspaces=false,
-    breaklines=true,
-    tabsize=2
-}
-
 % Tạo bảng màu
-\definecolor{codebg}{RGB}{245,245,245}
 \definecolor{codekeyword}{RGB}{0,0,180}
-\definecolor{codestring}{RGB}{150,0,0}
-\definecolor{codecomment}{RGB}{0,120,0}
 \definecolor{codenumber}{RGB}{150,0,150}
-\definecolor{codeframe}{RGB}{180,180,180}
 
 % Định nghĩa JavaScript cho listings
 \lstdefinelanguage{JavaScript}{
@@ -93,14 +72,15 @@
 \subsection*{4.1\quad Giới thiệu chương}
 \addcontentsline{toc}{subsection}{4.1\quad Giới thiệu chương}
 
-Chương này trình bày quy trình kiểm thử tích hợp (\textit{Integration Testing}), nhằm đánh giá khả năng làm việc phối hợp giữa các thành phần giao diện frontend, các dịch vụ xử lý nghiệp vụ phía backend và các API liên quan. Mục tiêu của chương là đảm bảo khi các module được kết hợp, hệ thống vẫn vận hành đúng yêu cầu, dữ liệu được truyền chính xác qua các lớp và phản hồi được xử lý theo đúng luồng.
+Chương này trình bày quy trình kiểm thử tích hợp (\textit{Integration Testing}), nhằm đánh giá khả năng làm việc phối hợp giữa các thành phần giao diện frontend, các dịch vụ xử lý nghiệp vụ phía backend và các API liên quan. Mục tiêu là đảm bảo khi các module được kết hợp, hệ thống vẫn vận hành đúng yêu cầu, dữ liệu được truyền chính xác qua các lớp và phản hồi được xử lý theo đúng luồng.
 
 \vspace{0.2cm}
 
 \noindent \textit{Các phần tiếp theo sẽ mô tả chi tiết việc kiểm thử tích hợp cho từng chức năng trong hệ thống.}
+
 \section*{4.2\quad Các công cụ kiểm thử sử dụng}
-Trong chương này, nhóm sử dụng các công cụ kiểm thử cho cả frontend và backend nhằm 
-mô phỏng hành vi người dùng và đánh giá tính đúng đắn của API.
+
+Trong chương này, nhóm sử dụng các công cụ kiểm thử cho cả frontend và backend nhằm mô phỏng hành vi người dùng và đánh giá tính đúng đắn của API.
 
 \begin{table}[H]
 \centering
@@ -124,11 +104,11 @@ Tự động chạy test, tạo báo cáo \\ \hline
 \caption{Bảng tổng hợp công cụ kiểm thử được sử dụng}
 \end{table}
 
-\subsection*
+\subsection*{}
 
-Việc kết hợp các công cụ trên giúp kiểm thử tự động hoá, đảm bảo tính chính xác 
-của giao diện người dùng, logic xử lý API và độ ổn định của toàn bộ hệ thống.
+Việc kết hợp các công cụ trên giúp kiểm thử tự động hoá, đảm bảo tính chính xác của giao diện người dùng, logic xử lý API và độ ổn định của toàn bộ hệ thống.
 
+% -------------------------------------------------------------
 \section*{4.3 Login – Integration Testing}
 
 \subsection*{4.3.1 Frontend Component Integration Testing}
@@ -140,155 +120,52 @@ của giao diện người dùng, logic xử lý API và độ ổn định củ
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{2.5cm}|p{5cm}|p{4.5cm}|p{3cm}|}
+\begin{tabular}{|p{2.5cm}|p{4.5cm}|p{4.5cm}|p{3cm}|}
 \hline
 \textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\
 \hline
-TC-LOGIN-A1 & Render và nhập liệu & Mở Login, nhập username/password & Field hiển thị và nhận input \\
-\hline
-TC-LOGIN-A2 & Submit form rỗng & Nhấn “Đăng nhập” khi chưa nhập dữ liệu & Hiện lỗi thiếu thông tin \\
-\hline
-TC-LOGIN-B1 & Submit hợp lệ và gọi API & Nhập đúng; mock API trả về thành công & Gọi API và chuyển hướng sang /product \\
-\hline
-TC-LOGIN-C1  & Xử lý lỗi API & Mock API trả lỗi & Hiển thị thông báo thất bại \\
-\hline
+TC-LOGIN-A1 & Render và nhập liệu & Mở Login, nhập username/password & Field hiển thị và nhận input \\ \hline
+TC-LOGIN-A2 & Submit form rỗng & Nhấn “Đăng nhập” khi chưa nhập dữ liệu & Hiện lỗi thiếu thông tin \\ \hline
+TC-LOGIN-B1 & Submit hợp lệ và gọi API & Nhập đúng; mock API trả về thành công & Gọi API và chuyển hướng sang /product \\ \hline
+TC-LOGIN-C1  & Xử lý lỗi API & Mock API trả lỗi & Hiển thị thông báo thất bại \\ \hline
 \end{tabular}
+\caption{Bảng Test Case – Frontend Login}
 \end{table}
 
 \subsubsection*{Mã kiểm thử minh chứng}
 \noindent \textbf{File: frontend/src/tests/login.integration.test.js}
+
 \begin{lstlisting}[language=JavaScript, style=mystyle]
-import '@testing-library/jest-dom';
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
-import Login from "../components/Login/login";
+test("Login submit hop le", async () => {
+  apiService.authService.login.mockResolvedValue({
+    message: "Dang nhap thanh cong",
+    token: "jwt"
+  });
 
-// Mock navigate
-const mockNavigate = jest.fn();
-jest.mock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
-    useNavigate: () => mockNavigate,
-}));
+  render(<BrowserRouter><Login /></BrowserRouter>);
 
-// Mock API service
-jest.mock("../services/apiService");
+  fireEvent.change(screen.getByTestId("username-input"), {
+    target: { value: "user" }
+  });
+  fireEvent.change(screen.getByTestId("password-input"), {
+    target: { value: "123" }
+  });
+  fireEvent.click(screen.getByTestId("login-button"));
 
-describe("Login Component Integration Tests", () => {
-
-    // === (a) Rendering + User Interaction ===
-    test("TC_LOGIN_FE_A1 - Render dung va cho phep nhap lieu", () => {
-        render(
-            <BrowserRouter>
-                <Login />
-            </BrowserRouter>
-        );
-
-        expect(screen.getByTestId("username-input")).toBeInTheDocument();
-        expect(screen.getByTestId("password-input")).toBeInTheDocument();
-
-        fireEvent.change(screen.getByTestId("username-input"), {
-            target: { value: "user123" }
-        });
-
-        fireEvent.change(screen.getByTestId("password-input"), {
-            target: { value: "Pass123" }
-        });
-
-        expect(screen.getByTestId("username-input").value).toBe("user123");
-        expect(screen.getByTestId("password-input").value).toBe("Pass123");
-    });
-
-    // === (a) Submit form rong ===
-    test("TC_LOGIN_FE_A2 - Hien thi loi khi submit form rong", async () => {
-        render(
-            <BrowserRouter>
-                <Login />
-            </BrowserRouter>
-        );
-
-        fireEvent.click(screen.getByTestId("login-button"));
-
-        await waitFor(() => {
-            expect(screen.getByTestId("username-error")).toBeInTheDocument();
-            expect(screen.getByTestId("password-error")).toBeInTheDocument();
-        });
-    });
-
-    // === (b + c) Submit form hop le + API + navigate ===
-    test("TC_LOGIN_FE_B1 - Submit hop le goi API login va navigate", async () => {
-        apiService.authService.login.mockResolvedValue({
-            message: "Dang nhap thanh cong!",
-            token: "fake-jwt-token"
-        });
-
-        render(
-            <BrowserRouter>
-                <Login />
-            </BrowserRouter>
-        );
-
-        fireEvent.change(screen.getByTestId("username-input"), {
-            target: { value: "user123" }
-        });
-
-        fireEvent.change(screen.getByTestId("password-input"), {
-            target: { value: "Pass123" }
-        });
-
-        fireEvent.click(screen.getByTestId("login-button"));
-
-        await waitFor(() => {
-            expect(apiService.authService.login).toHaveBeenCalled();
-        });
-
-        await waitFor(() => {
-            expect(mockNavigate).toHaveBeenCalledWith("/product");
-        });
-
-        expect(screen.getByText(/Dang nhap thanh cong/i)).toBeInTheDocument();
-    });
-
-    // === (c) Xu ly loi API ===
-    test("TC_LOGIN_FE_C1 - Hien thi loi khi API login that bai", async () => {
-        apiService.authService.login.mockRejectedValue({
-            message: "Sai thong tin dang nhap!"
-        });
-
-        render(
-            <BrowserRouter>
-                <Login />
-            </BrowserRouter>
-        );
-
-        fireEvent.change(screen.getByTestId("username-input"), {
-            target: { value: "user123" }
-        });
-
-        fireEvent.change(screen.getByTestId("password-input"), {
-            target: { value: "WrongPass" }
-        });
-
-        fireEvent.click(screen.getByTestId("login-button"));
-
-        await waitFor(() => {
-            expect(screen.getByText(/Sai thong tin dang nhap/i)).toBeInTheDocument();
-        });
-    });
+  await waitFor(() =>
+    expect(mockNavigate).toHaveBeenCalledWith("/product")
+  );
 });
+
 \end{lstlisting}
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 \noindent\hrulefill
 
 \begin{center}
-    {\large \textbf{Bằng chứng thực hiện (Evidence):}}\\[4pt]
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Frontend Login):}}\\[4pt]
     {\itshape Để chạy test, sử dụng lệnh:}
 \end{center}
-
 
 \begin{lstlisting}[style=mystyle]
 npm test src/tests/login.integration.test.js
@@ -297,13 +174,12 @@ npm test src/tests/login.integration.test.js
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\linewidth]{login_test_pass.png}
-    \caption{Kết quả chạy kiểm thử Login Integration Test (tất cả test đều Passed).}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (Frontend) – tất cả test đều Passed.}
 \end{figure}
 
 \noindent\hrulefill
 
 % -------------------------------------------------------------
-
 \subsection*{4.3.2 Backend API Integration Testing}
 
 \textbf{Mục tiêu kiểm thử}:  
@@ -313,149 +189,58 @@ Xác minh API \texttt{/api/auth/login} xử lý đúng dữ liệu đầu vào, 
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{2.8cm}|p{5cm}|p{4.5cm}|p{3cm}|}
+\begin{tabular}{|p{2.6cm}|p{4.4cm}|p{4.6cm}|p{3cm}|}
 \hline
 \textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Input} & \textbf{Kết quả mong đợi} \\
 \hline
-TC-BE-A1 & Kiểm thử đăng nhập thành công & username/password hợp lệ & Status 200, trả về token \\
-\hline
-TC-BE-A2 & Sai thông tin đăng nhập & username/password sai & Status 400, message lỗi \\
-\hline
-TC-BE-C1 & Kiểm tra CORS preflight & OPTIONS request & Trả CORS headers hợp lệ \\
-\hline
+TC-BE-A1 & Đăng nhập thành công & Username/password hợp lệ & Status 200, trả token và message thành công \\ \hline
+TC-BE-A2 & Đăng nhập sai thông tin & Username/password không đúng & Status 400, trả message lỗi \\ \hline
+TC-BE-C1 & Kiểm tra CORS preflight & OPTIONS đến \texttt{/api/auth/login} & Trả header CORS hợp lệ \\ \hline
 \end{tabular}
+\caption{Bảng Test Case – Backend Login}
 \end{table}
 
-\subsubsection*{Mã kiểm thử minh chứng}
-\noindent \textbf{File: backend/src/test/.../controller/AuthControllerIntegrationTest.java}
+\subsubsection*{Mã kiểm thử minh chứng (tiêu biểu)}
+\noindent \textbf{File: backend/src/test/.../AuthControllerIntegrationTest.java}
 
 \begin{lstlisting}[language=Java, style=mystyle]
-@WebMvcTest(AuthController.class)
-@AutoConfigureMockMvc(addFilters = false)
-@DisplayName("Login API Integration Tests")
-class AuthControllerIntegrationTest {
+@Test
+void testLoginSuccess() throws Exception {
+  LoginRequest req = new LoginRequest("user", "123");
+  LoginResponse res = new LoginResponse("OK", "jwt");
 
-    @Autowired
-    private MockMvc mockMvc;
+  given(authService.loginUser(any())).willReturn(res);
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @MockBean
-    private AuthService authService;
-
-    @MockBean
-    private JwtTokenProvider jwtTokenProvider;
-
-    @MockBean
-    private CustomUserDetailsService customUserDetailsService;
-
-    @BeforeEach
-    void setUp() {
-        given(jwtTokenProvider.validateToken(any(String.class))).willReturn(true);
-        given(jwtTokenProvider.getUsernameFromToken(any(String.class))).willReturn("testuser");
-    }
-
-    // ===== (a + b) POST /api/auth/login - THANH CONG =====
-    @Test
-    @DisplayName("TC_BE_A1 - POST /api/auth/login - Dang nhap thanh cong")
-    void testLoginSuccess() throws Exception {
-        // Arrange
-        LoginRequest request = new LoginRequest();
-        request.setUsername("testuser");
-        request.setPassword("Test123");
-
-        LoginResponse mockResponse = new LoginResponse(
-                "Dang nhap thanh cong!",
-                "fake-jwt-token"
-        );
-
-        given(authService.loginUser(any(LoginRequest.class)))
-                .willReturn(mockResponse);
-
-        // Act + Assert
-        mockMvc.perform(
-                        post("/api/auth/login")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(request))
-                )
-                // (b) status code + content type
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-
-                // (b) response structure: message, token, tokenType
-                .andExpect(jsonPath("$.message").value("Dang nhap thanh cong!"))
-                .andExpect(jsonPath("$.token").value("fake-jwt-token"))
-                .andExpect(jsonPath("$.tokenType").value("Bearer"));
-    }
-
-    // ===== (a + b) POST /api/auth/login - SAI TAI KHOAN / MAT KHAU =====
-    @Test
-    @DisplayName("TC_BE_A2 - POST /api/auth/login - Sai username/password")
-    void testLoginInvalidCredentials() throws Exception {
-        LoginRequest request = new LoginRequest();
-        request.setUsername("wrongUser");
-        request.setPassword("WrongPass1");
-
-        // gia lap AuthService nem loi (vi du dang nhap sai)
-        willThrow(new RuntimeException("Ten dang nhap hoac mat khau khong dung."))
-                .given(authService)
-                .loginUser(any(LoginRequest.class));
-
-        mockMvc.perform(
-                        post("/api/auth/login")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(request))
-                )
-                // (b) GlobalExceptionHandler map RuntimeException -> 400
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("Ten dang nhap hoac mat khau khong dung."));
-    }
-
-    // ===== (c) Test CORS va headers cho /api/auth/login =====
-    @Test
-    @DisplayName("TC_BE_C1 - CORS preflight cho POST /api/auth/login")
-    void testLoginCorsPreflight() throws Exception {
-        String origin = "http://localhost:3000";
-
-        mockMvc.perform(
-                        options("/api/auth/login")
-                                .header(HttpHeaders.ORIGIN, origin)
-                                .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "POST")
-                                .header(HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS, "Content-Type, Authorization")
-                )
-                .andExpect(status().isOk())
-                // allowedOrigins("http://localhost:3000")
-                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, origin))
-                // allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS,
-                        containsString("POST")))
-                // allowedHeaders("*")
-                .andExpect(header().string(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
-                        containsString("Content-Type")));
-    }
+  mockMvc.perform(post("/api/auth/login")
+        .contentType("application/json")
+        .content(objectMapper.writeValueAsString(req)))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.token").value("jwt"));
 }
+
 \end{lstlisting}
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 \noindent\hrulefill
 
 \begin{center}
-    {\large \textbf{Bằng chứng thực hiện (Evidence):}}\\[4pt]
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Backend Login):}}\\[4pt]
     {\itshape Để chạy test, sử dụng lệnh:}
-    
 \end{center}
+
 \begin{lstlisting}[style=mystyle]
-mvn test src/test/.../controller/uthControllerIntegrationTest.java
+mvn test src/test/java/com/flogin/controller/AuthControllerIntegrationTest.java
 \end{lstlisting}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\linewidth]{login_backend_test_pass.png}
-    \caption{Kết quả chạy kiểm thử Login Integration Test (tất cả test đều Passed).}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (Backend) – tất cả test đều Passed.}
 \end{figure}
 
 \noindent\hrulefill
 
+% -------------------------------------------------------------
 \section*{4.4 \quad Product – Integration Testing}
 
 \subsection*{4.4.1 \quad Frontend Component Integration Testing}
@@ -474,7 +259,7 @@ mvn test src/test/.../controller/uthControllerIntegrationTest.java
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{2.7cm}|p{5cm}|p{5cm}|p{3cm}|}
+\begin{tabular}{|p{2.7cm}|p{4.8cm}|p{4.8cm}|p{3cm}|}
 \hline
 \textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\ \hline
 
@@ -487,109 +272,41 @@ TC-PROD-B2 & Chỉnh sửa sản phẩm (edit) & Load \texttt{productToEdit}, s�
 TC-PROD-C1 & Xem chi tiết sản phẩm & Nhấn “Xem Chi Tiết” trên danh sách & Modal hiện đúng tên sản phẩm, mô tả, tồn kho \\ \hline
 
 \end{tabular}
+\caption{Bảng Test Case – Frontend Product}
 \end{table}
 
 \subsubsection*{Mã kiểm thử minh chứng}
 \noindent \textbf{File: frontend/src/tests/product.integration.test.js}
 
 \begin{lstlisting}[language=JavaScript, style=mystyle]
-// --- Test Case 1: ProductList + API ---
-test("ProductPage: hien thi danh sach san pham sau khi mock API", async () => {
-    render(
-        <MemoryRouter>
-            <ProductPage />
-        </MemoryRouter>
-    );
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import ProductPage from "../components/Product/ProductPage";
+import { productService } from "../services/apiService";
 
-    expect(productService.getAll).toHaveBeenCalledTimes(1);
+jest.mock("../services/apiService");
 
-    const item1 = await screen.findByText("Laptop Dell");
-    const item2 = await screen.findByText("Chuot khong day");
+// Test tieu bieu: ProductPage load danh sach tu API
+test("ProductPage hien thi danh sach san pham tu API", async () => {
+  productService.getAll.mockResolvedValue({
+    data: [{ id: 1, name: "Laptop Dell" }],
+  });
 
-    expect(item1).toBeInTheDocument();
-    expect(item2).toBeInTheDocument();
-});
+  render(
+    <MemoryRouter>
+      <ProductPage />
+    </MemoryRouter>
+  );
 
-// --- Test Case 2: ProductForm (Create) ---
-test("ProductForm (create): nhap lieu hop le va goi onSave voi FormData dung", async () => {
-    const handleSave = jest.fn();
-
-    render(
-        <ProductForm
-            productToEdit={null}
-            onSave={handleSave}
-            onCancel={() => {}}
-            categories={mockCategories}
-        />
-    );
-
-    fireEvent.change(screen.getByLabelText("Ten san pham"), {
-        target: { value: "Chuot moi" }
-    });
-
-    fireEvent.change(screen.getByLabelText("Gia"), {
-        target: { value: "350000" }
-    });
-
-    fireEvent.click(screen.getByTestId("submit-btn"));
-
-    await waitFor(() => {
-        expect(handleSave).toHaveBeenCalled();
-    });
-
-    const formData = handleSave.mock.calls[0][0];
-    expect(formData.get("name")).toBe("Chuot moi");
-});
-
-// --- Test Case 3: ProductForm (Edit) ---
-test("ProductForm (edit): load du lieu cu va cap nhat dung", async () => {
-    const handleSave = jest.fn();
-
-    render(
-        <ProductForm
-            productToEdit={mockProducts[0]}
-            onSave={handleSave}
-            onCancel={() => {}}
-            categories={mockCategories}
-        />
-    );
-
-    const nameInput = screen.getByLabelText("Ten san pham");
-    expect(nameInput.value).toBe("Laptop Dell");
-
-    fireEvent.change(nameInput, {
-        target: { value: "Laptop Dell Update" }
-    });
-
-    fireEvent.click(screen.getByTestId("submit-btn"));
-
-    await waitFor(() => {
-        expect(handleSave).toHaveBeenCalled();
-    });
-
-    const updated = handleSave.mock.calls[0][0];
-    expect(updated.get("name")).toBe("Laptop Dell Update");
-});
-
-// --- Test Case 4: ProductDetail Modal ---
-test("ProductDetail: hien thi dung thong tin khi nhan 'Xem Chi Tiet'", async () => {
-    render(
-        <MemoryRouter>
-            <ProductPage />
-        </MemoryRouter>
-    );
-
-    const detailBtn = await screen.findAllByText("Xem Chi Tiet");
-    fireEvent.click(detailBtn[0]);
-
-    expect(await screen.findByText("Thong Tin San Pham")).toBeInTheDocument();
-    expect(screen.getAllByText(/Laptop Dell/i).length).toBeGreaterThan(0);
+  expect(await screen.findByText("Laptop Dell"))
+    .toBeInTheDocument();
 });
 \end{lstlisting}
 
+\vspace{0.3cm}
 \noindent\hrulefill
 \begin{center}
-{\large \textbf{Bằng chứng thực hiện (Evidence)}}
+{\large \textbf{Bằng chứng thực hiện (Evidence - Frontend Product)}}
 \end{center}
 
 \begin{lstlisting}[style=mystyle]
@@ -599,12 +316,145 @@ npm test src/tests/product.integration.test.js
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\linewidth]{product_test_pass.png}
-    \caption{Kết quả chạy kiểm thử Product Integration Test (tất cả test Passed).}
+    \caption{Kết quả chạy kiểm thử Product Integration Test (Frontend) – tất cả test Passed.}
 \end{figure}
 
 \noindent\hrulefill
 
+% -------------------------------------------------------------
+\subsection*{4.4.2\quad Backend API Integration Testing}
+\addcontentsline{toc}{subsection}{4.4.2\quad Backend API Integration Testing}
 
-% ====== HẾT NỘI DUNG (có thể thêm các mục khác phía dưới) ======
+\textbf{Mục tiêu kiểm thử:}  
+Đảm bảo các API endpoint của \texttt{Product} hoạt động đúng khi tích hợp với tầng Service, bao gồm đầy đủ các thao tác CRUD: tạo mới, đọc danh sách, đọc chi tiết, cập nhật và xoá.
+
+\subsubsection*{Yêu cầu kiểm thử}
+
+\begin{itemize}
+    \item[a)] Test \textbf{POST} \texttt{/api/products} (Create).
+    \item[b)] Test \textbf{GET} \texttt{/api/products} (Read all).
+    \item[c)] Test \textbf{GET} \texttt{/api/products/\{id\}} (Read one).
+    \item[d)] Test \textbf{PUT} \texttt{/api/products/\{id\}} (Update).
+    \item[e)] Test \textbf{DELETE} \texttt{/api/products/\{id\}} (Delete).
+\end{itemize}
+
+\subsubsection*{Bảng Test Case – Backend Product API}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.7cm}|p{4.8cm}|p{5.2cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Input / Bước thực hiện} & \textbf{Kết quả mong đợi} \\ \hline
+
+TC-PROD-BE-A1 & Tạo mới sản phẩm & Gửi POST \texttt{/api/products} với dữ liệu hợp lệ & Status 201, trả về JSON Product với id và name đúng \\ \hline
+
+TC-PROD-BE-B1 & Lấy danh sách sản phẩm & Gửi GET \texttt{/api/products} & Status 200, trả về mảng JSON, số phần tử đúng \\ \hline
+
+TC-PROD-BE-C1 & Lấy chi tiết 1 sản phẩm & Gửi GET \texttt{/api/products/1} & Status 200, trả về JSON Product có id = 1 \\ \hline
+
+TC-PROD-BE-D1 & Cập nhật sản phẩm & Gửi PUT \texttt{/api/products/1} với dữ liệu cập nhật & Status 200, trả về JSON Product với name đã cập nhật \\ \hline
+
+TC-PROD-BE-E1 & Xoá sản phẩm & Gửi DELETE \texttt{/api/products/1} & Status 200, service xoá được gọi một lần \\ \hline
+
+\end{tabular}
+\caption{Bảng Test Case – Backend Product API Integration}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: backend/src/test/java/com/flogin/controller/ProductControllerIntegrationTest.java}
+
+\begin{lstlisting}[language=Java, style=mystyle]
+@WebMvcTest(ProductController.class)
+@AutoConfigureMockMvc(addFilters = false)
+class ProductControllerIntegrationTest {
+
+  @Autowired 
+  private MockMvc mockMvc;
+
+  @MockBean 
+  private ProductService productService;
+
+  // Test tieu bieu: POST /api/products
+  @Test
+  void createProduct_success() throws Exception {
+    ProductDto sample = new ProductDto();
+    sample.setId(1);
+    sample.setName("Laptop Dell");
+
+    given(productService.createProduct(any(ProductDto.class)))
+        .willReturn(sample);
+
+    mockMvc.perform(
+        multipart("/api/products")
+          .param("name", "Laptop Dell")
+          .param("price", "15000000")
+          .param("quantity", "10")
+          .param("categoryId", "1")
+      )
+      .andExpect(status().isCreated())
+      .andExpect(jsonPath("$.id").value(1));
+  }
+}
+\end{lstlisting}
+
+\vspace{0.2cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Backend Product):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+mvn test src/test/java/com/flogin/controller/ProductControllerIntegrationTest.java
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{product_backend_pass_test.png}
+    \caption{Kết quả chạy kiểm thử Product API Integration Test (Backend) – tất cả test đều Passed.}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+\section*{4.5 \quad Kết luận}
+\addcontentsline{toc}{section}{4.5\quad Kết luận}
+
+\subsection*{1. Thống kê kết quả Integration Testing}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Nhóm kiểm thử} & \textbf{Số test case} & \textbf{Pass} & \textbf{Tỷ lệ} \\ \hline
+Frontend – Login & 4 & 4 & 100\% \\ \hline
+Frontend – Product & 4 & 4 & 100\% \\ \hline
+Backend – Auth API & 3 & 3 & 100\% \\ \hline
+Backend – Product API & 5 & 5 & 100\% \\ \hline
+\textbf{Tổng cộng} & \textbf{16} & \textbf{16} & \textbf{100\%} \\ \hline
+\end{tabular}
+\caption{Tổng hợp kết quả Integration Testing}
+\end{table}
+
+\subsection*{2. Ưu điểm của Integration Testing}
+
+\begin{itemize}
+    \item Đảm bảo các mô-đun giao tiếp đúng và dữ liệu truyền tải thống nhất.
+    \item Phát hiện sớm lỗi ở tầng liên kết giữa frontend và backend.
+    \item Mô phỏng khá sát với hành vi người dùng và luồng xử lý thực tế.
+\end{itemize}
+
+\subsection*{3. Hạn chế}
+
+\begin{itemize}
+    \item Tốn thời gian thiết lập môi trường và tạo dữ liệu test.
+    \item Phụ thuộc nhiều vào cấu hình (bảo mật, CORS, Spring Context).
+    \item Phức tạp hơn Unit Test vì phải hiểu rõ điểm giao tiếp giữa các mô-đun.
+\end{itemize}
+
+\subsection*{4. Đánh giá chung}
+
+Kết quả kiểm thử cho thấy toàn bộ 16 test case đều chạy thành công, chứng minh hệ thống hoạt động ổn định khi tích hợp. Đây là cơ sở quan trọng để chuyển sang các mức kiểm thử cao hơn như System Testing hoặc triển khai thực tế.
 
 \end{document}
