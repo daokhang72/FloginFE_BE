@@ -1,0 +1,1009 @@
+\section{Phân tích và Thiết kế Test Cases}
+\setcounter{subsection}{0}
+
+\subsection{Giới thiệu chương}
+
+Chương này trình bày quá trình phân tích yêu cầu và thiết kế test cases cho hệ thống FloginFE\_BE. Test Case Design là bước quan trọng đầu tiên trong quy trình kiểm thử phần mềm, giúp xác định các kịch bản kiểm thử cần thiết để đảm bảo chất lượng sản phẩm.
+
+\textbf{Nội dung chính của chương:}
+\begin{itemize}
+    \item Phân tích yêu cầu chức năng Login và Product
+    \item Thiết kế Test Scenarios cho từng chức năng
+    \item Xây dựng Test Cases chi tiết với input/output cụ thể
+    \item Xác định Test Data và Expected Results
+\end{itemize}
+
+\subsection{Login - Phân tích và Thiết kế Test Scenarios}
+
+\subsubsection{Yêu cầu chức năng}
+
+Chức năng Đăng nhập (Login) cho phép người dùng truy cập vào hệ thống quản lý sản phẩm. Yêu cầu chức năng bao gồm:
+
+\textbf{Yêu cầu nghiệp vụ:}
+\begin{itemize}
+    \item Người dùng phải đăng nhập để truy cập hệ thống
+    \item Hệ thống xác thực username và password
+    \item Sau khi đăng nhập thành công, chuyển hướng đến trang Quản lý sản phẩm
+    \item Hệ thống lưu JWT token để duy trì phiên đăng nhập
+\end{itemize}
+
+\textbf{Yêu cầu kỹ thuật:}
+\begin{itemize}
+    \item \textbf{Username}: Bắt buộc nhập, 3-50 ký tự
+    \item \textbf{Password}: Bắt buộc nhập, 6-100 ký tự, phải chứa cả chữ và số
+    \item \textbf{API Endpoint}: POST /api/auth/login
+    \item \textbf{Response}: JSON với token và message
+\end{itemize}
+
+\subsubsection{Test Scenarios}
+
+Dựa trên phân tích yêu cầu, nhóm xác định các Test Scenarios sau:
+
+\begin{enumerate}
+    \item \textbf{TS\_LOGIN\_01}: Kiểm tra validation dữ liệu đầu vào
+    \begin{itemize}
+        \item Username rỗng
+        \item Password rỗng
+        \item Username không đủ độ dài (< 3 ký tự)
+        \item Password không đủ độ dài (< 6 ký tự)
+        \item Password không chứa số
+    \end{itemize}
+    
+    \item \textbf{TS\_LOGIN\_02}: Kiểm tra xác thực người dùng
+    \begin{itemize}
+        \item Username không tồn tại
+        \item Password sai
+        \item Username và password đúng
+    \end{itemize}
+    
+    \item \textbf{TS\_LOGIN\_03}: Kiểm tra luồng thành công
+    \begin{itemize}
+        \item Lưu token vào localStorage
+        \item Chuyển hướng đến trang /product
+        \item Hiển thị thông báo thành công
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Thiết kế Test Cases chi tiết}
+
+Bảng sau liệt kê các Test Cases chi tiết cho chức năng Login theo định dạng chuẩn:
+
+\textbf{TC\_LOGIN\_001: Kiểm tra username rỗng hoặc chỉ chứa khoảng trắng}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_001 \\
+\hline
+\textbf{Test Name} & Kiểm tra username rỗng hoặc khoảng trắng \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Để trống trường username hoặc chỉ nhập khoảng trắng \newline 3. Nhập mật khẩu hợp lệ \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: "" hoặc "   " \newline Password: Test123 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Tên đăng nhập không được để trống" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_002: Kiểm tra username quá ngắn (< 3 ký tự)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_002 \\
+\hline
+\textbf{Test Name} & Kiểm tra username quá ngắn \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username có 2 ký tự \newline 3. Nhập mật khẩu hợp lệ \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: ab \newline Password: Test123 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Tên đăng nhập phải có ít nhất 3 ký tự" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_003: Kiểm tra username quá dài (> 50 ký tự)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_003 \\
+\hline
+\textbf{Test Name} & Kiểm tra username vượt quá độ dài cho phép \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username có 51 ký tự \newline 3. Nhập mật khẩu hợp lệ \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: (51 ký tự) \newline Password: Test123 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Tên đăng nhập không được quá 50 ký tự" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_004: Kiểm tra username chứa ký tự đặc biệt hoặc khoảng trắng}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_004 \\
+\hline
+\textbf{Test Name} & Kiểm tra username chứa ký tự không hợp lệ \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username chứa ký tự đặc biệt hoặc khoảng trắng \newline 3. Nhập mật khẩu hợp lệ \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: user@123 hoặc "test user" \newline Password: Test123 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Tên đăng nhập chỉ chứa chữ cái và số" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_005: Kiểm tra username hợp lệ}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_005 \\
+\hline
+\textbf{Test Name} & Đăng nhập thành công với username hợp lệ \\
+\hline
+\textbf{Priority} & Critical \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \newline - Tài khoản tồn tại trong hệ thống \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ (chỉ chữ và số, 3-50 ký tự) \newline 3. Nhập mật khẩu hợp lệ \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser1 hoặc ADMIN \newline Password: Test123 \\
+\hline
+\textbf{Expected Result} & - Không có lỗi validation cho username \newline - Form có thể gọi API \newline - Chuyển đến trang chủ sau khi đăng nhập thành công \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_006: Kiểm tra password rỗng hoặc chỉ chứa khoảng trắng}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_006 \\
+\hline
+\textbf{Test Name} & Kiểm tra password rỗng hoặc khoảng trắng \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Để trống trường password hoặc chỉ nhập khoảng trắng \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: "" hoặc "   " \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Mật khẩu không được để trống" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_007: Kiểm tra password quá ngắn (< 6 ký tự)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_007 \\
+\hline
+\textbf{Test Name} & Kiểm tra password quá ngắn \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Nhập password có 5 ký tự \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: 12345 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Mật khẩu phải có ít nhất 6 ký tự" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_008: Kiểm tra password quá dài (> 100 ký tự)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_008 \\
+\hline
+\textbf{Test Name} & Kiểm tra password vượt quá độ dài cho phép \\
+\hline
+\textbf{Priority} & Low \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Nhập password có 101 ký tự \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: (101 ký tự) \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Mật khẩu không được quá 100 ký tự" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_009: Kiểm tra password thiếu chữ cái (chỉ có số)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_009 \\
+\hline
+\textbf{Test Name} & Kiểm tra password không chứa chữ cái \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Nhập password chỉ có số (không có chữ) \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: 12345678 \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Mật khẩu phải chứa cả chữ cái và số" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_010: Kiểm tra password thiếu số (chỉ có chữ)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_010 \\
+\hline
+\textbf{Test Name} & Kiểm tra password không chứa số (chỉ có chữ) \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Nhập password chỉ có chữ (không có số) \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: abcdefgh \\
+\hline
+\textbf{Expected Result} & - Hiển thị lỗi: "Mật khẩu phải chứa cả chữ cái và số" \newline - Không gọi API đăng nhập \newline - Form không submit \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_LOGIN\_011: Kiểm tra password hợp lệ}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_LOGIN\_011 \\
+\hline
+\textbf{Test Name} & Kiểm tra password hợp lệ hoàn toàn \\
+\hline
+\textbf{Priority} & Critical \\
+\hline
+\textbf{Preconditions} & - Ứng dụng đang chạy \newline - Người dùng đang ở trang đăng nhập \newline - Tài khoản tồn tại trong hệ thống \\
+\hline
+\textbf{Test Steps} & 1. Truy cập trang đăng nhập \newline 2. Nhập username hợp lệ \newline 3. Nhập password hợp lệ (có cả chữ và số, 6-100 ký tự) \newline 4. Nhấn nút Đăng nhập \\
+\hline
+\textbf{Test Data} & Username: testuser \newline Password: Test1234 \\
+\hline
+\textbf{Expected Result} & - Không có lỗi validation cho password \newline - Form có thể gọi API \newline - Đăng nhập thành công \newline - Chuyển đến trang chủ \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\subsubsection{Test Data}
+
+\textbf{Tài khoản test có sẵn trong hệ thống:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Username} & \textbf{Password} & \textbf{Role} \\
+\hline
+testuser & Test123 & Admin \\
+\hline
+testuser1 & Test1234 & User \\
+\hline
+ADMIN & Admin123 & Admin \\
+\hline
+\end{tabular}
+\caption{Test Data - Tài khoản đăng nhập hợp lệ}
+\end{table}
+
+\textbf{Invalid Test Data:}
+
+\begin{itemize}
+    \item \textbf{Username}: "" (rỗng), "   " (khoảng trắng), "ab" (quá ngắn), (51 ký tự - quá dài), "user@123" (ký tự đặc biệt), "test user" (có khoảng trắng), "nonexistuser" (không tồn tại)
+    \item \textbf{Password}: "" (rỗng), "   " (khoảng trắng), "12345" (quá ngắn), (101 ký tự - quá dài), "12345678" (chỉ số), "abcdefgh" (chỉ chữ), "WrongPass1" (sai password)
+\end{itemize}
+
+\subsection{Product - Phân tích và Thiết kế Test Scenarios}
+
+\subsubsection{Yêu cầu chức năng}
+
+Chức năng Quản lý sản phẩm (Product) cho phép người dùng thực hiện các thao tác CRUD (Create, Read, Update, Delete) trên danh sách sản phẩm.
+
+\textbf{Yêu cầu nghiệp vụ:}
+\begin{itemize}
+    \item Hiển thị danh sách sản phẩm với đầy đủ thông tin
+    \item Thêm mới sản phẩm với ảnh đại diện
+    \item Chỉnh sửa thông tin sản phẩm
+    \item Xóa sản phẩm
+    \item Xem chi tiết sản phẩm
+\end{itemize}
+
+\textbf{Yêu cầu kỹ thuật:}
+\begin{itemize}
+    \item \textbf{Product Name}: Bắt buộc, 3-100 ký tự
+    \item \textbf{Price}: Bắt buộc, số dương (> 0), tối đa 999,999,999
+    \item \textbf{Quantity}: Bắt buộc, số nguyên dương (> 0), tối đa 99,999
+    \item \textbf{Description}: Tùy chọn, tối đa 500 ký tự
+    \item \textbf{Category}: Bắt buộc phải chọn danh mục (ID hợp lệ)
+    \item \textbf{Image}: Tùy chọn, hỗ trợ JPG, PNG, GIF
+\end{itemize}
+
+\textbf{API Endpoints:}
+\begin{itemize}
+    \item GET /api/products - Lấy danh sách sản phẩm
+    \item GET /api/products/\{id\} - Lấy chi tiết sản phẩm
+    \item POST /api/products - Tạo sản phẩm mới
+    \item PUT /api/products/\{id\} - Cập nhật sản phẩm
+    \item DELETE /api/products/\{id\} - Xóa sản phẩm
+\end{itemize}
+
+\subsubsection{Test Scenarios}
+
+Dựa trên phân tích yêu cầu, nhóm xác định các Test Scenarios sau cho CRUD operations:
+
+\begin{enumerate}
+    \item \textbf{TS\_PRODUCT\_01}: Kiểm tra tạo sản phẩm mới (CREATE - 4 test cases)
+    \begin{itemize}
+        \item Tạo sản phẩm với dữ liệu hợp lệ
+        \item Tạo sản phẩm với dữ liệu validation lỗi
+        \item Tạo sản phẩm thiếu trường bắt buộc (category)
+        \item Tạo sản phẩm với giá trị biên (tên dài nhất)
+    \end{itemize}
+    
+    \item \textbf{TS\_PRODUCT\_02}: Kiểm tra đọc/lấy thông tin sản phẩm (READ - 4 test cases)
+    \begin{itemize}
+        \item Lấy danh sách tất cả sản phẩm
+        \item Lấy chi tiết một sản phẩm theo ID thành công
+        \item Lấy sản phẩm với ID không tồn tại
+        \item Lấy danh sách sản phẩm rỗng (không có sản phẩm nào)
+    \end{itemize}
+    
+    \item \textbf{TS\_PRODUCT\_03}: Kiểm tra cập nhật sản phẩm (UPDATE - 4 test cases)
+    \begin{itemize}
+        \item Cập nhật sản phẩm với dữ liệu hợp lệ
+        \item Cập nhật sản phẩm không tồn tại
+        \item Cập nhật với dữ liệu validation lỗi
+        \item Cập nhật một phần thông tin sản phẩm (partial update)
+    \end{itemize}
+    
+    \item \textbf{TS\_PRODUCT\_04}: Kiểm tra xóa sản phẩm (DELETE - 4 test cases)
+    \begin{itemize}
+        \item Xóa sản phẩm tồn tại thành công
+        \item Xóa sản phẩm không tồn tại
+        \item Xóa sản phẩm không có quyền
+        \item Xóa nhiều sản phẩm cùng lúc
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Thiết kế Test Cases chi tiết}
+
+Bảng sau liệt kê các Test Cases chi tiết cho chức năng Product Management (CRUD Operations):
+
+\textbf{TC\_PROD\_001: Tạo sản phẩm mới thành công (CREATE)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_001 \\
+\hline
+\textbf{Test Name} & Tạo sản phẩm mới thành công với đầy đủ thông tin hợp lệ \\
+\hline
+\textbf{Priority} & Critical \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập thành công \newline - User có quyền tạo sản phẩm \newline - Database đang hoạt động \newline - Danh mục sản phẩm đã tồn tại \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product Management page \newline 2. Click "Add New Product" button \newline 3. Enter product name: "Laptop Dell XPS 15" \newline 4. Enter price: 25000000 \newline 5. Enter quantity: 10 \newline 6. Enter description: "Laptop cao cấp cho dân văn phòng" \newline 7. Select category: "Electronics" \newline 8. Click "Save" button \\
+\hline
+\textbf{Test Data} & POST /api/products \newline Name: Laptop Dell XPS 15 \newline Price: 25000000 \newline Quantity: 10 \newline Description: Laptop cao cấp cho dân văn phòng \newline CategoryId: 1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 201 Created \newline - Success message: "Tạo sản phẩm thành công" \newline - Product saved to database with auto-generated ID \newline - Redirect to product list \newline - New product appears in the list \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_002: Tạo sản phẩm với dữ liệu validation lỗi}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_002 \\
+\hline
+\textbf{Test Name} & Tạo sản phẩm với dữ liệu validation lỗi (tên rỗng, giá âm) \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - User đang ở form tạo sản phẩm \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Add Product form \newline 2. Leave product name empty or enter invalid data \newline 3. Enter price = -1000 (negative) \newline 4. Enter valid quantity \newline 5. Click Save button \\
+\hline
+\textbf{Test Data} & POST /api/products \newline Name: "" \newline Price: -1000 \newline Quantity: 10 \newline CategoryId: 1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 400 Bad Request \newline - Error messages: "Tên sản phẩm không được để trống", "Giá phải lớn hơn 0" \newline - Product not created in database \newline - Form remains open with error indicators \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_003: Tạo sản phẩm thiếu trường bắt buộc (CREATE - Missing Required Fields)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_003 \\
+\hline
+\textbf{Test Name} & Tạo sản phẩm thiếu trường bắt buộc (category) \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - User đang ở form tạo sản phẩm \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Add Product form \newline 2. Enter valid product name \newline 3. Enter valid price and quantity \newline 4. Do NOT select category (leave empty) \newline 5. Click Save button \\
+\hline
+\textbf{Test Data} & POST /api/products \newline Name: Laptop Dell \newline Price: 15000000 \newline Quantity: 10 \newline CategoryId: null \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 400 Bad Request \newline - Error message: "Vui lòng chọn danh mục" \newline - Product not created \newline - Form remains open \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_004: Tạo sản phẩm với tên có độ dài tối đa (CREATE - Boundary)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_004 \\
+\hline
+\textbf{Test Name} & Tạo sản phẩm với tên đạt giới hạn tối đa 100 ký tự \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - User đang ở form tạo sản phẩm \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Add Product form \newline 2. Enter product name with exactly 100 characters \newline 3. Enter valid price and quantity \newline 4. Select valid category \newline 5. Click Save button \\
+\hline
+\textbf{Test Data} & POST /api/products \newline Name: "Laptop Dell XPS 15 9520 Intel Core i7-12700H Ram 16GB SSD 512GB 15.6 inch FHD OLED Windows 11 Silver" (100 ký tự) \newline Price: 35000000 \newline Quantity: 5 \newline CategoryId: 1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 201 Created \newline - Product created successfully \newline - Success message: "Tạo sản phẩm thành công" \newline - Product appears in list with full name displayed \newline - No truncation of product name \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_005: Lấy danh sách tất cả sản phẩm (READ - Get All)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_005 \\
+\hline
+\textbf{Test Name} & Lấy danh sách tất cả sản phẩm thành công \\
+\hline
+\textbf{Priority} & Critical \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Database có ít nhất 1 sản phẩm \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Navigate to Product Management page \newline 3. System automatically calls GET /api/products \newline 4. Observe the response and UI display \\
+\hline
+\textbf{Test Data} & GET /api/products \newline (No request body) \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Response contains array of products \newline - Each product has: id, name, price, quantity, category, description \newline - Products display correctly in table/grid format \newline - Pagination works (if applicable) \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_006: Lấy chi tiết sản phẩm theo ID (READ - Get By ID)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_006 \\
+\hline
+\textbf{Test Name} & Lấy thông tin chi tiết một sản phẩm thành công \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=1 tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Navigate to Product List \newline 3. Click on a product to view details (ID=1) \newline 4. System calls GET /api/products/1 \newline 5. Observe the response \\
+\hline
+\textbf{Test Data} & GET /api/products/1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Response contains full product info: id, name, price, quantity, description, category, image \newline - Product details displayed correctly on UI \newline - All fields match database values \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_007: Lấy sản phẩm với ID không tồn tại (READ - Not Found)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_007 \\
+\hline
+\textbf{Test Name} & Lấy sản phẩm với ID không tồn tại \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=9999 KHÔNG tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Manually navigate to URL or API call: GET /api/products/9999 \newline 3. Observe the response \\
+\hline
+\textbf{Test Data} & GET /api/products/9999 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 404 Not Found \newline - Error message: "Không tìm thấy sản phẩm" or "Product not found" \newline - UI shows appropriate error message \newline - No product data displayed \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_008: Lấy danh sách sản phẩm rỗng (READ - Empty List)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_008 \\
+\hline
+\textbf{Test Name} & Lấy danh sách sản phẩm khi database không có sản phẩm nào \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Database KHÔNG có sản phẩm nào (hoặc đã xóa hết) \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Navigate to Product Management page \newline 3. System calls GET /api/products \newline 4. Observe response and UI \\
+\hline
+\textbf{Test Data} & GET /api/products \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Response returns empty array: [] \newline - UI displays message: "Không có sản phẩm nào" or "Danh sách trống" \newline - No error occurred \newline - Add Product button still available \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_009: Cập nhật sản phẩm thành công (UPDATE - Success)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_009 \\
+\hline
+\textbf{Test Name} & Cập nhật thông tin sản phẩm thành công \\
+\hline
+\textbf{Priority} & Critical \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=1 tồn tại \newline - User có quyền chỉnh sửa \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product List \newline 2. Click Edit button on product ID=1 \newline 3. Modify product name to "Laptop Dell XPS 15 Updated" \newline 4. Change price to 27000000 \newline 5. Click Save button \newline 6. Observe response \\
+\hline
+\textbf{Test Data} & PUT /api/products/1 \newline Name: Laptop Dell XPS 15 Updated \newline Price: 27000000 \newline Quantity: 10 \newline CategoryId: 1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Response contains updated product data \newline - Success message: "Cập nhật sản phẩm thành công" \newline - Database is updated \newline - Updated product displays in list \newline - Changes reflect immediately \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_010: Cập nhật sản phẩm không tồn tại (UPDATE - Not Found)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_010 \\
+\hline
+\textbf{Test Name} & Cập nhật sản phẩm với ID không tồn tại \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=9999 KHÔNG tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Attempt to update product with non-existent ID \newline 3. Make API call: PUT /api/products/9999 \newline 4. Observe response \\
+\hline
+\textbf{Test Data} & PUT /api/products/9999 \newline Name: Updated Product \newline Price: 20000000 \newline Quantity: 5 \newline CategoryId: 1 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 404 Not Found \newline - Error message: "Không tìm thấy sản phẩm để cập nhật" \newline - No changes in database \newline - UI shows error message \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_011: Cập nhật sản phẩm với dữ liệu validation lỗi (UPDATE - Validation Error)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_011 \\
+\hline
+\textbf{Test Name} & Cập nhật sản phẩm với giá âm và số lượng = 0 \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=2 tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product List \newline 2. Click Edit on product ID=2 \newline 3. Change price to -5000 \newline 4. Change quantity to 0 \newline 5. Click Save button \\
+\hline
+\textbf{Test Data} & PUT /api/products/2 \newline Price: -5000 \newline Quantity: 0 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 400 Bad Request \newline - Error messages: "Giá phải lớn hơn 0", "Số lượng phải lớn hơn 0" \newline - Product NOT updated in database \newline - Form shows validation errors \newline - Original data remains unchanged \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_012: Cập nhật một phần thông tin sản phẩm (UPDATE - Partial Update)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_012 \\
+\hline
+\textbf{Test Name} & Cập nhật chỉ giá sản phẩm, giữ nguyên các thông tin khác \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=3 tồn tại: Name="iPhone 14", Price=20000000, Quantity=10 \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product List \newline 2. Click Edit on product ID=3 \newline 3. Only change price to 18000000 \newline 4. Keep name, quantity, category unchanged \newline 5. Click Save button \\
+\hline
+\textbf{Test Data} & PUT /api/products/3 \newline Name: iPhone 14 (unchanged) \newline Price: 18000000 (changed) \newline Quantity: 10 (unchanged) \newline CategoryId: 2 (unchanged) \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Only price updated to 18000000 \newline - Name, quantity, category remain unchanged \newline - Success message displayed \newline - Updated product shows in list with new price \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_013: Xóa sản phẩm thành công (DELETE - Success)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_013 \\
+\hline
+\textbf{Test Name} & Xóa sản phẩm thành công \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=5 tồn tại trong database \newline - User có quyền xóa sản phẩm \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product List \newline 2. Select product with ID=5 \newline 3. Click Delete button \newline 4. Confirm deletion in popup \newline 5. System calls DELETE /api/products/5 \newline 6. Observe response \\
+\hline
+\textbf{Test Data} & DELETE /api/products/5 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK or 204 No Content \newline - Success message: "Xóa sản phẩm thành công" \newline - Product removed from database \newline - Product no longer appears in list \newline - List refreshes automatically \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_014: Xóa sản phẩm không tồn tại (DELETE - Not Found)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_014 \\
+\hline
+\textbf{Test Name} & Xóa sản phẩm với ID không tồn tại \\
+\hline
+\textbf{Priority} & Low \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập \newline - Product với ID=9999 KHÔNG tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. User logs in successfully \newline 2. Attempt to delete product with non-existent ID \newline 3. Make API call: DELETE /api/products/9999 \newline 4. Observe response \\
+\hline
+\textbf{Test Data} & DELETE /api/products/9999 \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 404 Not Found \newline - Error message: "Không tìm thấy sản phẩm để xóa" \newline - No changes in database \newline - UI shows appropriate error message \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_015: Xóa sản phẩm không có quyền (DELETE - Unauthorized)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_015 \\
+\hline
+\textbf{Test Name} & Xóa sản phẩm khi user không có quyền xóa \\
+\hline
+\textbf{Priority} & High \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập với role không có quyền DELETE \newline - Product với ID=7 tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. User with limited role logs in \newline 2. Navigate to Product List \newline 3. Attempt to delete product ID=7 \newline 4. System calls DELETE /api/products/7 \\
+\hline
+\textbf{Test Data} & DELETE /api/products/7 \newline User Role: Viewer (no delete permission) \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 403 Forbidden \newline - Error message: "Bạn không có quyền xóa sản phẩm" \newline - Product NOT deleted from database \newline - UI may hide Delete button for this role \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\vspace{0.3cm}
+
+\textbf{TC\_PROD\_016: Xóa nhiều sản phẩm cùng lúc (DELETE - Bulk Delete)}
+
+{\footnotesize
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Test Case ID} & TC\_PROD\_016 \\
+\hline
+\textbf{Test Name} & Xóa nhiều sản phẩm cùng lúc (batch delete) \\
+\hline
+\textbf{Priority} & Medium \\
+\hline
+\textbf{Preconditions} & - User đã đăng nhập với quyền DELETE \newline - Products với ID=10,11,12 tồn tại trong database \\
+\hline
+\textbf{Test Steps} & 1. Navigate to Product List \newline 2. Select multiple products (ID: 10, 11, 12) using checkboxes \newline 3. Click "Xóa các mục đã chọn" button \newline 4. Confirm deletion in popup \newline 5. System calls DELETE /api/products/bulk with IDs \\
+\hline
+\textbf{Test Data} & DELETE /api/products/bulk \newline Body: \{"ids": [10, 11, 12]\} \\
+\hline
+\textbf{Expected Result} & - HTTP Status: 200 OK \newline - Success message: "Đã xóa 3 sản phẩm thành công" \newline - All 3 products removed from database \newline - Products no longer appear in list \newline - List refreshes automatically \\
+\hline
+\textbf{Actual Result} & (Để trống) \\
+\hline
+\textbf{Status} & Not Run \\
+\hline
+\end{longtable}
+}
+
+\subsubsection{Test Data}
+
+\textbf{Valid Test Data:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|r|r|l|}
+\hline
+\textbf{Name} & \textbf{Price (VND)} & \textbf{Quantity} & \textbf{Category} \\
+\hline
+Laptop Dell & 15,000,000 & 10 & Laptop \\
+\hline
+Chuột không dây & 200,000 & 50 & Phụ kiện \\
+\hline
+Bàn phím cơ & 1,500,000 & 20 & Phụ kiện \\
+\hline
+Màn hình 24 inch & 3,000,000 & 15 & Màn hình \\
+\hline
+\end{tabular}
+\caption{Test Data - Sản phẩm hợp lệ}
+\end{table}
+
+\textbf{Invalid Test Data:}
+
+\begin{itemize}
+    \item Name rỗng: ""
+    \item Name quá ngắn: "AB"
+    \item Name quá dài: String với 101 ký tự
+    \item Price âm: -1000
+    \item Price = 0: 0
+    \item Price quá lớn: 1000000001
+    \item Quantity âm: -5
+    \item Description quá dài: String với 501 ký tự
+    \item CategoryId rỗng: 0 hoặc ""
+\end{itemize}
+
+\textbf{Test Images:}
+
+\begin{itemize}
+    \item Valid: test.jpg (100KB, JPG format)
+    \item Valid: test.png (150KB, PNG format)
+    \item Invalid: document.pdf (not an image)
+    \item Invalid: large-image.jpg (> 5MB)
+\end{itemize}
+
+\subsection{Kết luận}
+
+Chương này đã hoàn thành việc phân tích yêu cầu và thiết kế test cases cho 2 chức năng chính của hệ thống FloginFE\_BE:
+
+\textbf{Tổng quan Test Cases:}
+\begin{itemize}
+    \item \textbf{Login}: 11 test cases (authentication, validation, edge cases)
+    \item \textbf{Product}: 16 test cases (CRUD operations)
+    \begin{itemize}
+        \item CREATE: 4 test cases (valid, validation error, missing required, boundary values)
+        \item READ: 4 test cases (get all, get by ID, not found, empty list)
+        \item UPDATE: 4 test cases (success, not found, validation error, partial update)
+        \item DELETE: 4 test cases (success, not found, unauthorized, bulk delete)
+    \end{itemize}
+    \item \textbf{Tổng cộng}: 27 test cases
+\end{itemize}
+
+\textbf{Phân loại Test Cases:}
+\begin{itemize}
+    \item \textbf{CRUD Operations}: 16 test cases (59\%)
+    \item \textbf{Authentication \& Authorization}: 11 test cases (41\%)
+\end{itemize}
+
+\textbf{Độ ưu tiên (Priority):}
+\begin{itemize}
+    \item \textbf{High Priority}: 10 test cases (37\%)
+    \item \textbf{Medium Priority}: 13 test cases (48\%)
+    \item \textbf{Low Priority}: 4 test cases (15\%)
+\end{itemize}
+
+\textbf{Coverage:}
+\begin{itemize}
+    \item \textcolor{green}{\textbf{CRUD Operations}}: Đầy đủ 4 test cases cho mỗi operation (CREATE, READ, UPDATE, DELETE)
+    \item \textcolor{green}{\textbf{Input Validation}}: Bao gồm các trường hợp boundary values, validation errors
+    \item \textcolor{green}{\textbf{Error Handling}}: Kiểm tra 404 Not Found, 400 Bad Request, 403 Forbidden
+    \item \textcolor{green}{\textbf{Edge Cases}}: Empty list, bulk operations, partial updates, unauthorized access
+\end{itemize}
+
+Các test cases này sẽ được sử dụng làm cơ sở để thực hiện Unit Testing, Integration Testing, Mock Testing và Automation Testing trong các chương tiếp theo.

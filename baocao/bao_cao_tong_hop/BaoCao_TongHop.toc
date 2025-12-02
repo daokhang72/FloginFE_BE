@@ -1,99 +1,123 @@
-\contentsline {section}{LỜI MỞ ĐẦU}{4}{section*.3}%
-\contentsline {section}{\numberline {1}Phân tích và Thiết kế Test Cases}{5}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Giới thiệu chương}{5}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Login - Phân tích và Test Scenarios}{5}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Yêu cầu chức năng}{5}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Test Scenarios}{5}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Thiết kế Test Cases chi tiết}{5}{subsubsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.3}Product - Phân tích và Test Scenarios}{5}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Yêu cầu chức năng}{5}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Test Scenarios}{5}{subsubsection.1.3.2}%
-\contentsline {subsubsection}{\numberline {1.3.3}Thiết kế Test Cases chi tiết}{5}{subsubsection.1.3.3}%
-\contentsline {section}{\numberline {2}Unit Testing và Test-Driven Development (TDD)}{6}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Giới thiệu chương}{6}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Công cụ kiểm thử}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Unit Tests cho Chức năng Đăng nhập (Login)}{6}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Frontend Unit Tests (Validation Logic)}{6}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Backend Unit Tests (Auth Service)}{8}{subsubsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.4}Unit Tests cho Chức năng Quản lý Sản phẩm (Product)}{9}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Frontend Unit Tests (Validation \& Component)}{9}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Backend Unit Tests (Product Service)}{11}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Kết quả Độ phủ mã nguồn (Code Coverage)}{12}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Frontend Coverage (Jest)}{13}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Backend Coverage (JaCoCo)}{13}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Phân tích chi tiết Coverage}{14}{subsubsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.6}Kết luận}{14}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Integration Testing}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Giới thiệu chương}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Công cụ kiểm thử}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Login - Integration Testing}{15}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Frontend Component Integration}{15}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Backend API Integration}{17}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Product - Integration Testing}{18}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Frontend Component Integration}{18}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Backend API Integration}{20}{subsubsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.5}Kết luận và đánh giá}{22}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Tổng kết kết quả}{22}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Ưu điểm của Integration Testing}{22}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Thách thức và giải pháp}{23}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}Bài học kinh nghiệm}{23}{subsubsection.3.5.4}%
-\contentsline {subsubsection}{\numberline {3.5.5}Kết luận}{23}{subsubsection.3.5.5}%
-\contentsline {section}{\numberline {4}Mock Testing}{24}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Giới thiệu chương}{24}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Login - Mock Testing}{24}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Giới thiệu}{24}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Các trường hợp kiểm thử}{24}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Kỹ thuật Mock Implementation}{25}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Bằng chứng thực hiện}{25}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Backend Mock Testing}{26}{subsubsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.3}Product - Mock Testing}{27}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Giới thiệu}{27}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Các trường hợp kiểm thử}{27}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Kỹ thuật Mock Implementation}{28}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Bằng chứng thực hiện}{29}{subsubsection.4.3.4}%
-\contentsline {subsubsection}{\numberline {4.3.5}Backend Mock Testing}{30}{subsubsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.4}Kết luận}{32}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Tổng kết kết quả}{32}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Đánh giá}{32}{subsubsection.4.4.2}%
-\contentsline {section}{\numberline {5}Automation Testing và CI/CD}{33}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Giới thiệu chương}{33}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Công nghệ sử dụng}{33}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}Câu 5.1: Login - E2E Automation Testing}{33}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Page Object Model Design}{33}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Test Cases}{33}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Kết quả Login Tests}{34}{subsubsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.3}Câu 5.2: Product - E2E Automation Testing}{35}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Page Object Model cho Product}{35}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Test Cases}{36}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Kết quả Product Tests}{37}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}Tổng kết Test Coverage}{39}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Mochawesome Reports}{39}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}CI/CD Integration với GitHub Actions}{40}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Workflow Configuration}{40}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}Benefits của CI/CD}{42}{subsubsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.7}Best Practices}{42}{subsection.5.7}%
-\contentsline {subsubsection}{\numberline {5.7.1}1. Test Isolation}{42}{subsubsection.5.7.1}%
-\contentsline {subsubsection}{\numberline {5.7.2}2. Data-testid Selectors}{42}{subsubsection.5.7.2}%
-\contentsline {subsubsection}{\numberline {5.7.3}3. Wait Strategies}{42}{subsubsection.5.7.3}%
-\contentsline {subsubsection}{\numberline {5.7.4}4. Unique Test Data}{42}{subsubsection.5.7.4}%
-\contentsline {subsubsection}{\numberline {5.7.5}5. Page Object Model}{42}{subsubsection.5.7.5}%
-\contentsline {subsection}{\numberline {5.8}Challenges và Solutions}{42}{subsection.5.8}%
-\contentsline {subsection}{\numberline {5.9}Kết luận}{43}{subsection.5.9}%
-\contentsline {subsubsection}{\numberline {5.9.1}Thành tựu}{43}{subsubsection.5.9.1}%
-\contentsline {subsubsection}{\numberline {5.9.2}Lessons Learned}{43}{subsubsection.5.9.2}%
-\contentsline {section}{\numberline {6}Phần Mở Rộng}{44}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Giới thiệu chương}{44}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Performance Testing}{44}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Cấu hình Performance Test}{44}{subsubsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.3}Kết quả Performance Testing}{45}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Stress Test - Tìm Breaking Point}{46}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Phân tích Performance}{49}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Response Time Analysis}{49}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}So sánh Login API vs Product API}{50}{subsubsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.6}Security Testing}{50}{subsection.6.6}%
-\contentsline {subsubsection}{\numberline {6.6.1}Implementation Security Tests}{50}{subsubsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.7}Phân tích kết quả}{52}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Kết luận}{53}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}Khuyến nghị cải thiện}{53}{subsubsection.6.8.1}%
-\contentsline {section}{KẾT LUẬN}{55}{section*.38}%
-\contentsline {section}{TÀI LIỆU THAM KHẢO}{57}{section*.43}%
+\contentsline {section}{LỜI MỞ ĐẦU}{1}{section*.3}%
+\contentsline {section}{\numberline {1}Phân tích và Thiết kế Test Cases}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Giới thiệu chương}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Login - Phân tích và Thiết kế Test Scenarios}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Yêu cầu chức năng}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Test Scenarios}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Thiết kế Test Cases chi tiết}{3}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Test Data}{7}{subsubsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.3}Product - Phân tích và Thiết kế Test Scenarios}{7}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Yêu cầu chức năng}{7}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Test Scenarios}{8}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Thiết kế Test Cases chi tiết}{9}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Test Data}{15}{subsubsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.4}Kết luận}{16}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Unit Testing và Test-Driven Development (TDD)}{18}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Giới thiệu chương}{18}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Công cụ kiểm thử}{18}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Unit Tests cho Chức năng Đăng nhập (Login)}{18}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Frontend Unit Tests (Validation Logic)}{18}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Backend Unit Tests (Auth Service)}{20}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Unit Tests cho Chức năng Quản lý Sản phẩm (Product)}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Frontend Unit Tests (Validation \& Component)}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Backend Unit Tests (Product Service)}{23}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Kết quả Độ phủ mã nguồn (Code Coverage)}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Frontend Coverage (Jest)}{25}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Backend Coverage (JaCoCo)}{25}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Phân tích chi tiết Coverage}{26}{subsubsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.6}Kết luận}{26}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Integration Testing}{27}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Giới thiệu chương}{27}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Công cụ kiểm thử}{27}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Login - Integration Testing}{27}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Frontend Component Integration}{27}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Backend API Integration}{29}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Product - Integration Testing}{30}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Frontend Component Integration}{30}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Backend API Integration}{32}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Kết luận và đánh giá}{34}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Tổng kết kết quả}{34}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Ưu điểm của Integration Testing}{34}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Thách thức và giải pháp}{35}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Bài học kinh nghiệm}{35}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}Kết luận}{35}{subsubsection.3.5.5}%
+\contentsline {section}{\numberline {4}Mock Testing}{36}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Giới thiệu chương}{36}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Login - Mock Testing}{36}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Giới thiệu}{36}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Các trường hợp kiểm thử}{36}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Kỹ thuật Mock Implementation}{37}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Bằng chứng thực hiện}{37}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Backend Mock Testing}{38}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Product - Mock Testing}{39}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Giới thiệu}{39}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Các trường hợp kiểm thử}{39}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Kỹ thuật Mock Implementation}{40}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Bằng chứng thực hiện}{41}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Backend Mock Testing}{42}{subsubsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.4}Kết luận}{44}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Tổng kết kết quả}{44}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Đánh giá}{44}{subsubsection.4.4.2}%
+\contentsline {section}{\numberline {5}Automation Testing và CI/CD}{45}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Giới thiệu chương}{45}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Công nghệ sử dụng}{45}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}Câu 5.1: Login - E2E Automation Testing}{45}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Page Object Model Design}{45}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Test Cases}{45}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Kết quả Login Tests}{46}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Câu 5.2: Product - E2E Automation Testing}{47}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Page Object Model cho Product}{47}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Test Cases}{48}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Kết quả Product Tests}{49}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}Tổng kết Test Coverage}{51}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Mochawesome Reports}{51}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}CI/CD Integration với GitHub Actions}{52}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Workflow Configuration}{52}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}Benefits của CI/CD}{54}{subsubsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.7}Best Practices}{54}{subsection.5.7}%
+\contentsline {subsubsection}{\numberline {5.7.1}1. Test Isolation}{54}{subsubsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.2}2. Data-testid Selectors}{54}{subsubsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.3}3. Wait Strategies}{54}{subsubsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.4}4. Unique Test Data}{54}{subsubsection.5.7.4}%
+\contentsline {subsubsection}{\numberline {5.7.5}5. Page Object Model}{54}{subsubsection.5.7.5}%
+\contentsline {subsection}{\numberline {5.8}Challenges và Solutions}{54}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Kết luận}{55}{subsection.5.9}%
+\contentsline {subsubsection}{\numberline {5.9.1}Thành tựu}{55}{subsubsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.2}Lessons Learned}{55}{subsubsection.5.9.2}%
+\contentsline {section}{\numberline {6}Phần Mở Rộng: Performance Testing và Security Testing}{56}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Giới thiệu chương}{56}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Performance Testing}{56}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Yêu cầu và Mục tiêu}{56}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Công cụ sử dụng}{56}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Performance Tests cho Login API}{57}{subsubsection.6.2.3}%
+\contentsline {paragraph}{Thiết kế Test Scenarios}{57}{section*.31}%
+\contentsline {paragraph}{Kết quả thực thi Login API}{57}{section*.32}%
+\contentsline {paragraph}{Phân tích kết quả Login API}{57}{section*.34}%
+\contentsline {subsubsection}{\numberline {6.2.4}Performance Tests cho Product API}{57}{subsubsection.6.2.4}%
+\contentsline {paragraph}{Thiết kế Test Scenarios}{57}{section*.35}%
+\contentsline {paragraph}{Kết quả thực thi Product API}{58}{section*.36}%
+\contentsline {paragraph}{Phân tích kết quả Product API}{58}{table.caption.39}%
+\contentsline {subsubsection}{\numberline {6.2.5}Stress Test - Tìm Breaking Point}{59}{subsubsection.6.2.5}%
+\contentsline {paragraph}{Mục đích}{59}{section*.40}%
+\contentsline {paragraph}{Phương pháp}{59}{section*.41}%
+\contentsline {paragraph}{Kết quả}{60}{figure.caption.43}%
+\contentsline {paragraph}{Root Cause Analysis}{62}{section*.45}%
+\contentsline {paragraph}{Kết luận}{62}{section*.46}%
+\contentsline {subsubsection}{\numberline {6.2.6}Response Time Analysis}{62}{subsubsection.6.2.6}%
+\contentsline {paragraph}{Phân tích Percentiles}{63}{figure.caption.48}%
+\contentsline {paragraph}{So sánh giữa Login API và Product API}{63}{table.caption.50}%
+\contentsline {paragraph}{Throughput Analysis}{63}{section*.51}%
+\contentsline {subsection}{\numberline {6.3}Security Testing}{63}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Yêu cầu}{63}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Công cụ và thiết lập}{64}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Thiết kế và Thực thi Tests}{64}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Kết quả}{65}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Phân tích kết quả}{65}{subsubsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.4}Kết luận và Khuyến nghị}{66}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Tổng quan Performance Testing}{66}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Tổng quan Security Testing}{67}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Đánh giá và Kết luận}{67}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.4}Khuyến nghị cải thiện}{67}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.5}Hướng phát triển tiếp theo}{68}{subsubsection.6.4.5}%
+\contentsline {section}{KẾT LUẬN}{69}{section*.55}%
+\contentsline {section}{TÀI LIỆU THAM KHẢO}{71}{section*.60}%

@@ -77,6 +77,9 @@
 
 \begin{document}
 
+% Turn off page numbering for cover and TOC
+\pagenumbering{gobble}
+
 % ============================================
 % TRANG BÌA
 % ============================================
@@ -138,11 +141,14 @@ KHOA CÔNG NGHỆ THÔNG TIN
 
 \newpage
 \tableofcontents
+\newpage
+
+% Start page numbering from 1 with arabic numerals
+\pagenumbering{arabic}
 
 % ============================================
 % LỜI MỞ ĐẦU
 % ============================================
-\newpage
 \section*{LỜI MỞ ĐẦU}
 \addcontentsline{toc}{section}{LỜI MỞ ĐẦU}
 
@@ -180,8 +186,7 @@ Nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đã hướng dẫn t�
 
 \vspace{1cm}
 \begin{flushright}
-\textit{TP. Hồ Chí Minh, ngày ... tháng 11 năm 2025}\\
-\textit{Nhóm sinh viên thực hiện}
+\textit{TP. Hồ Chí Minh, ngày 2 tháng 12 năm 2025}\\
 \end{flushright}
 
 \newpage
@@ -189,41 +194,8 @@ Nhóm xin chân thành cảm ơn thầy Từ Lãng Phiêu đã hướng dẫn t�
 % ============================================
 % CHƯƠNG 1: PHÂN TÍCH VÀ THIẾT KẾ TEST CASES
 % ============================================
-\section{Phân tích và Thiết kế Test Cases}
-
-\subsection{Giới thiệu chương}
-
-Chương này trình bày quá trình phân tích yêu cầu và thiết kế test cases chi tiết cho hai chức năng chính của hệ thống: \textbf{Login} (Đăng nhập) và \textbf{Product Management} (Quản lý sản phẩm).
-
-\textit{Lưu ý: Nội dung chi tiết của chương này sẽ được bổ sung sau.}
-
-\subsection{Login - Phân tích và Test Scenarios}
-
-\subsubsection{Yêu cầu chức năng}
-
-[Nội dung sẽ được bổ sung]
-
-\subsubsection{Test Scenarios}
-
-[Nội dung sẽ được bổ sung]
-
-\subsubsection{Thiết kế Test Cases chi tiết}
-
-[Nội dung sẽ được bổ sung]
-
-\subsection{Product - Phân tích và Test Scenarios}
-
-\subsubsection{Yêu cầu chức năng}
-
-[Nội dung sẽ được bổ sung]
-
-\subsubsection{Test Scenarios}
-
-[Nội dung sẽ được bổ sung]
-
-\subsubsection{Thiết kế Test Cases chi tiết}
-
-[Nội dung sẽ được bổ sung]
+\setcounter{section}{0}
+\input{../bao_cao_test_case_design/BaoCao_TestCaseDesign_Content.tex}
 
 \newpage
 

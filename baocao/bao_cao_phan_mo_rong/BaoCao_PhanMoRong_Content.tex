@@ -1,4 +1,4 @@
-\section{Phần Mở Rộng}
+\section{Phần Mở Rộng: Performance Testing và Security Testing}
 \setcounter{subsection}{0}
 
 \subsection{Giới thiệu chương}
@@ -7,30 +7,51 @@ Chương này trình bày phần mở rộng với 2 loại kiểm thử nâng c
 
 \textbf{Nội dung chính của chương:}
 \begin{itemize}
-    \item \textbf{Performance Testing}: Đánh giá khả năng chịu tải, tìm breaking point, phân tích response time
-    \item \textbf{Security Testing}: Kiểm tra các lỗ hổng bảo mật phổ biến (SQL Injection, XSS, CSRF)
+    \item \textbf{Performance Testing}: Công cụ k6, Load test, Stress test, Breaking point analysis
+    \item \textbf{Security Testing}: SQL Injection, XSS, CSRF, Authentication testing
     \item Kết luận và khuyến nghị cải thiện
 \end{itemize}
 
 \subsection{Performance Testing}
 
-\textbf{Công cụ:} k6 (Grafana k6) - CLI-based load testing tool
+\subsubsection{Yêu cầu và Mục tiêu}
 
-\textbf{Mục tiêu kiểm thử:}
+Theo yêu cầu của đề bài tập lớn, nhóm cần thực hiện:
+
+\begin{enumerate}
+    \item Setup công cụ kiểm thử hiệu năng (JMeter hoặc k6)
+    \item Viết performance tests cho Login API:
+    \begin{itemize}
+        \item Load test: 100, 500, 1000 concurrent users
+        \item Stress test: Tìm breaking point
+        \item Response time analysis
+    \end{itemize}
+    \item Viết performance tests cho Product API
+    \item Phân tích kết quả và đưa ra recommendations
+\end{enumerate}
+
+\subsubsection{Công cụ sử dụng}
+
+Nhóm đã chọn \textbf{k6} (Grafana k6) làm công cụ kiểm thử hiệu năng vì:
+
 \begin{itemize}
-    \item Load test: 100, 500, 1000 concurrent users
-    \item Stress test: Tìm breaking point (2000-3000 users)
-    \item Response time analysis với percentiles (p90, p95, p99)
-    \item Throughput và error rate measurement
+    \item \textbf{Hiện đại và Developer-friendly}: Viết test bằng JavaScript (ES6+), dễ tích hợp với codebase hiện có
+    \item \textbf{CLI-based}: Chạy trực tiếp từ terminal, không cần GUI phức tạp như JMeter
+    \item \textbf{Cloud-ready}: Hỗ trợ xuất kết quả sang JSON, dễ tích hợp CI/CD
+    \item \textbf{Hiệu suất cao}: Viết bằng Go, xử lý được hàng nghìn concurrent users
+    \item \textbf{Thống kê chi tiết}: Cung cấp percentiles (p90, p95, p99), throughput, error rate
 \end{itemize}
 
-\textit{Lưu ý: Hướng dẫn cài đặt k6 và chạy tests chi tiết có trong file performance-testing/README.md}
+\textit{Lưu ý: Hướng dẫn cài đặt k6 chi tiết có trong file performance-testing/README.md}
 
-\subsubsection{Cấu hình Performance Test}
+\subsubsection{Performance Tests cho Login API}
 
-\textbf{Tóm tắt cấu hình:}
+\paragraph{Thiết kế Test Scenarios}
+
+Login API là endpoint quan trọng nhất của hệ thống, xử lý xác thực người dùng. Nhóm thiết kế 8 stages để mô phỏng tải tăng dần và giảm dần, từ 100 VUs (Virtual Users) khởi động cho đến 1000 VUs ở peak load.
+
+\textbf{Tóm tắt cấu hình Login Performance Test:}
 \begin{itemize}
-    \item Công cụ: k6 (Grafana k6) - CLI-based load testing tool
     \item Test configuration: 8 stages tăng dần từ 100 đến 1000 concurrent users
     \item Thresholds: p(95) < 500ms, error rate < 1\%
     \item Mock test users với random selection
@@ -39,14 +60,47 @@ Chương này trình bày phần mở rộng với 2 loại kiểm thử nâng c
 
 \textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/login-performance-test.js}}
 
-\subsection{Kết quả Performance Testing}
+\paragraph{Kết quả thực thi Login API}
 
-\textbf{Phương pháp:} Sử dụng k6 để test Login API và Product API với 8 stages tăng dần từ 100 đến 1000 concurrent users trong 10 phút.
-
-\textbf{Lệnh chạy tests:}
+\textbf{Lệnh chạy test:}
 \begin{lstlisting}[language=bash, breaklines=true]
 cd performance-testing
 k6 run login-performance-test.js
+\end{lstlisting}
+
+\textbf{Bằng chứng thực hiện (Evidence):}
+
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[width=0.7\textwidth]{../bao_cao_phan_mo_rong/images/login_performance_test.png}}
+\caption{Kết quả Performance Test - Login API}
+\end{figure}
+
+\paragraph{Phân tích kết quả Login API}
+
+Kết quả cho thấy Login API có hiệu năng rất tốt với response time trung bình chỉ 4.07ms và p95 là 5.40ms, hoàn toàn dưới ngưỡng 500ms. Tỷ lệ checks passed đạt 95.38\% cho thấy hệ thống xử lý ổn định. Request rate đạt 228 requests/s cho thấy throughput tốt. Không có failed requests (0\%) chứng tỏ hệ thống xử lý ổn định 100\% trong điều kiện load test thông thường.
+
+\subsubsection{Performance Tests cho Product API}
+
+\paragraph{Thiết kế Test Scenarios}
+
+Product API xử lý CRUD operations cho sản phẩm (listing, detail, create, update, delete). Nhóm thiết kế test tập trung vào GET endpoint (listing products) vì đây là API được gọi nhiều nhất trong thực tế.
+
+\textbf{Tóm tắt cấu hình Product Performance Test:}
+\begin{itemize}
+    \item Test configuration: Tương tự Login test (8 stages, 100-1000 VUs)
+    \item Test GET /api/products endpoint
+    \item Verify response status code và product data structure
+    \item Mock authenticated users với JWT tokens
+\end{itemize}
+
+\textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/product-performance-test.js}}
+
+\paragraph{Kết quả thực thi Product API}
+
+\textbf{Lệnh chạy test:}
+\begin{lstlisting}[language=bash, breaklines=true]
+cd performance-testing
 k6 run product-performance-test.js
 \end{lstlisting}
 
@@ -54,10 +108,11 @@ k6 run product-performance-test.js
 
 \begin{figure}[H]
 \centering
-\fbox{\includegraphics[width=0.48\textwidth]{../bao_cao_phan_mo_rong/images/login_performance_test.png}}
-\fbox{\includegraphics[width=0.48\textwidth]{../bao_cao_phan_mo_rong/images/product_performance_test.png}}
-\caption{Kết quả Performance Tests - Login API (trái) và Product API (phải)}
+\fbox{\includegraphics[width=0.7\textwidth]{../bao_cao_phan_mo_rong/images/product_performance_test.png}}
+\caption{Kết quả Performance Test - Product API}
 \end{figure}
+
+\paragraph{Phân tích kết quả Product API}
 
 \begin{table}[H]
 \centering
@@ -116,9 +171,22 @@ Test Duration & 10m 32s & 10m 31s \\
     \item Test GET đã đủ để đánh giá khả năng chịu tải của database queries phức tạp (JOIN với Category và Image tables)
 \end{itemize}
 
-\subsection{Stress Test - Tìm Breaking Point}
+\subsubsection{Stress Test - Tìm Breaking Point}
 
-Stress test được thực hiện bằng cách tăng tải dần từ 1000 lên 11000 concurrent users trong 9 phút để tìm ngưỡng tối đa hệ thống có thể chịu.
+\paragraph{Mục đích}
+
+Stress testing là quá trình đẩy hệ thống vượt quá giới hạn bình thường để tìm breaking point - ngưỡng tải mà hệ thống bắt đầu sụp đổ hoặc trả về lỗi. Mục đích của stress test:
+
+\begin{itemize}
+    \item Xác định giới hạn tối đa của hệ thống (maximum capacity)
+    \item Hiểu được hành vi của hệ thống khi quá tải (graceful degradation vs catastrophic failure)
+    \item Chuẩn bị kế hoạch scaling và capacity planning cho production
+    \item Kiểm tra cơ chế error handling và recovery của hệ thống
+\end{itemize}
+
+\paragraph{Phương pháp}
+
+Nhóm thiết kế stress test bằng cách tăng tải dần từ 1000 lên 11000 concurrent users trong 9 phút.
 
 \textbf{Tóm tắt cấu hình:}
 \begin{itemize}
@@ -132,7 +200,7 @@ Stress test được thực hiện bằng cách tăng tải dần từ 1000 lên
 
 \textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/stress-test.js}}
 
-\textbf{Kết quả Breaking Point Test:}
+\paragraph{Kết quả}
 
 \begin{figure}[H]
 \centering
@@ -207,6 +275,8 @@ Error Types:
 - Timeout: Requests waiting > 60 seconds
 \end{lstlisting}
 
+\paragraph{Root Cause Analysis}
+
 \textbf{Nguyên nhân Breaking Point:}
 
 \begin{itemize}
@@ -217,7 +287,7 @@ Error Types:
     \item \textcolor{orange}{\textbf{Database Queries}}: Product API có nhiều JOIN queries làm chậm hệ thống
 \end{itemize}
 
-\textbf{Kết luận Stress Test:}
+\paragraph{Kết luận}
 
 \begin{itemize}
     \item \textcolor{red}{\textbf{Breaking Point}}: ~11,000 concurrent users (error rate 15.44\%)
@@ -228,9 +298,9 @@ Error Types:
     \item \textcolor{blue}{\textbf{Target sau optimization}}: 15,000+ concurrent users với caching và scaling
 \end{itemize}
 
-\subsection{Phân tích Performance}
-
 \subsubsection{Response Time Analysis}
+
+\paragraph{Phân tích Percentiles}
 
 \begin{figure}[H]
 \centering
@@ -246,7 +316,7 @@ Error Types:
     \item Cả hai APIs đều đáp ứng tốt yêu cầu performance cho web application
 \end{itemize}
 
-\subsubsection{So sánh Login API vs Product API}
+\paragraph{So sánh giữa Login API và Product API}
 
 \begin{table}[h]
 \centering
@@ -283,11 +353,43 @@ Breaking Point & > 11000 VUs & > 11000 VUs & Tie \\
     \item Cả hai đều có reliability tuyệt đối (0\% error)
 \end{itemize}
 
+\paragraph{Throughput Analysis}
+
+\textbf{Phân tích Throughput:}
+
+\begin{itemize}
+    \item Product API đạt throughput cao hơn: 363.75 req/s so với 228.18 req/s của Login API
+    \item Chênh lệch 59\% cho thấy Product API có khả năng xử lý song song tốt hơn
+    \item Tổng số requests của Product API cao hơn: 229,770 so với 144,264 của Login API
+    \item Điều này hợp lý vì: Product API không cần xác thực JWT mỗi request, Login API cần kiểm tra password hash (BCrypt)
+\end{itemize}
+
 \subsection{Security Testing}
 
-Security Testing kiểm tra các lỗ hổng bảo mật: SQL Injection, XSS, CSRF, Authentication/Authorization và Input Validation. Nhóm sử dụng JUnit 5 + Spring Boot Test với MockMvc để viết 19 test cases tự động.
+\subsubsection{Yêu cầu}
 
-\subsubsection{Implementation Security Tests}
+Theo yêu cầu của đề bài tập lớn, nhóm cần thực hiện Security Testing để kiểm tra các lỗ hổng bảo mật phổ biến:
+
+\begin{enumerate}
+    \item Kiểm tra SQL Injection attacks
+    \item Kiểm tra XSS (Cross-Site Scripting)
+    \item Kiểm tra CSRF (Cross-Site Request Forgery)
+    \item Kiểm tra Authentication và Authorization
+    \item Kiểm tra Input Validation
+\end{enumerate}
+
+\subsubsection{Công cụ và thiết lập}
+
+\textbf{Công cụ sử dụng:}
+\begin{itemize}
+    \item JUnit 5 + Spring Boot Test + MockMvc
+    \item 19 test cases covering OWASP Top 10 vulnerabilities
+    \item Integration tests với security configuration thực tế
+\end{itemize}
+
+\textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/backend/src/test/java/com/flogin/security/SecurityTest.java}}
+
+\subsubsection{Thiết kế và Thực thi Tests}
 
 \textbf{Tóm tắt security tests:}
 \begin{itemize}
@@ -317,6 +419,8 @@ Security Testing kiểm tra các lỗ hổng bảo mật: SQL Injection, XSS, CS
 cd backend
 mvn test -Dtest=SecurityTest
 \end{lstlisting}
+
+\subsubsection{Kết quả}
 
 \textbf{Bằng chứng thực hiện (Evidence):}
 
@@ -351,9 +455,9 @@ Security Headers Tests & 1 & \textcolor{green}{1/1 PASS} \\
 \end{tabular}
 \end{table}
 
-\subsection{Phân tích kết quả}
+\subsubsection{Phân tích kết quả}
 
-\textbf{Tóm tắt:}
+\textbf{Tổng quan kết quả:}
 
 \begin{table}[h]
 \centering
@@ -418,9 +522,10 @@ Input Validation & 3 & 3 & 100\% \\
     \end{itemize}
 \end{itemize}
 
-\subsection{Kết luận}
+\subsection{Kết luận và Khuyến nghị}
 
-\textbf{Performance Testing:}
+\subsubsection{Tổng quan Performance Testing}
+
 \begin{itemize}
     \item \textcolor{green}{\textbf{Vùng An Toàn}}: 0-2,000 concurrent users (0\% error, response time < 500ms)
     \item \textcolor{orange}{\textbf{Vùng Chịu Tải}}: 2,000-4,000 users (0-5\% error, hệ thống chậm nhưng hoạt động)
@@ -429,7 +534,8 @@ Input Validation & 3 & 3 & 100\% \\
     \item Throughput: 228-364 req/s ở load test, 1,317 req/s ở stress test
 \end{itemize}
 
-\textbf{Security Testing:}
+\subsubsection{Tổng quan Security Testing}
+
 \begin{itemize}
     \item \textcolor{green}{\textbf{19/19 test cases PASSED}}
     \item Zero vulnerabilities detected
@@ -437,6 +543,12 @@ Input Validation & 3 & 3 & 100\% \\
     \item Authentication: JWT + BCrypt hashing
     \item Input validation: Frontend + Backend dual validation
 \end{itemize}
+
+\subsubsection{Đánh giá và Kết luận}
+
+\textbf{Performance Testing:} Hệ thống FloginFE\_BE đã chứng minh khả năng xử lý tốt ở mức tải 2,000 concurrent users với 0\% error rate. Breaking point ở 11,000 users cho thấy hệ thống cần được tối ưu hóa để phục vụ quy mô lớn hơn.
+
+\textbf{Security Testing:} Hệ thống đạt chuẩn bảo mật cao với 100\% các test cases về SQL Injection, XSS, CSRF, Authentication đều PASSED. Không phát hiện lỗ hổng bảo mật nào.
 
 \subsubsection{Khuyến nghị cải thiện}
 
@@ -468,6 +580,29 @@ Dựa trên kết quả Stress Test (breaking point ở ~11,000 users với 15.4
     \item \textbf{Error rate}: 15.44\% $\rightarrow$ $<$ 1\% ở 15,000 VUs
     \item \textbf{Response time p(95)}: 7,944ms $\rightarrow$ $<$ 100ms ngay cả với 15,000 VUs
     \item \textbf{Throughput}: 1,317 $\rightarrow$ 10,000+ req/s
+\end{itemize}
+
+\subsubsection{Hướng phát triển tiếp theo}
+
+\textbf{Giám sát và Phân tích:}
+\begin{itemize}
+    \item Tích hợp Prometheus và Grafana cho real-time monitoring
+    \item Thiết lập alerting với AlertManager cho performance và security incidents
+    \item Application Performance Monitoring (APM) với New Relic hoặc Datadog
+\end{itemize}
+
+\textbf{Tự động hóa Testing:}
+\begin{itemize}
+    \item Tích hợp Performance Tests vào CI/CD pipeline
+    \item Chạy tự động Security Tests trước mỗi deployment
+    \item Thiết lập performance budgets và fail builds nếu không đạt
+\end{itemize}
+
+\textbf{Tối ưu hóa tiếp theo:}
+\begin{itemize}
+    \item Microservices architecture cho scalability tốt hơn
+    \item Message queue (RabbitMQ/Kafka) cho async operations
+    \item Container orchestration với Kubernetes cho auto-scaling
 \end{itemize}
 
 
