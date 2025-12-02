@@ -456,6 +456,155 @@ mvn test src/test/.../controller/uthControllerIntegrationTest.java
 
 \noindent\hrulefill
 
+\section*{4.4 \quad Product – Integration Testing}
+
+\subsection*{4.4.1 \quad Frontend Component Integration Testing}
+\addcontentsline{toc}{subsection}{4.4.1\quad Frontend Component Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Đánh giá sự phối hợp giữa các component \texttt{ProductPage}, \texttt{ProductForm}, 
+\texttt{ProductDetail} và các API mock phía frontend, bao gồm:
+\begin{itemize}
+    \item Kiểm tra việc load danh sách sản phẩm từ API.
+    \item Kiểm tra luồng tạo mới (create) và cập nhật (edit) sản phẩm.
+    \item Kiểm tra hiển thị đầy đủ thông tin trong modal \texttt{ProductDetail}.
+\end{itemize}
+
+\subsubsection*{Bảng Test Case – Frontend Product}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.7cm}|p{5cm}|p{5cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\ \hline
+
+TC-PROD-A1 & Load ProductList từ API & Mở ProductPage, mock API trả danh sách & Danh sách hiển thị đúng số lượng + dữ liệu \\ \hline
+
+TC-PROD-B1 & Tạo mới sản phẩm (create) & Nhập form + submit + mock create API & Gọi API và hàm \texttt{onSave} với dữ liệu đúng \\ \hline
+
+TC-PROD-B2 & Chỉnh sửa sản phẩm (edit) & Load \texttt{productToEdit}, sửa input, lưu lại & Form tự điền giá trị cũ và gọi \texttt{onSave} mới \\ \hline
+
+TC-PROD-C1 & Xem chi tiết sản phẩm & Nhấn “Xem Chi Tiết” trên danh sách & Modal hiện đúng tên sản phẩm, mô tả, tồn kho \\ \hline
+
+\end{tabular}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: frontend/src/tests/product.integration.test.js}
+
+\begin{lstlisting}[language=JavaScript, style=mystyle]
+// --- Test Case 1: ProductList + API ---
+test("ProductPage: hien thi danh sach san pham sau khi mock API", async () => {
+    render(
+        <MemoryRouter>
+            <ProductPage />
+        </MemoryRouter>
+    );
+
+    expect(productService.getAll).toHaveBeenCalledTimes(1);
+
+    const item1 = await screen.findByText("Laptop Dell");
+    const item2 = await screen.findByText("Chuot khong day");
+
+    expect(item1).toBeInTheDocument();
+    expect(item2).toBeInTheDocument();
+});
+
+// --- Test Case 2: ProductForm (Create) ---
+test("ProductForm (create): nhap lieu hop le va goi onSave voi FormData dung", async () => {
+    const handleSave = jest.fn();
+
+    render(
+        <ProductForm
+            productToEdit={null}
+            onSave={handleSave}
+            onCancel={() => {}}
+            categories={mockCategories}
+        />
+    );
+
+    fireEvent.change(screen.getByLabelText("Ten san pham"), {
+        target: { value: "Chuot moi" }
+    });
+
+    fireEvent.change(screen.getByLabelText("Gia"), {
+        target: { value: "350000" }
+    });
+
+    fireEvent.click(screen.getByTestId("submit-btn"));
+
+    await waitFor(() => {
+        expect(handleSave).toHaveBeenCalled();
+    });
+
+    const formData = handleSave.mock.calls[0][0];
+    expect(formData.get("name")).toBe("Chuot moi");
+});
+
+// --- Test Case 3: ProductForm (Edit) ---
+test("ProductForm (edit): load du lieu cu va cap nhat dung", async () => {
+    const handleSave = jest.fn();
+
+    render(
+        <ProductForm
+            productToEdit={mockProducts[0]}
+            onSave={handleSave}
+            onCancel={() => {}}
+            categories={mockCategories}
+        />
+    );
+
+    const nameInput = screen.getByLabelText("Ten san pham");
+    expect(nameInput.value).toBe("Laptop Dell");
+
+    fireEvent.change(nameInput, {
+        target: { value: "Laptop Dell Update" }
+    });
+
+    fireEvent.click(screen.getByTestId("submit-btn"));
+
+    await waitFor(() => {
+        expect(handleSave).toHaveBeenCalled();
+    });
+
+    const updated = handleSave.mock.calls[0][0];
+    expect(updated.get("name")).toBe("Laptop Dell Update");
+});
+
+// --- Test Case 4: ProductDetail Modal ---
+test("ProductDetail: hien thi dung thong tin khi nhan 'Xem Chi Tiet'", async () => {
+    render(
+        <MemoryRouter>
+            <ProductPage />
+        </MemoryRouter>
+    );
+
+    const detailBtn = await screen.findAllByText("Xem Chi Tiet");
+    fireEvent.click(detailBtn[0]);
+
+    expect(await screen.findByText("Thong Tin San Pham")).toBeInTheDocument();
+    expect(screen.getAllByText(/Laptop Dell/i).length).toBeGreaterThan(0);
+});
+\end{lstlisting}
+
+\noindent\hrulefill
+\begin{center}
+{\large \textbf{Bằng chứng thực hiện (Evidence)}}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+npm test src/tests/product.integration.test.js
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{product_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Product Integration Test (tất cả test Passed).}
+\end{figure}
+
+\noindent\hrulefill
+
+
 % ====== HẾT NỘI DUNG (có thể thêm các mục khác phía dưới) ======
 
 \end{document}
