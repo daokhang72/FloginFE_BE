@@ -6,7 +6,7 @@ import {
   waitFor,
   act,
 } from "@testing-library/react";
-import ProductForm from "../../../components/Product/ProductForm";
+import ProductForm from "../components/Product/ProductForm";
 import "@testing-library/jest-dom";
 
 // Mock các hàm props

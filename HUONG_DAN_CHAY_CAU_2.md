@@ -1,11 +1,27 @@
 # Hướng dẫn chạy Unit Tests và Coverage Reports
 
+## 🚀 Quick Start
+
+```bash
+# Frontend tests với coverage
+cd frontend
+npm install
+npm test -- --coverage --watchAll=false
+
+# Backend tests với coverage
+cd ../backend
+mvn clean test jacoco:report
+```
+
 ## 📋 Mục lục
 
 - [Frontend Tests](#frontend-tests)
 - [Backend Tests](#backend-tests)
 - [Coverage Reports](#coverage-reports)
 - [Compile LaTeX Report](#compile-latex-report)
+- [Test Coverage Goals](#test-coverage-goals)
+- [Troubleshooting](#troubleshooting)
+- [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 ---
 
@@ -43,6 +59,12 @@ npm test src/tests/validation.test.js
 npm test src/tests/productValidation.test.js
 ```
 
+**Chạy test theo pattern:**
+
+```bash
+npm test -- --testPathPattern=validation
+```
+
 ### Chạy tests với coverage
 
 ```bash
@@ -53,9 +75,11 @@ npm test -- --coverage --watchAll=false
 
 ```bash
 # Mở file HTML coverage report
-open frontend/coverage/lcov-report/index.html
+open coverage/lcov-report/index.html
 # Hoặc trên Windows:
-start frontend/coverage/lcov-report/index.html
+start coverage\lcov-report\index.html
+# Hoặc trực tiếp mở file:
+# file:///<path-to-project>/frontend/coverage/lcov-report/index.html
 ```
 
 **Kết quả mong đợi:**
@@ -94,6 +118,18 @@ mvn test -Dtest=AuthServiceTest
 mvn test -Dtest=ProductServiceTest
 ```
 
+**Chạy tất cả tests trong package:**
+
+```bash
+mvn test -Dtest=com.flogin.service.*Test
+```
+
+**Chạy test method cụ thể:**
+
+```bash
+mvn test -Dtest=AuthServiceTest#testRegisterUser
+```
+
 ### Chạy tests với JaCoCo Coverage
 
 ```bash
@@ -104,10 +140,14 @@ mvn clean test jacoco:report
 
 ```bash
 # Mở file HTML coverage report
-open backend/target/site/jacoco/index.html
+open target/site/jacoco/index.html
 # Hoặc trên Windows:
-start backend/target/site/jacoco/index.html
+start target\site\jacoco\index.html
+# Hoặc trực tiếp mở file:
+# file:///<path-to-project>/backend/target/site/jacoco/index.html
 ```
+
+**Lưu ý:** Report chỉ được tạo sau khi chạy `mvn test jacoco:report`
 
 **Kết quả mong đợi:**
 
@@ -155,51 +195,18 @@ backend/target/site/jacoco/
 ### Compile báo cáo
 
 ```bash
-cd /path/to/FloginFE_BE
+cd baocao/bao_cao_unit_testing
 pdflatex -interaction=nonstopmode BaoCao_UnitTesting_TDD.tex
 ```
 
-### Compile 2 lần (nếu có references)
+### Compile 2 lần (để render references và table of contents)
 
 ```bash
 pdflatex BaoCao_UnitTesting_TDD.tex
 pdflatex BaoCao_UnitTesting_TDD.tex
 ```
 
-**Output:** `BaoCao_UnitTesting_TDD.pdf`
-
----
-
-## 🖼️ Screenshots cho Báo cáo
-
-### Chụp ảnh Coverage Reports
-
-1. **Frontend Coverage:**
-
-   ```bash
-   npm test -- --coverage --watchAll=false
-   ```
-
-   Chụp ảnh từ terminal hoặc mở `frontend/coverage/lcov-report/index.html`
-
-2. **Backend Coverage:**
-
-   ```bash
-   mvn clean test jacoco:report
-   ```
-
-   Mở `backend/target/site/jacoco/index.html` và chụp ảnh
-
-3. **Lưu ảnh vào thư mục:**
-   ```
-   images/
-   ├── login_validation_frontend.png
-   ├── auth_service_backend.png
-   ├── product_validation_frontend.png
-   ├── product_service_backend.png
-   ├── frontend_coverage.png
-   └── backend_coverage.png
-   ```
+**Output:** `BaoCao_UnitTesting_TDD.pdf` trong thư mục `bao_cao_unit_testing/`
 
 ---
 
@@ -278,4 +285,3 @@ brew install --cask mactex          # macOS
 
 ---
 
-**Last Updated:** November 29, 2025

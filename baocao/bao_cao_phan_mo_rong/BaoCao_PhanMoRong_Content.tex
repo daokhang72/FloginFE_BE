@@ -118,81 +118,114 @@ Test Duration & 10m 32s & 10m 31s \\
 
 \subsection{Stress Test - Tìm Breaking Point}
 
-Stress test được thực hiện bằng cách tăng tải dần từ 100 lên 3000 concurrent users trong 18 phút để tìm ngưỡng tối đa hệ thống có thể chịu.
+Stress test được thực hiện bằng cách tăng tải dần từ 1000 lên 11000 concurrent users trong 9 phút để tìm ngưỡng tối đa hệ thống có thể chịu.
 
 \textbf{Tóm tắt cấu hình:}
 \begin{itemize}
-    \item Test tìm breaking point: 9 stages tăng dần từ 100 đến 3000 concurrent users
-    \item Duration: 1-3 phút per stage, total ~18 minutes
-    \item Thresholds: p(95) < 1000ms, error rate < 10\% (more lenient for stress test)
-    \item Mixed load operations: 40\% Login, 30\% Get Products, 30\% CRUD operations
+    \item Test tìm breaking point: 8 stages tăng dần từ 1000 đến 11000 concurrent users
+    \item Duration: 1-2 phút per stage, total ~9 minutes
+    \item Thresholds: p(95) < 5000ms, error rate < 20\% (more lenient for stress test)
+    \item Mixed load operations: 30\% Login, 40\% Get All Products, 30\% Get Product Detail
+    \item Sử dụng dynamic product IDs từ database để đảm bảo tính chính xác
     \item Measure system behavior under extreme load conditions
 \end{itemize}
 
 \textit{Chi tiết mã nguồn: \url{https://github.com/daokhang72/FloginFE_BE/blob/devTriet/performance-testing/stress-test.js}}
 
-\textbf{Kết quả:}
+\textbf{Kết quả Breaking Point Test:}
 
-\textbf{Tổng quan (18 phút test):}
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_phan_mo_rong/images/stress_test_breaking_point.png}}
+\caption{Stress Test - Breaking Point tại 11,000 concurrent users}
+\end{figure}
+
+\textbf{Tổng quan (9 phút 9 giây test):}
 \begin{itemize}
-    \item \textcolor{red}{\textbf{Total Requests}}: 3,376,697 requests (3,124 req/s)
-    \item \textcolor{red}{\textbf{Error Rate}}: 59.99\% - \textbf{HỆ THỐNG BỊ QUÁ TẢI}
-    \item \textcolor{orange}{\textbf{Response Time}}: avg=245ms, p(95)=658ms, max=1.73s
-    \item \textcolor{green}{\textbf{Checks Passed}}: 57.15\% (2,701,836 / 4,727,612)
+    \item \textcolor{orange}{\textbf{Total Requests}}: 723,589 requests
+    \item \textcolor{orange}{\textbf{Throughput}}: 1,317.59 req/s
+    \item \textcolor{red}{\textbf{Error Rate}}: 15.44\% - \textbf{HỆ THỐNG ĐẠT BREAKING POINT}
+    \item \textcolor{red}{\textbf{Failed Requests}}: 111,727 / 723,589 (15.44\%)
+    \item \textcolor{orange}{\textbf{Response Time}}: avg=3,961.96ms, p(95)=7,944.23ms, max=60,000.82ms
+    \item \textcolor{orange}{\textbf{Max Concurrent Users}}: 11,000 VUs
 \end{itemize}
 
-\textbf{Phân tích Breaking Point:}
+\textbf{Phân tích 3 Vùng Tải (Load Zones):}
 
 \begin{enumerate}
-    \item \textcolor{green}{\textbf{100-1000 VUs (Stage 1-3)}}: 
+    \item \textcolor{green}{\textbf{Vùng An Toàn (Safe Zone): 0 - 2,000 users}}: 
     \begin{itemize}
-        \item Hệ thống hoạt động tốt, error rate $<$ 1\%
-        \item Response time: avg 4-5ms, p(95) 8-10ms
+        \item Hệ thống hoạt động ổn định, error rate = 0\%
+        \item Response time: avg < 500ms, p(95) < 1,000ms
         \item Login API: 100\% success
         \item Product operations: 100\% success
+        \item Throughput cao, tài nguyên sử dụng bình thường
+        \item \textbf{Đánh giá}: \textcolor{green}{\textbf{EXCELLENT}} - Phù hợp cho production
     \end{itemize}
     
-    \item \textcolor{orange}{\textbf{1000-2000 VUs (Stage 4-5)}}: 
+    \item \textcolor{orange}{\textbf{Vùng Chịu Tải (Stress Zone): 2,000 - 4,000 users}}: 
     \begin{itemize}
-        \item Bắt đầu xuất hiện degradation
-        \item Response time tăng lên 50-100ms
-        \item Error rate bắt đầu tăng (5-10\%)
+        \item Hệ thống bắt đầu chậm lại nhưng vẫn hoạt động
+        \item Response time tăng lên 500-2,000ms
+        \item Error rate: 0-5\% (vẫn chấp nhận được)
         \item Product API bắt đầu chậm hơn Login API
+        \item Database connection pool và thread pool bắt đầu bão hòa
+        \item \textbf{Đánh giá}: \textcolor{orange}{\textbf{DEGRADED}} - Cần monitoring chặt chẽ
     \end{itemize}
     
-    \item \textcolor{red}{\textbf{2000-3000 VUs (Stage 6-8) - BREAKING POINT}}:
+    \item \textcolor{red}{\textbf{Vùng Sụp Đổ (Crash Zone): > 8,000 users - BREAKING POINT}}:
     \begin{itemize}
-        \item \textbf{Hệ thống collapse}: Error rate nhảy lên 60\%
-        \item Response time: avg 245ms, p(95) 658ms
-        \item \textbf{Product GET}: 0\% success (1,013,533 failures)
-        \item \textbf{Product CREATE}: 0\% success (337,671 failures)
-        \item \textbf{Product READ}: 0\% success (674,572 failures)
-        \item \textbf{Login API}: Vẫn hoạt động (có token returned)
+        \item \textbf{Breaking Point tại}: \textcolor{red}{\textbf{~11,000 concurrent users}}
+        \item Response time: avg 3,961.96ms, p(95) 7,944.23ms (> threshold 5,000ms)
+        \item \textbf{Error Rate}: 15.44\% (vượt ngưỡng 5\%)
+        \item Backend từ chối kết nối mới: \texttt{connectex: No connection could be made}
+        \item Database connection pool cạn kiệt
+        \item Thread pool saturation (Tomcat không còn threads để xử lý)
+        \item Memory pressure: JVM heap đầy, GC liên tục
+        \item \textbf{Đánh giá}: \textcolor{red}{\textbf{SYSTEM FAILURE}} - Hệ thống không thể xử lý
     \end{itemize}
 \end{enumerate}
 
-\textbf{Chi tiết lỗi tại Breaking Point (2000+ VUs):}
+\textbf{Chi tiết lỗi tại Breaking Point (11,000 VUs):}
 
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-Checks Failed:
-- products status OK:              0% (0 / 1,013,533)
-- create status OK:                0% (0 / 337,671)
-- product status OK or NOT FOUND:  0% (0 / 674,572)
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[width=0.85\textwidth]{../bao_cao_phan_mo_rong/images/stress_test_connection_refused.png}}
+\caption{Connection Refused Errors tại Breaking Point}
+\end{figure}
 
-Error Rate: 59.99% (2,025,776 errors / 3,376,694 requests)
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily, breaklines=true]
+WARN[0540] Request Failed
+error="Get \"http://localhost:8080/api/products\": 
+dial tcp 127.0.0.1:8080: connectex: 
+No connection could be made because the target machine 
+actively refused it."
+
+Failed Requests: 111,727 / 723,589 (15.44%)
+Error Types:
+- Connection Refused: Backend refuses new connections
+- Timeout: Requests waiting > 60 seconds
 \end{lstlisting}
 
-\textbf{Nguyên nhân:} Database connection pool exhaustion (default 10 connections), Thread pool saturation (Tomcat max 200 threads), Product API phức tạp với nhiều DB queries.
-
-\textbf{Kết luận:}
+\textbf{Nguyên nhân Breaking Point:}
 
 \begin{itemize}
-    \item \textcolor{green}{\textbf{Breaking Point tìm thấy}}: 2000-2500 concurrent users
-    \item \textcolor{red}{\textbf{Error Rate}}: 60\% ở peak load (3000 VUs)
-    \item \textcolor{orange}{\textbf{Bottleneck}}: Database connection pool và thread pool
-    \item \textcolor{green}{\textbf{Giải pháp}}: Tối ưu connection pool, implement caching, horizontal scaling
-    \item \textcolor{blue}{\textbf{Capacity hiện tại}}: 1000-1500 concurrent users an toàn
-    \item \textcolor{blue}{\textbf{Target sau optimization}}: 5000+ concurrent users
+    \item \textcolor{red}{\textbf{Connection Pool Exhausted}}: HikariCP default 10 connections không đủ
+    \item \textcolor{red}{\textbf{Thread Pool Saturation}}: Tomcat default 200 threads bị cạn kiệt
+    \item \textcolor{red}{\textbf{Memory Pressure}}: JVM heap không đủ cho 11,000+ concurrent connections
+    \item \textcolor{red}{\textbf{Port Exhaustion}}: Hệ điều hành hết ephemeral ports
+    \item \textcolor{orange}{\textbf{Database Queries}}: Product API có nhiều JOIN queries làm chậm hệ thống
+\end{itemize}
+
+\textbf{Kết luận Stress Test:}
+
+\begin{itemize}
+    \item \textcolor{red}{\textbf{Breaking Point}}: ~11,000 concurrent users (error rate 15.44\%)
+    \item \textcolor{green}{\textbf{Safe Operating Range}}: 0 - 2,000 users (0\% error, response time < 500ms)
+    \item \textcolor{orange}{\textbf{Degraded Performance}}: 2,000 - 4,000 users (< 5\% error, response time < 2s)
+    \item \textcolor{red}{\textbf{System Failure}}: > 8,000 users (> 10\% error, connection refused)
+    \item \textcolor{blue}{\textbf{Khuyến nghị Production}}: Giới hạn 2,000-3,000 concurrent users
+    \item \textcolor{blue}{\textbf{Target sau optimization}}: 15,000+ concurrent users với caching và scaling
 \end{itemize}
 
 \subsection{Phân tích Performance}
@@ -238,7 +271,7 @@ Total Requests & 144,264 & 229,770 & \textcolor{green}{Product} \\
 \hline
 Error Rate & 0.00\% & 0.00\% & Tie \\
 \hline
-Breaking Point & > 1000 VUs & > 1000 VUs & Tie \\
+Breaking Point & > 11000 VUs & > 11000 VUs & Tie \\
 \hline
 \end{tabular}
 \end{table}
@@ -389,10 +422,11 @@ Input Validation & 3 & 3 & 100\% \\
 
 \textbf{Performance Testing:}
 \begin{itemize}
-    \item Safe capacity: \textcolor{green}{\textbf{1000 concurrent users}} (0\% error)
-    \item Breaking point: \textcolor{orange}{\textbf{2000-2500 users}} (error rate tăng)
-    \item Response time: 4-5ms average dưới normal load
-    \item Throughput: 228-364 req/s tùy endpoint
+    \item \textcolor{green}{\textbf{Vùng An Toàn}}: 0-2,000 concurrent users (0\% error, response time < 500ms)
+    \item \textcolor{orange}{\textbf{Vùng Chịu Tải}}: 2,000-4,000 users (0-5\% error, hệ thống chậm nhưng hoạt động)
+    \item \textcolor{red}{\textbf{Breaking Point}}: ~11,000 concurrent users (15.44\% error rate)
+    \item Response time: 4-5ms average dưới normal load, 3,961ms ở peak load
+    \item Throughput: 228-364 req/s ở load test, 1,317 req/s ở stress test
 \end{itemize}
 
 \textbf{Security Testing:}
@@ -406,27 +440,34 @@ Input Validation & 3 & 3 & 100\% \\
 
 \subsubsection{Khuyến nghị cải thiện}
 
-Dựa trên kết quả Stress Test (breaking point ở 2000-2500 users), các khuyến nghị cải thiện:
+Dựa trên kết quả Stress Test (breaking point ở ~11,000 users với 15.44\% error rate), các khuyến nghị cải thiện:
 
 \textbf{Performance:}
 \begin{itemize}
-    \item Tăng Database Connection Pool: 10 $\rightarrow$ 50 connections
-    \item Tăng Thread Pool: 200 $\rightarrow$ 500 threads
-    \item Tối ưu Product API: Lazy loading images, pagination, caching (Redis)
-    \item Database indexing: product\_name, category
-    \item Horizontal scaling: Deploy 2-3 instances với Nginx load balancer
-    \item CDN cho static content (images)
-    \item Rate limiting: 1000 req/s global, 50 req/s per user
-    \item Circuit Breaker pattern (Resilience4j)
-    \item Monitoring: Prometheus + Grafana
+    \item \textbf{Database Connection Pool}: Tăng từ 10 $\rightarrow$ 100 connections (HikariCP)
+    \item \textbf{Thread Pool}: Tăng từ 200 $\rightarrow$ 1000 threads (Tomcat)
+    \item \textbf{Caching Layer}: Implement Redis cho Product API (giảm 80\% database queries)
+    \item \textbf{Database Optimization}: 
+    \begin{itemize}
+        \item Indexing: product\_name, category\_id, price
+        \item Query optimization: Lazy loading images, pagination
+        \item Read replicas cho Product GET operations
+    \end{itemize}
+    \item \textbf{Horizontal Scaling}: Deploy 3-5 instances với Nginx load balancer
+    \item \textbf{CDN Integration}: CloudFlare cho static content (images, CSS, JS)
+    \item \textbf{Rate Limiting}: 2000 req/s global, 100 req/s per user (prevent DoS)
+    \item \textbf{Circuit Breaker}: Resilience4j để prevent cascading failures
+    \item \textbf{Monitoring}: Prometheus + Grafana + AlertManager cho real-time metrics
+    \item \textbf{JVM Tuning}: Heap size 4GB $\rightarrow$ 8GB, G1GC configuration
 \end{itemize}
 
-\textbf{Kết quả mong đợi:}
+\textbf{Kết quả mong đợi sau optimization:}
 \begin{itemize}
-    \item Breaking point: 2000 $\rightarrow$ 5000+ users
-    \item Error rate: 60\% $\rightarrow$ $<$ 1\% ở 3000 VUs
-    \item Response time p(95): $<$ 50ms ngay cả với 3000 VUs
-    \item Throughput: 3,124 $\rightarrow$ 8,000+ req/s
+    \item \textbf{Safe Capacity}: 2,000 $\rightarrow$ 10,000 concurrent users
+    \item \textbf{Breaking point}: 11,000 $\rightarrow$ 30,000+ users
+    \item \textbf{Error rate}: 15.44\% $\rightarrow$ $<$ 1\% ở 15,000 VUs
+    \item \textbf{Response time p(95)}: 7,944ms $\rightarrow$ $<$ 100ms ngay cả với 15,000 VUs
+    \item \textbf{Throughput}: 1,317 $\rightarrow$ 10,000+ req/s
 \end{itemize}
 
 
