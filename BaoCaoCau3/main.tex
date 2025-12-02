@@ -1,0 +1,460 @@
+\documentclass[12pt,a4paper]{article}
+
+% ====== Preamble (khai báo gói) ======
+\usepackage[utf8]{inputenc}     % hỗ trợ UTF-8
+\usepackage[T5]{fontenc}        % font cho tiếng Việt
+\usepackage[vietnamese]{babel}  % chia âm tiếng Việt
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{verbatim}           % dùng cho \begin{verbatim}
+\usepackage{graphicx}
+\usepackage{listingsutf8}
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={đ}{{\dj}}1 {Đ}{{\DJ}}1
+}
+\usepackage{xcolor}
+\usepackage{float}
+
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codeframe}{RGB}{200,200,200}
+\definecolor{codekeyword}{RGB}{0,0,150}
+\definecolor{codestring}{RGB}{150,0,0}
+\definecolor{codecomment}{RGB}{0,120,0}
+
+% Tạo bảng màu
+\definecolor{codekeyword}{RGB}{0,0,180}
+\definecolor{codenumber}{RGB}{150,0,150}
+
+% Định nghĩa JavaScript cho listings
+\lstdefinelanguage{JavaScript}{
+    keywords={const, let, var, import, export, return, async, await, function,
+              if, else, try, catch, class, new, true, false, describe, test,
+              expect, mock, beforeEach},
+    keywordstyle=\color{codekeyword}\bfseries,
+    ndkeywords={=>},
+    ndkeywordstyle=\color{codekeyword},
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    commentstyle=\color{codecomment}\ttfamily\itshape,
+    stringstyle=\color{codestring},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% Style code
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    language=JavaScript,
+    basicstyle=\ttfamily\small,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=2,
+    numbers=left,
+    numberstyle=\tiny\color{codenumber},
+}
+
+\begin{document}
+
+% ====== BẮT ĐẦU NỘI DUNG BÁO CÁO ======
+
+\section*{Chương 4: Câu 3 - Integration Testing}
+\addcontentsline{toc}{section}{Chương 4: Câu 3 - Integration Testing}
+\section*{4 \quad Integration Testing}
+\addcontentsline{toc}{section}{4\quad Integration Testing}
+
+\subsection*{4.1\quad Giới thiệu chương}
+\addcontentsline{toc}{subsection}{4.1\quad Giới thiệu chương}
+
+Chương này trình bày quy trình kiểm thử tích hợp (\textit{Integration Testing}), nhằm đánh giá khả năng làm việc phối hợp giữa các thành phần giao diện frontend, các dịch vụ xử lý nghiệp vụ phía backend và các API liên quan. Mục tiêu là đảm bảo khi các module được kết hợp, hệ thống vẫn vận hành đúng yêu cầu, dữ liệu được truyền chính xác qua các lớp và phản hồi được xử lý theo đúng luồng.
+
+\vspace{0.2cm}
+
+\noindent \textit{Các phần tiếp theo sẽ mô tả chi tiết việc kiểm thử tích hợp cho từng chức năng trong hệ thống.}
+
+\section*{4.2\quad Các công cụ kiểm thử sử dụng}
+
+Trong chương này, nhóm sử dụng các công cụ kiểm thử cho cả frontend và backend nhằm mô phỏng hành vi người dùng và đánh giá tính đúng đắn của API.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{5.5cm}|p{4cm}|}
+\hline
+\textbf{Phần} & \textbf{Công cụ sử dụng} & \textbf{Mục đích} \\ \hline
+
+Frontend (React) &
+Jest, React Testing Library, Jest-DOM, MSW (Mock Service Worker) &
+Kiểm thử giao diện, hành vi người dùng, mock API \\ \hline
+
+Backend (Spring Boot) &
+JUnit 5, MockMvc, Mockito, ObjectMapper, Maven Surefire Plugin &
+Kiểm thử endpoint, kiểm tra status/JSON, mô phỏng tầng Service \\ \hline
+
+CI/CD &
+GitHub Actions / Overleaf &
+Tự động chạy test, tạo báo cáo \\ \hline
+
+\end{tabular}
+\caption{Bảng tổng hợp công cụ kiểm thử được sử dụng}
+\end{table}
+
+\subsection*{}
+
+Việc kết hợp các công cụ trên giúp kiểm thử tự động hoá, đảm bảo tính chính xác của giao diện người dùng, logic xử lý API và độ ổn định của toàn bộ hệ thống.
+
+% -------------------------------------------------------------
+\section*{4.3 Login – Integration Testing}
+
+\subsection*{4.3.1 Frontend Component Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Đảm bảo Login component hoạt động đúng khi tích hợp với API mock, gồm render giao diện, tương tác người dùng, submit form và hiển thị thông báo.
+
+\subsubsection*{Bảng Test Case – Frontend Login}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.5cm}|p{4.5cm}|p{4.5cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\
+\hline
+TC-LOGIN-A1 & Render và nhập liệu & Mở Login, nhập username/password & Field hiển thị và nhận input \\ \hline
+TC-LOGIN-A2 & Submit form rỗng & Nhấn “Đăng nhập” khi chưa nhập dữ liệu & Hiện lỗi thiếu thông tin \\ \hline
+TC-LOGIN-B1 & Submit hợp lệ và gọi API & Nhập đúng; mock API trả về thành công & Gọi API và chuyển hướng sang /product \\ \hline
+TC-LOGIN-C1  & Xử lý lỗi API & Mock API trả lỗi & Hiển thị thông báo thất bại \\ \hline
+\end{tabular}
+\caption{Bảng Test Case – Frontend Login}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: frontend/src/tests/login.integration.test.js}
+
+\begin{lstlisting}[language=JavaScript, style=mystyle]
+test("Login submit hop le", async () => {
+  apiService.authService.login.mockResolvedValue({
+    message: "Dang nhap thanh cong",
+    token: "jwt"
+  });
+
+  render(<BrowserRouter><Login /></BrowserRouter>);
+
+  fireEvent.change(screen.getByTestId("username-input"), {
+    target: { value: "user" }
+  });
+  fireEvent.change(screen.getByTestId("password-input"), {
+    target: { value: "123" }
+  });
+  fireEvent.click(screen.getByTestId("login-button"));
+
+  await waitFor(() =>
+    expect(mockNavigate).toHaveBeenCalledWith("/product")
+  );
+});
+
+\end{lstlisting}
+
+\vspace{0.3cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Frontend Login):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+npm test src/tests/login.integration.test.js
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{login_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (Frontend) – tất cả test đều Passed.}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+\subsection*{4.3.2 Backend API Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Xác minh API \texttt{/api/auth/login} xử lý đúng dữ liệu đầu vào, trả về cấu trúc JSON hợp lệ và hỗ trợ CORS.
+
+\subsubsection*{Bảng Test Case – Backend Login}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.6cm}|p{4.4cm}|p{4.6cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Input} & \textbf{Kết quả mong đợi} \\
+\hline
+TC-BE-A1 & Đăng nhập thành công & Username/password hợp lệ & Status 200, trả token và message thành công \\ \hline
+TC-BE-A2 & Đăng nhập sai thông tin & Username/password không đúng & Status 400, trả message lỗi \\ \hline
+TC-BE-C1 & Kiểm tra CORS preflight & OPTIONS đến \texttt{/api/auth/login} & Trả header CORS hợp lệ \\ \hline
+\end{tabular}
+\caption{Bảng Test Case – Backend Login}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng (tiêu biểu)}
+\noindent \textbf{File: backend/src/test/.../AuthControllerIntegrationTest.java}
+
+\begin{lstlisting}[language=Java, style=mystyle]
+@Test
+void testLoginSuccess() throws Exception {
+  LoginRequest req = new LoginRequest("user", "123");
+  LoginResponse res = new LoginResponse("OK", "jwt");
+
+  given(authService.loginUser(any())).willReturn(res);
+
+  mockMvc.perform(post("/api/auth/login")
+        .contentType("application/json")
+        .content(objectMapper.writeValueAsString(req)))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.token").value("jwt"));
+}
+
+\end{lstlisting}
+
+\vspace{0.3cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Backend Login):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+mvn test src/test/java/com/flogin/controller/AuthControllerIntegrationTest.java
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{login_backend_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Login Integration Test (Backend) – tất cả test đều Passed.}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+\section*{4.4 \quad Product – Integration Testing}
+
+\subsection*{4.4.1 \quad Frontend Component Integration Testing}
+\addcontentsline{toc}{subsection}{4.4.1\quad Frontend Component Integration Testing}
+
+\textbf{Mục tiêu kiểm thử}:  
+Đánh giá sự phối hợp giữa các component \texttt{ProductPage}, \texttt{ProductForm}, 
+\texttt{ProductDetail} và các API mock phía frontend, bao gồm:
+\begin{itemize}
+    \item Kiểm tra việc load danh sách sản phẩm từ API.
+    \item Kiểm tra luồng tạo mới (create) và cập nhật (edit) sản phẩm.
+    \item Kiểm tra hiển thị đầy đủ thông tin trong modal \texttt{ProductDetail}.
+\end{itemize}
+
+\subsubsection*{Bảng Test Case – Frontend Product}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.7cm}|p{4.8cm}|p{4.8cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Bước thực hiện} & \textbf{Kết quả mong đợi} \\ \hline
+
+TC-PROD-A1 & Load ProductList từ API & Mở ProductPage, mock API trả danh sách & Danh sách hiển thị đúng số lượng + dữ liệu \\ \hline
+
+TC-PROD-B1 & Tạo mới sản phẩm (create) & Nhập form + submit + mock create API & Gọi API và hàm \texttt{onSave} với dữ liệu đúng \\ \hline
+
+TC-PROD-B2 & Chỉnh sửa sản phẩm (edit) & Load \texttt{productToEdit}, sửa input, lưu lại & Form tự điền giá trị cũ và gọi \texttt{onSave} mới \\ \hline
+
+TC-PROD-C1 & Xem chi tiết sản phẩm & Nhấn “Xem Chi Tiết” trên danh sách & Modal hiện đúng tên sản phẩm, mô tả, tồn kho \\ \hline
+
+\end{tabular}
+\caption{Bảng Test Case – Frontend Product}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: frontend/src/tests/product.integration.test.js}
+
+\begin{lstlisting}[language=JavaScript, style=mystyle]
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import ProductPage from "../components/Product/ProductPage";
+import { productService } from "../services/apiService";
+
+jest.mock("../services/apiService");
+
+// Test tieu bieu: ProductPage load danh sach tu API
+test("ProductPage hien thi danh sach san pham tu API", async () => {
+  productService.getAll.mockResolvedValue({
+    data: [{ id: 1, name: "Laptop Dell" }],
+  });
+
+  render(
+    <MemoryRouter>
+      <ProductPage />
+    </MemoryRouter>
+  );
+
+  expect(await screen.findByText("Laptop Dell"))
+    .toBeInTheDocument();
+});
+\end{lstlisting}
+
+\vspace{0.3cm}
+\noindent\hrulefill
+\begin{center}
+{\large \textbf{Bằng chứng thực hiện (Evidence - Frontend Product)}}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+npm test src/tests/product.integration.test.js
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{product_test_pass.png}
+    \caption{Kết quả chạy kiểm thử Product Integration Test (Frontend) – tất cả test Passed.}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+\subsection*{4.4.2\quad Backend API Integration Testing}
+\addcontentsline{toc}{subsection}{4.4.2\quad Backend API Integration Testing}
+
+\textbf{Mục tiêu kiểm thử:}  
+Đảm bảo các API endpoint của \texttt{Product} hoạt động đúng khi tích hợp với tầng Service, bao gồm đầy đủ các thao tác CRUD: tạo mới, đọc danh sách, đọc chi tiết, cập nhật và xoá.
+
+\subsubsection*{Yêu cầu kiểm thử}
+
+\begin{itemize}
+    \item[a)] Test \textbf{POST} \texttt{/api/products} (Create).
+    \item[b)] Test \textbf{GET} \texttt{/api/products} (Read all).
+    \item[c)] Test \textbf{GET} \texttt{/api/products/\{id\}} (Read one).
+    \item[d)] Test \textbf{PUT} \texttt{/api/products/\{id\}} (Update).
+    \item[e)] Test \textbf{DELETE} \texttt{/api/products/\{id\}} (Delete).
+\end{itemize}
+
+\subsubsection*{Bảng Test Case – Backend Product API}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.7cm}|p{4.8cm}|p{5.2cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Mục tiêu} & \textbf{Input / Bước thực hiện} & \textbf{Kết quả mong đợi} \\ \hline
+
+TC-PROD-BE-A1 & Tạo mới sản phẩm & Gửi POST \texttt{/api/products} với dữ liệu hợp lệ & Status 201, trả về JSON Product với id và name đúng \\ \hline
+
+TC-PROD-BE-B1 & Lấy danh sách sản phẩm & Gửi GET \texttt{/api/products} & Status 200, trả về mảng JSON, số phần tử đúng \\ \hline
+
+TC-PROD-BE-C1 & Lấy chi tiết 1 sản phẩm & Gửi GET \texttt{/api/products/1} & Status 200, trả về JSON Product có id = 1 \\ \hline
+
+TC-PROD-BE-D1 & Cập nhật sản phẩm & Gửi PUT \texttt{/api/products/1} với dữ liệu cập nhật & Status 200, trả về JSON Product với name đã cập nhật \\ \hline
+
+TC-PROD-BE-E1 & Xoá sản phẩm & Gửi DELETE \texttt{/api/products/1} & Status 200, service xoá được gọi một lần \\ \hline
+
+\end{tabular}
+\caption{Bảng Test Case – Backend Product API Integration}
+\end{table}
+
+\subsubsection*{Mã kiểm thử minh chứng}
+\noindent \textbf{File: backend/src/test/java/com/flogin/controller/ProductControllerIntegrationTest.java}
+
+\begin{lstlisting}[language=Java, style=mystyle]
+@WebMvcTest(ProductController.class)
+@AutoConfigureMockMvc(addFilters = false)
+class ProductControllerIntegrationTest {
+
+  @Autowired 
+  private MockMvc mockMvc;
+
+  @MockBean 
+  private ProductService productService;
+
+  // Test tieu bieu: POST /api/products
+  @Test
+  void createProduct_success() throws Exception {
+    ProductDto sample = new ProductDto();
+    sample.setId(1);
+    sample.setName("Laptop Dell");
+
+    given(productService.createProduct(any(ProductDto.class)))
+        .willReturn(sample);
+
+    mockMvc.perform(
+        multipart("/api/products")
+          .param("name", "Laptop Dell")
+          .param("price", "15000000")
+          .param("quantity", "10")
+          .param("categoryId", "1")
+      )
+      .andExpect(status().isCreated())
+      .andExpect(jsonPath("$.id").value(1));
+  }
+}
+\end{lstlisting}
+
+\vspace{0.2cm}
+\noindent\hrulefill
+
+\begin{center}
+    {\large \textbf{Bằng chứng thực hiện (Evidence - Backend Product):}}\\[4pt]
+    {\itshape Để chạy test, sử dụng lệnh:}
+\end{center}
+
+\begin{lstlisting}[style=mystyle]
+mvn test src/test/java/com/flogin/controller/ProductControllerIntegrationTest.java
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{product_backend_pass_test.png}
+    \caption{Kết quả chạy kiểm thử Product API Integration Test (Backend) – tất cả test đều Passed.}
+\end{figure}
+
+\noindent\hrulefill
+
+% -------------------------------------------------------------
+\section*{4.5 \quad Kết luận}
+\addcontentsline{toc}{section}{4.5\quad Kết luận}
+
+\subsection*{1. Thống kê kết quả Integration Testing}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Nhóm kiểm thử} & \textbf{Số test case} & \textbf{Pass} & \textbf{Tỷ lệ} \\ \hline
+Frontend – Login & 4 & 4 & 100\% \\ \hline
+Frontend – Product & 4 & 4 & 100\% \\ \hline
+Backend – Auth API & 3 & 3 & 100\% \\ \hline
+Backend – Product API & 5 & 5 & 100\% \\ \hline
+\textbf{Tổng cộng} & \textbf{16} & \textbf{16} & \textbf{100\%} \\ \hline
+\end{tabular}
+\caption{Tổng hợp kết quả Integration Testing}
+\end{table}
+
+\subsection*{2. Ưu điểm của Integration Testing}
+
+\begin{itemize}
+    \item Đảm bảo các mô-đun giao tiếp đúng và dữ liệu truyền tải thống nhất.
+    \item Phát hiện sớm lỗi ở tầng liên kết giữa frontend và backend.
+    \item Mô phỏng khá sát với hành vi người dùng và luồng xử lý thực tế.
+\end{itemize}
+
+\subsection*{3. Hạn chế}
+
+\begin{itemize}
+    \item Tốn thời gian thiết lập môi trường và tạo dữ liệu test.
+    \item Phụ thuộc nhiều vào cấu hình (bảo mật, CORS, Spring Context).
+    \item Phức tạp hơn Unit Test vì phải hiểu rõ điểm giao tiếp giữa các mô-đun.
+\end{itemize}
+
+\subsection*{4. Đánh giá chung}
+
+Kết quả kiểm thử cho thấy toàn bộ 16 test case đều chạy thành công, chứng minh hệ thống hoạt động ổn định khi tích hợp. Đây là cơ sở quan trọng để chuyển sang các mức kiểm thử cao hơn như System Testing hoặc triển khai thực tế.
+
+\end{document}
