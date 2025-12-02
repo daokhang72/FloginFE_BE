@@ -5,6 +5,7 @@ on:
     branches: [main, develop, devTriet]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   complete-tests:
