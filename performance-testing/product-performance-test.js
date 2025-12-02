@@ -36,19 +36,22 @@ export const options = {
 
 const BASE_URL = "http://localhost:8080";
 
-// Actual product IDs in database (from MySQL table)
-const VALID_PRODUCT_IDS = [
-  1, 2, 4, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-];
+// This will be populated dynamically in setup()
+let VALID_PRODUCT_IDS = [];
 
 // Helper function to get random valid product ID
 function getRandomProductId() {
+  if (VALID_PRODUCT_IDS.length === 0) {
+    return 1; // Fallback
+  }
   return VALID_PRODUCT_IDS[
     Math.floor(Math.random() * VALID_PRODUCT_IDS.length)
   ];
 }
 
 export function setup() {
+  console.log("🔧 Setting up test - fetching actual product IDs from API...");
+
   // Login with one of the test users (testuser1-50)
   const randomUser = Math.floor(Math.random() * 50) + 1;
   const loginPayload = JSON.stringify({
@@ -78,10 +81,49 @@ export function setup() {
     }
   }
 
-  return { token: token };
-}
+  // Fetch actual product IDs from API (with authentication)
+  const productsParams = {
+    headers: {
+      Authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+  const productsRes = http.get(`${BASE_URL}/api/products`, productsParams);
+  const validProductIds = [];
+
+  if (productsRes.status === 200) {
+    try {
+      const products = JSON.parse(productsRes.body);
+      products.forEach((product) => {
+        if (product.id) {
+          validProductIds.push(product.id);
+        }
+      });
+      console.log(
+        `✅ Found ${
+          validProductIds.length
+        } valid product IDs: ${validProductIds.join(", ")}`
+      );
+    } catch (e) {
+      console.error("Failed to parse products response");
+    }
+  } else {
+    console.warn(
+      `⚠️ Failed to fetch products (status ${productsRes.status}), using fallback IDs`
+    );
+  }
+
+  return {
+    token: token,
+    productIds: validProductIds.length > 0 ? validProductIds : [1, 2, 3, 4, 5], // Fallback
+  };
+} 
 
 export default function (data) {
+  // Update global product IDs from setup data
+  if (data.productIds && data.productIds.length > 0) {
+    VALID_PRODUCT_IDS = data.productIds;
+  }
+
   const params = {
     headers: {
       "Content-Type": "application/json",
